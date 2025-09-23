@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const apiUrl = import.meta.env.VITE_API_URL
+  const apiUrl = process.env.VITE_API_URL
   console.log("API backend:", apiUrl)
 
   return (
