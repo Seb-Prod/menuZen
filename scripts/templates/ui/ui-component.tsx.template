@@ -1,0 +1,39 @@
+import type { ReactNode, JSX } from "react";
+import styles from "./{{NAME}}.module.css";
+
+/**
+ * Props du composant {{NAME}}
+ */
+type {{NAME}}Props = {
+  /** Contenu optionnel à afficher à l'intérieur du composant */
+  children?: ReactNode;
+};
+
+/**
+ * Composant {{NAME}}
+ * 
+ * @component
+ * @example
+ * ```tsx
+ * // Utilisation simple
+ * <{{NAME}} />
+ * 
+ * // Avec du contenu enfant
+ * <{{NAME}}>
+ *   <p>Contenu</p>
+ * </{{NAME}}>
+ * ```
+ * 
+ * @param {{"{{NAME}}Props"}} props - Les propriétés du composant
+ * @param {ReactNode} [props.children] - Contenu optionnel à afficher
+ * @returns {JSX.Element} Le composant {{NAME}} rendu
+ */
+const {{NAME}} = ({ children }: {{NAME}}Props): JSX.Element => {
+  return (
+    <div className={styles.root}>
+      {children}
+    </div>
+  );
+};
+
+export default {{NAME}};
