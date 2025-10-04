@@ -1,0 +1,20 @@
+import { useState, useEffect } from 'react';
+
+/**
+ * @description Un hook personnalisé pour la gestion de [décrivez la fonctionnalité].
+ * @param {string} initialValue - La valeur initiale.
+ * @returns {{ value: string, setValue: Function }} L'état de la valeur et un setter.
+ * @author {{AUTHOR}}
+ * @created {{TIMESTAMP}}
+ */
+export const use{{NAME}} = (initialValue: string) => {
+  const [value, setValue] = useState(initialValue);
+
+  // Exemple d'effet de bord
+  useEffect(() => {
+    // Logique à exécuter au montage du composant
+    console.log(`use{{NAME}} a été monté avec la valeur: ${value}`);
+  }, []);
+
+  return { value, setValue };
+};

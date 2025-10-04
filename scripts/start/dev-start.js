@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import inquirer from 'inquirer'
-import { openVSCode, openBrowser, clearConsole, printHeader } from './utils/index.js'
+import { openVSCode, openBrowser, printHeader } from './utils/index.js'
+import { clearConsole } from './utils/serverManager.js';
 import { startServers, backendProcess, frontendProcess, actualBackendPort, actualFrontendPort, cleanup } from './utils/serverManager.js';
 import { info } from '../utils/colors.js'
 
@@ -82,8 +83,8 @@ async function run() {
       name: 'mode',
       message: 'Quel mode de lancement souhaitez-vous ?',
       choices: [
-        { name: 'Normal (sorties limitées)', value: 'normal' },
-        { name: 'Debug (toutes les sorties)', value: 'debug' }
+        { name: 'Debug (toutes les sorties)', value: 'debug' },
+        { name: 'Normal (sorties limitées)', value: 'normal' }
       ]
     }
   ]);

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node scripts/start/dev-start.js"
+    "dev": "node scripts/start/dev-start.js",
+    "add": "node scripts/dev-create.js"
   },
   "keywords": [],
   "author": "",

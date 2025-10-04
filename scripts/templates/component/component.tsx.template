@@ -1,0 +1,16 @@
+import type { ReactNode, JSX } from "react";
+import styles from "./{{NAME}}.module.css";
+
+type {{NAME}}Props = {
+  children?: ReactNode;
+};
+
+const {{NAME}} = ({ children }: {{NAME}}Props): JSX.Element => {
+  return (
+    <div className={styles.root}>
+      {children}
+    </div>
+  );
+};
+
+export default {{NAME}};
