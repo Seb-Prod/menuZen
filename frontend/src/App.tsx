@@ -1,5 +1,5 @@
 import './App.css'
-import Spinner from './components/ui/Spinner'
+import ComponentsShowcase from './pages/ComponentsShowcase'
 
 function App() {
   const apiUrl = process.env.VITE_API_URL
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Spinner variant='neutral'></Spinner>
+     <ComponentsShowcase></ComponentsShowcase>
     </>
   )
 }

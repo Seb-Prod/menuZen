@@ -82,12 +82,13 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 | État | Variable CSS | Hex | Aperçu | Quand utiliser |
 |------|--------------|-----|--------|----------------|
 | **Normal** | `--primary-button` | `#449955` | ![#449955](https://placehold.co/100x30/449955/449955.png) | État par défaut |
+| **Text** | `--primary-button-text`| `#FFFFFF` | ![#FFFFFF](https://placehold.co/100x30/FFFFFF/FFFFFF.png) | Couleur du texte |
 | **Hover** | `--primary-button-hover` | `#307037` | ![#307037](https://placehold.co/100x30/307037/307037.png) | Au survol de la souris |
 
 ```css
 .btn-primary {
   background-color: var(--primary-button);
-  color: var(--white);
+  color: var(--primary-button-text);
 }
 
 .btn-primary:hover {
@@ -100,16 +101,36 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 | État | Variable CSS | Hex | Aperçu | Quand utiliser |
 |------|--------------|-----|--------|----------------|
 | **Normal** | `--secondary-button` | `#F7CE46` | ![#F7CE46](https://placehold.co/100x30/F7CE46/F7CE46.png) | État par défaut |
+| **Text** | `--secondary-button-text`| `#123308` | ![#123308](https://placehold.co/100x30/123308/123308.png) | Couleur du texte |
 | **Hover** | `--secondary-button-hover` | `#FBE99A` | ![#FBE99A](https://placehold.co/100x30/FBE99A/FBE99A.png) | Au survol de la souris |
 
 ```css
 .btn-secondary {
   background-color: var(--secondary-button);
-  color: var(--dark-text);
+  color: var(--secondary-button-text);
 }
 
 .btn-secondary:hover {
   background-color: var(--secondary-button-hover);
+}
+```
+
+#### Boutons Neutral
+
+| État | Variable CSS | Hex | Aperçu | Quand utiliser |
+|------|--------------|-----|--------|----------------|
+| **Normal** | `--neutral-button` | `#E0E0E0` | ![#E0E0E0](https://placehold.co/100x30/E0E0E0/E0E0E0.png) | État par défaut |
+| **Text** | `--neutral-button-text`| `#1F1E1D` | ![#1F1E1D](https://placehold.co/100x30/1F1E1D/1F1E1D.png) | Couleur du texte |
+| **Hover** | `--neutral-button-hover` | `#b1b1b1` | ![#b1b1b1](https://placehold.co/100x30/b1b1b1/b1b1b1.png) | Au survol de la souris |
+
+```css
+.btn-neutral {
+  background-color: var(--neutral-button);
+  color: var(--neutral-button-text);
+}
+
+.btn-neutral:hover {
+  background-color: var(--neutral-button-hover);
 }
 ```
 
@@ -118,12 +139,13 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 | État | Variable CSS | Hex | Aperçu | Quand utiliser |
 |------|--------------|-----|--------|----------------|
 | **Normal** | `--warning-button` | `#D54537` | ![#D54537](https://placehold.co/100x30/D54537/D54537.png) | Actions destructives |
+| **Text** | `--warning-button-text`| `#FFFFFF` | ![#FFFFFF](https://placehold.co/100x30/FFFFFF/FFFFFF.png) | Couleur du texte |
 | **Hover** | `--warning-button-hover` | `#DE7D78` | ![#DE7D78](https://placehold.co/100x30/DE7D78/DE7D78.png) | Au survol |
 
 ```css
 .btn-warning {
   background-color: var(--warning-button);
-  color: var(--white);
+  color: var(--warning-button-text);
 }
 
 .btn-warning:hover {

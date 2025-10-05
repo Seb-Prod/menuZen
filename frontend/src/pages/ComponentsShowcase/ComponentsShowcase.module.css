@@ -1,0 +1,185 @@
+.container {
+  padding: 20px;
+  color: var(--primary-text);
+  background-color: var(--primary-background);
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font: var(--heading-1);
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  background-color: var(--secondary-background);
+  padding: 20px;
+  border-radius: 22px;
+}
+
+.section h2 {
+  font: var(--heading-2);
+  margin: 0 0 20px 0;
+  color: var(--primary-text);
+}
+
+.componentBlock {
+  margin-bottom: 30px;
+}
+
+.componentBlock:last-child {
+  margin-bottom: 0;
+}
+
+.componentBlock h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: var(--primary-text);
+}
+
+.preview {
+  background-color: var(--primary-background);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.stateNote {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background-color: rgba(0, 192, 96, 0.1);
+  border-left: 3px solid var(--primary-button);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--primary-button);
+}
+
+/* Code Block - s'adapte automatiquement au thème */
+.codeBlock {
+  position: relative;
+  background-color: var(--secondary-background);
+  border: 1px solid var(--primary-text);
+  opacity: 0.9;
+  border-radius: 8px;
+  padding: 16px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  overflow-x: auto;
+}
+
+.code {
+  margin: 0;
+  padding-right: 80px; /* Espace pour le bouton copier */
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--primary-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.copyButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: var(--primary-button);
+  color: var(--light-text);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copyButton:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.copyButton:active {
+  transform: scale(0.95);
+}
+
+/* Layout Examples */
+.layoutExample {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--primary-background);
+  border-radius: 8px;
+  border: 2px dashed var(--primary-text);
+  opacity: 0.6;
+}
+
+.layoutExampleVertical {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 250px;
+  padding: 16px;
+  background-color: var(--primary-background);
+  border-radius: 8px;
+  border: 2px dashed var(--primary-text);
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .section {
+    padding: 16px;
+  }
+
+  .preview {
+    padding: 12px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .layoutExample,
+  .layoutExampleVertical {
+    width: 100%;
+  }
+  
+  .code {
+    padding-right: 0;
+    padding-bottom: 50px;
+  }
+  
+  .copyButton {
+    top: auto;
+    bottom: 12px;
+    right: 12px;
+  }
+}

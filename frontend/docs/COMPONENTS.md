@@ -21,9 +21,9 @@
 - [x] **Spinner** - Indicateur de chargement
   - Fichier : `src/components/ui/Spinner/`
   - Status : ✅ Terminé
-- [ ] **Button** - Bouton avec variants (primary, secondary, warning, disabled)
+- [x] **Button** - Bouton avec variants (primary, secondary, warning, disabled)
   - Fichier : `src/components/ui/Button/`
-  - 🚧 En cours
+  - ✅ Terminé
 - [ ] **Input** - Champ de texte avec gestion d'erreurs
   - Fichier : `src/components/ui/Input/`
   - Status : ⏳ À faire
@@ -190,3 +190,4 @@ export default NomComposant;
 |------|--------------|--------|
 | 05/10/2025 | Création du fichier | Seb-Prod |
 | 05/10/2025 | Ajout de Spinner | Seb-Prod |
+| 05/10/2025 | Ajout de Button | Seb-Prod |
