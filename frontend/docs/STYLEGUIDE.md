@@ -36,9 +36,9 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 
 | Nom | Variable CSS | Hex | RGB | Aperçu |
 |-----|--------------|-----|-----|--------|
-| **Primary** | `--primary-color` | `#009B4D` | `0, 155, 77` | ![#009B4D](https://via.placeholder.com/80x20/009B4D/009B4D.png) |
-| **Secondary** | `--secondary-color` | `#FFCC00` | `255, 204, 0` | ![#FFCC00](https://via.placeholder.com/80x20/FFCC00/FFCC00.png) |
-| **Tertiary** | `--tertiary-color` | `#FAF5E9` | `250, 245, 233` | ![#FAF5E9](https://via.placeholder.com/80x20/FAF5E9/000000.png) |
+| **Primary** | `--primary-color` | `#009B4D` | `0, 155, 77` | ![#009B4D](https://placehold.co/100x30/009B4D/009B4D.png) |
+| **Secondary** | `--secondary-color` | `#FFCC00` | `255, 204, 0` | ![#FFCC00](https://placehold.co/100x30/FFCC00/FFCC00.png) |
+| **Tertiary** | `--tertiary-color` | `#FAF5E9` | `250, 245, 233` | ![#FAF5E9](https://placehold.co/100x30/FAF5E9/FAF5E9.png) |
 
 **Utilisation :**
 - **Primary** : Actions principales, liens importants, éléments d'interaction clés
@@ -61,14 +61,17 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 
 ### Couleurs de fond
 
-| Nom | Variable CSS | Hex | Utilisation |
-|-----|--------------|-----|-------------|
-| **Primary Background** | `--primary-background` | `#F9F5EA` | Fond principal de l'application |
-| **Secondary Background** | `--secondary-background` | `#F8ECD1` | Cartes, sections, zones de contenu |
+| Nom | Variable CSS | Hex | Aperçu | Utilisation |
+|-----|--------------|-----|--------|-------------|
+| **Primary Background** | `--primary-background` | `#F9F5EA` | ![#F9F5EA](https://placehold.co/100x30/F9F5EA/F9F5EA.png) | Fond principal de l'application |
+| **Secondary Background** | `--secondary-background` | `#F8ECD1` | ![#F8ECD1](https://placehold.co/100x30/F8ECD1/F8ECD1.png) | Cartes, sections, zones de contenu |
 
 **Mode sombre :**
-- Primary Background → `#1F1E1D`
-- Secondary Background → `#2A2928`
+
+| Variable CSS | Hex (Dark Mode) | Aperçu |
+|--------------|-----------------|--------|
+| `--primary-background` | `#1F1E1D` | ![#1F1E1D](https://placehold.co/100x30/1F1E1D/1F1E1D.png) |
+| `--secondary-background` | `#2A2928` | ![#2A2928](https://placehold.co/100x30/2A2928/2A2928.png) |
 
 ---
 
@@ -76,10 +79,10 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 
 #### Boutons Primary
 
-| État | Variable CSS | Hex | Quand utiliser |
-|------|--------------|-----|----------------|
-| **Normal** | `--primary-button` | `#449955` | État par défaut |
-| **Hover** | `--primary-button-hover` | `#307037` | Au survol de la souris |
+| État | Variable CSS | Hex | Aperçu | Quand utiliser |
+|------|--------------|-----|--------|----------------|
+| **Normal** | `--primary-button` | `#449955` | ![#449955](https://placehold.co/100x30/449955/449955.png) | État par défaut |
+| **Hover** | `--primary-button-hover` | `#307037` | ![#307037](https://placehold.co/100x30/307037/307037.png) | Au survol de la souris |
 
 ```css
 .btn-primary {
@@ -94,10 +97,10 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 
 #### Boutons Secondary
 
-| État | Variable CSS | Hex | Quand utiliser |
-|------|--------------|-----|----------------|
-| **Normal** | `--secondary-button` | `#F7CE46` | État par défaut |
-| **Hover** | `--secondary-button-hover` | `#FBE99A` | Au survol de la souris |
+| État | Variable CSS | Hex | Aperçu | Quand utiliser |
+|------|--------------|-----|--------|----------------|
+| **Normal** | `--secondary-button` | `#F7CE46` | ![#F7CE46](https://placehold.co/100x30/F7CE46/F7CE46.png) | État par défaut |
+| **Hover** | `--secondary-button-hover` | `#FBE99A` | ![#FBE99A](https://placehold.co/100x30/FBE99A/FBE99A.png) | Au survol de la souris |
 
 ```css
 .btn-secondary {
@@ -112,10 +115,10 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 
 #### Boutons Warning
 
-| État | Variable CSS | Hex | Quand utiliser |
-|------|--------------|-----|----------------|
-| **Normal** | `--warning-button` | `#D54537` | Actions destructives |
-| **Hover** | `--warning-button-hover` | `#DE7D78` | Au survol |
+| État | Variable CSS | Hex | Aperçu | Quand utiliser |
+|------|--------------|-----|--------|----------------|
+| **Normal** | `--warning-button` | `#D54537` | ![#D54537](https://placehold.co/100x30/D54537/D54537.png) | Actions destructives |
+| **Hover** | `--warning-button-hover` | `#DE7D78` | ![#DE7D78](https://placehold.co/100x30/DE7D78/DE7D78.png) | Au survol |
 
 ```css
 .btn-warning {
@@ -130,9 +133,9 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 
 #### Boutons Disabled
 
-| État | Variable CSS | Hex |
-|------|--------------|-----|
-| **Disabled** | `--disabled-button` | `#E0E0E0` (mode clair)<br>`#3A3A3A` (mode sombre) |
+| État | Variable CSS | Hex (Light) | Hex (Dark) | Aperçu Light | Aperçu Dark |
+|------|--------------|-------------|------------|--------------|-------------|
+| **Disabled** | `--disabled-button` | `#E0E0E0` | `#3A3A3A` | ![#E0E0E0](https://placehold.co/100x30/E0E0E0/E0E0E0.png) | ![#3A3A3A](https://placehold.co/100x30/3A3A3A/3A3A3A.png) |
 
 ```css
 .btn:disabled {
@@ -147,39 +150,42 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 
 ### Couleurs de texte
 
-| Type | Variable CSS | Hex | Utilisation |
-|------|--------------|-----|-------------|
-| **Primary Text** | `--primary-text` | `#123308` | Texte principal du corps |
-| **Secondary Text** | `--secondary-text` | `#F7CE46` | Texte secondaire, légendes |
-| **Dark Text** | `--dark-text` | `#212721` | Titres, texte à forte emphase |
-| **Light Text** | `--light-text` | `#F8ECD1` | Texte sur fond sombre |
-| **Disabled Text** | `--disabled-text` | `#A3A3A3` | Texte d'éléments désactivés |
+| Type | Variable CSS | Hex | Aperçu | Utilisation |
+|------|--------------|-----|--------|-------------|
+| **Primary Text** | `--primary-text` | `#123308` | ![#123308](https://placehold.co/100x30/123308/123308.png) | Texte principal du corps |
+| **Secondary Text** | `--secondary-text` | `#F7CE46` | ![#F7CE46](https://placehold.co/100x30/F7CE46/F7CE46.png) | Texte secondaire, légendes |
+| **Dark Text** | `--dark-text` | `#212721` | ![#212721](https://placehold.co/100x30/212721/212721.png) | Titres, texte à forte emphase |
+| **Light Text** | `--light-text` | `#F8ECD1` | ![#F8ECD1](https://placehold.co/100x30/F8ECD1/F8ECD1.png) | Texte sur fond sombre |
+| **Disabled Text** | `--disabled-text` | `#A3A3A3` | ![#A3A3A3](https://placehold.co/100x30/A3A3A3/A3A3A3.png) | Texte d'éléments désactivés |
 
 **Mode sombre :**
-- Primary Text → `#F8ECD1`
-- Dark Text → `#F9F5EA`
-- Light Text → `#212721`
+
+| Variable CSS | Hex (Dark Mode) | Aperçu |
+|--------------|-----------------|--------|
+| `--primary-text` | `#F8ECD1` | ![#F8ECD1](https://placehold.co/100x30/F8ECD1/F8ECD1.png) |
+| `--dark-text` | `#F9F5EA` | ![#F9F5EA](https://placehold.co/100x30/F9F5EA/F9F5EA.png) |
+| `--light-text` | `#212721` | ![#212721](https://placehold.co/100x30/212721/212721.png) |
 
 ---
 
 ### Couleurs neutres
 
-| Nom | Variable CSS | Hex | Utilisation |
-|-----|--------------|-----|-------------|
-| **Black** | `--black` | `#000000` | Texte très sombre, bordures |
-| **Grey** | `--grey` | `#1F1E1D` | Bordures, séparateurs |
-| **White** | `--white` | `#FFFFFF` | Fond blanc, texte sur fond sombre |
+| Nom | Variable CSS | Hex | Aperçu | Utilisation |
+|-----|--------------|-----|--------|-------------|
+| **Black** | `--black` | `#000000` | ![#000000](https://placehold.co/100x30/000000/000000.png) | Texte très sombre, bordures |
+| **Grey** | `--grey` | `#1F1E1D` | ![#1F1E1D](https://placehold.co/100x30/1F1E1D/1F1E1D.png) | Bordures, séparateurs |
+| **White** | `--white` | `#FFFFFF` | ![#FFFFFF](https://placehold.co/100x30/FFFFFF/FFFFFF.png) | Fond blanc, texte sur fond sombre |
 
 ---
 
 ### Couleurs sémantiques
 
-| État | Variable CSS | Hex | Utilisation |
-|------|--------------|-----|-------------|
-| **Success** | `--success-color` | `#009B4D` | Messages de succès, confirmations |
-| **Warning** | `--warning-color` | `#B92F26` | Alertes, avertissements |
-| **Error** | `--error-color` | `#B92F26` | Erreurs, actions destructives |
-| **Neutral** | `--neutral-color` | `#A3A3A3` | Informations neutres |
+| État | Variable CSS | Hex | Aperçu | Utilisation |
+|------|--------------|-----|--------|-------------|
+| **Success** | `--success-color` | `#009B4D` | ![#009B4D](https://placehold.co/100x30/009B4D/009B4D.png) | Messages de succès, confirmations |
+| **Warning** | `--warning-color` | `#B92F26` | ![#B92F26](https://placehold.co/100x30/B92F26/B92F26.png) | Alertes, avertissements |
+| **Error** | `--error-color` | `#B92F26` | ![#B92F26](https://placehold.co/100x30/B92F26/B92F26.png) | Erreurs, actions destructives |
+| **Neutral** | `--neutral-color` | `#A3A3A3` | ![#A3A3A3](https://placehold.co/100x30/A3A3A3/A3A3A3.png) | Informations neutres |
 
 **Exemples d'utilisation :**
 ```css
@@ -708,6 +714,7 @@ Toujours utiliser les balises HTML appropriées :
 - [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/) - Standards d'accessibilité
 - [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - Vérificateur de contraste
 - [Google Fonts](https://fonts.google.com/specimen/Roboto) - Police Roboto
+- [Placehold.co](https://placehold.co/) - Générateur d'aperçu de couleurs
 
 ---
 
