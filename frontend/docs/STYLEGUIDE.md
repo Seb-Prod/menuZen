@@ -3,7 +3,7 @@
 > Design System et conventions visuelles du projet
 >
 > **Emplacement** : `frontend/docs/STYLEGUIDE.md`  
-> **Dernière mise à jour** : [À mettre à jour]
+> **Dernière mise à jour** : 05/10/2025
 
 ---
 
@@ -708,7 +708,7 @@ Toujours utiliser les balises HTML appropriées :
 ### Fichiers du projet
 - [`styles/colors.css`](../src/styles/colors.css) - Variables de couleurs
 - [`styles/typography.css`](../src/styles/typography.css) - Variables typographiques
-- [COMPOSANTS.md](./COMPOSANTS.md) - Liste des composants UI
+- [COMPOSANTS.md](./COMPONENTS.md) - Liste des composants UI
 
 ### Outils externes
 - [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/) - Standards d'accessibilité
@@ -739,4 +739,4 @@ Avant de créer/modifier un composant, vérifier :
 
 | Date | Modification | Auteur |
 |------|--------------|--------|
-| [Date] | Création du styleguide | [Nom] |
+| 05/10/2025 | Création du styleguide | Seb-Prod |
