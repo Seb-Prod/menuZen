@@ -36,9 +36,9 @@ Ce guide définit les standards visuels et d'interface du projet. Il assure la c
 
 | Nom | Variable CSS | Hex | RGB | Aperçu |
 |-----|--------------|-----|-----|--------|
-| **Primary** | `--primary-color` | `#009B4D` | `0, 155, 77` | 🟢 |
-| **Secondary** | `--secondary-color` | `#FFCC00` | `255, 204, 0` | 🟡 |
-| **Tertiary** | `--tertiary-color` | `#FAF5E9` | `250, 245, 233` | ⚪ |
+| **Primary** | `--primary-color` | `#009B4D` | `0, 155, 77` | ![#009B4D](https://via.placeholder.com/80x20/009B4D/009B4D.png) |
+| **Secondary** | `--secondary-color` | `#FFCC00` | `255, 204, 0` | ![#FFCC00](https://via.placeholder.com/80x20/FFCC00/FFCC00.png) |
+| **Tertiary** | `--tertiary-color` | `#FAF5E9` | `250, 245, 233` | ![#FAF5E9](https://via.placeholder.com/80x20/FAF5E9/000000.png) |
 
 **Utilisation :**
 - **Primary** : Actions principales, liens importants, éléments d'interaction clés
