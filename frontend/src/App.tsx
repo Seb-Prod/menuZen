@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Spinner/>
+      <Spinner variant='neutral'></Spinner>
     </>
   )
 }
