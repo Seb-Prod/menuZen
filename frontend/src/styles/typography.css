@@ -1,0 +1,223 @@
+/**
+ * Typographie
+ * Définit toutes les propriétés liées aux polices et au texte
+ */
+
+/* ========================================
+   Import de la police Google Fonts Roboto
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    /* ========================================
+     Familles de polices
+     ======================================== */
+    --font-sans:
+        "Roboto",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    --font-serif:
+        "Roboto",
+        "Times New Roman",
+        Times,
+        serif;
+
+    --font-mono:
+        "Roboto",
+        "SF Mono",
+        Monaco,
+        Inconsolata,
+        "Ubuntu Mono",
+        monospace;
+
+    /* ========================================
+     Tailles de police
+     ======================================== */
+    --font-size-xs: 0.75rem;
+    /* 12px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-2xl: 1.5rem;
+    /* 24px */
+    --font-size-3xl: 1.875rem;
+    /* 30px */
+    --font-size-4xl: 2.25rem;
+    /* 36px */
+    --font-size-5xl: 3rem;
+    /* 48px */
+    --font-size-6xl: 3.75rem;
+    /* 60px */
+    --font-size-7xl: 4.5rem;
+    /* 72px */
+    --font-size-8xl: 6rem;
+    /* 96px */
+    --font-size-9xl: 8rem;
+    /* 128px */
+
+    /* ========================================
+     Épaisseurs de police
+     ======================================== */
+    --font-weight-thin: 300;
+    --font-weight-extralight: 300;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-weight-black: 900;
+
+    /* ========================================
+     Hauteurs de ligne
+     ======================================== */
+    --line-height-none: 1;
+    --line-height-tight: 1.25;
+    --line-height-snug: 1.375;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.625;
+    --line-height-loose: 2;
+
+    /* ========================================
+     Espacement des lettres
+     ======================================== */
+    --letter-spacing-tighter: -0.05em;
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0em;
+    --letter-spacing-wide: 0.025em;
+    --letter-spacing-wider: 0.05em;
+    --letter-spacing-widest: 0.1em;
+
+    /* ========================================
+     Typographie sémantique
+     ======================================== */
+    --text-display: var(--font-sans);
+    --text-heading: var(--font-sans);
+    --text-body: var(--font-sans);
+    --text-caption: var(--font-sans);
+    --text-code: var(--font-mono);
+
+    /* ========================================
+     Styles de titres (utilisation raccourcie)
+     ======================================== */
+    --heading-1: var(--font-weight-bold) var(--font-size-4xl)/var(--line-height-tight) var(--text-heading);
+    --heading-2: var(--font-weight-bold) var(--font-size-3xl)/var(--line-height-tight) var(--text-heading);
+    --heading-3: var(--font-weight-semibold) var(--font-size-2xl)/var(--line-height-snug) var(--text-heading);
+    --heading-4: var(--font-weight-semibold) var(--font-size-xl)/var(--line-height-snug) var(--text-heading);
+    --heading-5: var(--font-weight-medium) var(--font-size-lg)/var(--line-height-normal) var(--text-heading);
+    --heading-6: var(--font-weight-medium) var(--font-size-base)/var(--line-height-normal) var(--text-heading);
+
+    /* ========================================
+     Styles de texte
+     ======================================== */
+    --text-large: var(--font-weight-normal) var(--font-size-lg)/var(--line-height-relaxed) var(--text-body);
+    --text-body-large: var(--font-weight-normal) var(--font-size-base)/var(--line-height-relaxed) var(--text-body);
+    --text-body-medium: var(--font-weight-normal) var(--font-size-sm)/var(--line-height-normal) var(--text-body);
+    --text-body-small: var(--font-weight-normal) var(--font-size-xs)/var(--line-height-normal) var(--text-body);
+
+    /* ========================================
+     Styles spécialisés
+     ======================================== */
+    --text-lead: var(--font-weight-normal) var(--font-size-xl)/var(--line-height-relaxed) var(--text-body);
+    --text-overline: var(--font-weight-medium) var(--font-size-xs)/var(--line-height-normal) var(--text-caption);
+
+    /* ========================================
+     Styles de boutons
+     ======================================== */
+    --button-text-large: var(--font-weight-medium) var(--font-size-base)/var(--line-height-none) var(--text-body);
+    --button-text-medium: var(--font-weight-medium) var(--font-size-sm)/var(--line-height-none) var(--text-body);
+    --button-text-small: var(--font-weight-medium) var(--font-size-xs)/var(--line-height-none) var(--text-body);
+
+    /* ========================================
+     Styles de liens
+     ======================================== */
+    --link-decoration: underline;
+    --link-decoration-hover: none;
+    --link-underline-offset: 0.125em;
+
+    /* ========================================
+     Optimisations de rendu
+     ======================================== */
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Application des styles de base
+   ======================================== */
+body {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+}
+
+/* ========================================
+   Styles des titres
+   ======================================== */
+h1 {
+    font: var(--heading-1);
+}
+
+h2 {
+    font: var(--heading-2);
+}
+
+h3 {
+    font: var(--heading-3);
+}
+
+h4 {
+    font: var(--heading-4);
+}
+
+h5 {
+    font: var(--heading-5);
+}
+
+h6 {
+    font: var(--heading-6);
+}
+
+/* ========================================
+   Styles des liens
+   ======================================== */
+a {
+    text-decoration: var(--link-decoration);
+    text-underline-offset: var(--link-underline-offset);
+}
+
+a:hover {
+    text-decoration: var(--link-decoration-hover);
+}
+
+/* ========================================
+   Styles des boutons
+   ======================================== */
+button {
+    font: var(--button-text-medium);
+}
+
+/* ========================================
+   Styles du code
+   ======================================== */
+code,
+kbd,
+pre {
+    font-family: var(--font-mono);
+}
+
+code {
+    font-size: var(--font-size-sm);
+}
