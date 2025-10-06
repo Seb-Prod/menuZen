@@ -79,8 +79,9 @@ const ComponentsShowcase = () => {
                     <h3>Variantes</h3>
                     <div className={styles.preview}>
                         <div className={styles.row}>
-                            <Spinner>Primary</Spinner>
-                            <Spinner variant="warning">Warning</Spinner>
+                            <Spinner size="small">Primary</Spinner>
+                            <Spinner variant="warning" size="medium">Warning</Spinner>
+                            <Spinner variant="secondary" size="large">Warning</Spinner>
                             <Spinner variant="neutral">Neutral</Spinner>
                         </div>
                     </div>

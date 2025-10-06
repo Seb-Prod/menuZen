@@ -2,44 +2,77 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 12px;
 }
 
 .spinner {
-  --d:22px;
-  width: 4px;
-  height: 4px;
+  --d: 22px;
+  --dot-size: 4px;
+  width: var(--dot-size);
+  height: var(--dot-size);
   border-radius: 50%;
-  box-shadow: 
-    calc(1*var(--d))      calc(0*var(--d))     0 0,
-    calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,
-    calc(0*var(--d))      calc(1*var(--d))     0 2px,
-    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,
-    calc(-1*var(--d))     calc(0*var(--d))     0 4px,
-    calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,
-    calc(0*var(--d))      calc(-1*var(--d))    0 6px;
-  animation: animation 1s infinite steps(8);
+  box-shadow:
+    calc(1*var(--d)) calc(0*var(--d)) 0 0,
+    calc(0.707*var(--d)) calc(0.707*var(--d)) 0 calc(var(--dot-size) * 0.25),
+    calc(0*var(--d)) calc(1*var(--d)) 0 calc(var(--dot-size) * 0.5),
+    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 calc(var(--dot-size) * 0.75),
+    calc(-1*var(--d)) calc(0*var(--d)) 0 var(--dot-size),
+    calc(-0.707*var(--d)) calc(-0.707*var(--d)) 0 calc(var(--dot-size) * 1.25),
+    calc(0*var(--d)) calc(-1*var(--d)) 0 calc(var(--dot-size) * 1.5);
+  animation: spinner-rotate 1s infinite steps(8);
+  margin: calc(var(--d) + var(--dot-size) * 2);
+}
+
+.spinner.small {
+  --d: 16px;
+  --dot-size: 3px;
+}
+
+.spinner.medium {
+  --d: 22px;
+  --dot-size: 4px;
+}
+
+.spinner.large {
+  --d: 32px;
+  --dot-size: 6px;
 }
 
 .text {
-  font: var(--heading-1);
   text-align: center;
+  margin-top: 4px;
 }
 
-.primary{
-  color:var(--primary-color);
+.text.small {
+  font: var(--text-body-small);
 }
 
-.neutral{
-  color:var(--disabled-text);
+.text.medium {
+  font: var(--text-body-medium);
 }
 
-.warning{
-  color:var(--warning-color);
+.text.large {
+  font: var(--text-body-large);
 }
 
+.primary {
+  color: var(--primary-color);
+}
 
+.secondary {
+  color: var(--secondary-color);
+}
 
-@keyframes animation {
-  100% {transform: rotate(1turn)}
+.neutral {
+  color: var(--disabled-text);
+}
+
+.warning {
+  color: var(--warning-color);
+}
+
+@keyframes spinner-rotate {
+  100% { 
+    transform: rotate(1turn); 
+  }
 }

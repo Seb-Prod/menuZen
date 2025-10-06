@@ -1,7 +1,8 @@
 import type { ReactNode, JSX } from "react";
 import styles from "./Spinner.module.css";
 
-type SpinnerVariant = 'primary' | 'warning' | 'neutral';
+type SpinnerVariant = 'primary' | 'secondary' | 'warning' | 'neutral';
+type SpinnerSize = 'small' | 'medium' | 'large';
 
 /**
  * Props du composant Spinner
@@ -11,6 +12,8 @@ type SpinnerProps = {
   children?: ReactNode;
   /** Variante de couleur du spinner - @default 'primary' */
   variant?: SpinnerVariant;
+  /** Taille du spinner - @default 'medium' */
+  size?: SpinnerSize;
 };
 
 /**
@@ -48,11 +51,15 @@ type SpinnerProps = {
  *                                                      Valeurs possibles : 'primary', 'warning', 'neutral'
  * @returns {JSX.Element} Le composant Spinner rendu avec animation
  */
-const Spinner = ({ children, variant = 'primary' }: SpinnerProps): JSX.Element => {
+const Spinner = ({
+  children,
+  variant = 'primary',
+  size = 'medium'
+}: SpinnerProps): JSX.Element => {
   return (
     <div className={styles.root}>
-      <div className={`${styles.spinner} ${styles[variant]}`}></div>
-      <div className={`${styles.text} ${styles[variant]}`}>
+      <div className={`${styles.spinner} ${styles[variant]} ${styles[size]}`}></div>
+      <div className={`${styles.text} ${styles[variant]} ${styles[size]}`}>
         {children || "Chargement en cours..."}
       </div>
     </div>
