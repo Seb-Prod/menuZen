@@ -1,5 +1,5 @@
 import './App.css'
-import ComponentsShowcase from './pages/ComponentsShowcase'
+import ShowcasePage from './pages/showcase'
 
 function App() {
   const apiUrl = process.env.VITE_API_URL
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-     <ComponentsShowcase></ComponentsShowcase>
+     <ShowcasePage/>
     </>
   )
 }

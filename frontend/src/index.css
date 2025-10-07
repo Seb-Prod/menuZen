@@ -21,4 +21,6 @@
 body {
   color: var(--primary-text);
   background-color: var(--primary-background);
+  margin:0;
+  padding: 0;
 }
