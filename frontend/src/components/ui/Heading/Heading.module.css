@@ -1,0 +1,27 @@
+.primary{
+  color:var(--primary-text);
+}
+
+.secondary{
+  color:var(--secondary-text);
+}
+
+.dark{
+  color:var(--dark-text);
+}
+
+.light{
+  color:var(--light-text);
+}
+
+.neutral{
+  color:var(--neutral-color);
+}
+
+.success{
+  color:var(--succes-color);
+}
+
+.warning{
+  color:var(--warning-color);
+}

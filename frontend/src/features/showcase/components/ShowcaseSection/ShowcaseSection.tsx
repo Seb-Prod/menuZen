@@ -1,5 +1,6 @@
 import type { JSX, ReactNode } from "react";
 import styles from "./ShowcaseSection.module.css";
+import { Heading } from "@/components/ui";
 
 type ShowcaseSectionProps = {
   title:string,
@@ -10,7 +11,7 @@ type ShowcaseSectionProps = {
 const ShowcaseSection =({ title, description, children }: ShowcaseSectionProps): JSX.Element =>{
   return (
     <div className={styles.container}>
-      <h3>{title}</h3>
+      <Heading variant={1}>{title}</Heading>
       <span>{description}</span>
       {children}
     </div>

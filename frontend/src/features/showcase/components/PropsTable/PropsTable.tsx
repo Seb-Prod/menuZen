@@ -1,6 +1,7 @@
 import type { JSX } from "react";
 import styles from "./PropsTable.module.css";
 import type { PropInfo } from "../../types/propsInfo";
+import { Heading } from "@/components/ui";
 
 type PropsTableProps = {
   props: PropInfo[];
@@ -9,7 +10,7 @@ type PropsTableProps = {
 const PropsTable =({ props }: PropsTableProps): JSX.Element =>{
   return (
     <div className={styles.container}>
-      <h3 className={styles.title}>Props</h3>
+      <Heading variant={3}>Props</Heading>
       <table className={styles.table}>
         <thead>
           <tr>

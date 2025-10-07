@@ -40,11 +40,24 @@ const ShowcaseComponent = <T extends Params>({
         );
     };
 
+    // Formate une valeur pour l'affichage du code
+    const formatValue = (value: unknown): string => {
+        if (typeof value === "string") {
+            return `"${value}"`;
+        }
+        if (typeof value === "boolean" || typeof value === "number") {
+            return `{${value}}`;
+        }
+        return `{${JSON.stringify(value)}}`;
+    };
+
     const combinations = generateCombinations(params as ParamMap) as Combination<T>[];
 
     const showcaseData = combinations.map((combo) => ({
         label: Object.values(combo).join(" / "),
-        code: Object.entries(combo).map(([k, v]) => `${k}="${v}"`).join(" "),
+        code: Object.entries(combo)
+            .map(([k, v]) => `${k}=${formatValue(v)}`)
+            .join(" "),
         preview: renderPreview(combo),
     }));
 

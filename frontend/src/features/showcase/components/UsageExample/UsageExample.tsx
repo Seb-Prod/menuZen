@@ -1,5 +1,6 @@
 import type { JSX } from "react";
 import CodeBlock from "../CodeBlock";
+import { Heading } from "@/components/ui";
 
 type UsageExampleProps = {
   code: string;
@@ -8,7 +9,7 @@ type UsageExampleProps = {
 const UsageExample = ({ code }: UsageExampleProps): JSX.Element => {
   return (
     <div>
-      <h3>Exemple d'utilisation</h3>
+      <Heading variant={3}>Exemple d'utilisation</Heading>
       <CodeBlock code={code} language="tsx" />
     </div>
   );
