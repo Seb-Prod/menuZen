@@ -23,7 +23,10 @@
   - Status : ✅ Terminé
 - [x] **Button** - Bouton avec variants (primary, secondary, warning, disabled)
   - Fichier : `src/components/ui/Button/`
-  - ✅ Terminé
+  - Status : ✅ Terminé
+- [x] **Heading** - Titre avec variants (h1,h2, ...)
+  - Fichier : `src/components/ui/Heading`
+  - Status : 🚧 En cours
 - [ ] **Input** - Champ de texte avec gestion d'erreurs
   - Fichier : `src/components/ui/Input/`
   - Status : ⏳ À faire
@@ -82,8 +85,8 @@
 
 | Métrique | Valeur |
 |----------|--------|
-| **Total composants** | 25 |
-| **Terminés** | 1  |
+| **Total composants** | 26 |
+| **Terminés** | 2  |
 | **En cours** | 1  |
 | **Restants** | 24 |
 
@@ -191,3 +194,4 @@ export default NomComposant;
 | 05/10/2025 | Création du fichier | Seb-Prod |
 | 05/10/2025 | Ajout de Spinner | Seb-Prod |
 | 05/10/2025 | Ajout de Button | Seb-Prod |
+| 07/10/2025 | Ajout de Heading | Seb-Prod |

@@ -10,7 +10,7 @@ type Combination<T extends Params> = {
 type ShowcaseComponentProps<T extends Params> = {
     title: string;
     description: string;
-    propsData: PropInfo[];
+    propsData: readonly PropInfo[];
     usageExample: string;
     params: T; // Tous les paramètres possibles
     renderPreview: (combo: Combination<T>) => JSX.Element;

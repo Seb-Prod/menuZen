@@ -66,7 +66,7 @@
     --warning-color: #B92F26;
     --success-color: var(--primary-color);
     --error-color: var(--warning-color);
-    --neutral-color : var(--disabled-text):
+    --neutral-color : var(--disabled-text);
 }
 
 /* ========================================

@@ -1,27 +1,43 @@
-.primary{
-  color:var(--primary-text);
+.primary {
+  color: var(--primary-text);
 }
 
-.secondary{
-  color:var(--secondary-text);
+.secondary {
+  color: var(--secondary-text);
 }
 
-.dark{
-  color:var(--dark-text);
+.dark {
+  color: var(--dark-text);
 }
 
-.light{
-  color:var(--light-text);
+.light {
+  color: var(--light-text);
 }
 
-.neutral{
-  color:var(--neutral-color);
+.neutral {
+  color: var(--neutral-color);
 }
 
-.success{
-  color:var(--succes-color);
+.success {
+  color: var(--success-color);
 }
 
-.warning{
-  color:var(--warning-color);
+.warning {
+  color: var(--warning-color);
+}
+
+.left {
+  text-align: start;
+}
+
+.right {
+  text-align: end;
+}
+
+.center{
+  text-align: center;
+}
+
+.justify{
+  text-align: justify;
 }

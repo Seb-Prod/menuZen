@@ -11,8 +11,8 @@ const ShowcaseHeading = () => {
       propsData={headingProps}
       usageExample={headingUsageExample}
       params={{
-        variant: [1, 2, 3, 4, 5, 6] as const,
         color: ["primary", "secondary", "dark", "light", "neutral", "warning", "success"] as const,
+        variant: [1, 2, 3, 4, 5, 6] as const,
       }}
       renderPreview={(combo) => (
         <Heading variant={combo.variant} color={combo.color}>

@@ -3,5 +3,5 @@ export type PropInfo = {
   type: string;
   description: string;
   required?: boolean;
-  default?: string;
+  default?: string | number | undefined;
 };

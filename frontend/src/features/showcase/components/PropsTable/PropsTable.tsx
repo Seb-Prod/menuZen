@@ -4,7 +4,7 @@ import type { PropInfo } from "../../types/propsInfo";
 import { Heading } from "@/components/ui";
 
 type PropsTableProps = {
-  props: PropInfo[];
+  props: readonly PropInfo[];
 };
 
 const PropsTable =({ props }: PropsTableProps): JSX.Element =>{

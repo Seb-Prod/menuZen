@@ -4,7 +4,7 @@ import buttonUsageExample from "./data/buttonUsageExample";
 import { ShowcaseComponent } from "../components";
 import type { JSX } from "react";
 
-const ShowcaseButton=():JSX.Element => {
+const ShowcaseButton = (): JSX.Element => {
   return (
     <ShowcaseComponent
       title="Button"
@@ -14,14 +14,19 @@ const ShowcaseButton=():JSX.Element => {
       params={{
         variant: ["primary", "secondary", "neutral", "warning"] as const,
         size: ["small", "medium", "large"] as const,
-        disabled:[true, false] as const,
       }}
       renderPreview={(combo) => (
-        <Button variant={combo.variant} size={combo.size} disabled={combo.disabled}>
-          example
-        </Button>
+        <div>
+          <Button variant={combo.variant} size={combo.size} disabled={false}>
+            example
+          </Button>
+          <Button variant={combo.variant} size={combo.size} disabled={true}>
+            example
+          </Button>
+        </div>
+
       )}
     />
   );
 }
- export default ShowcaseButton;
+export default ShowcaseButton;
