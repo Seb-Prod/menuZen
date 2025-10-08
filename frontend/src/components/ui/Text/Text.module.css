@@ -1,5 +1,5 @@
 .Text {
-    display: inline; 
+    display: inline;
 }
 
 /* ========================================
@@ -43,14 +43,17 @@
 }
 
 .right {
+    display: block; 
     text-align: right;
 }
 
 .center {
+    display: block; 
     text-align: center;
 }
 
 .justify {
+    display: block; 
     text-align: justify;
 }
 

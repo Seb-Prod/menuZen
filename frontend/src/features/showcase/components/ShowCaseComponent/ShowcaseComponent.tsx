@@ -1,21 +1,62 @@
 import type { JSX } from "react";
-import { PropsTable, UsageExample, ShowcaseTable, ShowcaseSection } from "../../components";
+import { PropsTable, UsageExample, ShowcaseTable } from "../../components";
 import type { PropInfo } from "../../types/propsInfo";
+import { Heading, Text } from "@/components/ui";
+import { 
+    type Params, 
+    type Combination, 
+    generateShowcaseData 
+} from "../../utils/showcaseHelpers";
 
-type Params = Record<string, readonly unknown[]>;
-type Combination<T extends Params> = {
-    [K in keyof T]: T[K] extends readonly (infer U)[] ? U : never;
-};
-
+/**
+ * Props du composant ShowcaseComponent
+ * @template T - Type des paramètres de showcase, doit étendre Params
+ */
 type ShowcaseComponentProps<T extends Params> = {
+    /** Titre principal du showcase */
     title: string;
+    /** Description du composant présenté */
     description: string;
+    /** Liste des propriétés du composant avec leurs descriptions */
     propsData: readonly PropInfo[];
+    /** Exemple de code d'utilisation du composant */
     usageExample: string;
+    /** Paramètres à combiner pour générer les variations (ex: { color: ["red", "blue"], size: ["sm", "lg"] }) */
     params: T;
+    /** Fonction de rendu qui reçoit une combinaison de paramètres et retourne le composant à prévisualiser */
     renderPreview: (combo: Combination<T>) => JSX.Element;
 };
 
+/**
+ * Composant de présentation (showcase) pour documenter et visualiser les variations d'un composant UI.
+ * 
+ * Génère automatiquement toutes les combinaisons possibles des paramètres fournis
+ * et affiche un tableau avec les aperçus, le code correspondant et les valeurs des props.
+ * 
+ * @template T - Type des paramètres de showcase
+ * 
+ * @example
+ * ```tsx
+ * <ShowcaseComponent
+ *   title="Button"
+ *   description="Bouton avec différentes variantes"
+ *   propsData={buttonProps}
+ *   usageExample={buttonExample}
+ *   params={{
+ *     variant: ["primary", "secondary"],
+ *     size: ["sm", "md", "lg"]
+ *   }}
+ *   renderPreview={(combo) => (
+ *     <Button variant={combo.variant} size={combo.size}>
+ *       Click me
+ *     </Button>
+ *   )}
+ * />
+ * ```
+ * 
+ * @param props - Les propriétés du composant
+ * @returns Un élément JSX contenant la documentation complète du composant
+ */
 const ShowcaseComponent = <T extends Params>({
     title,
     description,
@@ -26,58 +67,29 @@ const ShowcaseComponent = <T extends Params>({
 }: ShowcaseComponentProps<T>): JSX.Element => {
     const paramKeys = Object.keys(params);
 
+    // Gestion du cas sans paramètres
     if (paramKeys.length === 0) {
         return (
-            <ShowcaseSection title={title} description={description}>
+            <>
+                <Heading variant={1}>{title}</Heading>
+                <Text>{description}</Text>
                 {propsData && <PropsTable props={propsData} />}
                 {usageExample && <UsageExample code={usageExample} />}
-                <p>Aucun paramètre à afficher.</p>
-            </ShowcaseSection>
+                <Text color="warning">Aucun aperçu à afficher.</Text>
+            </>
         );
     }
 
-    // Génère des combinaisons simples : un set par paramètre
-    const combinations: { combo: Record<string, unknown>; group: string }[] = [];
-
-    for (const key of paramKeys) {
-        const baseCombo: Record<string, unknown> = {};
-        // Valeur par défaut pour tous les params
-        for (const k of paramKeys) {
-            baseCombo[k] = params[k]?.[0];
-        }
-        // Variation uniquement du paramètre courant
-        for (const value of params[key]) {
-            combinations.push({
-                group: key,
-                combo: { ...baseCombo, [key]: value },
-            });
-        }
-    }
-
-    // Formate les props pour affichage du code
-    const formatValue = (value: unknown): string => {
-        if (typeof value === "string") return `"${value}"`;
-        if (typeof value === "boolean" || typeof value === "number") return `{${value}}`;
-        return `{${JSON.stringify(value)}}`;
-    };
-
-    const showcaseData = combinations.map(({ combo, group }) => ({
-        group, // ✅ ici c’est bien une string
-        label: Object.entries(combo)
-            .map(([k, v]) => `${k}: ${v}`)
-            .join(" / "),
-        code: Object.entries(combo)
-            .map(([k, v]) => `${k}=${formatValue(v)}`)
-            .join(" "),
-        preview: renderPreview(combo as Combination<T>),
-    }));
+    const showcaseData = generateShowcaseData(params, paramKeys, renderPreview);
 
     return (
-        <ShowcaseSection title={title} description={description}>
+        <>
+            <Heading variant={1}>{title}</Heading>
+            <Text>{description}</Text>
             {propsData && <PropsTable props={propsData} />}
             {usageExample && <UsageExample code={usageExample} />}
             <ShowcaseTable data={showcaseData} />
-        </ShowcaseSection>
+        </>
     );
 };
 
