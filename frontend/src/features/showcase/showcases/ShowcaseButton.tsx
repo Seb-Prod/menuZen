@@ -14,13 +14,11 @@ const ShowcaseButton = (): JSX.Element => {
       params={{
         variant: ["primary", "secondary", "neutral", "warning"] as const,
         size: ["small", "medium", "large"] as const,
+        disabled:[false, true] as const
       }}
       renderPreview={(combo) => (
         <div>
-          <Button variant={combo.variant} size={combo.size} disabled={false}>
-            example
-          </Button>
-          <Button variant={combo.variant} size={combo.size} disabled={true}>
+          <Button variant={combo.variant} size={combo.size} disabled={combo.disabled}>
             example
           </Button>
         </div>

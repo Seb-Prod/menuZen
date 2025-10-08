@@ -13,9 +13,10 @@ const ShowcaseHeading = () => {
       params={{
         color: ["primary", "secondary", "dark", "light", "neutral", "warning", "success"] as const,
         variant: [1, 2, 3, 4, 5, 6] as const,
+        align:["left", "right"] as const,
       }}
       renderPreview={(combo) => (
-        <Heading variant={combo.variant} color={combo.color}>
+        <Heading variant={combo.variant} color={combo.color} align={combo.align}>
           Exemple de titre
         </Heading>
       )}
