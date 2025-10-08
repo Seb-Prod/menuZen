@@ -1,0 +1,114 @@
+.Text {
+    display: inline; 
+}
+
+/* ========================================
+   1. Couleurs (color)
+   ======================================== */
+
+.primary {
+    color: var(--primary-text);
+}
+
+.secondary {
+    color: var(--secondary-text);
+}
+
+.dark {
+    color: var(--dark-text);
+}
+
+.light {
+    color: var(--light-text);
+}
+
+.neutral {
+    color: var(--neutral-color); 
+}
+
+.warning {
+    color: var(--warning-color);
+}
+
+.success {
+    color: var(--success-color);
+}
+
+/* ========================================
+   2. Alignement (align)
+   ======================================== */
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.justify {
+    text-align: justify;
+}
+
+/* ========================================
+   3. Tailles (size)
+   ======================================== */
+
+.xs {
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-normal);
+}
+
+.sm {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+}
+
+.md {
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+}
+
+.lg {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+.xl {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-relaxed);
+}
+
+/* ========================================
+   4. Poids (weight)
+   ======================================== */
+
+.weight-light {
+    font-weight: var(--font-weight-light);
+}
+
+.weight-regular {
+    font-weight: var(--font-weight-normal);
+}
+
+.weight-medium {
+    font-weight: var(--font-weight-medium);
+}
+
+.weight-bold {
+    font-weight: var(--font-weight-bold);
+}
+
+/* ========================================
+   5. Ajustements sémantiques (pour les balises)
+   ======================================== */
+
+.Text[as="p"] {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

@@ -15,18 +15,18 @@
 
 ---
 
-## 🔥 Priorité Haute (Essentiels)
+## Composants UI
+| Composant | description | Fichier Source |
+|----------|--------|------|
+| Button | Bouton cliquable avec variantes de style et d'état. | `src/components/ui/Button/` |
+| Heading | Titre sémantique `(<h1> à <h6>)` avec options de couleur et d'alignement. | `src/components/ui/Heading/` |
+| Spinner | ndicateur de chargement ou de progression. |`src/components/ui/Spinner/` |
+| Text | Contenu textuel général `(<p>, <span>, <strong>, etc.)` avec sélection de balise sémantique. | `src/components/ui/Text/` |
+
+
 
 ### Composants de base
-- [x] **Spinner** - Indicateur de chargement
-  - Fichier : `src/components/ui/Spinner/`
-  - Status : ✅ Terminé
-- [x] **Button** - Bouton avec variants (primary, secondary, warning, disabled)
-  - Fichier : `src/components/ui/Button/`
-  - Status : ✅ Terminé
-- [x] **Heading** - Titre avec variants (h1,h2, ...)
-  - Fichier : `src/components/ui/Heading`
-  - Status : 🚧 En cours
+
 - [ ] **Input** - Champ de texte avec gestion d'erreurs
   - Fichier : `src/components/ui/Input/`
   - Status : ⏳ À faire
@@ -35,7 +35,7 @@
   - Status : ⏳ À faire
 
 ### Feedback utilisateur
-- [ ] **Alert** - Messages de notification (success, error, warning, info)
+- [] **Alert** - Messages de notification (success, error, warning, info)
   - Fichier : `src/components/ui/Alert/`
   - Status : ⏳ À faire
 - [ ] **Modal** - Boîte de dialogue modale
@@ -128,7 +128,7 @@ src/components/ui/NomComposant/
 ### Template de composant
 
 ```typescript
-import type { ReactNode, JSX } from "react";
+import type {ReactNode, JSX} from "react";
 import styles from "./NomComposant.module.css";
 
 /**
@@ -156,12 +156,10 @@ const NomComposant = ({
   children, 
   variant = "primary" 
 }: NomComposantProps): JSX.Element => {
-  return (
-    <div className={styles.root}>
+  return (<div className={styles.root}>
       {children}
     </div>
-  );
-};
+  );};
 
 export default NomComposant;
 ```

@@ -1,6 +1,6 @@
 import Button from "@/components/ui/Button";
-import buttonProps from "./data/buttonProps";
-import buttonUsageExample from "./data/buttonUsageExample";
+import buttonProps from "./data/Button/buttonProps";
+import buttonUsageExample from "./data/Button/buttonUsageExample";
 import { ShowcaseComponent } from "../components";
 import type { JSX } from "react";
 

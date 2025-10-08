@@ -1,7 +1,6 @@
 import Heading from "@/components/ui/Heading";
-import headingProps from "./data/headingProps";
-import headingUsageExample from "./data/headingUsageExample";
 import { ShowcaseComponent } from "../components";
+import { headingProps, headingUsageExample } from "./data/Heading";
 
 const ShowcaseHeading = () => {
   return (

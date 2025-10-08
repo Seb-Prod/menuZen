@@ -1,10 +1,5 @@
 import { HEADING_ALIGNS, HEADING_COLORS, HEADING_DEFAULTS, HEADING_VARIANTS } from "@/components/ui/Heading/Heading.types";
-
-
-// Helper pour générer la chaîne de type
-const formatType = <T extends readonly unknown[]>(values: T): string => {
-  return values.map(v => typeof v === 'string' ? `"${v}"` : v).join(' | ');
-};
+import { formatType } from "@/features/showcase/utils";
 
 export default [
   {

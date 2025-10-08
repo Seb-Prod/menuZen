@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import { ShowcaseComponent } from "../components";
-import spinnerProps from "./data/spinnerProps"; // 💡 Doit être créé
-import spinnerUsageExample from "./data/spinnerUsageExample"; // 💡 Doit être créé
+import spinnerProps from "./data/Spinner/spinnerProps"; // 💡 Doit être créé
+import spinnerUsageExample from "./data/Spinner/spinnerUsageExample"; // 💡 Doit être créé
 import Spinner from "@/components/ui/Spinner";
 
 // 💡 Correction : Renommer la fonction
