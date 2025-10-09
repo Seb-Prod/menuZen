@@ -2,6 +2,7 @@
 import type { JSX } from "react";
 import CodeBlock from "../CodeBlock";
 import { Heading } from "@/components/ui";
+import { Table } from "@/components/ui/Table";
 
 type ShowcaseTableProps = {
   data: {
@@ -13,29 +14,17 @@ type ShowcaseTableProps = {
 };
 
 const ShowcaseTable = ({ data }: ShowcaseTableProps): JSX.Element => {
+  const headers = ["Paramètre", "Code", "Aperçu"]; // Définissez les en-têtes du tableau
+  const rows = data.map((item, index) => [
+    <span key={`group-${index}`} className="font-semibold text-sm text-gray-700">{item.group}</span>,
+    <CodeBlock key={`code-${index}`} code={item.code} language="tsx" />,
+    item.preview,
+  ]); // Créez les lignes du tableau en utilisant ReactNode[] pour chaque cellule
+
   return (
     <div>
       <Heading variant={3}>Aperçus</Heading>
-      <table className="showcase-table">
-        <thead>
-          <tr>
-            <th>Paramètre</th> {/* 🆕 nouvelle colonne */}
-            <th>Code</th>
-            <th>Aperçu</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index}>
-              <td className="font-semibold text-sm text-gray-700">{item.group}</td> {/* 🆕 */}
-              <td>
-                <CodeBlock code={item.code} language="tsx" />
-              </td>
-              <td>{item.preview}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Table headers={headers} data={rows} /> {/* Utilisez le composant Table */}
     </div>
   );
 };

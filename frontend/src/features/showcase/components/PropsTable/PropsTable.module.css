@@ -1,20 +1,13 @@
-.container {
-  padding: 0.5rem;
-}
 
-.title {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  color: var(--primary-text);
+.container{
+  display: flex;
+  flex-direction: column;
 }
-
 .table {
   width: 100%;
   border-collapse: collapse;
   background: var(--secondary-background);
   border-radius: 20px;
-  font-size: 0.9rem;
 }
 
 .table th {

@@ -9,6 +9,22 @@ type CodeBlockProps = {
   cleanIndent?: boolean;
 }
 
+/**
+ * Un composant fonctionnel pour afficher du code source formaté.
+ * @component
+ *
+ * @param {object} props - Les propriétés du composant.
+ * @param {string} props.code - Le code source à afficher.
+ * @param {string} props.language - Le langage de programmation utilisé dans le code source.
+ * @param {boolean} [props.cleanIndent=true] - Si le code doit être nettoyé et reformaté pour enlever l'indentation inutile.
+ *
+ * @example
+ * const exampleCode = `const add = (a, b) => a + b;`;
+ * <CodeBlock code={exampleCode} language="javascript" cleanIndent={true} />
+ *
+ * @returns {JSX.Element} Le composant SyntaxHighlighter avec le code source formaté.
+ */
+
 const CodeBlock = ({ code, language, cleanIndent: shouldClean = true }: CodeBlockProps): JSX.Element => {
   const processedCode = shouldClean ? cleanIndentFunction(code) : code;
   
