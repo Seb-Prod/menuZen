@@ -1,7 +1,30 @@
-.table{
-    margin: 12px;
+.table {
+    margin: 22px;
     background: var(--secondary-background);
     border-radius: 20px;
     gap: 12px;
     border-collapse: collapse;
 }
+
+th {
+    text-align: left;
+    padding: 0.75rem;
+    border-bottom: 4px solid var(--primary-background);
+    font-weight: 600;
+}
+
+th+th {
+    border-left: 2px solid var(--primary-background);
+}
+
+td {
+    padding: 0.75rem;
+    border-bottom: 2px solid var(--primary-background);
+}
+
+td+td {
+    border-left: 2px solid var(--primary-background);
+}
+
+
+

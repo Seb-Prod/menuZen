@@ -216,6 +216,7 @@ code,
 kbd,
 pre {
     font-family: var(--font-mono);
+    
 }
 
 code {

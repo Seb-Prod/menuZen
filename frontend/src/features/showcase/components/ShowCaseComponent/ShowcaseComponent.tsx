@@ -1,11 +1,10 @@
-import type { JSX } from "react";
-import { PropsTable, UsageExample, ShowcaseTable } from "../../components";
+import { useState, type JSX } from "react";
+import { PropsTable, UsageExample, VariationPreview } from "../../components";
 import type { PropInfo } from "../../types/propsInfo";
 import { Heading, Text } from "@/components/ui";
-import { 
-    type Params, 
-    type Combination, 
-    generateShowcaseData 
+import {
+    type Params,
+    type Combination,
 } from "../../utils/showcaseHelpers";
 
 /**
@@ -65,30 +64,30 @@ const ShowcaseComponent = <T extends Params>({
     params,
     renderPreview,
 }: ShowcaseComponentProps<T>): JSX.Element => {
-    const paramKeys = Object.keys(params);
+    
+const [selectedParams, setSelectedParams] = useState(
+        Object.fromEntries(
+            Object.keys(params).map((key) => [key, params[key][0]])
+        ) as Combination<T>
+    );
 
-    // Gestion du cas sans paramètres
-    if (paramKeys.length === 0) {
-        return (
-            <>
-                <Heading variant={1}>{title}</Heading>
-                <Text>{description}</Text>
-                {propsData && <PropsTable props={propsData} />}
-                {usageExample && <UsageExample code={usageExample} />}
-                <Text color="warning">Aucun aperçu à afficher.</Text>
-            </>
-        );
-    }
+    // ✨ 2. EXTRAIRE LE NOM DU COMPOSANT pour le CodeBlock (hypothèse simple)
+    const componentName = title.split(' ')[0] || 'Component';
 
-    const showcaseData = generateShowcaseData(params, paramKeys, renderPreview);
 
     return (
         <>
             <Heading variant={1}>{title}</Heading>
             <Text>{description}</Text>
-            {propsData && <PropsTable props={propsData} />}
-            {usageExample && <UsageExample code={usageExample} />}
-            <ShowcaseTable data={showcaseData} />
+            <PropsTable props={propsData} />
+            <VariationPreview 
+                params={params} 
+                renderPreview={renderPreview} 
+                selectedParams={selectedParams} 
+                setSelectedParams={setSelectedParams}
+                componentName={componentName} // Optionnel, pour un meilleur CodeBlock
+            />
+            <UsageExample code={usageExample} />
         </>
     );
 };

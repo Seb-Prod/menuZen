@@ -30,6 +30,7 @@ const ShowcaseText = () => {
         >
           Example
         </Text>
+        
       )}
     />
   );

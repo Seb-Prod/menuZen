@@ -10,7 +10,7 @@ type TableProps = {
 const Table = ({ headers, data }: TableProps): JSX.Element => {
     return (
         <table className={styles.table}>
-            <thead>
+            <thead className={styles.head}>
                 <tr>
                     {headers.map((header, index) => (
                         <th key={index}>{header}</th>

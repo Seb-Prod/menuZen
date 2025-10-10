@@ -1,0 +1,26 @@
+/* VariationPreview.module.css */
+.container {
+  display: flex;
+  background: var(--secondary-background);
+  border-radius: 20px;
+  margin: 22px;
+}
+
+.paramsSection {
+  padding: 20px; 
+  display: flex;
+  flex-direction: column;
+  border-right: solid 2px var(--primary-background);
+}
+
+.paramContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 5px;
+}
+
+.codePreview {
+  padding: 20px;
+  flex-grow: 1;
+}

@@ -136,7 +136,7 @@ const ShowcasePage = (): JSX.Element => {
 
             {/* Zone principale */}
             <main className={styles.main}>
-                <Suspense fallback={<Spinner />}>
+                <Suspense fallback={<Spinner/>}>
                     <SelectedComponent />
                 </Suspense>
             </main>

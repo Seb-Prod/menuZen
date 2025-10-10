@@ -8,6 +8,8 @@
   width: 260px;
   padding: 1.5rem;
   box-sizing: border-box;
+  overflow-y: auto;
+  height: 100vh;
 }
 
 .sidebarTitle {
@@ -51,6 +53,7 @@
   flex: 1;
   overflow-y: auto;
   box-sizing: border-box;
+  height: 100vh;
 }
 
 .empty {
