@@ -4,6 +4,7 @@ import type { JSX } from "react";
 import type { Combination } from "../utils/showcaseHelpers";
 import { BUTTON_SHOWCASE_CONSTANTS } from '../../../components/ui/Button/Button.types';
 import { buttonProps, buttonUsageExample } from "./data/Button";
+import { generateCodeString } from "../utils";
 
 type ButtonShowcaseCombo = Combination<typeof BUTTON_SHOWCASE_CONSTANTS>;
 
@@ -21,22 +22,16 @@ const renderButtonPreview = (combo: ButtonShowcaseCombo): JSX.Element => (
 );
 
 const generateButtonCode = (combo: ButtonShowcaseCombo): string => {
-  const propsArray = [
+  const propExpressions = [
     combo.variant !== "primary" && `variant="${combo.variant}"`,
     combo.size !== "medium" && `size="${combo.size}"`,
     combo.type !== "button" && `type="${combo.type}"`,
     combo.align !== "left" && `align="${combo.align}"`,
     combo.fullWidth && 'fullWidth',
     combo.disabled && 'disabled',
-  ].filter(Boolean);
+  ]
 
-  const props = propsArray.join('\n  ');
-
-  if (props.length === 0) {
-      return `<Button>example</Button>`;
-  }
-
-  return `<Button\n  ${props}\n>\n  Example\n</Button>`;
+  return generateCodeString("Button", propExpressions, true);
 };
 
 const ShowcaseButton = (): JSX.Element => {

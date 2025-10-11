@@ -1,3 +1,3 @@
 export { cleanIndentFunction } from './cleanIndentFunction';
-export { generateComponentCode } from './codeGenerator';
+export { generateCodeString } from './codeGenerator';
 export { formatType } from './formatType';

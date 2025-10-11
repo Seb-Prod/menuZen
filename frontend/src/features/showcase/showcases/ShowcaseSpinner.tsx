@@ -4,6 +4,7 @@ import Spinner from "@/components/ui/Spinner";
 import { spinnerProps, spinnerUsageExample } from "./data/Spinner";
 import type { Combination } from "../utils/showcaseHelpers";
 import { SPINNER_SHOWCASE_CONSTANTS } from "@/components/ui/Spinner/Spinner.types";
+import { generateCodeString } from "../utils";
 
 type SpinnerShowcaseCombo = Combination<typeof SPINNER_SHOWCASE_CONSTANTS>;
 
@@ -17,19 +18,13 @@ const renderSpinnerPreview = (combo: SpinnerShowcaseCombo): JSX.Element => (
 )
 
 const generateSpinnerCode = (combo: SpinnerShowcaseCombo) : string =>{
-  const propsArrays = [
+  const propExpressions = [
     combo.variant !== "primary" && `variant="${combo.variant}"`,
     combo.size !== "medium" && `size="${combo.size}"`,
     combo.align !== "center" && `align="${combo.align}"`
-  ].filter(Boolean);
+  ]
 
-  const props = propsArrays.join(`\n  `);
-
-  if (props.length === 0){
-    return `<Spinner/>`;
-  }
-
-  return `<Spinner\n  ${props}\n>\n  Example\n</Spinner>`;
+  return generateCodeString("Spinner", propExpressions, true);
 }
 
 
