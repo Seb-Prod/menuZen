@@ -6,10 +6,11 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-family: inherit; /* ✅ Hérite la font du parent */
   transition: all 0.2s ease-in-out;
   outline: none;
   white-space: nowrap;
-   box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Variants */
@@ -52,20 +53,25 @@
 /* Sizes - Aligné sur 8px */
 .small {
   font: var(--button-text-small);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem; /* 8px 16px */
 }
 
 .medium {
   font: var(--button-text-medium);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem; /* 12px 24px */
 }
 
 .large {
   font: var(--button-text-large);
-  padding: 1rem 2rem;
+  padding: 1rem 2rem; /* 16px 32px */
 }
 
-/* Alignements - Ceci déplace l'élément lui-même */
+/* Alignements - Déplace l'élément dans son conteneur */
+.left {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 .center {
   margin-left: auto;
   margin-right: auto;
@@ -76,9 +82,11 @@
   margin-right: 0;
 }
 
-.left {
-  margin-left: 0;
-  margin-right: auto;
+/* Annule l'alignement si fullWidth */
+.fullWidth.left,
+.fullWidth.center,
+.fullWidth.right {
+  margin: 0;
 }
 
 /* States */
@@ -106,4 +114,5 @@
 /* Modifiers */
 .fullWidth {
   width: 100%;
+  display: flex; /* ✅ Force flex pour garantir la cohérence */
 }

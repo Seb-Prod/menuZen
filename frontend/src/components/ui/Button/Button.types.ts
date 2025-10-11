@@ -52,7 +52,7 @@ export const BUTTON_ALIGN = [
     "left",
     "right",
     "center"
-]
+] as const
 
 // Types inférés
 export type ButtonVariant = typeof BUTTON_VARIANTS[number];
@@ -77,14 +77,14 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> 
  * Valeurs par défaut pour les propriétés du composant Button.
  */
 export const BUTTON_DEFAULTS = {
-    variant: "primary" as const,
-    size: "medium" as const,
-    align: "left" as const,
+    variant: "primary" as ButtonVariant,
+    size: "medium" as ButtonSize,
+    align: "left" as ButtonAlign,
     fullWidth: false,
-    type: "button" as const,
+    type: "button" as ButtonType,
     disabled: false,
     className: ""
-} satisfies Partial<ButtonProps> & { className: string };
+} satisfies Partial<ButtonProps>;
 
 /**
  * Toutes les constantes de Button regroupées pour le showcase.

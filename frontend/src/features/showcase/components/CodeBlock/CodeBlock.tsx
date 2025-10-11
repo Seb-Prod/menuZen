@@ -1,7 +1,7 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { cleanIndentFunction } from '../../utils/cleanIndentFunction';
 import type { JSX } from 'react';
+import { cleanIndentFunction } from '../../utils';
 
 type CodeBlockProps = {
   code: string;

@@ -1,10 +1,9 @@
 import Button from "@/components/ui/Button";
-import buttonProps from "./data/Button/buttonProps";
-import buttonUsageExample from "./data/Button/buttonUsageExample";
 import { ShowcaseComponent } from "../components";
 import type { JSX } from "react";
 import type { Combination } from "../utils/showcaseHelpers";
 import { BUTTON_SHOWCASE_CONSTANTS } from '../../../components/ui/Button/Button.types';
+import { buttonProps, buttonUsageExample } from "./data/Button";
 
 type ButtonShowcaseCombo = Combination<typeof BUTTON_SHOWCASE_CONSTANTS>;
 
@@ -17,21 +16,27 @@ const renderButtonPreview = (combo: ButtonShowcaseCombo): JSX.Element => (
     disabled={combo.disabled}
     align={combo.align}
   >
-    example
+    Example
   </Button>
 );
 
 const generateButtonCode = (combo: ButtonShowcaseCombo): string => {
-  const props = [
+  const propsArray = [
     combo.variant !== "primary" && `variant="${combo.variant}"`,
     combo.size !== "medium" && `size="${combo.size}"`,
     combo.type !== "button" && `type="${combo.type}"`,
     combo.align !== "left" && `align="${combo.align}"`,
     combo.fullWidth && 'fullWidth',
     combo.disabled && 'disabled',
-  ].filter(Boolean).join(' ');
+  ].filter(Boolean);
 
-  return `<Button ${props}>example</Button>`;
+  const props = propsArray.join('\n  ');
+
+  if (props.length === 0) {
+      return `<Button>example</Button>`;
+  }
+
+  return `<Button\n  ${props}\n>\n  Example\n</Button>`;
 };
 
 const ShowcaseButton = (): JSX.Element => {

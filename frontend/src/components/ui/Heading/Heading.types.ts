@@ -23,37 +23,19 @@ export const HEADING_COLORS = [
  */
 export const HEADING_ALIGNS = ["left", "right", "center", "justify"] as const;
 
-// Types inférés (utilisés par le composant)
+// Types inférés
 export type HeadingVariant = typeof HEADING_VARIANTS[number];
 export type HeadingColor = typeof HEADING_COLORS[number];
 export type HeadingAlign = typeof HEADING_ALIGNS[number];
 
 /**
- * Propriétés (props) acceptées par le composant Heading.
+ * Propriétés personnalisées acceptées par le composant Heading.
  */
 export type HeadingProps = {
-  /**
-   * @description Le niveau de titre sémantique (h1 par défaut) qui détermine la balise HTML.
-   * @default 1
-   */
   variant?: HeadingVariant;
-  /**
-   * @description La couleur thématique du titre, mappée à une classe CSS.
-   * @default 'primary'
-   */
   color?: HeadingColor;
-  /**
-   * @description L'alignement du texte du titre.
-   * @default 'left'
-   */
   align?: HeadingAlign;
-  /**
-   * @description Le contenu (texte ou autres éléments) à afficher dans le titre.
-   */
   children: ReactNode;
-  /**
-   * @description Classe CSS additionnelle pour une personnalisation avancée.
-   */
   className?: string;
 };
 
@@ -63,5 +45,15 @@ export type HeadingProps = {
 export const HEADING_DEFAULTS = {
   variant: 1 as HeadingVariant,
   color: "primary" as HeadingColor,
-  align: "left" as HeadingAlign
-} as const;
+  align: "left" as HeadingAlign,
+  className:""
+} satisfies Partial<HeadingProps>;
+
+/**
+ * Toutes les constantes de Heading pour le showcase
+ */
+export const HEADING_SHOWVASE_CONSTANTS ={
+  variant:HEADING_VARIANTS,
+  color:HEADING_COLORS,
+  align:HEADING_ALIGNS
+} as const
