@@ -1,17 +1,27 @@
+import { SPINNER_ALIGN, SPINNER_SIZE, SPINNER_VARIANTS } from '@/components/ui/Spinner/Spinner.types';
+import { formatType } from '@/features/showcase/utils';
+
 const spinnerProps = [
   {
     name: "size",
-    type: '"small" | "medium" | "large"',
-    description: "Taille du bouton",
+    type: formatType(SPINNER_SIZE),
+    description: "Taille du spinner",
     required: false,
     default: '"medium"',
   },
   {
     name: "variant",
-    type: '"primary" | "secondary" | "neutral" | "warning"',
-    description: "Style visuel du bouton",
+    type: formatType(SPINNER_VARIANTS),
+    description: "Style visuel du spinner",
     required: false,
     default: '"primary"',
+  },
+  {
+    name: "align",
+    type: formatType(SPINNER_ALIGN),
+    description: "Position du spinner",
+    required: false,
+    default: '"center"',
   },
   {
     name: "children",

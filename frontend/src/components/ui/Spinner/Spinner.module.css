@@ -1,3 +1,4 @@
+/* Container */
 .root {
   display: flex;
   flex-direction: column;
@@ -5,12 +6,14 @@
   gap: 12px;
 }
 
+/* Base spinner - Animation circulaire avec points */
 .spinner {
-  --d: 22px;
-  --dot-size: 4px;
+  --d: 22px; /* Distance du centre */
+  --dot-size: 4px; /* Taille des points */
   width: var(--dot-size);
   height: var(--dot-size);
   border-radius: 50%;
+  /* 8 points disposés en cercle avec opacité croissante */
   box-shadow:
     calc(1*var(--d)) calc(0*var(--d)) 0 0,
     calc(0.707*var(--d)) calc(0.707*var(--d)) 0 calc(var(--dot-size) * 0.25),
@@ -23,6 +26,7 @@
   margin: calc(var(--d) + var(--dot-size) * 2);
 }
 
+/* Sizes */
 .spinner.small {
   --d: 16px;
   --dot-size: 3px;
@@ -38,9 +42,11 @@
   --dot-size: 6px;
 }
 
+/* Text label */
 .text {
   text-align: center;
   margin-top: 4px;
+  font-family: inherit;
 }
 
 .text.small {
@@ -55,6 +61,7 @@
   font: var(--text-body-large);
 }
 
+/* Color variants */
 .primary {
   color: var(--primary-color);
 }
@@ -71,6 +78,23 @@
   color: var(--warning-color);
 }
 
+/* Alignements - Déplace l'élément dans son conteneur */
+.left {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Animation */
 @keyframes spinner-rotate {
   100% { 
     transform: rotate(1turn); 

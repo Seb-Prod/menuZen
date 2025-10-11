@@ -1,20 +1,11 @@
-import type { ReactNode, JSX } from "react";
-import styles from "./Spinner.module.css";
-
-type SpinnerVariant = 'primary' | 'secondary' | 'warning' | 'neutral';
-type SpinnerSize = 'small' | 'medium' | 'large';
-
 /**
- * Props du composant Spinner
+ * @file Comosant Spinner.
+ * @module components/ui/Button
  */
-type SpinnerProps = {
-  /** Contenu optionnel à afficher à l'intérieur du composant */
-  children?: ReactNode;
-  /** Variante de couleur du spinner - @default 'primary' */
-  variant?: SpinnerVariant;
-  /** Taille du spinner - @default 'medium' */
-  size?: SpinnerSize;
-};
+
+import type { JSX } from "react";
+import styles from "./Spinner.module.css";
+import { SPINNER_DEFAULTS, type SpinnerProps } from "./Spinner.types";
 
 /**
  * Composant Spinner - Indicateur de chargement animé avec texte optionnel
@@ -53,11 +44,12 @@ type SpinnerProps = {
  */
 const Spinner = ({
   children,
-  variant = 'primary',
-  size = 'medium'
+  variant = SPINNER_DEFAULTS.variant,
+  size = SPINNER_DEFAULTS.size,
+  align = SPINNER_DEFAULTS.align
 }: SpinnerProps): JSX.Element => {
   return (
-    <div className={styles.root}>
+    <div className={`${styles.root} ${styles[align]}`}>
       <div className={`${styles.spinner} ${styles[variant]} ${styles[size]}`}></div>
       <div className={`${styles.text} ${styles[variant]} ${styles[size]}`}>
         {children || "Chargement en cours..."}
