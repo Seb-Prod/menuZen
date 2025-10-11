@@ -5,23 +5,26 @@ import spinnerUsageExample from "./data/Spinner/spinnerUsageExample"; // 💡 Do
 import Spinner from "@/components/ui/Spinner";
 
 // 💡 Correction : Renommer la fonction
-const ShowcaseSpinner=():JSX.Element => {
+const ShowcaseSpinner = (): JSX.Element => {
   return (
     <ShowcaseComponent
       title="Spinner"
       description="Indicateur de chargement rotatif avec différentes tailles et variantes de couleur pour signifier une attente."
-      
+
       // 💡 Correction : Utiliser les données du Spinner
       propsData={spinnerProps}
       usageExample={spinnerUsageExample}
-      
       params={{
         variant: ["primary", "secondary", "neutral", "warning"] as const,
         size: ["small", "medium", "large"] as const,
       }}
       renderPreview={(combo) => (
-        <Spinner variant={combo.variant} size={combo.size} /> 
+        <Spinner variant={combo.variant} size={combo.size} />
       )}
+      generateCode={(combo) => {
+        return `
+        <Spinner variant={${combo.variant}} size="${combo.size}"/>`;
+      }}
     />
   );
 }

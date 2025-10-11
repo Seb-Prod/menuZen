@@ -9,7 +9,7 @@ type VariationPreviewProps<T extends Params> = {
     renderPreview: (combo: Combination<T>) => JSX.Element;
     selectedParams: Combination<T>;
     setSelectedParams: (combo: Combination<T>) => void;
-    componentName: string;
+    generateCode: (combo: Combination<T>) => string;
 };
 
 /**
@@ -21,78 +21,61 @@ const VariationPreview = <T extends Params>({
     selectedParams,
     setSelectedParams,
     renderPreview,
-    componentName = 'Component'
+    generateCode
 }: VariationPreviewProps<T>): JSX.Element => {
-
-    const generateCode = (combo: Combination<T>): string => {
-        const propsString = Object.entries(combo)
-            .map(([key, value]) => {
-                if (typeof value === 'boolean') {
-                    return `${key}={${String(value)}}`;
-                } else if (typeof value === 'string') {
-
-                    return `${key}="${value}"`;
-                }
-                return `${key}={${String(value)}}`;
-            })
-            .join(' ');
-
-
-        return `<${componentName}\n  ${propsString}\n>\n  example\n</${componentName}>`;
-    };
 
     return (
         <>
-        <Heading variant={3}>Prévisualisation des variations</Heading>
-        <div className={styles.container}>
-            
-            <div className={styles.paramsSection}>
-                {Object.entries(params).map(([paramName, paramValues]) => (
-                    <div key={paramName} className={styles.paramContainer}>
-                        <Text>{paramName}</Text>
-                        <select
-                            value={String(selectedParams[paramName])}
-                            onChange={(e) => {
-                                let newValue: unknown = e.target.value;
+            <Heading variant={3}>Prévisualisation des variations</Heading>
+            <div className={styles.container}>
 
-                                if (newValue === "true") {
-                                    newValue = true;
-                                } else if (newValue === "false") {
-                                    newValue = false;
-                                }
+                <div className={styles.paramsSection}>
+                    {Object.entries(params).map(([paramName, paramValues]) => (
+                        <div key={paramName} className={styles.paramContainer}>
+                            <Text>{paramName}</Text>
+                            <select
+                                value={String(selectedParams[paramName])}
+                                onChange={(e) => {
+                                    let newValue: unknown = e.target.value;
 
-                                setSelectedParams({
-                                    ...selectedParams,
-                                    [paramName]: newValue
-                                } as Combination<T>);
-                            }}
-                        >
+                                    if (newValue === "true") {
+                                        newValue = true;
+                                    } else if (newValue === "false") {
+                                        newValue = false;
+                                    }
 
-                            {paramValues.map((value) => (
-                                <option
-                                    key={String(value)}
-                                    value={String(value)}
-                                >
+                                    setSelectedParams({
+                                        ...selectedParams,
+                                        [paramName]: newValue
+                                    } as Combination<T>);
+                                }}
+                            >
+                                {paramValues.map((value) => (
+                                    <option
+                                        key={String(value)}
+                                        value={String(value)}
+                                    >
+                                        {typeof value === 'boolean' ? (value ? 'true' : 'false') : String(value)}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    ))}
+                </div>
 
-                                    {typeof value === 'boolean' ? (value ? 'true' : 'false') : String(value)}
-                                </option>
-                            ))}
-                        </select>
+                <div className={styles.preview}>
+                    <CodeBlock
+                        code={generateCode(selectedParams)}
+                        language="tsx"
+                    />
+                    <div className={styles.examplePreview}>
+                        {renderPreview(selectedParams)}
                     </div>
-                ))}
-            </div>
 
-            <div className={styles.codePreview}>
-                <CodeBlock
-                    code={generateCode(selectedParams)}
-                    language="tsx"
-                />
-                {renderPreview(selectedParams)}
-            </div>
+                </div>
 
-        </div>
+            </div>
         </>
-        
     );
 };
 

@@ -9,6 +9,7 @@
   transition: all 0.2s ease-in-out;
   outline: none;
   white-space: nowrap;
+   box-sizing: border-box;
 }
 
 /* Variants */
@@ -62,6 +63,22 @@
 .large {
   font: var(--button-text-large);
   padding: 1rem 2rem;
+}
+
+/* Alignements - Ceci déplace l'élément lui-même */
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.left {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 /* States */

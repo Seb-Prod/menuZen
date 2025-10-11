@@ -102,3 +102,14 @@ export const TEXT_DEFAULTS = {
   size: "md" as TextSize,
   weight: "regular" as TextWeight
 } as const;
+
+/**
+ * Toutes les constantes de Text regroupées pour le showcase
+ */
+export const TEXT_SHOWCASE_CONSTANTS = {
+  as: TEXT_AS,
+  color: TEXT_COLORS,
+  align: TEXT_ALIGNS,
+  size: TEXT_SIZES,
+  weight: TEXT_WEIGHTS,
+} as const;

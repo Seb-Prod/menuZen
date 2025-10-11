@@ -1,4 +1,4 @@
-const spinnerUsageExample = `import Button from "@/components/ui/Spinner";
+const spinnerUsageExample = `import Spinner from "@/components/ui/Spinner";
 
 export default function MyComponent() {
   return (

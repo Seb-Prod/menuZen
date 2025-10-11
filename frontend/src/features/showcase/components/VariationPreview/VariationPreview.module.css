@@ -20,7 +20,12 @@
   padding: 5px;
 }
 
-.codePreview {
+.preview {
   padding: 20px;
   flex-grow: 1;
+}
+
+.examplePreview{
+  display: flex;
+  background: red;
 }

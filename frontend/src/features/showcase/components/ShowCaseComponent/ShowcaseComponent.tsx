@@ -24,6 +24,8 @@ type ShowcaseComponentProps<T extends Params> = {
     params: T;
     /** Fonction de rendu qui reçoit une combinaison de paramètres et retourne le composant à prévisualiser */
     renderPreview: (combo: Combination<T>) => JSX.Element;
+    /** Fonction pour générer le code correspondant au rendu. Si non fournie, une version par défaut sera utilisée. */
+    generateCode: (combo: Combination<T>) => string;
 };
 
 /**
@@ -50,6 +52,9 @@ type ShowcaseComponentProps<T extends Params> = {
  *       Click me
  *     </Button>
  *   )}
+ *   generateCode={(combo) => 
+ *     `<Button variant="${combo.variant}" size="${combo.size}">\n  Click me\n</Button>`
+ *   }
  * />
  * ```
  * 
@@ -63,17 +68,14 @@ const ShowcaseComponent = <T extends Params>({
     usageExample,
     params,
     renderPreview,
+    generateCode,
 }: ShowcaseComponentProps<T>): JSX.Element => {
     
-const [selectedParams, setSelectedParams] = useState(
+    const [selectedParams, setSelectedParams] = useState(
         Object.fromEntries(
             Object.keys(params).map((key) => [key, params[key][0]])
         ) as Combination<T>
     );
-
-    // ✨ 2. EXTRAIRE LE NOM DU COMPOSANT pour le CodeBlock (hypothèse simple)
-    const componentName = title.split(' ')[0] || 'Component';
-
 
     return (
         <>
@@ -85,7 +87,7 @@ const [selectedParams, setSelectedParams] = useState(
                 renderPreview={renderPreview} 
                 selectedParams={selectedParams} 
                 setSelectedParams={setSelectedParams}
-                componentName={componentName} // Optionnel, pour un meilleur CodeBlock
+                generateCode={generateCode}
             />
             <UsageExample code={usageExample} />
         </>

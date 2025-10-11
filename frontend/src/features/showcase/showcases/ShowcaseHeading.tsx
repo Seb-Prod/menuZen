@@ -19,6 +19,12 @@ const ShowcaseHeading = () => {
           Exemple de titre
         </Heading>
       )}
+      generateCode={(combo) => {
+        return `
+        <Heading variant={${combo.variant}} color="${combo.color}" align="${combo.align}">
+          Example de titre
+        </Heading>`;
+      }}
     />
   );
 };
