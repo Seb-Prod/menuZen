@@ -22,7 +22,7 @@ const PropsTable =({ props }: PropsTableProps): JSX.Element =>{
   return (
     <div className={styles.container}>
       <Heading variant={3}>Props</Heading>
-      <Table headers={headers} data={data}></Table>
+      <Table headers={headers} data={data} className={styles.table}></Table>
     </div>
   );
 }

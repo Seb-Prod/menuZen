@@ -52,7 +52,7 @@ export const BUTTON_ALIGN = [
     "left",
     "right",
     "center"
-] as const
+] as const;
 
 // Types inférés
 export type ButtonVariant = typeof BUTTON_VARIANTS[number];

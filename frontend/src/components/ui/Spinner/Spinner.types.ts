@@ -44,7 +44,7 @@ export type SpinnerProps = {
 }
 
 /**
- * Valeur par défaut pour les proprétés su comosant Spinner.
+ * Valeur par défaut pour les propréités du composant Spinner.
  */
 export const SPINNER_DEFAULTS = {
     variant: "primary" as SpinnerVariant,
