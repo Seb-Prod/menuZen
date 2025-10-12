@@ -1,0 +1,33 @@
+import type { ReactNode } from 'react';
+
+/**
+ * Définit les variantes de couleur pour {{NAME}}.
+ */
+export const {{UPPER_NAME}}_VARIANTS = [
+    "primary",
+    "secondary"
+] as const;
+
+// Types inférés
+export type {{NAME}}Variant = typeof {{UPPER_NAME}}_VARIANTS[number];
+
+/**
+ * Propriétés personnalisées pour le comosant {{NAME}}.
+ */
+export type {{NAME}}Props = {
+    variant?: {{NAME}}Variant;
+}
+
+/**
+ * Valeur par défaut pour les propriétés du composant Table.
+ */
+export const {{UPPER_NAME}}_DEFAULTS = {
+    variant: "primary" as {{NAME}}Variant
+} satisfies Partial<{{NAME}}Props>
+
+/**
+ * Toutes les constantes de Spinner pour le showcase
+ */
+export const {{UPPER_NAME}}_SWOCASE_CONSTANTS = {
+    variant: {{UPPER_NAME}}_VARIANTS
+} as const

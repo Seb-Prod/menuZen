@@ -49,6 +49,7 @@ async function run() {
       }
       case "ui": {
         const uiPath = "frontend/src/components/ui/";
+        
         const componentUiName = await askName(uiPath);
         if (componentUiName) {
           await createUI(componentUiName, uiPath);

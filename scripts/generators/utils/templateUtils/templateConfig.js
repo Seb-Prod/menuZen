@@ -25,6 +25,10 @@ export const TEMPLATE_CONFIGS = {
       filename: (name) => `${name}.module.css`
     },
     {
+      template:'ui/ui-types.types.ts.template',
+      filename: (name) => `${name}.types.ts`
+    },
+    {
       template: 'ui/ui-index.ts.template',
       filename: () => 'index.ts'
     },
