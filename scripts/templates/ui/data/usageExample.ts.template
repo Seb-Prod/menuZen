@@ -1,0 +1,12 @@
+const {{LOWER_NAME}}UsageExample = `import {{NAME}} from "@/components/ui/{{NAME}}";
+
+export default function MyComponent() {
+  return (
+    <{{NAME}} 
+      variant="primary"
+    >
+    </{{NAME}}>
+  );
+}`;
+
+export default {{LOWER_NAME}}UsageExample;

@@ -1,0 +1,12 @@
+import { {{UPPER_NAME}}_VARIANTS,  {{UPPER_NAME}}_DEFAULTS} from "@/components/ui/{{NAME}}/{{NAME}}.types";
+import { formatType } from "@/features/showcase/utils";
+
+export default [
+  {
+    name: "variant",
+    type: formatType({{UPPER_NAME}}_VARIANTS),
+    default: {{UPPER_NAME}}_DEFAULTS.variant,
+    description: "Documentation a faire",
+    values: {{UPPER_NAME}}_VARIANTS },
+
+] as const;

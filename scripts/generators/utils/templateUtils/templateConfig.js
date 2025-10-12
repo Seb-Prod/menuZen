@@ -33,6 +33,29 @@ export const TEMPLATE_CONFIGS = {
       filename: () => 'index.ts'
     },
   ],
+  
+  showcaseData:[
+    {
+      template: 'ui/data/props.ts.template',
+      filename: (name) => `${name.toLowerCase()}Props.ts`
+    },
+    {
+      template: 'ui/data/usageExample.ts.template',
+      filename: (name) => `${name.toLowerCase()}UsageExample.ts`
+    },
+    {
+      template: 'ui/data/index.ts.template',
+      filename: (name) => 'index.ts'
+    }
+  ],
+
+  showcase:[
+    {
+      template: 'ui/showcase.tsx.template',
+      filename: (name) => `Showcase${name}.tsx`
+    }
+  ],
+
 
   hook: [
     {

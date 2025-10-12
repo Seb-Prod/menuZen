@@ -28,6 +28,6 @@ export const {{UPPER_NAME}}_DEFAULTS = {
 /**
  * Toutes les constantes de Spinner pour le showcase
  */
-export const {{UPPER_NAME}}_SWOCASE_CONSTANTS = {
+export const {{UPPER_NAME}}_SHOWCASE_CONSTANTS = {
     variant: {{UPPER_NAME}}_VARIANTS
 } as const

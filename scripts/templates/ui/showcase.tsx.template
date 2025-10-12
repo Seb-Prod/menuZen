@@ -1,0 +1,40 @@
+import {{NAME}} from "@/components/ui/{{NAME}}";
+import { ShowcaseComponent } from "../components";
+import type { JSX } from "react";
+import type { Combination } from "../utils/showcaseHelpers";
+import { {{UPPER_NAME}}_SHOWCASE_CONSTANTS } from '@/components/ui/{{NAME}}/{{NAME}}.types';
+import { {{LOWER_NAME}}Props, {{LOWER_NAME}}UsageExample } from "./data/{{NAME}}";
+import { generateCodeString } from "../utils";
+
+type {{NAME}}ShowcaseCombo = Combination<typeof {{UPPER_NAME}}_SHOWCASE_CONSTANTS>;
+
+const render{{NAME}}Preview = (combo: {{NAME}}ShowcaseCombo): JSX.Element => (
+  <{{NAME}} 
+    variant={combo.variant} 
+  >
+  </{{NAME}}>
+);
+
+const generate{{NAME}}Code = (combo: {{NAME}}ShowcaseCombo): string => {
+  const propExpressions = [
+    combo.variant !== "primary" && `variant="${combo.variant}"`
+  ];
+
+  return generateCodeString("{{NAME}}", propExpressions, true);
+};
+
+const Showcase{{NAME}} = (): JSX.Element => {
+  return (
+    <ShowcaseComponent
+      title="{{NAME}}"
+      description="Documentation à faire"
+      propsData={{{LOWER_NAME}}Props}
+      usageExample={{{LOWER_NAME}}UsageExample}
+      params={{{UPPER_NAME}}_SHOWCASE_CONSTANTS}
+      renderPreview={render{{NAME}}Preview}
+      generateCode={generate{{NAME}}Code}
+    />
+  );
+};
+
+export default Showcase{{NAME}};

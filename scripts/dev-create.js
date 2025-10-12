@@ -3,7 +3,7 @@ import { info, error } from "./utils/colors.js";
 import { clearConsole } from "./utils/clearConsole.js";
 import { askName as askComponentName } from "./utils/askName.js";
 import { checkDirectoryExists } from "./utils/checkDirectoryExists.js";
-import { createComponent, createUI, createHook } from "./generators/createComponent.js";
+import { createComponent, createUI, createHook, createShowcase, createShowcaseData } from "./generators/createComponent.js";
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -49,10 +49,13 @@ async function run() {
       }
       case "ui": {
         const uiPath = "frontend/src/components/ui/";
-        
+        const uiShowcaseDataPath ="frontend/src/features/showcase/showcases/data/"
+        const uiShowcasePath ="frontend/src/features/showcase/showcases/"
         const componentUiName = await askName(uiPath);
         if (componentUiName) {
           await createUI(componentUiName, uiPath);
+          await createShowcaseData(componentUiName,uiShowcaseDataPath);
+          await createShowcase(componentUiName, uiShowcasePath);
         }
         return true;
       }
@@ -83,7 +86,7 @@ async function run() {
 async function main() {
   while (await run()) {
     console.log(info("Retour au menu..."));
-    await wait(500);
+    await wait(1500);
   }
 }
 

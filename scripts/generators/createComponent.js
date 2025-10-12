@@ -10,7 +10,7 @@ import { validateParams } from "./utils/validateParams.js";
 import { TYPES, FEATURE_FOLDERS } from "./types/types.js";
 
 export async function create(name, componentPath, type = "component") {
-  const basePath = path.join(componentPath, name);
+  const basePath = type === "showcase" ? componentPath : path.join(componentPath, name);
   const config = TYPES[type];
   const templates = TEMPLATE_CONFIGS[type];
   
@@ -64,7 +64,9 @@ export async function create(name, componentPath, type = "component") {
     return { name, type, path: basePath, files };
     
   } catch (err) {
-    try { await fs.rmdir(basePath, { recursive: true }); } catch {}
+    if (type !== "showcase") {
+      try { await fs.rmdir(basePath, { recursive: true }); } catch {}
+    }
     console.log(error(`❌ ${err.message}`));
     await waitForEnter();
     throw err;
@@ -76,6 +78,8 @@ const createFactory = (type) => (name, componentPath) => create(name, componentP
 
 export const createComponent = createFactory("component");
 export const createUI = createFactory("ui");
+export const createShowcaseData = createFactory("showcaseData");
+export const createShowcase = createFactory("showcase");
 export const createHook = createFactory("hook");
 export const createPage = createFactory("page");
 export const createFeature = createFactory("feature");
