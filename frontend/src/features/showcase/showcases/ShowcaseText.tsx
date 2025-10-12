@@ -4,6 +4,7 @@ import { ShowcaseComponent } from "../components";
 import { textProps, textUsageExample } from "./data/Text";
 import { TEXT_SHOWCASE_CONSTANTS } from "@/components/ui/Text/Text.types";
 import type { Combination } from "../utils/showcaseHelpers";
+import { generateCodeString } from "../utils";
 
 type TextShowcaseCombo = Combination<typeof TEXT_SHOWCASE_CONSTANTS>;
 
@@ -20,15 +21,15 @@ const renderTextPreview = (combo: TextShowcaseCombo): JSX.Element => (
 );
 
 const generateTextCode = (combo: TextShowcaseCombo): string => {
-  const props = [
+  const propExpressions = [
     `as="${combo.as}"`,
     `color="${combo.color}"`,
     `size="${combo.size}"`,
     `weight="${combo.weight}"`,
     `align="${combo.align}"`,
-  ].join(' ');
+  ];
 
-  return `<Text ${props}>\n  Example\n</Text>`;
+  return generateCodeString("Button", propExpressions, true);
 };
 
 const ShowcaseText = (): JSX.Element => {

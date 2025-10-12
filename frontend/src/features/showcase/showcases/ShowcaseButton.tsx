@@ -29,7 +29,7 @@ const generateButtonCode = (combo: ButtonShowcaseCombo): string => {
     combo.align !== "left" && `align="${combo.align}"`,
     combo.fullWidth && 'fullWidth',
     combo.disabled && 'disabled',
-  ]
+  ];
 
   return generateCodeString("Button", propExpressions, true);
 };

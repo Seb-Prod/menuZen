@@ -2,9 +2,7 @@
     display: inline;
 }
 
-/* ========================================
-   1. Couleurs (color)
-   ======================================== */
+/* Colors */
 
 .primary {
     color: var(--primary-text);
@@ -34,9 +32,7 @@
     color: var(--success-color);
 }
 
-/* ========================================
-   2. Alignement (align)
-   ======================================== */
+/* Alignement */
 
 .left {
     text-align: left;
@@ -57,9 +53,7 @@
     text-align: justify;
 }
 
-/* ========================================
-   3. Tailles (size)
-   ======================================== */
+/* Tailles */
 
 .xs {
     font-size: var(--font-size-xs);
@@ -86,9 +80,7 @@
     line-height: var(--line-height-relaxed);
 }
 
-/* ========================================
-   4. Poids (weight)
-   ======================================== */
+/* Poids */
 
 .weight-light {
     font-weight: var(--font-weight-light);
@@ -106,9 +98,7 @@
     font-weight: var(--font-weight-bold);
 }
 
-/* ========================================
-   5. Ajustements sémantiques (pour les balises)
-   ======================================== */
+/* Ajustements sémantiques */
 
 .Text[as="p"] {
     display: block;

@@ -6,7 +6,6 @@ import {
   TEXT_SIZES,
   TEXT_WEIGHTS,
 } from "@/components/ui/Text/Text.types";
-
 import { formatType } from "@/features/showcase/utils"; 
 
 export default [
