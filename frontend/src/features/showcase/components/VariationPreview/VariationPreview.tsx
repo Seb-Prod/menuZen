@@ -3,6 +3,7 @@ import styles from "./VariationPreview.module.css";
 import CodeBlock from "../CodeBlock";
 import { Heading, Text } from "@/components/ui";
 import type { Combination, Params } from "../../utils/showcaseHelpers";
+import Select from "@/components/ui/Select";
 
 type VariationPreviewProps<T extends Params> = {
     params: T;
@@ -33,14 +34,21 @@ const VariationPreview = <T extends Params>({
                     {Object.entries(params).map(([paramName, paramValues]) => (
                         <div key={paramName} className={styles.paramContainer}>
                             <Text>{paramName}</Text>
-                            <select
+                            <Select
+                                size="small"
+                                options={paramValues.map((value) => ({
+                                    value: String(value),
+                                    label: typeof value === 'boolean' 
+                                        ? (value ? 'true' : 'false') 
+                                        : String(value)
+                                }))}
                                 value={String(selectedParams[paramName])}
-                                onChange={(e) => {
-                                    let newValue: unknown = e.target.value;
+                                onChange={(newValueStr) => {
+                                    let newValue: unknown = newValueStr;
 
-                                    if (newValue === "true") {
+                                    if (newValueStr === "true") {
                                         newValue = true;
-                                    } else if (newValue === "false") {
+                                    } else if (newValueStr === "false") {
                                         newValue = false;
                                     }
 
@@ -49,16 +57,7 @@ const VariationPreview = <T extends Params>({
                                         [paramName]: newValue
                                     } as Combination<T>);
                                 }}
-                            >
-                                {paramValues.map((value) => (
-                                    <option
-                                        key={String(value)}
-                                        value={String(value)}
-                                    >
-                                        {typeof value === 'boolean' ? (value ? 'true' : 'false') : String(value)}
-                                    </option>
-                                ))}
-                            </select>
+                            />
                         </div>
                     ))}
                 </div>

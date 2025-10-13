@@ -1,10 +1,10 @@
 import { TABLE_SWOCASE_CONSTANTS } from "@/components/ui/Table/Table.types";
 import type { Combination } from "../utils/showcaseHelpers";
 import type { JSX } from "react";
-import { Table } from "@/components/ui/Table";
 import { generateCodeString } from "../utils";
 import { ShowcaseComponent } from "../components";
 import { tableProps, tableUsageExample } from "./data/Table";
+import Table from "@/components/ui/Table";
 
 type TableShowcaseCombo = Combination<typeof TABLE_SWOCASE_CONSTANTS>;
 

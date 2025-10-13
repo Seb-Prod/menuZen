@@ -1,0 +1,349 @@
+/* Container principal */
+.selectContainer {
+  position: relative;
+}
+
+.selectContainer[data-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.left{
+  margin-left:0;
+  margin-right: auto;
+}
+
+.right{
+  margin-left:auto;
+  margin-right: 0;
+}
+
+.center{
+  margin-left:auto;
+  margin-right: auto;
+}
+
+/* Bouton principal */
+.selectButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Tailles du bouton SELECT */
+.selectButton.small {
+  font: var(--button-text-small);
+  padding: 0.5rem 1rem; /* 8px 16px */
+}
+
+.selectButton.medium {
+  font: var(--button-text-medium);
+  padding: 0.75rem 1.5rem; /* 12px 24px */
+}
+
+.selectButton.large {
+  font: var(--button-text-large);
+  padding: 1rem 2rem; /* 16px 32px */
+}
+
+.selectButton:focus {
+  outline: 2px solid;
+  outline-offset: 2px;
+}
+
+.selectButton:disabled {
+  cursor: not-allowed;
+}
+
+/* --- Variantes de Couleur du Bouton --- */
+
+.selectButton.primary {
+  background: var(--primary-button);
+  color: var(--primary-button-text);
+  border-color: var(--primary-button-hover);
+}
+
+.selectButton.primary:hover:not(:disabled) {
+  background: var(--primary-button-hover);
+}
+
+.selectButton.primary:focus {
+  outline-color: var(--primary-button-hover);
+}
+
+.selectButton.secondary {
+  background: var(--secondary-button);
+  color: var(--secondary-button-text);
+  border-color: var(--secondary-button-hover);
+}
+
+.selectButton.secondary:hover:not(:disabled) {
+  background: var(--secondary-button-hover);
+}
+
+.selectButton.secondary:focus {
+  outline-color: var(--secondary-button-hover);
+}
+
+.selectButton.warning {
+  background: var(--warning-button);
+  color: var(--warning-button-text);
+  border-color: var(--warning-button-hover);
+}
+
+.selectButton.warning:hover:not(:disabled) {
+  background: var(--warning-button-hover);
+}
+
+.selectButton.warning:focus {
+  outline-color: var(--warning-button-hover);
+}
+
+.selectButton.neutral {
+  background: var(--neutral-button);
+  color: var(--neutral-button-text);
+  border-color: var(--neutral-button-hover);
+}
+
+.selectButton.neutral:hover:not(:disabled) {
+  background: var(--neutral-button-hover);
+}
+
+.selectButton.neutral:focus {
+  outline-color: var(--neutral-button-hover);
+}
+
+/* Texte du bouton */
+.selectText {
+  flex: 1;
+  text-align: left;
+}
+
+/* Icône (Harmonisation de la marge pour les différentes tailles) */
+.selectIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 0.75rem; 
+  transition: transform 0.2s ease-out;
+  flex-shrink: 0;
+}
+
+.selectButton.small .selectIcon {
+    width: 16px; 
+    height: 16px;
+    margin-left: 0.5rem;
+}
+
+.selectButton.medium .selectIcon {
+    width: 20px; 
+    height: 20px;
+    margin-left: 0.75rem;
+}
+
+.selectButton.large .selectIcon {
+    width: 24px;
+    height: 24px;
+    margin-left: 1rem;
+}
+
+.selectIcon.rotate {
+  transform: rotate(180deg);
+}
+
+/* --- Dropdown --- */
+.selectDropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  background: var(--primary-background);
+  border: 2px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideDown 0.2s ease-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Variantes de bordure du Dropdown */
+.selectDropdown.primaryDropdown {
+  border-color: var(--primary-button-hover);
+}
+
+.selectDropdown.secondaryDropdown {
+  border-color: var(--secondary-button-hover);
+}
+
+.selectDropdown.warningDropdown {
+  border-color: var(--warning-button-hover);
+}
+
+.selectDropdown.neutralDropdown {
+  border-color: var(--neutral-button-hover);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Liste */
+.selectList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Options: styles génériques (sans taille ni padding/font) */
+.selectOption {
+  cursor: pointer;
+  font-weight: 400;
+  color: var(--text);
+  transition: background 0.2s ease-out, color 0.2s ease-out;
+  border-top: 1px solid var(--border);
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.selectOption:first-child {
+  border-top: none;
+}
+
+/* Options désactivées */
+.selectOption.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Styles des Options spécifiques à la taille (CORRECTION) --- */
+
+.selectDropdown.smallDropdown .selectOption {
+  font: var(--button-text-small);
+  padding: 0.5rem 1rem; /* Aligné sur le bouton Small */
+}
+
+.selectDropdown.mediumDropdown .selectOption {
+  font: var(--button-text-medium);
+  padding: 0.75rem 1.5rem; /* Aligné sur le bouton Medium */
+}
+
+.selectDropdown.largeDropdown .selectOption {
+  font: var(--button-text-large);
+  padding: 1rem 2rem; /* Aligné sur le bouton Large */
+}
+
+/* --- Variantes des Options (Couleur et Focus) --- */
+
+.selectOption.primaryOption:hover:not(.disabled),
+.selectOption.primaryOption.focused:not(.disabled) {
+  background: var(--primary-button);
+  color: var(--primary-button-text);
+}
+
+.selectOption.primaryOption.selected {
+  background: var(--primary-button-hover);
+  color: var(--primary-button-text);
+  font-weight: 600;
+}
+
+.selectOption.secondaryOption:hover:not(.disabled),
+.selectOption.secondaryOption.focused:not(.disabled) {
+  background: var(--secondary-button);
+  color: var(--secondary-button-text);
+}
+
+.selectOption.secondaryOption.selected {
+  background: var(--secondary-button-hover);
+  color: var(--secondary-button-text);
+  font-weight: 600;
+}
+
+.selectOption.warningOption:hover:not(.disabled),
+.selectOption.warningOption.focused:not(.disabled) {
+  background: var(--warning-button);
+  color: var(--warning-button-text);
+}
+
+.selectOption.warningOption.selected {
+  background: var(--warning-button-hover);
+  color: var(--warning-button-text);
+  font-weight: 600;
+}
+
+.selectOption.neutralOption:hover:not(.disabled),
+.selectOption.neutralOption.focused:not(.disabled) {
+  background: var(--neutral-button);
+  color: var(--neutral-button-text);
+}
+
+.selectOption.neutralOption.selected {
+  background: var(--neutral-button-hover);
+  color: var(--neutral-button-text);
+  font-weight: 600;
+}
+
+/* Scrollbar personnalisée */
+.selectList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.selectList::-webkit-scrollbar-track {
+  background: var(--background-alt);
+}
+
+.selectList::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.selectList::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Scrollbar par variante de couleur */
+.primaryDropdown .selectList::-webkit-scrollbar-thumb {
+  background: var(--primary-button);
+}
+
+.primaryDropdown .selectList::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-button-hover);
+}
+
+.secondaryDropdown .selectList::-webkit-scrollbar-thumb {
+  background: var(--secondary-button);
+}
+
+.secondaryDropdown .selectList::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-button-hover);
+}
+
+.warningDropdown .selectList::-webkit-scrollbar-thumb {
+  background: var(--warning-button);
+}
+
+.warningDropdown .selectList::-webkit-scrollbar-thumb:hover {
+  background: var(--warning-button-hover);
+}
+
+.neutralDropdown .selectList::-webkit-scrollbar-thumb {
+  background: var(--neutral-button);
+}
+
+.neutralDropdown .selectList::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-button-hover);
+}

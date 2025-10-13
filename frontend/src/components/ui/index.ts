@@ -2,3 +2,5 @@ export { default as Button } from './Button';
 export { default as Spinner } from './Spinner';
 export { default as Heading } from './Heading';
 export { default as Text} from './Text';
+export { default as Table} from './Table';
+export { default as Seclect } from './Select';

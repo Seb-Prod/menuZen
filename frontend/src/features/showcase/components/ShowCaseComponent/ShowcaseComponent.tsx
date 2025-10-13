@@ -81,6 +81,7 @@ const ShowcaseComponent = <T extends Params>({
         <>
             <Heading variant={1}>{title}</Heading>
             <Text>{description}</Text>
+            <hr /> 
             <PropsTable props={propsData} />
             <VariationPreview 
                 params={params} 

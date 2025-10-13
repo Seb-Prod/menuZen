@@ -1,8 +1,7 @@
 import type { JSX } from "react";
 import styles from "./PropsTable.module.css";
 import type { PropInfo } from "../../types/propsInfo";
-import { Heading } from "@/components/ui";
-import { Table } from "@/components/ui/Table";
+import { Heading, Table } from "@/components/ui";
 
 type PropsTableProps = {
   props: readonly PropInfo[];
