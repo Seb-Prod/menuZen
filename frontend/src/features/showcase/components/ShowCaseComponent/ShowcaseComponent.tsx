@@ -21,7 +21,7 @@ type ShowcaseComponentProps<T extends Params> = {
     /** Exemple de code d'utilisation du composant */
     usageExample: string;
     /** Paramètres à combiner pour générer les variations (ex: { color: ["red", "blue"], size: ["sm", "lg"] }) */
-    params: T;
+    params?: T;
     /** Fonction de rendu qui reçoit une combinaison de paramètres et retourne le composant à prévisualiser */
     renderPreview: (combo: Combination<T>) => JSX.Element;
     /** Fonction pour générer le code correspondant au rendu. Si non fournie, une version par défaut sera utilisée. */
@@ -70,12 +70,14 @@ const ShowcaseComponent = <T extends Params>({
     renderPreview,
     generateCode,
 }: ShowcaseComponentProps<T>): JSX.Element => {
-    
-    const [selectedParams, setSelectedParams] = useState(
-        Object.fromEntries(
+    const initialParams = params 
+        ? (Object.fromEntries(
             Object.keys(params).map((key) => [key, params[key][0]])
-        ) as Combination<T>
-    );
+          ) as Combination<T>)
+        : ({} as Combination<T>);
+
+    const [selectedParams, setSelectedParams] = 
+        useState<Combination<T>>(initialParams);
 
     return (
         <>

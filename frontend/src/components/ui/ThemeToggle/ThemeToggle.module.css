@@ -1,0 +1,89 @@
+/* ThemeToggle.module.css — version simplifiée et nettoyée */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.switchWrapper {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 10px;
+  
+}
+
+/* Label et structure générale */
+.label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  padding: 10px;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+/* Cache le vrai input checkbox */
+.input {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Piste du toggle */
+.toggle {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  border-radius: 15px;
+  background: var(--toggle-off, #ccc);
+  transition: background-color 0.3s ease;
+}
+
+/* Bulle du toggle */
+.circle {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 24px;
+  height: 24px;
+  background: var(--circle-color, #fff);
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* État "checked" (mode forcé actif) */
+.input:checked + .toggle {
+  background: var(--toggle-on, #4f46e5);
+}
+
+.input:checked + .toggle .circle {
+  transform: translateX(24px);
+}
+
+/* 🎨 Indication visuelle du thème forcé clair */
+.toggle[data-forced-theme='light'] {
+  --toggle-on: var(--light-track, #facc15);
+}
+.toggle[data-forced-theme='light'] .circle {
+  --circle-color: var(--dark-contrast, #374151);
+}
+
+/* 🌙 Indication visuelle du thème forcé sombre */
+.toggle[data-forced-theme='dark'] {
+  --toggle-on: var(--dark-track, #1f2937);
+}
+.toggle[data-forced-theme='dark'] .circle {
+  --circle-color: var(--light-contrast, #f3f4f6);
+}
+
+/* Accessibilité : focus visible */
+.input:focus + .toggle {
+  outline: 2px solid var(--focus-color, #3b82f6);
+  outline-offset: 2px;
+}
+
+.input:focus:not(:focus-visible) + .toggle {
+  outline: none;
+}

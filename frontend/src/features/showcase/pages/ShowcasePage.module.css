@@ -12,10 +12,8 @@
   height: 100vh;
 }
 
-.sidebarTitle {
-  font: var(--text-large);
-  color: var(--primary-text);
-}
+
+
 
 .list {
   list-style: none;
