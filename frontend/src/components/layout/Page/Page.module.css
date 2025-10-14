@@ -1,0 +1,12 @@
+.page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--primary--background);
+}
+
+.main {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
