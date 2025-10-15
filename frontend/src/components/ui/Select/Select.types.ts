@@ -69,7 +69,7 @@ export type SelectProps = {
  * Valeur par défaut pour les propriétés du composant Table.
  */
 export const SELECT_DEFAULTS = {
-    variant: "primary" as SelectVariant,
+    variant: "neutral" as SelectVariant,
     size:"medium" as SelectSize,
     align:"left" as SelectAlign,
     placeholder: 'Sélectionnez une option',

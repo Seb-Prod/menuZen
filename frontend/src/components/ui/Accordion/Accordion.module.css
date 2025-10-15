@@ -1,3 +1,5 @@
-.root {
-  background: red;
+.accordion{
+  display: flex;
+  flex-direction: column;
+  gap:5px;
 }

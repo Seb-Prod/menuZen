@@ -1,0 +1,24 @@
+.sectionHeader{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+}
+
+.sectionContent {
+  padding-left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+}
+
+.icon {
+  /* Par exemple, si vous voulez éviter qu'il ne se réduise */
+  flex-shrink: 0; 
+  margin-left: 10px; /* Un peu d'espace si le label est très long */
+}

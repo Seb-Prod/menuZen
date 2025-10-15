@@ -1,10 +1,10 @@
-import Accordion from "@/components/ui/Accordion";
 import { ShowcaseComponent } from "../components";
 import type { JSX } from "react";
 import type { Combination } from "../utils/showcaseHelpers";
 import { ACCORDION_SHOWCASE_CONSTANTS } from '@/components/ui/Accordion/Accordion.types';
 import { accordionProps, accordionUsageExample } from "./data/Accordion";
 import { generateCodeString } from "../utils";
+import { Accordion } from "@/components/ui/Accordion";
 
 type AccordionShowcaseCombo = Combination<typeof ACCORDION_SHOWCASE_CONSTANTS>;
 
