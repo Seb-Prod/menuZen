@@ -1,0 +1,6 @@
+.aside {
+    padding: 12px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 100vh;
+}

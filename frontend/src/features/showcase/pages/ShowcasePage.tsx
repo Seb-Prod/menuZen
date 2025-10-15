@@ -2,7 +2,7 @@ import { useState, lazy, Suspense, type JSX } from "react";
 import styles from "./ShowcasePage.module.css";
 import Spinner from "@/components/ui/Spinner";
 import { Heading, ThemeToggle } from "@/components/ui";
-import Page from "@/components/layout/Page";
+import { Page, SideBar } from "@/components/layout";
 
 // Importation dynamique de tous les fichiers Showcase*.tsx dans le dossier showcases
 const showcaseModules = import.meta.glob("../showcases/Showcase*.tsx");
@@ -28,24 +28,23 @@ const ShowcasePage = (): JSX.Element => {
     return (
         <Page>
             <div className={styles.container}>
-                {/* Sidebar */}
-                <aside className={styles.sidebar}>
-                    <ThemeToggle />
-                    <Heading variant={3}>Composant ui</Heading>
-                    <ul className={styles.list}>
-                        {showcaseNames.map((name) => (
-                            <li key={name}>
-                                <button
-                                    onClick={() => setSelected(name)}
-                                    className={`${styles.listItem} ${selected === name ? styles.active : ""
-                                        }`}
-                                >
-                                    {name}
-                                </button>
-                            </li>
-                        ))}
-                    </ul>
-                </aside>
+                <SideBar>
+                        <ThemeToggle />
+                        <Heading variant={3}>Composant ui</Heading>
+                        <ul className={styles.list}>
+                            {showcaseNames.map((name) => (
+                                <li key={name}>
+                                    <button
+                                        onClick={() => setSelected(name)}
+                                        className={`${styles.listItem} ${selected === name ? styles.active : ""
+                                            }`}
+                                    >
+                                        {name}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                </SideBar>
 
                 {/* Zone principale */}
                 <main className={styles.main}>
