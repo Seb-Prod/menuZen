@@ -3,9 +3,9 @@
  * @module components/ui/Accordion
  */
 
-import styles from "./Accordion.module.css";
-import { ACCORDION_DEFAULTS, type AccordionProps } from './Accordion.types';
-import { AccordionContext } from "./Accordion.context";
+import styles from "./styles/Accordion.module.css";
+import { ACCORDION_DEFAULTS, type AccordionProps } from './types/Accordion.types';
+import { AccordionContext } from "./context/Accordion.context";
 import type { JSX } from "react";
 
 /**

@@ -4,23 +4,23 @@
  */
 
 :root {
-    /* ========================================
-     Couleurs de marque
-     ======================================== */
+    /* Couleurs de marque */
     --primary-color: #009B4D;
     --secondary-color: #FFCC00;
     --tertiary-color: #FAF5E9;
 
-    /* Versions RGB pour la transparence */
-    --primary-rgb: 0, 155, 77;
-    --secondary-rgb: 255, 204, 0;
-    --tertiary-rgb: 250, 245, 233;
-
-    /* ========================================
-     Couleurs de fond
-     ======================================== */
+    /* Couleurs de fond */
     --primary-background: #F9F5EA;
     --secondary-background: #F8ECD1;
+
+    /* Texte */
+    --primary-text: #123308;
+    --secondary-text: #F7CE46;
+    --disabled-text: #A3A3A3;
+    --success-text: #2E7D32;
+    --error-text: #D32F2F;
+    --info-text: #0288D1;
+    --neutral-text: #6B6B6B;
 
     /* ========================================
      Boutons - États normaux
@@ -44,14 +44,7 @@
     --neutral-button-text: #1F1E1D;
     --neutral-button-hover: #b1b1b1;
 
-    /* ========================================
-     Texte
-     ======================================== */
-    --primary-text: #123308;
-    --secondary-text: #F7CE46;
-    --dark-text: #212721;
-    --light-text: #F8ECD1;
-    --disabled-text: #A3A3A3;
+
 
     /* ========================================
      Couleurs neutres
@@ -113,8 +106,12 @@
 
     /* Texte */
     --primary-text: #F8ECD1;
-    --dark-text: #F9F5EA;
-    --light-text: #212721;
+    --secondary-text: #F7CE46;
+    --disabled-text: #6F6F6F;
+    --success-text: #A5D6A7;
+    --error-text: #EF9A9A;
+    --info-text: #81D4FA;
+    --neutral-text: #B0B0B0;
 
     /* Boutons */
     --primary-button: #00C060;
@@ -168,14 +165,18 @@
 
 * {
     transition: background-color var(--transition-speed) ease,
-                color var(--transition-speed) ease,
-                border-color var(--transition-speed) ease;
+        color var(--transition-speed) ease,
+        border-color var(--transition-speed) ease;
 }
 
 /* Transitions plus rapides pour les interactions */
-button, a, input, select, textarea {
+button,
+a,
+input,
+select,
+textarea {
     transition: background-color 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease,
-                transform 0.1s ease;
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.1s ease;
 }

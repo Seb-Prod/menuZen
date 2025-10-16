@@ -4,8 +4,8 @@
  */
 
 import { useState, type JSX } from "react";
-import styles from "./AccordionSection.module.css";
-import { ACCORDION_SECTION_DEFAULTS, type AccordionSectionProps } from "./Accordion.types";
+import styles from "./styles/AccordionSection.module.css";
+import { ACCORDION_SECTION_DEFAULTS, type AccordionSectionProps } from "./types/Accordion.types";
 
 /**
  * Composant AccordionSection - Une section complète avec bascule (toggle) et contenu.
@@ -39,7 +39,7 @@ import { ACCORDION_SECTION_DEFAULTS, type AccordionSectionProps } from "./Accord
  * </AccordionSection>
  */
 const AccordionSection = ({ 
-    label=ACCORDION_SECTION_DEFAULTS.label, 
+    title=ACCORDION_SECTION_DEFAULTS.title, 
     defaultOpen=ACCORDION_SECTION_DEFAULTS.defaultOpen, 
     children, 
     onClick, 
@@ -65,7 +65,7 @@ const AccordionSection = ({
         onClick={handleToggle}
         type="button"
       >
-        <span className={styles.label}>{label}</span>
+        <span className={styles.label}>{title}</span>
         <span className={styles.icon}>{isOpen ? '▼' : '▶'}</span>
       </button>
       

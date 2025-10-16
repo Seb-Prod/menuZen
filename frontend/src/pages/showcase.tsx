@@ -1,2 +1,2 @@
-import ShowcasePage from "@/features/showcase/pages/ShowcasePage";
+import ShowcasePage from "@/features/documentation/pages/ShowcasePage";
 export default ShowcasePage;
