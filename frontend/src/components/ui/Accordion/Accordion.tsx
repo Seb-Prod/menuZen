@@ -31,9 +31,13 @@ import type { JSX } from "react";
  * <AccordionItem title="Option 2" />
  * </Accordion>
  */
-const Accordion = ({ variant = ACCORDION_DEFAULTS.variant, children }: AccordionProps): JSX.Element => {
+const Accordion = ({
+  variant = ACCORDION_DEFAULTS.variant,
+  size = ACCORDION_DEFAULTS.size,
+  textStyle = ACCORDION_DEFAULTS.textStyle,
+  children }: AccordionProps): JSX.Element => {
   return (
-    <AccordionContext.Provider value={{ variant}}>
+    <AccordionContext.Provider value={{ variant, size, textStyle }}>
       <div className={styles.accordion}>
         {children}
       </div>

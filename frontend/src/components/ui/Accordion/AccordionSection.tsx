@@ -6,6 +6,8 @@
 import { useState, type JSX } from "react";
 import styles from "./styles/AccordionSection.module.css";
 import { ACCORDION_SECTION_DEFAULTS, type AccordionSectionProps } from "./types/Accordion.types";
+import ChevronIcon from "../ChevronIcon";
+import { useAccordion } from "./context/Accordion.context";
 
 /**
  * Composant AccordionSection - Une section complète avec bascule (toggle) et contenu.
@@ -38,37 +40,44 @@ import { ACCORDION_SECTION_DEFAULTS, type AccordionSectionProps } from "./types/
  * <p>Contenu textuel simple</p>
  * </AccordionSection>
  */
-const AccordionSection = ({ 
-    title=ACCORDION_SECTION_DEFAULTS.title, 
-    defaultOpen=ACCORDION_SECTION_DEFAULTS.defaultOpen, 
-    children, 
-    onClick, 
-    isActive = false,
+const AccordionSection = ({
+  title = ACCORDION_SECTION_DEFAULTS.title,
+  defaultOpen = ACCORDION_SECTION_DEFAULTS.defaultOpen,
+  children,
+  onClick,
+  isActive = false,
 }: AccordionSectionProps): JSX.Element => {
+  const { size, textStyle } = useAccordion();
   const [isOpen, setIsOpen] = useState(defaultOpen);
-  
+
   // Fonction qui gère à la fois l'état interne et l'action externe
   const handleToggle = () => {
-      // Gère l'état d'ouverture/fermeture
-      setIsOpen(!isOpen); 
+    // Gère l'état d'ouverture/fermeture
+    setIsOpen(!isOpen);
 
-      // Exécute la fonction externe si elle est fournie
-      if (onClick) {
-          onClick();
-      }
+    // Exécute la fonction externe si elle est fournie
+    if (onClick) {
+      onClick();
+    }
   };
 
   return (
     <div className={`${styles.accordionSection} ${isActive ? styles.activeSection : ''}`}>
-      <button 
-        className={`${styles.sectionHeader} ${isOpen ? styles.open : ''} ${isActive ? styles.active : ''}`}
+      <button
+        className={`
+          ${styles.sectionHeader} 
+          ${isOpen ? styles.open : ''} 
+          ${isActive ? styles.active : ''} 
+          ${styles[size]}
+          ${styles[textStyle]}
+          `}
         onClick={handleToggle}
         type="button"
       >
         <span className={styles.label}>{title}</span>
-        <span className={styles.icon}>{isOpen ? '▼' : '▶'}</span>
+        <ChevronIcon isOpen={isOpen} />
       </button>
-      
+
       {isOpen && (
         <div className={styles.sectionContent}>
           {children}

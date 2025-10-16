@@ -1,4 +1,4 @@
-.item{
+.item {
   width: 100%;
   padding: 0.75rem 1rem;
   text-align: left;
@@ -9,29 +9,58 @@
   border-radius: 8px;
 }
 
-.primary.active{
-  border-left: solid 4px var(--primary-button);
-   background: color-mix(in srgb, var(--primary-button) 20%, transparent);
+.text-primary {
+  color: var(--primary-text);
 }
 
-.primary:hover:not(.active){
-  background: color-mix(in srgb, var(--primary-button) 30%, transparent);
+.text-secondary {
+  color: var(--secondary-text)
 }
 
-.secondary.active{
-  border-left: solid 4px var(--secondary-button);
-   background: color-mix(in srgb, var(--secondary-button) 20%, transparent);
+.text-neutral {
+  color: var(--neutral-text)
 }
 
-.warning.active{
+.text-error {
+  color: var(--error-text)
+}
+
+.text-success {
+  color: var(--success-text)
+}
+
+.text-info {
+  color: var(--info-text)
+}
+
+.primary.active {
+  border-left: solid 4px var(--color-primary-border);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+}
+
+.primary:hover:not(.active) {
+  background: var(--color-primary-hover);
+  color: var(--color-primary-text);
+}
+
+.secondary.active {
+  border-left: solid 4px var(--color-secondary-border);
+  background: var(--color-secondary);
+  color: var(--color-secondary-text)
+}
+
+.secondary:hover:not(.active){
+  background: var(--color-secondary-hover);
+  color: var(--color-secondary-text);
+}
+
+.warning.active {
   border-left: solid 4px var(--warning-button);
-   background: color-mix(in srgb, var(--warning-button) 20%, transparent);
+  background: color-mix(in srgb, var(--warning-button) 20%, transparent);
 }
 
-.neutral.active{
+.neutral.active {
   border-left: solid 4px var(--neutral-button);
-   background: color-mix(in srgb, var(--neutral-button) 20%, transparent);
+  background: color-mix(in srgb, var(--neutral-button) 20%, transparent);
 }
-
-
-

@@ -38,10 +38,15 @@ const AccordionButton = ({
     onClick, 
     isActive 
 }: AccordionButtonProps): JSX.Element => {
-  const {variant} = useAccordion();
+  const {variant,textStyle} = useAccordion();
   return (
     <button 
-      className={`${styles.item} ${styles[variant]} ${isActive ? styles.active : ''}`}
+      className={[
+        styles.item,
+        styles[variant],
+        styles[`text-${textStyle}`],
+        isActive ? styles.active : "",
+      ].join(" ")}
       onClick={onClick}
       type="button"
     >

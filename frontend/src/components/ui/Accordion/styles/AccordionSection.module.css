@@ -1,6 +1,7 @@
 .sectionHeader{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 0.75rem 1rem;
     text-align: left;
@@ -17,8 +18,40 @@
   gap:5px;
 }
 
-.icon {
-  /* Par exemple, si vous voulez éviter qu'il ne se réduise */
-  flex-shrink: 0; 
-  margin-left: 10px; /* Un peu d'espace si le label est très long */
+/* Tailes */
+
+.small{
+  font: var(--heading-5);
+}
+
+.medium{
+  font: var(--heading-4);
+}
+
+.large{
+  font: var(--heading-3);
+}
+
+/* Couleur */
+.primary{
+    color:var(--primary-text);
+}
+
+.secondary{
+    color:var(--secondary-text);
+}
+.disabled{
+    color:var(--disabled-text);
+}
+.success{
+    color:var(--success-text);
+}
+.error{
+    color:var(--error-text);
+}
+.info{
+    color:var(--info-text);
+}
+.neutral{
+    color:var(--neutral-text);
 }

@@ -156,9 +156,9 @@ const ShowcasePage = (): JSX.Element => {
             <div className={styles.container}>
                 <SideBar>
                     <ThemeToggle />
-                    <Accordion variant="primary">
+                    <Accordion textStyle="primary" variant="error">
                         <AccordionSection 
-                            title="Design System (Thème, Couleurs)" 
+                            title="Design System" 
                             defaultOpen={false}
                             onClick={() => handleSectionClick(SECTION_THEME)}
                             isActive={selected === SECTION_THEME}

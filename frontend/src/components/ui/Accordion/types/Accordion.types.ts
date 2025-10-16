@@ -6,7 +6,9 @@ import type { ReactElement } from 'react';
 export const ACCORDION_VARIANTS = [
     "primary",
     "secondary",
-    "warning",
+    "error",
+    "success",
+    "info",
     "neutral"
 ] as const;
 
@@ -19,9 +21,22 @@ export const ACCORDION_SIZES = [
     "large"
 ] as const;
 
+/**
+ * Définit les couleur du texte.
+ */
+export const ACCORDION_TEXT_COLORS = [
+    "primary",
+    "secondary",
+    "error",
+    "success",
+    "info",
+    "neutral"
+] as const;
+
 // Types inférés
 export type AccordionVariant = typeof ACCORDION_VARIANTS[number];
 export type AccordionSize = typeof ACCORDION_SIZES[number];
+export type AccordionTextStyle = typeof ACCORDION_TEXT_COLORS[number];
 
 /**
  * Valeur du contexte Accordion - paramètres partagés
@@ -29,6 +44,7 @@ export type AccordionSize = typeof ACCORDION_SIZES[number];
 export interface AccordionContextValue {
     variant: AccordionVariant;
     size: AccordionSize;
+    textStyle:AccordionTextStyle;
     // Ajoutez ici tous les paramètres partagés futurs
 }
 
@@ -83,6 +99,7 @@ export const ACCORDION_SECTION_DEFAULTS = {
 export type AccordionProps = {
     variant?: AccordionVariant;
     size?: AccordionSize;
+    textStyle?:AccordionTextStyle;
     children:
     | ReactElement<AccordionButtonProps>
     | ReactElement<AccordionButtonProps>[]
@@ -96,7 +113,8 @@ export type AccordionProps = {
  */
 export const ACCORDION_DEFAULTS = {
     variant: "primary" as AccordionVariant,
-    size: "medium" as AccordionSize
+    size: "medium" as AccordionSize,
+    textStyle: "primary" as AccordionTextStyle
 } satisfies Partial<AccordionProps>
 
 /**

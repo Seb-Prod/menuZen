@@ -1,0 +1,5 @@
+.component-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
+  border: 2px solid var(--color-primary-border);
+}
