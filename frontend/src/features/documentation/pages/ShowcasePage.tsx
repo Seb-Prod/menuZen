@@ -156,7 +156,7 @@ const ShowcasePage = (): JSX.Element => {
             <div className={styles.container}>
                 <SideBar>
                     <ThemeToggle />
-                    <Accordion textStyle="primary" variant="error">
+                    <Accordion textStyle="info" variant="primary" size="small">
                         <AccordionSection 
                             title="Design System" 
                             defaultOpen={false}

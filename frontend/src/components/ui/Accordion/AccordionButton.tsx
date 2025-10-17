@@ -33,19 +33,21 @@ import { ACCORDION_BUTTON_DEFAULTS, type AccordionButtonProps } from "./types/Ac
  * isActive={true}
  * />
  */
-const AccordionButton = ({ 
-    title=ACCORDION_BUTTON_DEFAULTS.title, 
-    onClick, 
-    isActive 
+const AccordionButton = ({
+  title = ACCORDION_BUTTON_DEFAULTS.title,
+  onClick,
+  isActive
 }: AccordionButtonProps): JSX.Element => {
-  const {variant,textStyle} = useAccordion();
+  const { variant, textStyle, size } = useAccordion();
   return (
-    <button 
+    <button
       className={[
         styles.item,
-        styles[variant],
-        styles[`text-${textStyle}`],
-        isActive ? styles.active : "",
+        `component-${variant}`,
+        `component-${size}`,
+        'transparent',
+        `text-${textStyle}`,
+        isActive ? ' active' : '',
       ].join(" ")}
       onClick={onClick}
       type="button"

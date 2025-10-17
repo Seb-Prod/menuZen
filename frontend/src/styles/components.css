@@ -1,5 +1,146 @@
+/**
+ * Classes utilitaires globales pour les composants
+ * Ces classes peuvent être utilisées dans tous les composants de l'application
+ * pour assurer une cohérence visuelle et éviter la répétition de code
+ */
+
+/* ========================================
+   VARIANTS DE COMPOSANTS
+   ======================================== */
+
 .component-primary {
-  background-color: var(--color-primary);
-  color: var(--color-primary-text);
-  border: 2px solid var(--color-primary-border);
+    --bg: var(--color-primary);
+    --text: var(--color-primary-text);
+    --bg-hover: var(--color-primary-hover);
+    --border: var(--color-primary-border);
+}
+
+.component-secondary {
+    --bg: var(--color-secondary);
+    --text: var(--color-secondary-text);
+    --bg-hover: var(--color-secondary-hover);
+    --border: var(--color-secondary-border);
+}
+
+.component-error {
+    --bg: var(--color-error);
+    --text: var(--color-error-text);
+    --bg-hover: var(--color-error-hover);
+    --border: var(--color-error-border);
+}
+
+.component-success {
+    --bg: var(--color-success);
+    --text: var(--color-success-text);
+    --bg-hover: var(--color-success-hover);
+    --border: var(--color-success-border);
+}
+
+.component-info {
+    --bg: var(--color-info);
+    --text: var(--color-info-text);
+    --bg-hover: var(--color-info-hover);
+    --border: var(--color-info-border);
+}
+
+.component-neutral {
+    --bg: var(--color-neutral);
+    --text: var(--color-neutral-text);
+    --bg-hover: var(--color-neutral-hover);
+    --border: var(--color-neutral-border);
+}
+
+/* ========================================
+   TAILLES DE COMPOSANTS
+   ======================================== */
+
+.component-small {
+    --size-padding: 0.5rem 1rem;
+    --size-font: 0.875rem;
+    --size-height: 2rem;
+}
+
+.component-medium {
+    --size-padding: 0.75rem 1.5rem;
+    --size-font: 1rem;
+    --size-height: 2.5rem;
+}
+
+.component-large {
+    --size-padding: 1rem 2rem;
+    --size-font: 1.125rem;
+    --size-height: 3rem;
+}
+
+/* ========================================
+   ALIGNEMENTS DE COMPOSANTS
+   ======================================== */
+
+.component-left {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.component-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.component-right {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.component-fullwidth {
+    width: 100%;
+    display: flex;
+    
+    /* Annule l'alignement si fullWidth */
+    &.component-left,
+    &.component-center,
+    &.component-right {
+        margin: 0;
+    }
+}
+
+/* Styles communs à tous les variants */
+[class^="component-"],
+[class*=" component-"] {
+    background-color: var(--bg);
+    color: var(--text);
+
+    &.transparent {
+        background-color: transparent;
+        color: inherit;
+    }
+
+    &:hover:not(:disabled) {
+        background-color: var(--bg-hover);
+        color: var(--text);
+    }
+
+    &.active {
+        border-left: solid 4px var(--border);
+        background: var(--bg);
+        color: var(--text);
+    }
+
+    /* État disabled */
+    &:disabled,
+    &.component-disabled {
+        background-color: var(--color-disabled);
+        color: var(--color-disabled-text);
+        border-color: var(--color-disabled);
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    /* Application des tailles */
+    &.component-small,
+    &.component-medium,
+    &.component-large {
+        padding: var(--size-padding);
+        font-size: var(--size-font);
+        min-height: var(--size-height);
+    }
 }

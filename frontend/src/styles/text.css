@@ -1,0 +1,28 @@
+/* ========================================
+   VARIANTS DE TEXTE
+   ======================================== */
+
+/* === couleurs === */
+.text-primary {
+    color: var(--primary-text);
+}
+
+.text-secondary {
+    color: var(--secondary-text);
+}
+
+.text-neutral {
+    color: var(--neutral-text);
+}
+
+.text-error {
+    color: var(--error-text);
+}
+
+.text-success {
+    color: var(--success-text);
+}
+
+.text-info {
+    color: var(--info-text);
+}

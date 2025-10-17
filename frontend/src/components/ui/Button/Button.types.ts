@@ -6,7 +6,9 @@ import type { ReactNode, ButtonHTMLAttributes } from 'react';
 export const BUTTON_VARIANTS = [
     "primary",
     "secondary",
-    "warning",
+    "error",
+    "success",
+    "info",
     "neutral"
 ] as const;
 

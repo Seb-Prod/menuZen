@@ -64,9 +64,9 @@ const Button = ({
 }: ButtonProps): JSX.Element => {
   const classes = [
     styles.button,
-    styles[variant],
-    styles[size],
-    styles[align],
+    `component-${variant}`,
+    `component-${size}`,
+    `component-${align}`,
     fullWidth && styles.fullWidth,
     className
   ].filter(Boolean).join(" ");
