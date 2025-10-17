@@ -9,13 +9,13 @@ import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
 
 /**
  * Composant Button - Bouton réutilisable et personnalisable.
- * 
- * Supporte différentes variantes (couleurs), tailles et alignements
+ * * Supporte différentes variantes (couleurs), tailles et alignements
  * dans son conteneur, ainsi que toutes les propriétés natives de HTMLButtonElement.
- * 
- * @component
- * 
- * @param {ButtonProps} props - Les propriétés du composant.
+ * * @component
+ * @version 1.1.0
+ * @since 2025-10-17
+ * @author Seb-Prod
+ * * @param {ButtonProps} props - Les propriétés du composant.
  * @param {React.ReactNode} [props.children] - Contenu à afficher dans le bouton (texte, icône, etc.).
  * @param {ButtonVariant} [props.variant='primary'] - Schéma de couleur du bouton (primary, secondary, warning, neutral).
  * @param {ButtonSize} [props.size='medium'] - Taille prédéfinie du bouton (small, medium, large).
@@ -24,10 +24,11 @@ import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
  * @param {ButtonAlign} [props.align='left'] - Position horizontale du bouton dans son conteneur (left, center, right).
  * @param {boolean} [props.disabled=false] - Si vrai, désactive le bouton.
  * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
- * 
- * Les types détaillés sont définis dans {@link ButtonProps}.
- * 
- * @example
+ * * Les types détaillés sont définis dans {@link ButtonProps}.
+ * * @returns {JSX.Element} L'élément bouton React (JSX). // 👈 Ajout
+ * * @see {@link ButtonProps}
+ * @see {@link BUTTON_DEFAULTS}
+ * * @example
  * // Bouton simple avec gestionnaire de clic
  * <Button onClick={() => console.log('Cliqué!')}>
  *   Valider
@@ -67,7 +68,7 @@ const Button = ({
     `component-${variant}`,
     `component-${size}`,
     `component-${align}`,
-    fullWidth && styles.fullWidth,
+    fullWidth && 'component-fullwidth',
     className
   ].filter(Boolean).join(" ");
   
