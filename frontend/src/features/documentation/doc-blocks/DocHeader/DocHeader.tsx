@@ -1,7 +1,7 @@
-// DocHeader.tsx
-import { Heading, Text } from "@/components/ui";
+import { Heading } from "@/components/ui";
 import type { JSX } from "react";
 import styles from './DocHeader.module.css';
+import ReactMarkdown from 'react-markdown';
 
 export type DocHeaderProps = {
     title: string;
@@ -12,7 +12,7 @@ const DocHeader = ({ title, description }: DocHeaderProps): JSX.Element => {
     return (
         <header className={styles.header}>
             <Heading variant={1}>{title}</Heading>
-            {description && <Text className={styles.description}>{description}</Text>}
+            {description && <ReactMarkdown>{description}</ReactMarkdown>}
         </header>
     );
 }

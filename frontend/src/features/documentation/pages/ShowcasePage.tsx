@@ -3,7 +3,7 @@ import styles from "./ShowcasePage.module.css";
 import Spinner from "@/components/ui/Spinner";
 import { ThemeToggle } from "@/components/ui";
 import { Page, SideBar } from "@/components/layout";
-import { Accordion, AccordionButton, AccordionSection } from "@/components/ui/Accordion";
+import { Accordion, AccordionItem, AccordionSection } from "@/components/ui/Accordion";
 
 // Importation dynamique de tous les fichiers Showcase*.tsx dans le dossier showcases
 const showcaseModules = import.meta.glob("../showcases/Showcase*.tsx");
@@ -156,26 +156,25 @@ const ShowcasePage = (): JSX.Element => {
             <div className={styles.container}>
                 <SideBar>
                     <ThemeToggle />
-                    <Accordion textStyle="info" variant="primary" size="small">
+                    <Accordion variant="info" size="small" chevronIcon="dots" itemVariant="secondary">
                         <AccordionSection 
-                            title="Design System" 
+                            label="Design System" 
+                            size="large"
                             defaultOpen={false}
                             onClick={() => handleSectionClick(SECTION_THEME)}
-                            isActive={selected === SECTION_THEME}
                         >
-                            <AccordionButton title="Couleurs & Typo" onClick={() => handleSectionClick(SECTION_THEME)} isActive={selected === SECTION_THEME} />
+                            <AccordionItem label="Couleurs & Typo" onClick={() => handleSectionClick(SECTION_THEME)} isActive={selected === SECTION_THEME} />
                         </AccordionSection>
 
                         {/* SECTION : Composants UI */}
                         <AccordionSection 
-                            title="Composants UI" 
+                            label="Composants UI" 
                             defaultOpen={true}
                             onClick={() => handleSectionClick(SECTION_UI)}
-                            isActive={selected === SECTION_UI}
                         >
                             {showcaseNames.map((name) => (
-                                <AccordionButton
-                                    title={name}
+                                <AccordionItem
+                                    label={name}
                                     key={name}
                                     onClick={() => setSelected(name)}
                                     isActive={selected === name}
@@ -185,12 +184,11 @@ const ShowcasePage = (): JSX.Element => {
 
                         {/* SECTION : Layouts / Projets */}
                         <AccordionSection 
-                            title="Composants Layout"
+                            label="Composants Layout"
                             onClick={() => handleSectionClick(SECTION_PROJECTS)}
-                            isActive={selected === SECTION_PROJECTS}
                         >
-                            <AccordionButton title="Structure de Page" onClick={() => handleSectionClick(SECTION_PROJECTS)} isActive={selected === SECTION_PROJECTS} />
-                            <AccordionButton title="Projet 1 (Exemple)" />
+                            <AccordionItem label="Structure de Page" onClick={() => handleSectionClick(SECTION_PROJECTS)} isActive={selected === SECTION_PROJECTS} />
+                            <AccordionItem label="Projet 1 (Exemple)" itemVariant="info" size="large"/>
                         </AccordionSection>
                         
                     </Accordion>

@@ -1,19 +1,22 @@
 import type { JSX } from "react";
-import styles from "./PropsTable.module.css";
+import styles from "./DocProps.module.css";
+import stylesMarkdown from "../ReactMarkdown.module.css";
 import type { PropInfo } from "../../types/propsInfo";
-import { Heading, Table, Text} from "@/components/ui";
+import { Table, Text } from "@/components/ui";
+import ReactMarkdown from "react-markdown";
 
 type PropsTableProps = {
+  description?: string;
   props: readonly PropInfo[];
 };
 
-const PropsTable =({ props }: PropsTableProps): JSX.Element =>{
-  const headers = ['Nom','Type', 'Description', 'Requis', 'Default'];
+const DocProps = ({ props, description }: PropsTableProps): JSX.Element => {
+  const headers = ['Nom', 'Type', 'Description', 'Requis', 'Default'];
 
   const data = props.map((prop) => [
     <code>{prop.name}</code>,
     <code>{prop.type}</code>,
-    prop.description,
+    <ReactMarkdown>{prop.description}</ReactMarkdown>,
     prop.required ? "✅" : "❌",
     prop.default ? <code>{prop.default}</code> : "-",
   ]);
@@ -22,16 +25,18 @@ const PropsTable =({ props }: PropsTableProps): JSX.Element =>{
 
   return (
     <div className={styles.container}>
-      <Heading variant={3}>Props</Heading>
+      {description ? (
+        <div className={stylesMarkdown.stylesMarkdown}>
+          <ReactMarkdown>{description}</ReactMarkdown>
+        </div>
+      ) : ""}
       {showTable ? (
-        // Affiche la table si 'data' contient des éléments
         <Table headers={headers} data={data} className={styles.table} />
       ) : (
-        // Affiche un message alternatif si 'data' est vide ou null/undefined
         <Text>Aucune propriété n'est disponible pour ce composant.</Text>
       )}
     </div>
   );
 }
 
-export default PropsTable;
+export default DocProps;

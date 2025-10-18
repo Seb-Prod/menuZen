@@ -26,3 +26,28 @@
 .text-info {
     color: var(--info-text);
 }
+
+/* === Tailles === */
+.text-small{
+    font:var(--text-body-small);
+}
+
+.text-medium{
+    font:var(--text-body-medium);
+}
+
+.text-large{
+    font:var(--text-body-large);
+}
+
+.title-small{
+    font:var(--heading-5)
+}
+
+.title-medium{
+    font:var(--heading-4)
+}
+
+.title-large{
+    font:var(--heading-3)
+}

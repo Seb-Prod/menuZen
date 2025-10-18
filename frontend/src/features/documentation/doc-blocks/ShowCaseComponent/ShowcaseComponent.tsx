@@ -1,5 +1,5 @@
 import { useState, type JSX } from "react";
-import { PropsTable, UsageExample, VariationPreview } from "..";
+import { DocProps, UsageExample, VariationPreview } from "..";
 import type { PropInfo } from "../../types/propsInfo";
 import { Heading, Text } from "@/components/ui";
 import {
@@ -84,7 +84,7 @@ const ShowcaseComponent = <T extends Params>({
             <Heading variant={1}>{title}</Heading>
             <Text>{description}</Text>
             <hr /> 
-            <PropsTable props={propsData} />
+            <DocProps props={propsData} />
             <VariationPreview 
                 params={params} 
                 renderPreview={renderPreview} 

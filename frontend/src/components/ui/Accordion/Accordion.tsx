@@ -1,43 +1,62 @@
 /**
- * @file Composant Accordion
+ * @file Composant Accordion.
  * @module components/ui/Accordion
  */
 
-import styles from "./styles/Accordion.module.css";
-import { ACCORDION_DEFAULTS, type AccordionProps } from './types/Accordion.types';
-import { AccordionContext } from "./context/Accordion.context";
+import styles from "./Accordion.module.css";
+import { ACCORDION_DEFAULTS, type AccordionProps } from './Accordion.types';
+import { AccordionContext } from "./Accordion.context";
 import type { JSX } from "react";
 
 /**
- * Composant Accordion - Conteneur principal pour le système d'accordéon.
- * * Ce composant enveloppe l'ensemble de la structure et utilise le `AccordionContext.Provider`
- * pour transmettre des propriétés comme le `variant` à tous ses descendants (`AccordionSection` ou `AccordionItem`),
- * assurant une cohérence visuelle.
- * * @component
- * * @param {AccordionProps} props - Les propriétés du composant.
- * @param {AccordionVariant} [props.variant='primary'] - Le schéma de couleur global appliqué aux éléments enfants.
- * @param {React.ReactNode} props.children - Les éléments qui composent l'accordéon (soit des `AccordionItem` simples, soit des `AccordionSection` plus complexes).
- * * Les types détaillés sont définis dans {@link AccordionProps}.
- * * @example
- * // Utilisation de sections dépliables autonomes
- * <Accordion variant="secondary">
- * <AccordionSection label="Catégorie A">...</AccordionSection>
- * <AccordionSection label="Catégorie B">...</AccordionSection>
+ * Composant Accordion - Conteneur principal pour un système de sections dépliables.
+ *
+ * Ce composant enveloppe l'ensemble de la structure et utilise le `AccordionContext.Provider`
+ * pour transmettre des propriétés de style globales (`variant`, `size`, `chevronIcon`, `itemVariant`)
+ * à tous ses descendants (`AccordionSection` ou `AccordionItem`), assurant une cohérence visuelle.
+ *
+ * @component
+ * @version 2.0.2
+ * @since 2025-10-17
+ * @author Seb-Prod
+ *
+ * @param {AccordionProps} props - Les propriétés du composant.
+ * @param {AccordionColorVariant} [props.variant='primary'] - Schéma de couleur global appliqué aux labels de section et aux items non actifs.
+ * @param {AccordionSize} [props.size='medium'] - Taille prédéfinie des items et des labels (small, medium, large).
+ * @param {AccordionChevronIcon} [props.chevronIcon='chevron'] - Type d'icône utilisé pour les chevrons d'ouverture/fermeture.
+ * @param {AccordionItemActiveVariant} [props.itemVariant='primary'] - Schéma de couleur appliqué aux items actifs ou au survol.
+ * @param {ReactNode} props.children - Les éléments qui composent l'accordéon (généralement `AccordionSection` ou `AccordionItem`).
+ *
+ * @returns {JSX.Element} L'élément conteneur de l'accordéon.
+ *
+ * @example
+ * // Utilisation basique avec sections
+ * <Accordion variant="secondary" size="large">
+ *   <AccordionSection label="Catégorie A">...</AccordionSection>
+ *   <AccordionSection label="Catégorie B">...</AccordionSection>
  * </Accordion>
- * * @example
- * // Utilisation d'éléments simples (si gérés par un état parent)
- * <Accordion variant="neutral">
- * <AccordionItem title="Option 1" isActive={true} />
- * <AccordionItem title="Option 2" />
+ *
+ * @example
+ * // Accordion de navigation avec style de chevron différent
+ * <Accordion variant="neutral" chevronIcon="plus-minus" itemVariant="info">
+ *   <AccordionSection label="Produits">
+ *     <AccordionItem label="Nouveautés" />
+ *     <AccordionItem label="Promotions" isActive={true} />
+ *   </AccordionSection>
  * </Accordion>
+ *
+ * @see {@link AccordionProps}
+ * @see {@link ACCORDION_DEFAULTS}
+ * @see {@link AccordionContext}
  */
 const Accordion = ({
   variant = ACCORDION_DEFAULTS.variant,
   size = ACCORDION_DEFAULTS.size,
-  textStyle = ACCORDION_DEFAULTS.textStyle,
+  chevronIcon = ACCORDION_DEFAULTS.chevronIcon,
+  itemVariant = ACCORDION_DEFAULTS.itemVariant,
   children }: AccordionProps): JSX.Element => {
   return (
-    <AccordionContext.Provider value={{ variant, size, textStyle }}>
+    <AccordionContext.Provider value={{ variant, size, chevronIcon, itemVariant }}>
       <div className={styles.accordion}>
         {children}
       </div>
