@@ -17,7 +17,7 @@ import { formatType } from "@/features/documentation/utils";
  * Liste des propriétés du composant Button avec leurs métadonnées.
  * 
  * Utilisé pour générer automatiquement la documentation des props
- * dans les pages de showcase.
+ * dans les pages de doucumentation.
  * 
  * @constant
  * @type {readonly PropInfo[]}

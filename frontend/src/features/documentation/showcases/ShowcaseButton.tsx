@@ -67,10 +67,6 @@ const generateCode = (combo: ShowcaseCombo): string => {
  * 
  * @returns {JSX.Element} La page de documentation complète pour Button.
  * 
- * @example
- * // Utilisé dans le routing de l'application
- * <Route path="/showcase/button" element={<ShowcaseButton />} />
- * 
  * @see {@link Button}
  * @see {@link DocPageContainer}
  * @see {@link BUTTON_SHOWCASE_CONSTANTS}

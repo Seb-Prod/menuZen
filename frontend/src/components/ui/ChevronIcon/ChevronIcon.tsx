@@ -15,6 +15,9 @@ import { CHEVRON_ICONS } from './ChevronIcon.constants';
  * avec une animation de rotation ou de changement d'état selon le type choisi.
  * 
  * @component
+ * @version 1.1.0
+ * @since 2025-10-17
+ * @author Seb-Prod
  * 
  * @param {ChevronIconProps} props - Les propriétés du composant
  * @param {ChevronIconType} props.type - Type d'icône à afficher ('chevron', 'arrow', 'plus-minus', 'triangle', 'dots')
@@ -24,10 +27,9 @@ import { CHEVRON_ICONS } from './ChevronIcon.constants';
  * @param {string} [props.ariaLabelOpen] - Label pour l'accessibilité quand l'icône est ouverte
  * @param {string} [props.ariaLabelClose] - Label pour l'accessibilité quand l'icône est fermée
  * 
- * Les types détaillés sont définis dans {@link ChevronIconProps}.
+ * @returns {JSX.Element} L'élément bouton React (JSX).
  * 
  * @example
- * ```tsx
  * // Utilisation simple
  * <ChevronIcon />
  * 
@@ -38,7 +40,9 @@ import { CHEVRON_ICONS } from './ChevronIcon.constants';
  *   ariaLabelOpen="Fermer le menu"
  *   ariaLabelClose="Ouvrir le menu"
  * />
- * ```
+ * 
+ * @see {@link ChevronIconProps}
+ * @see {@link CHEVRONICON_DEFAULTS}
  */
 const ChevronIcon = ({
     type = CHEVRONICON_DEFAULTS.type,
@@ -48,7 +52,7 @@ const ChevronIcon = ({
     ariaLabelOpen,
     ariaLabelClose
 }: ChevronIconProps): JSX.Element => {
-    
+
     /**
      * Retourne l'icône SVG appropriée selon le type et l'état
      */
@@ -56,19 +60,19 @@ const ChevronIcon = ({
         switch (type) {
             case "chevron":
                 return CHEVRON_ICONS.chevron;
-            
+
             case "arrow":
                 return CHEVRON_ICONS.arrow;
-            
+
             case "plus-minus":
                 return isOpen ? CHEVRON_ICONS.minus : CHEVRON_ICONS.plus;
-            
+
             case "triangle":
                 return CHEVRON_ICONS.triangle;
-            
+
             case "dots":
                 return isOpen ? CHEVRON_ICONS.dotsHorizontal : CHEVRON_ICONS.dotsVertical;
-            
+
             default:
                 // Retourne le chevron par défaut si le type est invalide
                 return CHEVRON_ICONS.chevron;
@@ -82,14 +86,19 @@ const ChevronIcon = ({
     const ariaLabel = isOpen ? ariaLabelOpen : ariaLabelClose;
     const hasAriaLabel = Boolean(ariaLabel);
 
+    // Construction des classes CSS
+    const classes = [
+        styles.chevron,
+        styles[size],
+        `text-${colorStyle}`,
+        shouldRotate ? (isOpen ? styles.open : styles.closed) : ''
+    ]
+        .filter(Boolean)
+        .join(" ");
+
     return (
         <span
-            className={`
-                ${styles.chevron} 
-                ${styles[size]}
-                ${styles[colorStyle]}
-                ${shouldRotate ? (isOpen ? styles.open : styles.closed) : ''}
-            `.trim()}
+            className={classes}
             aria-hidden={!hasAriaLabel}
             aria-label={ariaLabel}
             role={hasAriaLabel ? "img" : undefined}

@@ -1,5 +1,17 @@
 /**
- * Définit les variantes pour le composant ChevronIcon.
+ * @file Définition des types, constantes et valeurs par défaut
+ * @module components/ui/ChevronIcon.types
+ * @version 1.1.0
+ * @since 2025-10-17
+ * @see {@link ChevronIcon} pour l'implémentation du composant principal.
+ * @author Seb-Prod
+ */
+
+// ================================
+// Constantes
+// ================================
+
+/** Définit les variantes pour le composant ChevronIcon.
  */
 export const CHEVRONICON_TYPE = [
     "chevron",
@@ -9,8 +21,7 @@ export const CHEVRONICON_TYPE = [
     "dots"
 ] as const;
 
-/**
- * Définit les tailes pour le composant ChevronIcon.
+/** Définit les tailes pour le composant ChevronIcon.
  */
 export const CHEVRONICON_SIZE = [
     "small",
@@ -18,16 +29,14 @@ export const CHEVRONICON_SIZE = [
     "large",
 ] as const;
 
-/**
- * Définit l'etat pour le composant ChevronIcon.
+/** Définit l'etat pour le composant ChevronIcon.
  */
 export const CHEVRONICON_ISOPEN = [
     true,
     false
 ] as const;
 
-/**
- * Définit la couleur pour le comosant ChevronIcon.
+/** Définit la couleur pour le comosant ChevronIcon.
  */
 export const CHEVRONICON_COLOR = [
     "primary",
@@ -38,26 +47,36 @@ export const CHEVRONICON_COLOR = [
     "neutral"
 ] as const;
 
-// Types inférés
+// ================================
+// Types
+// ================================
+
 export type ChevronIconType = typeof CHEVRONICON_TYPE[number];
 export type ChevronIconSize = typeof CHEVRONICON_SIZE[number];
 export type ChevronIconColor = typeof CHEVRONICON_COLOR[number];
 
-/**
- * Propriétés personnalisées pour le composant ChevronIcon.
- */
+// ================================
+// Props des composants
+// ================================
 export type ChevronIconProps = {
+    /** Définit la forme visuelle de l'icône. */
     type?: ChevronIconType;
+    /** Etat de l'icone */
     isOpen?: boolean;
+    /** Taille de l'icône */
     size?: ChevronIconSize;
+    /** Texte alternatif pour l'acccesibilité lorsque l'icône est ouvert */
     ariaLabelOpen?: string;
+    /** Texte alternatif pour l'acccesibilité lorsque l'icône est fermé */
     ariaLabelClose?:string;
+    /** Variante de couleur de l'icône */
     colorStyle?: ChevronIconColor;
 }
 
-/**
- * Valeur par défaut pour les propriétés du composant ChevronIcon.
- */
+// ================================
+// Valeurs par défaut
+// ================================
+
 export const CHEVRONICON_DEFAULTS = {
     type: "chevron" as ChevronIconType,
     isOpen: false as boolean,
@@ -68,9 +87,9 @@ export const CHEVRONICON_DEFAULTS = {
 
 } satisfies Partial<ChevronIconProps>
 
-/**
- * Toutes les constantes de Spinner pour le showcase
- */
+// ================================
+// Showcase
+// ================================
 export const CHEVRONICON_SHOWCASE_CONSTANTS = {
     type: CHEVRONICON_TYPE,
     size: CHEVRONICON_SIZE,

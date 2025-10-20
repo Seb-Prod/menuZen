@@ -1,14 +1,25 @@
+/**
+ * @file Page de documentation et showcase pour le composant Button.
+ * @module pages/showcase/ShowcaseChevronIcon
+ */
+
 import ChevronIcon from "@/components/ui/ChevronIcon";
 import type { JSX } from "react";
 import type { Combination } from "../utils/showcaseHelpers";
 import { CHEVRONICON_SHOWCASE_CONSTANTS } from '@/components/ui/ChevronIcon/ChevronIcon.types';
-import { chevroniconProps, chevroniconUsageExample } from "./data/ChevronIcon";
+import { chevronIconProps, chevroniconUsageExample } from "../data/ChevronIcon";
 import { generateCodeString } from "../utils";
-import { ShowcaseComponent } from "../doc-blocks";
+import DocPageContainer from "../doc-blocks/DocPageContainer/DocPageContainer";
 
-type ChevronIconShowcaseCombo = Combination<typeof CHEVRONICON_SHOWCASE_CONSTANTS>;
+type ShowcaseCombo = Combination<typeof CHEVRONICON_SHOWCASE_CONSTANTS>;
 
-const renderChevronIconPreview = (combo: ChevronIconShowcaseCombo): JSX.Element => (
+/**
+ * Génère le rendu visuel du ChevronIcon avec les paramètres sélectionnés.
+ * 
+ * @param {ShowcaseCombo} combo - Combinaison des props du ChevronIcon.
+ * @returns {JSX.Element} Instance du ChevronIcon avec les props appliquées.
+ */
+const renderPreview = (combo: ShowcaseCombo): JSX.Element => (
   <ChevronIcon
     type={combo.type}
     isOpen={combo.isOpen}
@@ -18,7 +29,14 @@ const renderChevronIconPreview = (combo: ChevronIconShowcaseCombo): JSX.Element 
   </ChevronIcon>
 );
 
-const generateChevronIconCode = (combo: ChevronIconShowcaseCombo): string => {
+/**
+ * Génère le code TSX correspondant à la combinaison de props sélectionnée.
+ * Omet les props avec valeurs par défaut pour un code plus concis.
+ * 
+ * @param {ShowcaseCombo} combo - Combinaison des props du ChevronIcon.
+ * @returns {string} Code TSX formaté représentant le ChevronIcon configuré.
+ */
+const generateCode = (combo: ShowcaseCombo): string => {
   const propExpressions = [
     combo.type !== "chevron" && `type="${combo.type}"`,
     combo.size !== "medium" && `size="${combo.size}"`,
@@ -27,21 +45,38 @@ const generateChevronIconCode = (combo: ChevronIconShowcaseCombo): string => {
 
   ];
 
-  return generateCodeString("ChevronIcon", propExpressions, false);
+  return generateCodeString("ChevronIcon", propExpressions);
 };
 
+/**
+ * Composant ShowcaseChevronIcon - Page de documentation du composant ChevronIcon.
+ * 
+ * Page de showcase complète présentant le composant ChevronIcon avec :
+ * - Documentation des props
+ * - Exemples d'utilisation
+ * - Playground interactif pour tester toutes les variations
+ * 
+ * @component
+ * @version 1.0.0
+ * @since 2025-10-20
+ * @author Seb-Prod
+ * 
+ * @returns {JSX.Element} La page de documentation complète pour ChevronIcon.
+ * 
+ * @see {@link ChevronIcon}
+ * @see {@link DocPageContainer}
+ * @see {@link CHEVRONICON_SHOWCASE_CONSTANTS}
+ */
 const ShowcaseChevronIcon = (): JSX.Element => {
   return (
-    <ShowcaseComponent
+    <DocPageContainer
       title="ChevronIcon"
-      description="Le composant ChevronIcon est un composant React réutilisable qui affiche différents types d'icônes animées. Il prend en charge les icônes chevron, flèche, plus/moins, triangle et points. L'apparence de l'icône peut être personnalisée en fonction du type, de la taille, de la couleur et de l'état ouvert/fermé.
-
-Le composant ChevronIcon est souvent utilisé dans les accordéons et menus déroulants pour indiquer l'état ouverte/fermée d'un élément, mais il peut également être utilisé à d'autres fins où une icône animée est requise."
-      propsData={chevroniconProps}
+      description="Composant **ChevronIcon** réutilisable, conçu pour indiquer visuellement l'état de bascule d'un élément (ouvert/fermé) via une **icône animée**. Il supporte différents types d'icônes (chevron, flèche, plus/moins, triangle, etc.) et s'intègre parfaitement aux composants de type accordéon et menus déroulants."
+      props={chevronIconProps}
       usageExample={chevroniconUsageExample}
       params={CHEVRONICON_SHOWCASE_CONSTANTS}
-      renderPreview={renderChevronIconPreview}
-      generateCode={generateChevronIconCode}
+      renderPreview={renderPreview}
+      generateCode={generateCode}
     />
   );
 };

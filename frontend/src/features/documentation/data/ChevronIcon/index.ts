@@ -1,2 +1,2 @@
-export {default as chevroniconProps } from "./chevroniconProps"
+export {chevronIconProps } from "./chevroniconProps"
 export {default as chevroniconUsageExample} from "./chevroniconUsageExample"
