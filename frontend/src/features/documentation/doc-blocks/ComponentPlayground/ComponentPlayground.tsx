@@ -1,19 +1,17 @@
 /**
- * @file Composant de prévisualisation (VariationPreview) pour gérer la sélection des props.
- * @module components/showcase/VariationPreview
+ * @file Composant ComponentPlayground pour la prévisualisation interactive de composants.
+ * @module features/documentation/doc-blocks/ComponentPlayground
  */
 
 import { type JSX } from "react";
-import styles from "./VariationPreview.module.css";
+import styles from "./ComponentPlayground.module.css";
 import CodeBlock from "../CodeBlock";
 import { Heading, Text } from "@/components/ui";
 import type { Combination, Params } from "../../utils/showcaseHelpers";
 import Select from "@/components/ui/Select";
 
-type VariationPreviewProps<T extends Params> = {
-    /** * Les paramètres de variation. Rendu optionnel pour s'aligner sur ShowcaseComponent. 
-     * Il est attendu d'être défini ici si le parent l'appelle.
-     */
+type ComponentPlaygroundProps<T extends Params> = {
+    /** Les paramètres de variation disponibles pour le composant. */
     params?: T;
     /** Fonction de rendu qui retourne le composant à prévisualiser. */
     renderPreview: (combo: Combination<T>) => JSX.Element;
@@ -26,18 +24,58 @@ type VariationPreviewProps<T extends Params> = {
 };
 
 /**
- * Composant de prévisualisation qui gère la sélection des paramètres et l'affichage du code.
- * * L'état est géré par le parent (`ShowcaseComponent`).
- * * @component
- * * @template T - Type des paramètres de variation.
+ * Composant ComponentPlayground - Espace interactif de test de composants.
+ * 
+ * Permet de manipuler dynamiquement les props d'un composant via des contrôles
+ * (Select) et d'afficher en temps réel le code généré ainsi que le rendu visuel.
+ * L'état est géré par le composant parent (DocPageContainer).
+ * 
+ * @component
+ * @version 1.0.0
+ * @since 2025-10-20
+ * @author Seb-Prod
+ * 
+ * @template T - Type des paramètres de variation étendant Params.
+ * 
+ * @param {ComponentPlaygroundProps<T>} props - Les propriétés du composant.
+ * @param {T} [props.params] - Objet définissant les paramètres disponibles et leurs valeurs possibles.
+ * @param {Function} props.renderPreview - Fonction retournant le JSX du composant à prévisualiser selon la combinaison de props.
+ * @param {Combination<T>} props.selectedParams - Combinaison actuelle des paramètres sélectionnés.
+ * @param {Function} props.setSelectedParams - Callback pour mettre à jour la combinaison de paramètres.
+ * @param {Function} props.generateCode - Fonction générant le code TSX correspondant à la combinaison actuelle.
+ * 
+ * @returns {JSX.Element} L'interface du playground avec contrôles, code et prévisualisation.
+ * 
+ * @example
+ * // Utilisation basique avec paramètres de variation
+ * <ComponentPlayground
+ *   params={{ variant: ['primary', 'secondary'], size: ['small', 'large'] }}
+ *   renderPreview={(combo) => <Button {...combo}>Test</Button>}
+ *   selectedParams={{ variant: 'primary', size: 'small' }}
+ *   setSelectedParams={setParams}
+ *   generateCode={(combo) => `<Button variant="${combo.variant}" size="${combo.size}">Test</Button>`}
+ * />
+ * 
+ * @example
+ * // Mode statique sans paramètres
+ * <ComponentPlayground
+ *   renderPreview={(combo) => <Button>Statique</Button>}
+ *   selectedParams={{}}
+ *   setSelectedParams={() => {}}
+ *   generateCode={() => '<Button>Statique</Button>'}
+ * />
+ * 
+ * @see {@link ComponentPlaygroundProps}
+ * @see {@link Combination}
+ * @see {@link Params}
  */
-const VariationPreview = <T extends Params>({
+const ComponentPlayground = <T extends Params>({
     params,
     selectedParams,
     setSelectedParams,
     renderPreview,
     generateCode
-}: VariationPreviewProps<T>): JSX.Element => {
+}: ComponentPlaygroundProps<T>): JSX.Element => {
     
     // Safety check : bien que le parent doive l'assurer, nous gérons le cas où params est absent.
     if (!params) {
@@ -63,11 +101,9 @@ const VariationPreview = <T extends Params>({
     // Si params est présent, on affiche la sélection des variations.
     return (
         <>
-            <Heading variant={3}>Prévisualisation des variations</Heading>
             <div className={styles.container}>
 
                 <div className={styles.paramsSection}>
-                    {/* Utilisation sécurisée de params */}
                     {Object.entries(params).map(([paramName, paramValues]) => (
                         <div key={paramName} className={styles.paramContainer}>
                             <Text>{paramName}</Text>
@@ -116,4 +152,4 @@ const VariationPreview = <T extends Params>({
     );
 };
 
-export default VariationPreview;
+export default ComponentPlayground;

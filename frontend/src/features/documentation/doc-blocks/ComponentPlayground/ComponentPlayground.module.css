@@ -3,7 +3,7 @@
   display: flex;
   background: var(--secondary-background);
   border-radius: 20px;
-  margin: 22px;
+  margin:12px;
 }
 
 .paramsSection {

@@ -1,5 +1,5 @@
 import { useState, type JSX } from "react";
-import { DocProps, UsageExample, VariationPreview } from "..";
+import { ComponentPlayground, DocProps, UsageExample} from "..";
 import type { PropInfo } from "../../types/propsInfo";
 import { Heading, Text } from "@/components/ui";
 import {
@@ -85,7 +85,7 @@ const ShowcaseComponent = <T extends Params>({
             <Text>{description}</Text>
             <hr /> 
             <DocProps props={propsData} />
-            <VariationPreview 
+            <ComponentPlayground 
                 params={params} 
                 renderPreview={renderPreview} 
                 selectedParams={selectedParams} 

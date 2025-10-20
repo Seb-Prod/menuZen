@@ -2,7 +2,7 @@ import type { JSX } from "react";
 import DocPageContainer from "../doc-blocks/DocPageContainer/DocPageContainer";
 import { Accordion, AccordionItem, AccordionSection } from "@/components/ui/Accordion";
 import { DocProps} from "../doc-blocks";
-import { accordionItemProps, accordionProps, accordionSectionProps, accordionUsageExample } from "./data/Accordion";
+import { accordionItemProps, accordionProps, accordionSectionProps, accordionUsageExample } from "../data/Accordion";
 import type { Combination } from "../utils/showcaseHelpers";
 import { generateCodeString } from "../utils";
 import { ACCORDION_SHOWCASE_CONSTANTS } from "@/components/ui/Accordion/Accordion.types";
