@@ -55,7 +55,8 @@ const Accordion = ({
   chevronIcon = ACCORDION_DEFAULTS.chevronIcon,
   itemVariant = ACCORDION_DEFAULTS.itemVariant,
   chevronAlignment = ACCORDION_DEFAULTS.chevronAlignment,
-  children }: AccordionProps): JSX.Element => {
+  children
+}: AccordionProps): JSX.Element => {
   return (
     <AccordionContext.Provider value={{ variant, size, chevronIcon, itemVariant, chevronAlignment }}>
       <div className={styles.accordion}>

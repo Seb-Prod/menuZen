@@ -8,14 +8,17 @@ import styles from "./Button.module.css";
 import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
 
 /**
- * Composant Button - Bouton réutilisable et personnalisable.
- * * Supporte différentes variantes (couleurs), tailles et alignements
+ * Composant Button - Bouton personnalisable.
+ * 
+ * Supporte différentes variantes (couleurs), tailles et alignements
  * dans son conteneur, ainsi que toutes les propriétés natives de HTMLButtonElement.
- * * @component
+ * 
+ * @component
  * @version 1.1.0
  * @since 2025-10-17
  * @author Seb-Prod
- * * @param {ButtonProps} props - Les propriétés du composant.
+ * 
+ * @param {ButtonProps} props - Les propriétés du composant.
  * @param {React.ReactNode} [props.children] - Contenu à afficher dans le bouton (texte, icône, etc.).
  * @param {ButtonVariant} [props.variant='primary'] - Schéma de couleur du bouton (primary, secondary, warning, neutral).
  * @param {ButtonSize} [props.size='medium'] - Taille prédéfinie du bouton (small, medium, large).
@@ -24,11 +27,10 @@ import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
  * @param {ButtonAlign} [props.align='left'] - Position horizontale du bouton dans son conteneur (left, center, right).
  * @param {boolean} [props.disabled=false] - Si vrai, désactive le bouton.
  * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
- * * Les types détaillés sont définis dans {@link ButtonProps}.
- * * @returns {JSX.Element} L'élément bouton React (JSX). // 👈 Ajout
- * * @see {@link ButtonProps}
- * @see {@link BUTTON_DEFAULTS}
- * * @example
+ * 
+ * @returns {JSX.Element} L'élément bouton React (JSX).
+ * 
+ * @example
  * // Bouton simple avec gestionnaire de clic
  * <Button onClick={() => console.log('Cliqué!')}>
  *   Valider
@@ -51,6 +53,9 @@ import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
  * <Button type="submit" align="center">
  *   Envoyer le formulaire
  * </Button>
+ * 
+ * @see {@link ButtonProps}
+ * @see {@link BUTTON_DEFAULTS}
  */
 const Button = ({
   children,
@@ -60,9 +65,10 @@ const Button = ({
   className = BUTTON_DEFAULTS.className,
   type = BUTTON_DEFAULTS.type,
   disabled = BUTTON_DEFAULTS.disabled,
-  align= BUTTON_DEFAULTS.align,
+  align = BUTTON_DEFAULTS.align,
   ...rest
 }: ButtonProps): JSX.Element => {
+  // Construction des classes CSS
   const classes = [
     styles.button,
     `component-${variant}`,
@@ -70,8 +76,10 @@ const Button = ({
     `component-${align}`,
     fullWidth && 'component-fullwidth',
     className
-  ].filter(Boolean).join(" ");
-  
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <button
       className={classes}

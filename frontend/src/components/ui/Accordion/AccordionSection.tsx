@@ -87,7 +87,9 @@ const AccordionSection = ({
     `text-${finalVariant}`,
     `title-${finalSize}`,
     finalChevronAlignment === 'edge' && styles.buttonAlignEdge,
-  ].join(" ");
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div className={`${styles.section} ${styles[context.chevronAlignment]}`}>
@@ -99,7 +101,7 @@ const AccordionSection = ({
         aria-controls={`section-content-${label}`}
       >
         <span className={styles.label}>{label}</span>
-        <ChevronIcon isOpen={isOpen} type={finalChevronIcon} size={context.size} colorStyle={context.variant}/>
+        <ChevronIcon isOpen={isOpen} type={finalChevronIcon} size={context.size} colorStyle={context.variant} />
       </button>
 
       {isOpen && (

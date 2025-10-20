@@ -51,7 +51,7 @@ export const CHEVRON_ALIGNMENTS = [
 ] as const;
 
 // ================================
-// Types (inchangés)
+// Types
 // ================================
 
 export type AccordionColorVariant = typeof ACCORDION_COLOR_VARIANTS[number];
@@ -61,7 +61,7 @@ export type AccordionItemActiveVariant = typeof ACCORDION_ITEM_ACTIVE_VARIANTS[n
 export type AccordionChevronAlignment = typeof CHEVRON_ALIGNMENTS[number];
 
 // ================================
-// Contexte (inchangé)
+// Contexte
 // ================================
 
 /** Valeurs du contexte partagées par les sections internes. */
