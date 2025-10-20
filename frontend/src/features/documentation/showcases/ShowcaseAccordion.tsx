@@ -1,64 +1,85 @@
 import type { JSX } from "react";
 import DocPageContainer from "../doc-blocks/DocPageContainer/DocPageContainer";
-import { Accordion, AccordionSection } from "@/components/ui/Accordion";
-import { DocProps } from "../doc-blocks";
-import { accordionProps} from "./data/Accordion";
+import { Accordion, AccordionItem, AccordionSection } from "@/components/ui/Accordion";
+import { DocProps} from "../doc-blocks";
+import { accordionItemProps, accordionProps, accordionSectionProps, accordionUsageExample } from "./data/Accordion";
+import type { Combination } from "../utils/showcaseHelpers";
+import { generateCodeString } from "../utils";
+import { ACCORDION_SHOWCASE_CONSTANTS } from "@/components/ui/Accordion/Accordion.types";
+
+
+type ShowcaseCombo = Combination<typeof ACCORDION_SHOWCASE_CONSTANTS>;
+
+const renderPreview = (combo: ShowcaseCombo): JSX.Element => (
+  <Accordion 
+    variant={combo.variant} 
+    size={combo.size}
+    chevronIcon={combo.chevronIcon}
+    itemVariant={combo.itemVariant}
+  >
+    <AccordionSection label="section 1">
+      <AccordionItem label="bouton 1"/>
+      <AccordionItem label="bouton 2"/>
+    </AccordionSection>
+    <AccordionSection label="section 2">
+      <AccordionItem label="bouton 1"/>
+      <AccordionItem label="bouton 2"/>
+    </AccordionSection>
+  </Accordion>
+);
+
+const generateCode = (combo: ShowcaseCombo): string => {
+  const propExpressions = [
+    combo.variant !== "primary" && `variant="${combo.variant}"`,
+    combo.size !== "medium" && `size="${combo.size}"`,
+  ];
+
+  // Génère un Accordion avec une section et un item imbriqués
+  return generateCodeString(
+    "Accordion",
+    propExpressions,
+    [
+      generateCodeString(
+        "AccordionSection",
+        ['label="section 1"'],
+        [
+          generateCodeString(
+            "AccordionItem",
+            ['label="bouton 1"']
+          ),
+        ]
+      ),
+    ]
+  );
+};
 
 const ShowcaseAccordion = (): JSX.Element => {
   return (
     <DocPageContainer
       title="Système Accordéon"
       description={`Un composant **Accordion** permet d'organiser du contenu en sections repliables. Il est particulièrement utile pour afficher de grandes quantités d'informations de manière structurée et accessible, comme des FAQ, des menus de navigation ou des panneaux de configuration.`}
+      usageExample={accordionUsageExample}
+      params={ACCORDION_SHOWCASE_CONSTANTS}
+      renderPreview={renderPreview}
+      generateCode={generateCode}
+
     >
-      <Accordion>
-        <AccordionSection title="Props Accordion" defaultOpen>
+        <AccordionSection label="Props Accordion (Conteneur Principal)" defaultOpen={true}>
           <DocProps 
-            description={`Le composant **Accordion** est le conteneur principal qui gère l'état global des sections. Il utilise le **React Context** pour transmettre les paramètres visuels (\`variant\`, \`size\`, \`textStyle\`) à tous ses enfants.`}
-            props={accordionProps} 
-          />
+          props={accordionProps} 
+          description="**Accordion** est le conteneur racine. Il est responsable de l'établissement du style global et de la cohérence visuelle. Il transmet des propriétés de style globales (**`variant`**, **`size`**, **`chevronIcon`**, **`itemVariant`**) à tous ses descendants (`AccordionSection` et `AccordionItem`)."/>
         </AccordionSection>
-
-        <AccordionSection title="Props AccordionSection">
-          <DocProps 
-            description={`Le composant **AccordionSection** représente une section individuelle au sein de l'accordéon. Chaque section possède son propre état et peut être contrôlée indépendamment ou en coordination avec les autres sections.
-
-**Fonctionnalités :**
-- État ouvert/fermé contrôlable ou non contrôlé
-- Option \`defaultOpen\` pour définir l'état initial
-- Intégration automatique avec le contexte parent
-- Animation fluide à l'ouverture et la fermeture`}
-            props={accordionProps} 
-          />
+        <AccordionSection label="Props AccordionSection (Section Repliable)" defaultOpen={true}>
+          <DocProps
+            props={accordionSectionProps}
+            description="**AccordionSection** est le bloc structurel repliable de l'accordéon. Il contient le contenu (**`children`**) et son en-tête cliquable (**`label`**). Il hérite des styles globaux du parent `Accordion` mais permet des **surcharges individuelles** (ex: `variant`, `size`, `chevronIcon`) pour personnaliser l'apparence de cette section spécifique."/>
         </AccordionSection>
-
-        <AccordionSection title="Props AccordionButton">
-          <DocProps 
-            description={`Le composant **AccordionButton** est l'élément interactif qui permet de basculer l'état d'une section. Il affiche généralement le titre de la section et un indicateur visuel (icône, chevron) de son état.
-
-**Comportement :**
-- Toggle automatique de la section au clic
-- Indicateur visuel de l'état ouvert/fermé (rotation d'icône)
-- Support complet du clavier (Enter, Space)
-- Attributs ARIA pour l'accessibilité (\`aria-expanded\`, \`aria-controls\`)
-- Personnalisation du style selon l'état`}
-            props={accordionProps} 
-          />
+        <AccordionSection label="Props AccordionItem (Élément Interactif)" defaultOpen={true}>
+          <DocProps
+            props={accordionItemProps}
+            description="**AccordionItem** représente un élément interactif final (bouton ou lien) dans le panneau d'une section. Il gère son propre état **`isActive`** pour le surlignage, gère les interactions utilisateur (**`onClick`**) et hérite des propriétés de style (notamment **`itemVariant`** pour l'état actif) qui peuvent être surchargées si nécessaire."/>
         </AccordionSection>
-
-        <AccordionSection title="Props AccordionContent">
-          <DocProps 
-            description={`Le composant **AccordionContent** contient le contenu à afficher lorsque la section est ouverte. Il gère l'animation d'apparition et la transition entre les états.
-
-**Détails techniques :**
-- Affichage/masquage automatique selon l'état de la section
-- Animations CSS pour des transitions fluides
-- Hauteur calculée dynamiquement pour l'animation
-- Optimisation des performances (lazy mounting optionnel)
-- Support du contenu riche (texte, images, composants)`}
-            props={accordionProps} 
-          />
-        </AccordionSection>
-      </Accordion>
+        
     </DocPageContainer>
   );
 };

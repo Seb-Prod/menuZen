@@ -62,7 +62,6 @@ const AccordionItem = ({
   label = ACCORDION_ITEM_DEFAULTS.label,
   onClick,
   isActive = false,
-  children,
   size: propSize,
   itemVariant: propItemVariant,
 }: AccordionItemProps): JSX.Element => {
@@ -91,7 +90,7 @@ const AccordionItem = ({
       type="button"
       aria-pressed={isActive}
     >
-      {children ?? label}
+      {label}
     </button>
   );
 };

@@ -16,7 +16,7 @@ import type { JSX } from "react";
  * à tous ses descendants (`AccordionSection` ou `AccordionItem`), assurant une cohérence visuelle.
  *
  * @component
- * @version 2.0.2
+ * @version 2.1.0
  * @since 2025-10-17
  * @author Seb-Prod
  *
@@ -54,9 +54,10 @@ const Accordion = ({
   size = ACCORDION_DEFAULTS.size,
   chevronIcon = ACCORDION_DEFAULTS.chevronIcon,
   itemVariant = ACCORDION_DEFAULTS.itemVariant,
+  chevronAlignment = ACCORDION_DEFAULTS.chevronAlignment,
   children }: AccordionProps): JSX.Element => {
   return (
-    <AccordionContext.Provider value={{ variant, size, chevronIcon, itemVariant }}>
+    <AccordionContext.Provider value={{ variant, size, chevronIcon, itemVariant, chevronAlignment }}>
       <div className={styles.accordion}>
         {children}
       </div>

@@ -1,31 +1,44 @@
-import { ACCORDION_VARIANTS, ACCORDION_SIZES, ACCORDION_TEXT_COLORS, ACCORDION_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
 import { formatType } from "@/features/documentation/utils";
+import { ACCORDION_DEFAULTS, ACCORDION_SHOWCASE_CONSTANTS } from '@/components/ui/Accordion/Accordion.types';
 
 export default [
   // --- Propriété : variant ---
   {
     name: "variant",
-    type: formatType(ACCORDION_VARIANTS),
+    type: formatType(ACCORDION_SHOWCASE_CONSTANTS.variant),
     default: ACCORDION_DEFAULTS.variant,
-    description: "**Schéma de couleur principal appliqué à l'ensemble du composant Accordion.** Cette variante est **transmise via le contexte** à tous les composants enfants (AccordionSection et AccordionButton) pour définir leur couleur par défaut. Un style de couleur différent peut être appliqué à un enfant spécifique en utilisant sa propriété d'override (ex: `buttonVariant` dans AccordionButton).",
-    values: ACCORDION_VARIANTS 
+    description: "**Schéma de couleur principal appliqué à l'ensemble du composant Accordion.** Cette variante est **transmise via le contexte** à tous les composants enfants (AccordionSection et AccordionItem) pour définir la couleur de leurs labels (non actifs). Un style de couleur différent peut être appliqué à un enfant spécifique en utilisant sa propriété d'override.",
+    values: ACCORDION_SHOWCASE_CONSTANTS.variant
   },
-
   // --- Propriété : size ---
   {
     name: "size",
-    type: formatType(ACCORDION_SIZES),
+    type: formatType(ACCORDION_SHOWCASE_CONSTANTS.size),
     default: ACCORDION_DEFAULTS.size,
-    description: "**Taille globale appliquée aux éléments interactifs de l'Accordéon.** Cette valeur est **transmise via le contexte** pour définir la taille par défaut des composants enfants comme `AccordionButton`. La taille d'un élément enfant spécifique peut être modifiée en utilisant sa propriété d'override (ex: `buttonSize` dans AccordionButton).",
-    values: ACCORDION_SIZES 
+    description: "**Taille globale des items et des labels de section.** Cette taille est **transmise via le contexte** à tous les composants enfants (AccordionSection et AccordionItem) pour définir leur taille par défaut. Une taille différente peut être appliquée à un enfant spécifique en utilisant sa propriété d'override.",
+    values: ACCORDION_SHOWCASE_CONSTANTS.size
   },
-
-  // --- Propriété : textStyle ---
+  // --- Propriété : chevronIcon ---
   {
-    name: "textStyle",
-    type: formatType(ACCORDION_TEXT_COLORS),
-    default: ACCORDION_DEFAULTS.textStyle,
-    description: "**Schéma de couleur appliqué au texte par défaut** de l'Accordéon et de ses éléments internes. Comme `variant` et `size`, ce style est **transmis par contexte** et peut être ignoré au niveau d'un composant enfant via une propriété spécifique (ex: `buttonTextStyle` dans AccordionButton).",
-    values: ACCORDION_TEXT_COLORS 
-  }
+    name: "chevronIcon",
+    type: formatType(ACCORDION_SHOWCASE_CONSTANTS.chevronIcon),
+    default: ACCORDION_DEFAULTS.chevronIcon,
+    description: "**Type d'icône utilisé pour indiquer l'état (ouvert/fermé) des AccordionSection.** Ce type d'icône est **transmis via le contexte** et peut être surchargé par section via `AccordionSectionProps.chevronIcon`.",
+    values: ACCORDION_SHOWCASE_CONSTANTS.chevronIcon
+  },
+  // --- Propriété : itemVariant ---
+  {
+    name: "itemVariant",
+    type: formatType(ACCORDION_SHOWCASE_CONSTANTS.itemVariant),
+    default: ACCORDION_DEFAULTS.itemVariant,
+    description: "**Schéma de couleur appliqué aux AccordionItem lorsqu'ils sont actifs ou survolés.** Cette variante est **transmise via le contexte** aux `AccordionItem` et définit leur style mis en évidence. Elle peut être surchargée par item via `AccordionItemProps.itemVariant`.",
+    values: ACCORDION_SHOWCASE_CONSTANTS.itemVariant
+  },
+  // --- Propriété : children ---
+  {
+    name: "children",
+    type: "ReactNode",
+    required: true,
+    description: "**Contenu principal de l'Accordion.** Doit être composé de un ou plusieurs composants `<AccordionSection />`.",
+  },
 ] as const;

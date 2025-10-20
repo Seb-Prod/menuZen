@@ -4,7 +4,7 @@
  */
 
 import { createContext, useContext } from 'react';
-import type { AccordionColorVariant, AccordionChevronIcon, AccordionItemActiveVariant, AccordionSize } from './Accordion.types';
+import type { AccordionColorVariant, AccordionChevronIcon, AccordionItemActiveVariant, AccordionSize, AccordionChevronAlignment } from './Accordion.types';
 
 /**
  * Type pour les valeurs du contexte d'accordéon.
@@ -21,6 +21,9 @@ export type AccordionContextValue = {
 
   /** Variant d'élément actif héritée par les composants enfants. */
   itemVariant?: AccordionItemActiveVariant;
+
+  /** Position du checvron par rapport au label */
+  chevronAlignment: AccordionChevronAlignment;
 };
 
 /**

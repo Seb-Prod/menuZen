@@ -7,6 +7,7 @@
  */
 
 import type { ReactNode } from 'react';
+import { CHEVRONICON_TYPE } from '../ChevronIcon/ChevronIcon.types';
 
 // ================================
 // Constantes
@@ -22,16 +23,6 @@ export const ACCORDION_COLOR_VARIANTS = [
     "info",
     "neutral"
 ] as const;
-
-/** Définit le style du chevron d'ouverture/fermeture des sections.
- */
-export const ACCORDION_CHEVRON_ICONS = [
-    "chevron",
-    "arrow",
-    "plus-minus",
-    "triangle",
-    "dots"
-] as const
 
 /** Définit la taille des items et du label des sections. 
  */
@@ -52,15 +43,22 @@ export const ACCORDION_ITEM_ACTIVE_VARIANTS = [
     "neutral"
 ] as const;
 
+/** Définit la position du cheron par raport au label
+ */
+export const CHEVRON_ALIGNMENTS = [
+    "near-label",
+    "edge"
+] as const;
+
 // ================================
 // Types (inchangés)
 // ================================
 
 export type AccordionColorVariant = typeof ACCORDION_COLOR_VARIANTS[number];
-export type AccordionChevronIcon = typeof ACCORDION_CHEVRON_ICONS[number];
+export type AccordionChevronIcon = typeof CHEVRONICON_TYPE[number];
 export type AccordionSize = typeof ACCORDION_SIZES[number];
 export type AccordionItemActiveVariant = typeof ACCORDION_ITEM_ACTIVE_VARIANTS[number];
-
+export type AccordionChevronAlignment = typeof CHEVRON_ALIGNMENTS[number];
 
 // ================================
 // Contexte (inchangé)
@@ -86,8 +84,6 @@ export type AccordionItemProps = {
     onClick?: () => void;
     /** Indique si l'item est actuellement activé (ex: page ou route courante). */
     isActive?: boolean;
-    /** Contenu alternatif au label si besoin d'éléments complexes. */
-    children?: ReactNode;
     /** * Style spécifique appliqué à cet item quand il est actif ou survolé, 
      * surchargenant le style global défini par AccordionProps. 
      */
@@ -126,6 +122,8 @@ export type AccordionProps = {
     itemVariant?: AccordionItemActiveVariant;
     /** Contenu de l'accortion (AccordionSection, ou tout composant React). */
     children: ReactNode;
+    /** Définit l'alignement horizontal du chevron d'ouverture/fermeture par rapport au label de section. */
+    chevronAlignment?: AccordionChevronAlignment;
 }
 
 // ================================
@@ -149,6 +147,7 @@ export const ACCORDION_DEFAULTS = {
     size: "medium" as AccordionSize,
     chevronIcon: "chevron" as AccordionChevronIcon,
     itemVariant: "primary" as AccordionItemActiveVariant,
+    chevronAlignment: "near-label" as AccordionChevronAlignment,
 } satisfies Partial<AccordionProps>
 
 // ================================
@@ -157,6 +156,6 @@ export const ACCORDION_DEFAULTS = {
 export const ACCORDION_SHOWCASE_CONSTANTS = {
     variant: ACCORDION_COLOR_VARIANTS,
     size: ACCORDION_SIZES,
-    chevronIcon: ACCORDION_CHEVRON_ICONS,
+    chevronIcon: CHEVRONICON_TYPE,
     itemVariant: ACCORDION_ITEM_ACTIVE_VARIANTS
 } as const

@@ -15,7 +15,7 @@ import { useAccordion } from "./Accordion.context";
  * Ce composant gère son propre état d'ouverture/fermeture et affiche le contenu uniquement lorsqu'il est ouvert. Il peut surcharger les styles globaux hérités de l'Accordion parent.
  *
  * @component
- * @version 2.0.2
+ * @version 2.1.0
  * @since 2025-10-17
  * @author Seb-Prod
  *
@@ -69,6 +69,7 @@ const AccordionSection = ({
   const finalSize = propSize ?? context.size;
   const finalChevronIcon = propChevronIcon ?? context.chevronIcon;
   const finalVariant = propVariant ?? context.variant;
+  const finalChevronAlignment = context.chevronAlignment;
 
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
@@ -85,10 +86,11 @@ const AccordionSection = ({
     styles.button,
     `text-${finalVariant}`,
     `title-${finalSize}`,
+    finalChevronAlignment === 'edge' && styles.buttonAlignEdge,
   ].join(" ");
 
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} ${styles[context.chevronAlignment]}`}>
       <button
         className={buttonClasses}
         onClick={handleToggle}
@@ -97,7 +99,7 @@ const AccordionSection = ({
         aria-controls={`section-content-${label}`}
       >
         <span className={styles.label}>{label}</span>
-        <ChevronIcon isOpen={isOpen} type={finalChevronIcon} />
+        <ChevronIcon isOpen={isOpen} type={finalChevronIcon} size={context.size} colorStyle={context.variant}/>
       </button>
 
       {isOpen && (

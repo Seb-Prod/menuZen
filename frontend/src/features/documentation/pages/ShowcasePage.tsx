@@ -156,7 +156,7 @@ const ShowcasePage = (): JSX.Element => {
             <div className={styles.container}>
                 <SideBar>
                     <ThemeToggle />
-                    <Accordion variant="info" size="small" chevronIcon="dots" itemVariant="secondary">
+                    <Accordion variant="info" size="small" chevronIcon="dots" itemVariant="secondary" chevronAlignment="edge">
                         <AccordionSection 
                             label="Design System" 
                             size="large"

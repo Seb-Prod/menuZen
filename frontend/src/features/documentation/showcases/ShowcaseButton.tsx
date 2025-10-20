@@ -31,7 +31,7 @@ const generateButtonCode = (combo: ButtonShowcaseCombo): string => {
     combo.disabled && 'disabled',
   ];
 
-  return generateCodeString("Button", propExpressions, true);
+  return generateCodeString("Button", propExpressions);
 };
 
 const ShowcaseButton = (): JSX.Element => {

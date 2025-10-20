@@ -1,37 +1,63 @@
-// src/utils/codeGenerator.ts
-
 /**
- * Génère la chaîne de code JSX pour un composant à partir d'un tableau de propriétés conditionnelles.
- * Les propriétés sont incluses uniquement si leur expression est "truthy".
+ * Génère la chaîne de code JSX pour un composant, avec support d'enfants imbriqués
+ * et indentation correcte.
  *
- * @param componentName Le nom du composant (ex: "Button", "Spinner").
- * @param propExpressions Un tableau de chaînes de caractères qui représentent soit:
- * - Une prop de la forme 'propName="value"' (pour les valeurs non par défaut).
- * - Le nom d'une prop booléenne (ex: 'fullWidth') si elle est vraie.
- * - `false` ou `null` pour les props à ignorer.
- * @param hasChildren Indique si le composant doit avoir des enfants (ex: <Button>Example</Button>).
- * @returns La chaîne de code JSX formatée.
+ * @param componentName Nom du composant (ex: "Accordion")
+ * @param propExpressions Tableau de props conditionnelles (ex: 'size="small"')
+ * @param children Chaîne ou tableau de chaînes représentant les enfants (générés par la même fonction)
+ * @param indentLevel Niveau d'indentation (utilisé récursivement)
  */
 export const generateCodeString = (
   componentName: string,
-  propExpressions: (string | false | null | undefined)[],
-  hasChildren: boolean = false
+  propExpressions: (string | false | null | undefined)[] = [],
+  children?: string | string[],
+  indentLevel: number = 0
 ): string => {
+  const indent = "  ".repeat(indentLevel);
   const propsArray = propExpressions.filter(Boolean) as string[];
-  const props = propsArray.join('\n  ');
-  
-  // Définit le contenu interne (enfants)
-  const exampleText = hasChildren ? '  Example\n' : '';
 
-  // Définit la fin de la balise ouvrante (soit '>' si il y a des enfants, soit '/>' si il n'y en a pas)
-  const tagEnd = hasChildren ? '>' : '/>';
-  
-  // Définit la balise de fermeture complète (vide si auto-fermante)
-  const closingTag = hasChildren ? `</${componentName}>` : '';
+  const hasChildren =
+    (Array.isArray(children) && children.length > 0) ||
+    (typeof children === "string" && children.trim().length > 0);
 
-  if (props.length === 0) {
-    return `<${componentName}${tagEnd}${exampleText}${closingTag}`;
+  // Construire la ligne d'ouverture avec props (si présentes)
+  let openingTag = `${indent}<${componentName}`;
+
+  if (propsArray.length > 0) {
+    openingTag += "\n" + propsArray.map(p => `${"  ".repeat(indentLevel + 1)}${p}`).join("\n") + `\n${indent}>`;
+  } else {
+    openingTag += hasChildren ? ">" : "/>";
   }
 
-  return `<${componentName}\n  ${props}\n${tagEnd}\n${exampleText}${closingTag}`;
+  // Si pas d'enfants, on retourne la balise auto-fermante
+  if (!hasChildren) {
+    return openingTag;
+  }
+
+  // Construire le contenu des enfants avec indentation supplémentaire
+  let childrenContent = "";
+  const childIndentLevel = indentLevel + 1;
+  const childIndent = "  ".repeat(childIndentLevel);
+
+  if (Array.isArray(children)) {
+    // Chaque child est déjà une chaîne (souvent produite par generateCodeString)
+    childrenContent = children
+      .map(child =>
+        child
+          .split("\n")
+          .map(line => (line.trim() ? childIndent + line : line))
+          .join("\n")
+      )
+      .join("\n");
+  } else {
+    // children est une simple string (texte)
+    childrenContent = children
+      .split("\n")
+      .map(line => (line.trim() ? childIndent + line : line))
+      .join("\n");
+  }
+
+  const closingTag = `${indent}</${componentName}>`;
+
+  return `${openingTag}\n${childrenContent}\n${closingTag}`;
 };
