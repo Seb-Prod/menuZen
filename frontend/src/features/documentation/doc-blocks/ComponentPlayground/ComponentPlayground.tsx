@@ -109,6 +109,7 @@ const ComponentPlayground = <T extends Params>({
                             <Text>{paramName}</Text>
                             <Select
                                 size="small"
+                                fullWidth
                                 options={paramValues.map((value) => ({
                                     value: String(value),
                                     label: typeof value === 'boolean' 

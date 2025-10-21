@@ -94,7 +94,7 @@
 .component-fullwidth {
     width: 100%;
     display: flex;
-    
+
     /* Annule l'alignement si fullWidth */
     &.component-left,
     &.component-center,
@@ -142,5 +142,12 @@
         padding: var(--size-padding);
         font-size: var(--size-font);
         min-height: var(--size-height);
+    }
+
+    /* Désactivation du hover */
+    &.no-hover:hover:not(:disabled) {
+        background-color: var(--bg);
+        color: var(--text);
+        transition: none;
     }
 }

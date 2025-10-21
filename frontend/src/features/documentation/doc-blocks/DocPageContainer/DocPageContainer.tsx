@@ -127,7 +127,7 @@ const DocPageContainer = <T extends Params>({
                 <AccordionSection label="Example d'utilisation">
                     <UsageExample code={usageExample} />
                 </AccordionSection>
-                <AccordionSection label="Playground interactif">
+                <AccordionSection label="Playground interactif" defaultOpen>
                     <ComponentPlayground
                         params={params}
                         renderPreview={renderPreview}
