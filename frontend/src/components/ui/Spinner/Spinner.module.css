@@ -42,57 +42,9 @@
   --dot-size: 6px;
 }
 
-/* Text label */
-.text {
-  text-align: center;
-  margin-top: 4px;
-  font-family: inherit;
-}
 
-.text.small {
-  font: var(--text-body-small);
-}
 
-.text.medium {
-  font: var(--text-body-medium);
-}
 
-.text.large {
-  font: var(--text-body-large);
-}
-
-/* Color variants */
-.primary {
-  color: var(--primary-color);
-}
-
-.secondary {
-  color: var(--secondary-color);
-}
-
-.neutral {
-  color: var(--disabled-text);
-}
-
-.warning {
-  color: var(--warning-color);
-}
-
-/* Alignements - Déplace l'élément dans son conteneur */
-.left {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.right {
-  margin-left: auto;
-  margin-right: 0;
-}
 
 /* Animation */
 @keyframes spinner-rotate {

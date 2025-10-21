@@ -5,7 +5,7 @@
 
 import {
   SPINNER_ALIGN,
-  SPINNER_SIZE,
+  SPINNER_SIZES,
   SPINNER_VARIANTS,
 } from '@/components/ui/Spinner/Spinner.types';
 import type { PropInfo } from "@/features/documentation/types/propsInfo";
@@ -26,7 +26,7 @@ import { formatType } from '@/features/documentation/utils';
 export const spinnerProps: readonly PropInfo[] = [
   {
     name: "size",
-    type: formatType(SPINNER_SIZE),
+    type: formatType(SPINNER_SIZES),
     default: '"medium"',
     description: "**Taille** visuelle du spinner. Contrôle les dimensions de l'icône de chargement.",
     required: false,

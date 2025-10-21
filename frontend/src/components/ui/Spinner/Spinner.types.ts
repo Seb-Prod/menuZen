@@ -1,62 +1,91 @@
+/**
+ * @file Définition des types, constantes et valeurs par défaut
+ * @module components/ui/Spinner.types
+ * @version 1.1.0
+ * @since 2025-10-21
+ * @see {@link Spinner} pour l'implémentation du composant principal.
+ * @autor Seb-Prod
+ */
+
 import type { ReactNode } from 'react';
 
+// ================================
+// Constantes
+// ================================
+
 /**
- * Définit les variantes de couleur pour le spiner.
+ * Définit les variantes de couleur disponibles pour le Spinner.
  */
 export const SPINNER_VARIANTS = [
-    "primary",
-    "secondary",
-    "neutral",
-    "warning"
+  "primary",
+  "secondary",
+  "error",
+  "success",
+  "info",
+  "neutral"
 ] as const;
 
 /**
- * Définit les tailles du spinner prédéfinies.
+ * Définit les tailles prédéfinies pour le Spinner.
  */
-export const SPINNER_SIZE = [
-    "small",
-    "medium",
-    "large"
+export const SPINNER_SIZES = [
+  "small",
+  "medium",
+  "large"
 ] as const;
 
 /**
- * Définit l'alligenement du spiner
+ * Définit les alignements horizontaux possibles pour le Spinner.
  */
 export const SPINNER_ALIGN = [
-    "left",
-    "right",
-    "center"
-] as const
+  "left",
+  "right",
+  "center"
+] as const;
 
-// Types inférés
+// ================================
+// Types
+// ================================
+
 export type SpinnerVariant = typeof SPINNER_VARIANTS[number];
-export type SpinnerSize = typeof SPINNER_SIZE[number];
+export type SpinnerSize = typeof SPINNER_SIZES[number];
 export type SpinnerAlign = typeof SPINNER_ALIGN[number];
 
-/**
- * Propriétés personnalisées pour le composant Spinner.
- */
+// ================================
+// Props du composant
+// ================================
+
 export type SpinnerProps = {
-    variant?: SpinnerVariant;
-    size?: SpinnerSize;
-    align?: SpinnerAlign;
-    children?: ReactNode
-}
+  /** Variante visuelle du Spinner */
+  variant?: SpinnerVariant;
+  /** Taille du Spinner */
+  size?: SpinnerSize;
+  /** Alignement horizontal dans le conteneur parent */
+  align?: SpinnerAlign;
+  /** Contenu éventuel du Spinner (rarement utilisé) */
+  children?: ReactNode;
+};
 
-/**
- * Valeur par défaut pour les propréités du composant Spinner.
- */
+// ================================
+// Valeurs par défaut
+// ================================
+
 export const SPINNER_DEFAULTS = {
-    variant: "primary" as SpinnerVariant,
-    size: "medium" as SpinnerSize,
-    align: "center" as SpinnerAlign
-} satisfies Partial<SpinnerProps>
+  variant: "primary" as SpinnerVariant,
+  size: "medium" as SpinnerSize,
+  align: "center" as SpinnerAlign,
+} satisfies Partial<SpinnerProps>;
+
+// ================================
+// Showcase
+// ================================
 
 /**
- * Toutes les constantes de Spinner pour le showcase
+ * Constantes utilisées pour générer les combinaisons de démonstration
+ * dans la page de showcase du Spinner.
  */
 export const SPINNER_SHOWCASE_CONSTANTS = {
-    variant:SPINNER_VARIANTS,
-    size:SPINNER_SIZE,
-    align:SPINNER_ALIGN
-} as const
+  variant: SPINNER_VARIANTS,
+  size: SPINNER_SIZES,
+  align: SPINNER_ALIGN,
+} as const;
