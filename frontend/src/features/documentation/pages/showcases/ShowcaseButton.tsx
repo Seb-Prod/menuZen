@@ -5,11 +5,11 @@
 
 import Button from "@/components/ui/Button";
 import type { JSX } from "react";
-import type { Combination } from "../utils/showcaseHelpers";
-import { BUTTON_SHOWCASE_CONSTANTS } from '../../../components/ui/Button/Button.types';
-import { buttonProps, buttonUsageExample } from "../data/Button";
-import { generateCodeString } from "../utils";
-import DocPageContainer from "../doc-blocks/DocPageContainer/DocPageContainer";
+import type { Combination } from "../../utils/showcaseHelpers";
+import { BUTTON_SHOWCASE_CONSTANTS } from '@/components/ui/Button/Button.types';
+import { buttonProps, buttonUsageExample } from "../../data/Button";
+import { generateCodeString } from "../../utils";
+import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 
 type ShowcaseCombo = Combination<typeof BUTTON_SHOWCASE_CONSTANTS>;
 

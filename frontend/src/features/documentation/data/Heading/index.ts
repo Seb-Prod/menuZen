@@ -1,2 +1,2 @@
-export {default as headingProps } from "./headingProps"
-export {default as headingUsageExample} from "./headingUsageExample"
+export { headingProps } from "./headingProps"
+export { default as headingUsageExample } from "./headingUsageExample"

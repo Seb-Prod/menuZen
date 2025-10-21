@@ -4,7 +4,6 @@
  */
 
 import type { JSX } from "react";
-import styles from "./Heading.module.css";
 import { HEADING_DEFAULTS, type HeadingProps } from "./Heading.types";
 
 /**
@@ -14,6 +13,9 @@ import { HEADING_DEFAULTS, type HeadingProps } from "./Heading.types";
  * prédéfinies pour la couleur, l'alignement et des classes personnalisées.
  * 
  * @component
+ * @version 1.1.0
+ * @since 2025-10-21
+ * @author Seb-Prod
  * 
  * @param {HeadingProps} props - Les propriétés du composant.
  * @param {ReactNode} props.children - Le contenu à afficher dans le titre.
@@ -58,8 +60,9 @@ const Heading = ({
   
   // Construction sécurisée des classes CSS
   const classNames = [
-    styles[color] || '',
-    styles[align] || '',
+    `text-${color}`,
+    `text-fullWidth`,
+    `text-${align}`,
     className
   ].filter(Boolean).join(' ').trim();
   

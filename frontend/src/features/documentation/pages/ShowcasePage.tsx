@@ -6,7 +6,7 @@ import { Page, SideBar } from "@/components/layout";
 import { Accordion, AccordionItem, AccordionSection } from "@/components/ui/Accordion";
 
 // Importation dynamique de tous les fichiers Showcase*.tsx dans le dossier showcases
-const showcaseModules = import.meta.glob("../showcases/Showcase*.tsx");
+const showcaseModules = import.meta.glob("./showcases/Showcase*.tsx");
 
 // Extraction des noms des composants à partir des chemins d'importation
 const showcaseNames = Object.keys(showcaseModules).map((path) => {
@@ -98,7 +98,7 @@ const ShowcasePage = (): JSX.Element => {
     // Chargement dynamique du composant sélectionné uniquement si c'est un showcase
     const SelectedComponent = selected && selected !== SECTION_UI && selected !== SECTION_PROJECTS && selected !== SECTION_THEME
         ? lazy(() =>
-            (showcaseModules[`../showcases/Showcase${selected}.tsx`] as () => Promise<{
+            (showcaseModules[`./showcases/Showcase${selected}.tsx`] as () => Promise<{
                 default: React.ComponentType<Record<string, never>>;
             }>)()
         ) : null;
