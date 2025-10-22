@@ -1,12 +1,13 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut
  * @module components/ui/ChevronIcon.types
- * @version 1.3.0
+ * @version 1.4.0
  * @since 2025-10-17
  * @see {@link ChevronIcon} pour l'implémentation du composant principal.
  * @author Seb-Prod
  */
 
+import { omit } from "@/utils/object";
 import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize } from "../ui.types";
 
 // ================================
@@ -66,7 +67,7 @@ export type ChevronIconProps = {
 // ================================
 
 export const CHEVRONICON_DEFAULTS = {
-    ...UI_DEFAULTS,
+    ...omit(UI_DEFAULTS, ["justify"]),
     type: "chevron" as ChevronIconType,
     isOpen: false as boolean,
     ariaLabelOpen: "Fermer le menu",

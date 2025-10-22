@@ -3,11 +3,8 @@
  * @module features/documentation/data/Spinner
  */
 
-import {
-  SPINNER_ALIGN,
-  SPINNER_SIZES,
-  SPINNER_VARIANTS,
-} from '@/components/ui/Spinner/Spinner.types';
+import { SELECT_DEFAULTS } from "@/components/ui/Select/Select.types";
+import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/propsInfo";
 import { formatType } from '@/features/documentation/utils';
 
@@ -26,22 +23,22 @@ import { formatType } from '@/features/documentation/utils';
 export const spinnerProps: readonly PropInfo[] = [
   {
     name: "size",
-    type: formatType(SPINNER_SIZES),
-    default: '"medium"',
+    type: formatType(UI_SIZES),
+    default: `"${SELECT_DEFAULTS.size}"`,
     description: "**Taille** visuelle du spinner. Contrôle les dimensions de l'icône de chargement.",
     required: false,
   },
   {
     name: "variant",
-    type: formatType(SPINNER_VARIANTS),
-    default: '"primary"',
+    type: formatType(UI_VARIANTS),
+    default: `"${SELECT_DEFAULTS.variant}"`,
     description: "**Style visuel** du spinner. Détermine la couleur de l'icône de chargement.",
     required: false,
   },
   {
     name: "align",
-    type: formatType(SPINNER_ALIGN),
-    default: '"center"',
+    type: formatType(UI_ALIGN),
+    default: `"${SELECT_DEFAULTS.align}"`,
     description: "**Alignement horizontal** du spinner dans son conteneur parent.",
     required: false,
   },

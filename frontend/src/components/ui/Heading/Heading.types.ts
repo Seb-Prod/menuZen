@@ -1,7 +1,7 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut du composant Heading
  * @module components/ui/Heading.types
- * @version 1.2.0
+ * @version 1.3.0
  * @since 2025-10-21
  * @see {@link Heading} pour l'implémentation du composant principal.
  * @author Seb-Prod
@@ -9,6 +9,7 @@
 
 import type { ReactNode, HTMLAttributes } from 'react';
 import { UI_DEFAULTS, UI_TEXT_JUSTIFY, UI_VARIANTS, type UiTextJustify, type UiVariant } from '../ui.types';
+import { omit } from '@/utils/object';
 
 // ================================
 // Constantes
@@ -44,7 +45,7 @@ export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
 // ================================
 
 export const HEADING_DEFAULTS = {
-  ...UI_DEFAULTS,
+  ...omit(UI_DEFAULTS, ["align"]),
   as: 'h1' as HeadingAs,
   className: ""
 } satisfies Partial<HeadingProps>;

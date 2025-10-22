@@ -1,7 +1,7 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut
  * @module components/ui/Button.types
- * @version 1.1.0
+ * @version 1.2.0
  * @since 2025-10-17
  * @see {@link Button} pour l'implémentation du composant principal.
  * @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_ALIGN} pour les constantes partagées.
@@ -11,6 +11,7 @@
 
 import type { ReactNode, ButtonHTMLAttributes } from 'react';
 import { UI_ALIGN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiAlign, type UiSize, type UiVariant } from '../ui.types';
+import { omit } from '@/utils/object';
 
 // ================================
 // Constantes
@@ -67,7 +68,7 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> 
 // ================================
 
 export const BUTTON_DEFAULTS = {
-  ...UI_DEFAULTS,
+  ...omit(UI_DEFAULTS, ["justify"]),
   fullWidth: false,
   type: "button" as ButtonType,
   disabled: false,

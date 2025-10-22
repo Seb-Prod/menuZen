@@ -1,7 +1,7 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut du composant Select
  * @module components/ui/Select.types
- * @version 1.0.0
+ * @version 1.1.0
  * @since 2025-10-21
  * @see {@link Select} pour l'implémentation du composant principal.
  * @author Seb-Prod
@@ -9,6 +9,7 @@
 
 import type { SelectHTMLAttributes } from 'react';
 import { UI_ALIGN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiAlign, type UiSize, type UiVariant } from '../ui.types';
+import { omit } from '@/utils/object';
 
 // ================================
 // Interfaces
@@ -75,7 +76,7 @@ export type SelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size' |
 // ================================
 
 export const SELECT_DEFAULTS = {
-  ...UI_DEFAULTS,
+  ...omit(UI_DEFAULTS, ["justify"]),
   placeholder: 'Sélectionnez une option',
   disabled: false,
   fullWidth:false,
