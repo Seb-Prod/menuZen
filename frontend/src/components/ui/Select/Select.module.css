@@ -51,6 +51,10 @@
   z-index: 1000;
   animation: slideDown 0.4s ease-out;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+   width: max-content; /* prend la largeur du contenu */
+  min-width: 100%; /* au minimum la taille du parent */
+  white-space: nowrap; /* évite le retour à la ligne */
 }
 
 

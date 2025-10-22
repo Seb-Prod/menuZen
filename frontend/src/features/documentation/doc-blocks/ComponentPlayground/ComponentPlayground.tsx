@@ -82,7 +82,7 @@ const ComponentPlayground = <T extends Params>({
         // En l'absence de paramètres, on n'affiche pas la section de sélection.
         return (
             <>
-                <Heading variant={3}>Aperçu Statique</Heading>
+                <Heading as="h3">Aperçu Statique</Heading>
                 <div className={styles.container}>
                     <div className={styles.preview} style={{ width: '100%' }}>
                         <CodeBlock
@@ -109,6 +109,7 @@ const ComponentPlayground = <T extends Params>({
                             <Text>{paramName}</Text>
                             <Select
                                 size="small"
+                                variant="neutral"
                                 fullWidth
                                 options={paramValues.map((value) => ({
                                     value: String(value),

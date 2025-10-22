@@ -4,11 +4,9 @@
  */
 
 import {
-  SELECT_VARIANTS,
-  SELECT_SIZES,
-  SELECT_ALIGN,
   SELECT_DEFAULTS,
 } from "@/components/ui/Select/Select.types";
+import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/propsInfo";
 import { formatType } from "@/features/documentation/utils";
 
@@ -24,28 +22,28 @@ import { formatType } from "@/features/documentation/utils";
 export const selectProps: readonly PropInfo[] = [
   {
     name: "variant",
-    type: formatType(SELECT_VARIANTS),
+    type: formatType(UI_VARIANTS),
     default: `"${SELECT_DEFAULTS.variant}"`,
     description: "Définit le **schéma de couleur** et le style visuel (couleur du fond, de la bordure, etc.) du sélecteur. Ce style s'applique au bouton d'affichage et aux options.",
     required: false,
   },
   {
     name: "size",
-    type: formatType(SELECT_SIZES),
+    type: formatType(UI_SIZES),
     default: `"${SELECT_DEFAULTS.size}"`,
     description: "Définit la **taille** visuelle du bouton du sélecteur et des éléments de la liste déroulante (hauteur, padding, taille de police).",
     required: false,
   },
   {
     name: "align",
-    type: formatType(SELECT_ALIGN),
+    type: formatType(UI_ALIGN),
     default: `"${SELECT_DEFAULTS.align}"`,
     description: "Définit l'**alignement horizontal** du menu déroulant par rapport au bouton du sélecteur (utile pour gérer le débordement sur les bords de l'écran).",
     required: false,
   },
   {
     name: "fullWidth",
-    type: formatType(SELECT_ALIGN),
+    type: "boolean",
     default: `"${SELECT_DEFAULTS.fullWidth}"`,
     description: "Si `true`, le select occupe **100% de la largeur** de son conteneur parent. Utile pour les mises en page mobiles ou les formulaires.",
     required: false,

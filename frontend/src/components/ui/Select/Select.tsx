@@ -205,7 +205,7 @@ const Select = ({
         aria-expanded={isOpen}
       >
         <span className={styles.selectText}>{displayText}</span>
-        <ChevronIcon isOpen={isOpen} type="triangle" size={size} />
+        <ChevronIcon isOpen={isOpen} type="triangle" size={size} variant="none"/>
       </button>
 
       {/* Menu déroulant */}

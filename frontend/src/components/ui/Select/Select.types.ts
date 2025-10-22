@@ -8,6 +8,7 @@
  */
 
 import type { SelectHTMLAttributes } from 'react';
+import { UI_ALIGN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiAlign, type UiSize, type UiVariant } from '../ui.types';
 
 // ================================
 // Interfaces
@@ -25,36 +26,6 @@ export interface SelectOption {
 // ================================
 // Constantes
 // ================================
-
-/**
- * Définit les variantes de couleur disponibles pour le Select.
- */
-export const SELECT_VARIANTS = [
-  "primary",
-  "secondary",
-  "error",
-  "success",
-  "info",
-  "neutral"
-] as const;
-
-/**
- * Définit les tailles prédéfinies du Select.
- */
-export const SELECT_SIZES = [
-  "small",
-  "medium",
-  "large"
-] as const;
-
-/**
- * Définit les options d'alignement horizontal du Select.
- */
-export const SELECT_ALIGN = [
-  "left",
-  "right",
-  "center"
-] as const;
 
 /**
  * Définit les états possibles pour l'option `disabled`.
@@ -76,10 +47,6 @@ export const SELECT_FULL_WIDTH = [
 // Types
 // ================================
 
-export type SelectVariant = typeof SELECT_VARIANTS[number];
-export type SelectSize = typeof SELECT_SIZES[number];
-export type SelectAlign = typeof SELECT_ALIGN[number];
-
 // ================================
 // Props du composant
 // ================================
@@ -90,11 +57,11 @@ export type SelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size' |
   /** Valeur sélectionnée */
   value?: string;
   /** Style du Select */
-  variant?: SelectVariant;
+  variant?: UiVariant;
   /** Taille du Select */
-  size?: SelectSize;
+  size?: UiSize;
   /** Alignement dans le conteneur parent */
-  align?: SelectAlign;
+  align?: UiAlign;
   /** Prend toute la largeur du parent */
   fullWidth?:boolean;
   /** Fonction appelée lors du changement de valeur */
@@ -108,9 +75,7 @@ export type SelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size' |
 // ================================
 
 export const SELECT_DEFAULTS = {
-  variant: "neutral" as SelectVariant,
-  size: "medium" as SelectSize,
-  align: "left" as SelectAlign,
+  ...UI_DEFAULTS,
   placeholder: 'Sélectionnez une option',
   disabled: false,
   fullWidth:false,
@@ -123,9 +88,9 @@ export const SELECT_DEFAULTS = {
 // ================================
 
 export const SELECT_SHOWCASE_CONSTANTS = {
-  variant: SELECT_VARIANTS,
-  size: SELECT_SIZES,
-  align: SELECT_ALIGN,
+  variant: UI_VARIANTS,
+  size: UI_SIZES,
+  align: UI_ALIGN,
   disabled: SELECT_DISABLED_OPTIONS,
   fullWidth: SELECT_FULL_WIDTH,
 } as const;

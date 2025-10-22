@@ -32,19 +32,19 @@ import { HEADING_DEFAULTS, type HeadingProps } from "./Heading.types";
  * 
  * @example
  * // Sous-titre avec couleur personnalisée
- * <Heading variant={2} color="secondary">
+ * <Heading as="h2" variant="secondary">
  *   Sous-titre coloré
  * </Heading>
  * 
  * @example
  * // Titre centré avec couleur de succès
- * <Heading variant={3} align="center" color="success">
+ * <Heading as="h3" justify="center" color="success">
  *   Opération réussie !
  * </Heading>
  * 
  * @example
  * // Titre avec classes CSS personnalisées
- * <Heading variant={4} className="my-custom-class">
+ * <Heading as="h4" className="my-custom-class">
  *   Titre personnalisé
  * </Heading>
  */
