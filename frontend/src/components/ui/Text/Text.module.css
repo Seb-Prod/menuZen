@@ -2,54 +2,25 @@
     display: inline;
 }
 
-/* Colors */
 
-.primary {
-    color: var(--primary-text);
-}
-
-.secondary {
-    color: var(--secondary-text);
-}
-
-.dark {
-    color: var(--dark-text);
-}
-
-.light {
-    color: var(--light-text);
-}
-
-.neutral {
-    color: var(--neutral-color); 
-}
-
-.warning {
-    color: var(--warning-color);
-}
-
-.success {
-    color: var(--success-color);
-}
 
 /* Alignement */
 
-.left {
-    text-align: left;
+.align-center,
+.align-right,
+.align-justify {
+    width: 100%;
 }
 
-.right {
-    display: block; 
-    text-align: right;
-}
-
-.center {
-    display: block; 
+.align-center {
     text-align: center;
 }
 
-.justify {
-    display: block; 
+.align-right {
+    text-align: right;
+}
+
+.align-justify {
     text-align: justify;
 }
 

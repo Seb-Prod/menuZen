@@ -71,7 +71,7 @@ const ShowcaseChevronIcon = (): JSX.Element => {
   return (
     <DocPageContainer
       title="ChevronIcon"
-      description="Composant **ChevronIcon** réutilisable, conçu pour indiquer visuellement l'état de bascule d'un élément (ouvert/fermé) via une **icône animée**. Il supporte différents types d'icônes (chevron, flèche, plus/moins, triangle, etc.) et s'intègre parfaitement aux composants de type accordéon et menus déroulants."
+      description="Composant **ChevronIcon** indique visuellement l'état de bascule d'un élément (ouvert/fermé) via une **icône animée**. Il supporte différents types d'icônes (chevron, flèche, plus/moins, triangle, etc.) et s'intègre parfaitement aux composants de type accordéon et menus déroulants."
       props={chevronIconProps}
       usageExample={chevroniconUsageExample}
       params={CHEVRONICON_SHOWCASE_CONSTANTS}

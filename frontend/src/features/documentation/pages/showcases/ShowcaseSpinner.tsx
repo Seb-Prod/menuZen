@@ -67,7 +67,7 @@ const ShowcaseSpinner = (): JSX.Element => {
   return (
     <DocPageContainer
       title="Spinner"
-      description="Indicateur de chargement rotatif avec différentes tailles, variantes de couleur et options d'alignement."
+      description="Composant **Spinner** est un indicateur de chargement rotatif avec différentes tailles, variantes de couleur et options d'alignement."
       usageExample={spinnerUsageExample}
       params={SPINNER_SHOWCASE_CONSTANTS}
       renderPreview={renderPreview}

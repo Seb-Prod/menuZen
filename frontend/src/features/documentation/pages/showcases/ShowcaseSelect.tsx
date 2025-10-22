@@ -85,7 +85,7 @@ const ShowcaseSelect = (): JSX.Element => {
   return (
     <DocPageContainer
       title="Select"
-      description="Une liste déroulante personnalisée et accessible qui supporte la navigation au clavier, la gestion des variantes de style, de la taille, et de l'alignement du menu."
+      description="Composant **Select** est une liste déroulante personnalisée et accessible qui supporte la navigation au clavier, la gestion des variantes de style, de la taille, et de l'alignement du menu."
       usageExample={selectUsageExample}
       params={SELECT_SHOWCASE_CONSTANTS}
       renderPreview={renderPreview}

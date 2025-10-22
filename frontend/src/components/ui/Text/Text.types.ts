@@ -1,39 +1,38 @@
+/**
+ * @file Définition des types, constantes et valeurs par défaut
+ * @module components/ui/Text.types
+ * @version 1.2.0
+ * @since 2025-10-22
+ * @see {@link Text} pour l'implémentation du composant principal.
+ * @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_ALIGN} pour les constantes partagées.
+ * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut. 
+ * @author Seb-Prod
+ */
+
 import type { ReactNode } from 'react';
+import { UI_DEFAULTS, UI_TEXT_JUSTIFY, UI_VARIANTS, type UiTextJustify, type UiVariant } from '../ui.types';
+import { omit } from '@/utils/object';
+
+// ================================
+// Constantes
+// ================================
 
 /**
- * Définit le type sémantique (balise HTML) à utiliser pour le texte.
+ * Définit les balises HTML sémantiques utilisables pour le texte.
  */
-export const TEXT_AS =
-  ["span",
-    "p",
-    "label",
-    "strong",
-    "em"
-  ] as const ;
-
-/**
- * Définit les couleurs thématiques prédéfinies pour le texte.
- */
-export const TEXT_COLORS = [
-  "primary",
-  "secondary",
-  "dark",
-  "light",
-  "neutral",
-  "warning",
-  "success"
+export const TEXT_AS = [
+  "span",
+  "p",
+  "label",
+  "strong",
+  "em"
 ] as const;
-
-/**
- * Définit les options d'alignement du texte.
- */
-export const TEXT_ALIGNS = ["left", "right", "center", "justify"] as const;
 
 /**
  * Définit les tailles de police prédéfinies (basées sur une échelle design).
  */
 export const TEXT_SIZES = [
-  "xs", 
+  "xs",
   "sm",
   "md",
   "lg",
@@ -51,46 +50,55 @@ export const TEXT_WEIGHTS = [
 ] as const;
 
 
-// Types inférés
+// ================================
+// Types
+// ================================
+
 export type TextAs = typeof TEXT_AS[number];
-export type TextColor = typeof TEXT_COLORS[number];
-export type TextAlign = typeof TEXT_ALIGNS[number];
 export type TextSize = typeof TEXT_SIZES[number];
 export type TextWeight = typeof TEXT_WEIGHTS[number];
 
+// ================================
+// Props des composants
+// ================================
 
-/**
- * Propriétés (props) acceptées par le composant Text.
- */
 export type TextProps = {
+  /** Balise HTML sémantique à rendre */
   as?: TextAs;
-  color?: TextColor;
-  align?: TextAlign;
+  /** Couleur thématique du texte */
+  variant?: UiVariant;
+  /** Taille de la police */
   size?: TextSize;
+  /** Poids (épaisseur) de la police */
   weight?: TextWeight;
+  /** Alignement du texte */
+  justify?: UiTextJustify;
+  /** Contenu textuel à afficher */
   children: ReactNode;
+  /** Classes CSS personnalisées supplémentaires */
   className?: string;
 };
 
-/**
- * Valeurs par défaut pour les propriétés du composant Text.
- */
+// ================================
+// Valeurs par défaut
+// ================================
+
 export const TEXT_DEFAULTS = {
+  ...omit(UI_DEFAULTS, ["align"]),
   as: "span" as TextAs,
-  color: "primary" as TextColor,
-  align: "left" as TextAlign,
   size: "md" as TextSize,
   weight: "regular" as TextWeight,
   className: ""
-} as const;
+} satisfies Partial<TextProps>;
 
-/**
- * Toutes les constantes de Text regroupées pour le showcase
- */
+// ================================
+// Showcase
+// ================================
+
 export const TEXT_SHOWCASE_CONSTANTS = {
   as: TEXT_AS,
-  color: TEXT_COLORS,
-  align: TEXT_ALIGNS,
+  variant: UI_VARIANTS,
   size: TEXT_SIZES,
   weight: TEXT_WEIGHTS,
+  justify: UI_TEXT_JUSTIFY,
 } as const;
