@@ -4,6 +4,8 @@
  * @version 1.2.0
  * @since 2025-10-21
  * @see {@link Spinner} pour l'implémentation du composant principal.
+* @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_ALIGN} pour les constantes partagées.
+ * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut.
  * @autor Seb-Prod
  */
 

@@ -4,6 +4,8 @@
  * @version 1.1.0
  * @since 2025-10-21
  * @see {@link Select} pour l'implémentation du composant principal.
+ * @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_ALIGN} pour les constantes partagées.
+ * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut.
  * @author Seb-Prod
  */
 

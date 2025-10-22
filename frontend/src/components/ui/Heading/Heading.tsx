@@ -19,8 +19,8 @@ import { HEADING_DEFAULTS, type HeadingProps } from "./Heading.types";
  * 
  * @param {HeadingProps} props - Les propriétés du composant.
  * @param {ReactNode} props.children - Le contenu à afficher dans le titre.
- * @param {HeadingAs} [props.as=1] - Le niveau de titre sémantique (1=h1, 2=h2, ..., 6=h6).
- * @param {UiVariant} [props.color='primary'] - La couleur prédéfinie du titre (primary, secondary, dark, light, neutral, warning, success).
+ * @param {HeadingAs} [props.as='h1'] - Le niveau de titre sémantique (1=h1, 2=h2, ..., 6=h6).
+ * @param {UiVariant} [props.variant='primary'] - La couleur prédéfinie du titre (primary, secondary, dark, light, neutral, warning, success).
  * @param {UiTextJustify} [props.justify='left'] - L'alignement horizontal du texte (left, right, center, justify).
  * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
  * 

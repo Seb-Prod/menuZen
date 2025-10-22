@@ -31,9 +31,9 @@ import {
  * @param {SelectProps} props - Les propriétés du composant.
  * @param {SelectOption[]} props.options - Liste des options disponibles dans le menu déroulant.
  * @param {string} [props.value] - Valeur sélectionnée (mode contrôlé).
- * @param {SelectVariant} [props.variant='neutral'] - Schéma de couleur du sélecteur (primary, secondary, warning, neutral).
- * @param {SelectSize} [props.size='medium'] - Taille prédéfinie du sélecteur (small, medium, large).
- * @param {SelectAlign} [props.align='left'] - Position horizontale du sélecteur dans son conteneur (left, center, right).
+ * @param {UiVariant} [props.variant='neutral'] - Schéma de couleur du sélecteur (primary, secondary, warning, neutral).
+ * @param {UiSize} [props.size='medium'] - Taille prédéfinie du sélecteur (small, medium, large).
+ * @param {UiAlign} [props.align='left'] - Position horizontale du sélecteur dans son conteneur (left, center, right).
  * @param {(value: string) => void} [props.onChange] - Fonction appelée lors de la sélection d'une option.
  * @param {string} [props.placeholder='Sélectionnez une option'] - Texte affiché lorsqu'aucune option n'est sélectionnée.
  * @param {boolean} [props.disabled=false] - Si vrai, désactive le sélecteur.

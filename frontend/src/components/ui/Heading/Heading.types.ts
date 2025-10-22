@@ -4,6 +4,8 @@
  * @version 1.3.0
  * @since 2025-10-21
  * @see {@link Heading} pour l'implémentation du composant principal.
+ * @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_TEXT_JUSTIFY} pour les constantes partagées.
+ * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut.
  * @author Seb-Prod
  */
 

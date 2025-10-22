@@ -20,9 +20,9 @@ import { SPINNER_DEFAULTS, type SpinnerProps } from "./Spinner.types";
  * 
  * @param {SpinnerProps} props - Les propriétés du composant.
  * @param {React.ReactNode} [props.children] - Contenu optionnel affiché sous le spinner (texte, icône, etc.).
- * @param {SpinnerVariant} [props.variant='primary'] - Schéma de couleur du spinner (primary, secondary, error, success, info, neutral).
- * @param {SpinnerSize} [props.size='medium'] - Taille prédéfinie du spinner (small, medium, large).
- * @param {SpinnerAlign} [props.align='center'] - Position horizontale du spinner dans son conteneur (left, center, right).
+ * @param {UiVariant} [props.variant='primary'] - Schéma de couleur du spinner (primary, secondary, error, success, info, neutral).
+ * @param {UiSize} [props.size='medium'] - Taille prédéfinie du spinner (small, medium, large).
+ * @param {UiAlign} [props.align='center'] - Position horizontale du spinner dans son conteneur (left, center, right).
  * 
  * @returns {JSX.Element} Élément visuel représentant un indicateur de chargement.
  * 

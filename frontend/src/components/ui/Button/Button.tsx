@@ -20,11 +20,11 @@ import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
  * 
  * @param {ButtonProps} props - Les propriétés du composant.
  * @param {React.ReactNode} [props.children] - Contenu à afficher dans le bouton (texte, icône, etc.).
- * @param {ButtonVariant} [props.variant='primary'] - Schéma de couleur du bouton (primary, secondary, warning, neutral).
- * @param {ButtonSize} [props.size='medium'] - Taille prédéfinie du bouton (small, medium, large).
+ * @param {UiVariant} [props.variant='primary'] - Schéma de couleur du bouton (primary, secondary, warning, neutral).
+ * @param {UiSize} [props.size='medium'] - Taille prédéfinie du bouton (small, medium, large).
  * @param {ButtonType} [props.type='button'] - Type de bouton HTML (button, submit, reset).
  * @param {boolean} [props.fullWidth=false] - Si vrai, le bouton occupe 100% de la largeur du conteneur.
- * @param {ButtonAlign} [props.align='left'] - Position horizontale du bouton dans son conteneur (left, center, right).
+ * @param {UiAlign} [props.align='left'] - Position horizontale du bouton dans son conteneur (left, center, right).
  * @param {boolean} [props.disabled=false] - Si vrai, désactive le bouton.
  * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
  * 
