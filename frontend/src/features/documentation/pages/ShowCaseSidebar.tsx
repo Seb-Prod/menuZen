@@ -18,7 +18,7 @@ const ShowcaseSidebar = ({ showcaseNames, selected, onSelect }: ShowcaseSidebarP
         <AccordionItem label="Couleurs & Typo" onClick={() => onSelect(SECTION_KEYS.THEME)} isActive={selected === SECTION_KEYS.THEME} />
       </AccordionSection>
 
-      <AccordionSection label="Composants UI" onClick={() => onSelect(SECTION_KEYS.UI)}>
+      <AccordionSection label="Composants UI" onClick={() => onSelect(SECTION_KEYS.UI)} defaultOpen>
         {showcaseNames.map((name) => (
           <AccordionItem
             key={name}

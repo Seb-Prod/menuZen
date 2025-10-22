@@ -1,13 +1,14 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut du composant Heading
  * @module components/ui/Heading.types
- * @version 1.0.0
+ * @version 1.2.0
  * @since 2025-10-21
  * @see {@link Heading} pour l'implémentation du composant principal.
  * @author Seb-Prod
  */
 
 import type { ReactNode, HTMLAttributes } from 'react';
+import { UI_DEFAULTS, UI_TEXT_JUSTIFY, UI_VARIANTS, type UiTextJustify, type UiVariant } from '../ui.types';
 
 // ================================
 // Constantes
@@ -16,38 +17,13 @@ import type { ReactNode, HTMLAttributes } from 'react';
 /**
  * Définit les niveaux de titre sémantique disponibles (h1 à h6).
  */
-export const HEADING_VARIANTS = [1, 2, 3, 4, 5, 6] as const;
-
-/**
- * Définit les couleurs thématiques disponibles pour le titre.
- */
-export const HEADING_COLORS = [
-  "primary",
-  "secondary",
-  "error",
-  "success",
-  "info",
-  "neutral"
-] as const;
-
-/**
- * Définit les options d'alignement horizontal du texte.
- */
-export const HEADING_ALIGNS = [
-  "left",
-  "right",
-  "center",
-  "justify"
-] as const;
+export const HEADING_AS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 
 // ================================
 // Types
 // ================================
 
-export type HeadingVariant = typeof HEADING_VARIANTS[number];
-export type HeadingColor = typeof HEADING_COLORS[number];
-export type HeadingAlign = typeof HEADING_ALIGNS[number];
-
+export type HeadingAs = typeof HEADING_AS[number];
 // ================================
 // Props du composant
 // ================================
@@ -56,11 +32,11 @@ export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
   /** Contenu du titre */
   children: ReactNode;
   /** Niveau sémantique du titre */
-  variant?: HeadingVariant;
+  as?: HeadingAs;
   /** Couleur du texte */
-  color?: HeadingColor;
+  variant?: UiVariant;
   /** Alignement du texte */
-  align?: HeadingAlign;
+  justify?: UiTextJustify;
 };
 
 // ================================
@@ -68,9 +44,8 @@ export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
 // ================================
 
 export const HEADING_DEFAULTS = {
-  variant: 1 as HeadingVariant,
-  color: "primary" as HeadingColor,
-  align: "left" as HeadingAlign,
+  ...UI_DEFAULTS,
+  as: 'h1' as HeadingAs,
   className: ""
 } satisfies Partial<HeadingProps>;
 
@@ -79,7 +54,7 @@ export const HEADING_DEFAULTS = {
 // ================================
 
 export const HEADING_SHOWCASE_CONSTANTS = {
-  variant: HEADING_VARIANTS,
-  color: HEADING_COLORS,
-  align: HEADING_ALIGNS
+  as: HEADING_AS,
+  variant: UI_VARIANTS,
+  justify: UI_TEXT_JUSTIFY
 } as const;

@@ -4,11 +4,10 @@
  */
 
 import {
-  HEADING_ALIGNS,
-  HEADING_COLORS,
+  HEADING_AS,
   HEADING_DEFAULTS,
-  HEADING_VARIANTS
 } from "@/components/ui/Heading/Heading.types";
+import { UI_TEXT_JUSTIFY, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/propsInfo";
 import { formatType } from "@/features/documentation/utils";
 
@@ -26,23 +25,23 @@ import { formatType } from "@/features/documentation/utils";
  */
 export const headingProps: readonly PropInfo[] = [
   {
-    name: "variant",
-    type: formatType(HEADING_VARIANTS),
+    name: "as",
+    type: formatType(HEADING_AS),
     default: `"${HEADING_DEFAULTS.variant}"`,
     description: "**Niveau sémantique** du heading (h1 à h6). Détermine la hiérarchie du titre dans la structure du document et son rendu visuel.",
     required: false,
   },
   {
-    name: "color",
-    type: formatType(HEADING_COLORS),
-    default: `"${HEADING_DEFAULTS.color}"`,
+    name: "variant",
+    type: formatType(UI_VARIANTS),
+    default: `"${HEADING_DEFAULTS.variant}"`,
     description: "**Couleur** du texte du heading. Permet d'adapter le titre au contexte visuel.",
     required: false,
   },
   {
-    name: "align",
-    type: formatType(HEADING_ALIGNS),
-    default: `"${HEADING_DEFAULTS.align}"`,
+    name: "justify",
+    type: formatType(UI_TEXT_JUSTIFY),
+    default: `"${HEADING_DEFAULTS.justify}"`,
     description: "**Alignement horizontal** du texte dans son conteneur parent. Contrôle le positionnement du titre.",
     required: false,
   },

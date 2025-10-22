@@ -6,9 +6,8 @@
 import {
   CHEVRONICON_DEFAULTS,
   CHEVRONICON_TYPE,
-  CHEVRONICON_SIZE,
-  CHEVRONICON_COLOR
 } from '@/components/ui/ChevronIcon/ChevronIcon.types';
+import { UI_SIZES, UI_VARIANTS } from '@/components/ui/ui.types';
 import type { PropInfo } from "@/features/documentation/types/propsInfo";
 import { formatType } from "@/features/documentation/utils";
 
@@ -41,14 +40,14 @@ export const chevronIconProps: readonly PropInfo[] = [
   },
   {
     name: "size",
-    type: formatType(CHEVRONICON_SIZE),
+    type: formatType(UI_SIZES),
     default: `"${CHEVRONICON_DEFAULTS.size}"`,
     description: "**Taille** prédéfinie de l'icône Chevron.",
     required: false,
   },
   {
     name: "colorStyle",
-    type: formatType(CHEVRONICON_COLOR),
+    type: formatType(UI_VARIANTS),
     default: `"${CHEVRONICON_DEFAULTS.colorStyle}"`,
     description: "**Variante de couleur** appliquée à l'icône.",
     required: false,

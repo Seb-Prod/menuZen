@@ -54,7 +54,7 @@ export type DocHeaderProps = {
 const DocHeader = ({ title, description }: DocHeaderProps): JSX.Element => {
     return (
         <header>
-            <Heading variant={1}>{title}</Heading>
+            <Heading>{title}</Heading>
             {description && <ReactMarkdown>{description}</ReactMarkdown>}
         </header>
     );

@@ -4,33 +4,17 @@
  * @version 1.1.0
  * @since 2025-10-17
  * @see {@link Button} pour l'implémentation du composant principal.
+ * @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_ALIGN} pour les constantes partagées.
+ * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut.
  * @author Seb-Prod
  */
 
 import type { ReactNode, ButtonHTMLAttributes } from 'react';
+import { UI_ALIGN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiAlign, type UiSize, type UiVariant } from '../ui.types';
 
 // ================================
 // Constantes
 // ================================
-
-/** Définit les variantes de couleur disponibles pour le bouton.
- */
-export const BUTTON_VARIANTS = [
-  "primary",
-  "secondary",
-  "error",
-  "success",
-  "info",
-  "neutral"
-] as const;
-
-/** Définit les tailles de boutons prédéfinies.
- */
-export const BUTTON_SIZES = [
-  "small",
-  "medium",
-  "large"
-] as const;
 
 /** Définit les types HTML standards pour les boutons.
  */
@@ -54,23 +38,11 @@ export const BUTTON_DISABLED_OPTIONS = [
   true
 ] as const;
 
-/**
- * Définit les alignements horizontaux possibles pour le bouton.
- */
-export const BUTTON_ALIGN = [
-  "left",
-  "right",
-  "center"
-] as const;
-
 // ================================
 // Types
 // ================================
 
-export type ButtonVariant = typeof BUTTON_VARIANTS[number];
-export type ButtonSize = typeof BUTTON_SIZES[number];
 export type ButtonType = typeof BUTTON_TYPES[number];
-export type ButtonAlign = typeof BUTTON_ALIGN[number];
 
 // ================================
 // Props des composants
@@ -79,15 +51,15 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> 
   /** Contenue du bouton */
   children?: ReactNode;
   /** Style du bouton */
-  variant?: ButtonVariant;
+  variant?: UiVariant;
   /** Taille du bouton */
-  size?: ButtonSize;
+  size?: UiSize;
   /** Prend toute la largeur du parent */
   fullWidth?: boolean;
   /** Type du bouton */
   type?: ButtonType;
   /** Alignement dans le conteneur parent */
-  align?: ButtonAlign;
+  align?: UiAlign;
 };
 
 // ================================
@@ -95,9 +67,7 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> 
 // ================================
 
 export const BUTTON_DEFAULTS = {
-  variant: "primary" as ButtonVariant,
-  size: "medium" as ButtonSize,
-  align: "left" as ButtonAlign,
+  ...UI_DEFAULTS,
   fullWidth: false,
   type: "button" as ButtonType,
   disabled: false,
@@ -108,10 +78,10 @@ export const BUTTON_DEFAULTS = {
 // Showcase
 // ================================
 export const BUTTON_SHOWCASE_CONSTANTS = {
-  variant: BUTTON_VARIANTS,
-  size: BUTTON_SIZES,
+  variant: UI_VARIANTS,
+  size: UI_SIZES,
   type: BUTTON_TYPES,
   fullWidth: BUTTON_FULLWIDTH_OPTIONS,
   disabled: BUTTON_DISABLED_OPTIONS,
-  align: BUTTON_ALIGN,
+  align: UI_ALIGN,
 } as const;

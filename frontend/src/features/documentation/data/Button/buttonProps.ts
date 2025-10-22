@@ -4,12 +4,10 @@
  */
 
 import {
-  BUTTON_VARIANTS,
-  BUTTON_SIZES,
   BUTTON_TYPES,
   BUTTON_DEFAULTS,
-  BUTTON_ALIGN,
 } from "@/components/ui/Button/Button.types";
+import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/propsInfo";
 import { formatType } from "@/features/documentation/utils";
 
@@ -28,21 +26,21 @@ import { formatType } from "@/features/documentation/utils";
 export const buttonProps: readonly PropInfo[] = [
   {
     name: "variant",
-    type: formatType(BUTTON_VARIANTS),
+    type: formatType(UI_VARIANTS),
     default: `"${BUTTON_DEFAULTS.variant}"`,
     description: "**Variante visuelle** du bouton. Détermine le schéma de couleurs appliqué.",
     required: false,
   },
   {
     name: "size",
-    type: formatType(BUTTON_SIZES),
+    type: formatType(UI_SIZES),
     default: `"${BUTTON_DEFAULTS.size}"`,
     description: "**Taille** du bouton. Contrôle les dimensions et l'espacement",
     required: false,
   },
   {
     name: "align",
-    type: formatType(BUTTON_ALIGN),
+    type: formatType(UI_ALIGN),
     default: `"${BUTTON_DEFAULTS.align}"`,
     description: "**Alignement horizontal** du bouton dans son conteneur parent",
     required: false,

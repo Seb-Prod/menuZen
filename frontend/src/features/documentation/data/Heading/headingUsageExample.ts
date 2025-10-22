@@ -2,7 +2,7 @@ const headingUsageExample = `import Heading from "@/components/ui/Heading";
 
 export default function MyComponent() {
   return (
-    <Heading variant={1} color="primary">
+    <Heading as="h1" variant="primary">
         Titre principal
     </Heading>
   );

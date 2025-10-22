@@ -22,8 +22,8 @@ type ShowcaseCombo = Combination<typeof HEADING_SHOWCASE_CONSTANTS>;
 const renderPreview = (combo: ShowcaseCombo): JSX.Element => (
   <Heading
     variant={combo.variant}
-    color={combo.color}
-    align={combo.align}
+    as={combo.as}
+    justify={combo.justify}
   >
     Exemple de titre
   </Heading>
@@ -38,9 +38,9 @@ const renderPreview = (combo: ShowcaseCombo): JSX.Element => (
  */
 const generateCode = (combo: ShowcaseCombo): string => {
   const propExpressions = [
-    combo.variant !== 1 && `variant={${combo.variant}}`,
-    combo.color !== 'primary' && `color="${combo.color}"`,
-    combo.align !== 'left' && `align="${combo.align}"`
+    combo.variant !== "primary" && `variant={${combo.variant}}`,
+    combo.as !== 'h1' && `as="${combo.as}"`,
+    combo.justify !== 'left' && `justify="${combo.justify}"`
   ];
 
   return generateCodeString("Heading", propExpressions);

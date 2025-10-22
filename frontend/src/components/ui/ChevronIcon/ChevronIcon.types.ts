@@ -1,11 +1,13 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut
  * @module components/ui/ChevronIcon.types
- * @version 1.1.0
+ * @version 1.2.0
  * @since 2025-10-17
  * @see {@link ChevronIcon} pour l'implémentation du composant principal.
  * @author Seb-Prod
  */
+
+import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize, type UiVariant } from "../ui.types";
 
 // ================================
 // Constantes
@@ -21,14 +23,6 @@ export const CHEVRONICON_TYPE = [
     "dots"
 ] as const;
 
-/** Définit les tailes pour le composant ChevronIcon.
- */
-export const CHEVRONICON_SIZE = [
-    "small",
-    "medium",
-    "large",
-] as const;
-
 /** Définit l'etat pour le composant ChevronIcon.
  */
 export const CHEVRONICON_ISOPEN = [
@@ -36,24 +30,11 @@ export const CHEVRONICON_ISOPEN = [
     false
 ] as const;
 
-/** Définit la couleur pour le comosant ChevronIcon.
- */
-export const CHEVRONICON_COLOR = [
-    "primary",
-    "secondary",
-    "error",
-    "success",
-    "info",
-    "neutral"
-] as const;
-
 // ================================
 // Types
 // ================================
 
 export type ChevronIconType = typeof CHEVRONICON_TYPE[number];
-export type ChevronIconSize = typeof CHEVRONICON_SIZE[number];
-export type ChevronIconColor = typeof CHEVRONICON_COLOR[number];
 
 // ================================
 // Props des composants
@@ -64,13 +45,13 @@ export type ChevronIconProps = {
     /** Etat de l'icone */
     isOpen?: boolean;
     /** Taille de l'icône */
-    size?: ChevronIconSize;
+    size?: UiSize;
     /** Texte alternatif pour l'acccesibilité lorsque l'icône est ouvert */
     ariaLabelOpen?: string;
     /** Texte alternatif pour l'acccesibilité lorsque l'icône est fermé */
     ariaLabelClose?:string;
     /** Variante de couleur de l'icône */
-    colorStyle?: ChevronIconColor;
+    colorStyle?: UiVariant;
 }
 
 // ================================
@@ -78,9 +59,9 @@ export type ChevronIconProps = {
 // ================================
 
 export const CHEVRONICON_DEFAULTS = {
+    ...UI_DEFAULTS,
     type: "chevron" as ChevronIconType,
     isOpen: false as boolean,
-    size: "medium" as ChevronIconSize,
     ariaLabelOpen: "Fermer le menu",
     ariaLabelClose: "Ouvrir le menu",
     colorStyle: "primary"
@@ -92,7 +73,7 @@ export const CHEVRONICON_DEFAULTS = {
 // ================================
 export const CHEVRONICON_SHOWCASE_CONSTANTS = {
     type: CHEVRONICON_TYPE,
-    size: CHEVRONICON_SIZE,
+    size: UI_SIZES,
     isOpen : CHEVRONICON_ISOPEN,
-    colorStyle: CHEVRONICON_COLOR
+    colorStyle: UI_VARIANTS
 } as const
