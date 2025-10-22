@@ -3,6 +3,10 @@
    ======================================== */
 
 /* === couleurs === */
+.text-none{
+    color: inherit;
+}
+
 .text-primary {
     color: var(--primary-text);
 }

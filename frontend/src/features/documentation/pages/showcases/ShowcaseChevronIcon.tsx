@@ -5,11 +5,11 @@
 
 import ChevronIcon from "@/components/ui/ChevronIcon";
 import type { JSX } from "react";
-import type { Combination } from "../utils/showcaseHelpers";
 import { CHEVRONICON_SHOWCASE_CONSTANTS } from '@/components/ui/ChevronIcon/ChevronIcon.types';
-import { chevronIconProps, chevroniconUsageExample } from "../data/ChevronIcon";
-import { generateCodeString } from "../utils";
-import DocPageContainer from "../doc-blocks/DocPageContainer/DocPageContainer";
+import type { Combination } from "../../utils/showcaseHelpers";
+import { generateCodeString } from "../../utils";
+import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
+import { chevronIconProps, chevroniconUsageExample } from "../../data/ChevronIcon";
 
 type ShowcaseCombo = Combination<typeof CHEVRONICON_SHOWCASE_CONSTANTS>;
 
@@ -24,7 +24,7 @@ const renderPreview = (combo: ShowcaseCombo): JSX.Element => (
     type={combo.type}
     isOpen={combo.isOpen}
     size={combo.size}
-    colorStyle={combo.colorStyle}
+    variant={combo.variant}
   >
   </ChevronIcon>
 );
@@ -40,7 +40,7 @@ const generateCode = (combo: ShowcaseCombo): string => {
   const propExpressions = [
     combo.type !== "chevron" && `type="${combo.type}"`,
     combo.size !== "medium" && `size="${combo.size}"`,
-    combo.colorStyle !== "primary" && `colorStyle"${combo.colorStyle}"`,
+    combo.variant !== "primary" && `variant="${combo.variant}"`,
     combo.isOpen !== false && `isOpen`,
 
   ];

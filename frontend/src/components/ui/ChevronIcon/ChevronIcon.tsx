@@ -15,7 +15,7 @@ import { CHEVRON_ICONS } from './ChevronIcon.constants';
  * avec une animation de rotation ou de changement d'état selon le type choisi.
  * 
  * @component
- * @version 1.1.0
+ * @version 1.3.0
  * @since 2025-10-17
  * @author Seb-Prod
  * 
@@ -48,7 +48,7 @@ const ChevronIcon = ({
     type = CHEVRONICON_DEFAULTS.type,
     size = CHEVRONICON_DEFAULTS.size,
     isOpen = CHEVRONICON_DEFAULTS.isOpen,
-    colorStyle = CHEVRONICON_DEFAULTS.colorStyle,
+    variant = CHEVRONICON_DEFAULTS.variant,
     ariaLabelOpen,
     ariaLabelClose
 }: ChevronIconProps): JSX.Element => {
@@ -90,7 +90,7 @@ const ChevronIcon = ({
     const classes = [
         styles.chevron,
         styles[size],
-        `text-${colorStyle}`,
+        `text-${variant}`,
         shouldRotate ? (isOpen ? styles.open : styles.closed) : ''
     ]
         .filter(Boolean)

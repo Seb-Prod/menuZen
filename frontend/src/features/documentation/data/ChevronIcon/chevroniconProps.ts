@@ -6,8 +6,9 @@
 import {
   CHEVRONICON_DEFAULTS,
   CHEVRONICON_TYPE,
+  CHEVRONICON_VARIANTS,
 } from '@/components/ui/ChevronIcon/ChevronIcon.types';
-import { UI_SIZES, UI_VARIANTS } from '@/components/ui/ui.types';
+import { UI_SIZES } from '@/components/ui/ui.types';
 import type { PropInfo } from "@/features/documentation/types/propsInfo";
 import { formatType } from "@/features/documentation/utils";
 
@@ -33,9 +34,16 @@ export const chevronIconProps: readonly PropInfo[] = [
   },
   {
     name: "isOpen",
-    type: "boolean", // Utilisation du type simple pour les booléens
-    default: String(CHEVRONICON_DEFAULTS.isOpen), // Formatage en String pour les valeurs par défaut booléennes
+    type: "boolean",
+    default: String(CHEVRONICON_DEFAULTS.isOpen),
     description: "Si `true`, déclenche l'**animation de transition** pour représenter l'état ouvert.",
+    required: false,
+  },
+  {
+    name: "variant",
+    type: formatType(CHEVRONICON_VARIANTS),
+    default: `"${CHEVRONICON_DEFAULTS.variant}"`,
+    description: "**Variante de couleur** appliquée à l'icône. Si `none` garde la couleur du parent. ",
     required: false,
   },
   {
@@ -43,13 +51,6 @@ export const chevronIconProps: readonly PropInfo[] = [
     type: formatType(UI_SIZES),
     default: `"${CHEVRONICON_DEFAULTS.size}"`,
     description: "**Taille** prédéfinie de l'icône Chevron.",
-    required: false,
-  },
-  {
-    name: "colorStyle",
-    type: formatType(UI_VARIANTS),
-    default: `"${CHEVRONICON_DEFAULTS.colorStyle}"`,
-    description: "**Variante de couleur** appliquée à l'icône.",
     required: false,
   },
   {

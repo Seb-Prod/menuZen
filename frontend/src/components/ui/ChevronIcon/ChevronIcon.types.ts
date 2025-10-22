@@ -1,13 +1,13 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut
  * @module components/ui/ChevronIcon.types
- * @version 1.2.0
+ * @version 1.3.0
  * @since 2025-10-17
  * @see {@link ChevronIcon} pour l'implémentation du composant principal.
  * @author Seb-Prod
  */
 
-import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize, type UiVariant } from "../ui.types";
+import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize } from "../ui.types";
 
 // ================================
 // Constantes
@@ -23,6 +23,12 @@ export const CHEVRONICON_TYPE = [
     "dots"
 ] as const;
 
+/** Définit les variantes de couleur */
+export const CHEVRONICON_VARIANTS = [
+  ...UI_VARIANTS,
+  "none"
+] as const;
+
 /** Définit l'etat pour le composant ChevronIcon.
  */
 export const CHEVRONICON_ISOPEN = [
@@ -35,6 +41,7 @@ export const CHEVRONICON_ISOPEN = [
 // ================================
 
 export type ChevronIconType = typeof CHEVRONICON_TYPE[number];
+export type ChevronIconVariant = typeof CHEVRONICON_VARIANTS[number];
 
 // ================================
 // Props des composants
@@ -51,7 +58,7 @@ export type ChevronIconProps = {
     /** Texte alternatif pour l'acccesibilité lorsque l'icône est fermé */
     ariaLabelClose?:string;
     /** Variante de couleur de l'icône */
-    colorStyle?: UiVariant;
+    variant?: ChevronIconVariant;
 }
 
 // ================================
@@ -64,7 +71,7 @@ export const CHEVRONICON_DEFAULTS = {
     isOpen: false as boolean,
     ariaLabelOpen: "Fermer le menu",
     ariaLabelClose: "Ouvrir le menu",
-    colorStyle: "primary"
+    variant: "primary"
 
 } satisfies Partial<ChevronIconProps>
 
@@ -75,5 +82,5 @@ export const CHEVRONICON_SHOWCASE_CONSTANTS = {
     type: CHEVRONICON_TYPE,
     size: UI_SIZES,
     isOpen : CHEVRONICON_ISOPEN,
-    colorStyle: UI_VARIANTS
+    variant: CHEVRONICON_VARIANTS
 } as const
