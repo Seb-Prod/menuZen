@@ -11,20 +11,24 @@ import { TABLE_DEFAULTS, type TableProps } from './Table.types';
  * Composant Table - Tableau HTML réutilisable et personnalisable.
  * 
  * Permet d'afficher des données tabulaires avec des en-têtes personnalisables
- * et supporte différentes variantes de style et options d'alignement. 
+ * et supporte différentes variantes de style, tailles et options d'alignement. 
  * Le contenu des cellules peut être n'importe quel élément React (texte, composants, etc.).
  * 
  * @component
+ * @version 1.1.0
+ * @since 2025-10-22
+ * @author Seb-Prod
  * 
  * @param {TableProps} props - Les propriétés du composant.
  * @param {string[]} props.headers - Tableau des libellés d'en-têtes de colonnes.
  * @param {React.ReactNode[][]} props.data - Tableau bidimensionnel contenant les données des cellules (lignes × colonnes).
- * @param {TableVariant} [props.variant='primary'] - Schéma de couleur du tableau (primary, secondary).
- * @param {TableAlign} [props.align='center'] - Alignement horizontal du tableau (left, center, right).
- * @param {boolean} [props.fullWidth=false] - Si true, le tableau prend toute la largeur disponible.
+ * @param {UiVariant} [props.variant='primary'] - Schéma de couleur du tableau (primary, secondary, success, error, info, neutral).
+ * @param {UiSize} [props.size='medium'] - Taille prédéfinie du tableau (small, medium, large).
+ * @param {UiAlign} [props.align='left'] - Position horizontale du tableau dans son conteneur (left, center, right).
+ * @param {boolean} [props.fullWidth=false] - Si vrai, le tableau occupe 100% de la largeur du conteneur.
  * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
  * 
- * Les types détaillés sont définis dans {@link TableProps}.
+ * @returns {JSX.Element} L'élément table React (JSX).
  * 
  * @example
  * // Tableau simple avec des données textuelles
@@ -49,9 +53,10 @@ import { TABLE_DEFAULTS, type TableProps } from './Table.types';
  * />
  * 
  * @example
- * // Tableau pleine largeur avec des composants React dans les cellules
+ * // Tableau pleine largeur en grande taille
  * <Table 
  *   fullWidth
+ *   size="large"
  *   headers={['Utilisateur', 'Statut', 'Actions']}
  *   data={[
  *     [
@@ -61,26 +66,36 @@ import { TABLE_DEFAULTS, type TableProps } from './Table.types';
  *     ]
  *   ]}
  * />
+ * 
+ * @see {@link TableProps}
+ * @see {@link TABLE_DEFAULTS}
  */
-const Table = ({ 
-    headers, 
+const Table = ({
+    headers,
     data,
     align = TABLE_DEFAULTS.align,
     variant = TABLE_DEFAULTS.variant,
-    fullWidth= TABLE_DEFAULTS.fullWidth,
-    className= TABLE_DEFAULTS.className
+    size = TABLE_DEFAULTS.size,
+    fullWidth = TABLE_DEFAULTS.fullWidth,
+    className = TABLE_DEFAULTS.className
 }: TableProps): JSX.Element => {
+    // Construction des classes CSS
     const classes = [
-            styles.table,
-            styles[variant],
-            styles[align],
-            fullWidth && styles.fullWidth,
-            className
-        ].filter(Boolean).join(" ");
+        styles.table,
+        `component-${align}`,
+        fullWidth && styles.fullWidth,
+        className
+    ].filter(Boolean).join(" ");
+
+    const classesCell = [
+        `component-${variant}`,
+        `component-${size}`
+    ].filter(Boolean).join(" ");
+
     return (
         <table className={classes}>
             <thead>
-                <tr>
+                <tr className={classesCell}>
                     {headers.map((header, index) => (
                         <th key={index}>{header}</th>
                     ))}
@@ -88,7 +103,7 @@ const Table = ({
             </thead>
             <tbody>
                 {data.map((rowData, rowIndex) => (
-                    <tr key={rowIndex}>
+                    <tr key={rowIndex} className={classesCell}>
                         {rowData.map((cellData, cellIndex) => (
                             <td key={cellIndex}>{cellData}</td>
                         ))}

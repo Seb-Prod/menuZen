@@ -5,9 +5,8 @@
 
 import {
   TABLE_DEFAULTS,
-  TABLE_VARIANTS,
-  TABLE_ALIGN,
 } from "@/components/ui/Table/Table.types";
+import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/propsInfo";
 import { formatType } from "@/features/documentation/utils";
 
@@ -26,14 +25,21 @@ import { formatType } from "@/features/documentation/utils";
 export const tableProps: readonly PropInfo[] = [
   {
     name: "variant",
-    type: formatType(TABLE_VARIANTS),
+    type: formatType(UI_VARIANTS),
     default: `"${TABLE_DEFAULTS.variant}"`,
     description: "**Style visuel** du tableau. Détermine la palette de couleurs et les séparateurs de lignes/colonnes.",
     required: false,
   },
   {
+    name: "size",
+    type: formatType(UI_SIZES),
+    default: `"${TABLE_DEFAULTS.size}"`,
+    description: "**Taille prédéfinie** du tableau. Affecte le padding des cellules et la taille de la police.",
+    required: false,
+  },
+  {
     name: "align",
-    type: formatType(TABLE_ALIGN),
+    type: formatType(UI_ALIGN),
     default: `"${TABLE_DEFAULTS.align}"`,
     description: "**Alignement horizontal** du tableau dans son conteneur parent.",
     required: false,
