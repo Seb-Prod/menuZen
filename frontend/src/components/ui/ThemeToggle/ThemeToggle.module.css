@@ -1,89 +1,96 @@
-/* ThemeToggle.module.css — version simplifiée et nettoyée */
+/* ThemeToggle.module.css — Version utilisant le composant Switch */
 
+/* Container principal */
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 20px 0;
-}
-
-.switchWrapper {
-  display: inline-block;
+  gap: 20px;
+  padding: 20px;
+  background: var(--color-background, #ffffff);
   border-radius: 8px;
-  padding: 10px;
-  
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
 }
 
-/* Label et structure générale */
-.label {
+/* Wrapper pour chaque switch */
+.switchWrapper {
   display: flex;
   align-items: center;
-  gap: 15px;
-  cursor: pointer;
+}
+
+/* Contrôle secondaire (switch ou affichage auto) */
+.secondaryControl {
+  display: flex;
+  align-items: center;
+  min-height: 46px; /* Maintient une hauteur cohérente */
+}
+
+/* Affichage en mode auto (quand le switch principal est désactivé) */
+.autoDisplay {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 10px;
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
+  width: 100%;
 }
 
-/* Cache le vrai input checkbox */
-.input {
-  position: absolute;
-  left: -9999px;
+.labelTitle {
+  font-weight: 500;
+  color: var(--color-text-primary, #1f2937);
+  user-select: none;
 }
 
-/* Piste du toggle */
-.toggle {
-  position: relative;
-  width: 50px;
-  height: 26px;
-  border-radius: 15px;
-  background: var(--toggle-off, #ccc);
-  transition: background-color 0.3s ease;
+/* Indicateur du thème système */
+.systemThemeIndicator {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Bulle du toggle */
-.circle {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  width: 24px;
-  height: 24px;
-  background: var(--circle-color, #fff);
-  border-radius: 50%;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+/* Style pour le mode clair système */
+.systemThemeIndicator[data-system-theme="light"] {
+  background: var(--color-info-light, #e0f2fe);
+  color: var(--color-info-dark, #0369a1);
 }
 
-/* État "checked" (mode forcé actif) */
-.input:checked + .toggle {
-  background: var(--toggle-on, #4f46e5);
+/* Style pour le mode sombre système */
+.systemThemeIndicator[data-system-theme="dark"] {
+  background: var(--color-neutral-700, #374151);
+  color: var(--color-neutral-100, #f3f4f6);
 }
 
-.input:checked + .toggle .circle {
-  transform: translateX(24px);
+/* Animation subtile au survol de l'indicateur */
+.systemThemeIndicator:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
 }
 
-/* 🎨 Indication visuelle du thème forcé clair */
-.toggle[data-forced-theme='light'] {
-  --toggle-on: var(--light-track, #facc15);
-}
-.toggle[data-forced-theme='light'] .circle {
-  --circle-color: var(--dark-contrast, #374151);
-}
-
-/* 🌙 Indication visuelle du thème forcé sombre */
-.toggle[data-forced-theme='dark'] {
-  --toggle-on: var(--dark-track, #1f2937);
-}
-.toggle[data-forced-theme='dark'] .circle {
-  --circle-color: var(--light-contrast, #f3f4f6);
-}
-
-/* Accessibilité : focus visible */
-.input:focus + .toggle {
-  outline: 2px solid var(--focus-color, #3b82f6);
-  outline-offset: 2px;
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    gap: 15px;
+    max-width: 100%;
+  }
+  
+  .autoDisplay {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
 }
 
-.input:focus:not(:focus-visible) + .toggle {
-  outline: none;
+/* Mode sombre pour le container (optionnel) */
+[data-theme="dark"] .container {
+  background: var(--color-background-dark, #1f2937);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .labelTitle {
+  color: var(--color-text-primary-dark, #f3f4f6);
 }

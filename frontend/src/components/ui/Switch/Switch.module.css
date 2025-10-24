@@ -1,0 +1,107 @@
+.switch {
+  display: flex;
+  flex-direction: column;
+  background: inherit;
+}
+
+/* Label et structure générale */
+.label {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  padding: 10px;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+.labelText {
+  user-select: none;
+}
+
+/* Cache le vrai input checkbox */
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Piste du toggle */
+.toggle {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  border-radius: 15px;
+  background: color-mix(in srgb, red 85%, black 25%);
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* États du toggle selon le variant */
+.input:checked + .toggle {
+  background: var(--bg);
+  
+}
+
+/* Bulle du toggle */
+.circle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background:var(--text);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Déplacement de la bulle quand activé */
+.input:checked ~ .toggle .circle {
+  transform: translateX(24px);
+  background: var(--text);
+  
+}
+
+/* État désactivé */
+.disabled .label {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.disabled .toggle {
+  background: var(--color-neutral-200, #e5e7eb);
+}
+
+
+
+/* Tailles */
+.small .toggle {
+  width: 40px;
+  height: 20px;
+}
+
+.small .circle {
+  width: 16px;
+  height: 16px;
+}
+
+.small .input:checked ~ .toggle .circle {
+  transform: translateX(20px);
+}
+
+.large .toggle {
+  width: 60px;
+  height: 32px;
+}
+
+.large .circle {
+  width: 28px;
+  height: 28px;
+}
+
+.large .input:checked ~ .toggle .circle {
+  transform: translateX(28px);
+}
