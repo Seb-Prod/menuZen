@@ -6,6 +6,7 @@
 import {
   BUTTON_TYPES,
   BUTTON_DEFAULTS,
+  BUTTON_MODES,
 } from "@/components/ui/Button/Button.types";
 import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/propsInfo";
@@ -15,7 +16,7 @@ import { formatType } from "@/features/documentation/utils";
  * Liste des propriétés du composant Button avec leurs métadonnées.
  * 
  * Utilisé pour générer automatiquement la documentation des props
- * dans les pages de doucumentation.
+ * dans les pages de documentation.
  * 
  * @constant
  * @type {readonly PropInfo[]}
@@ -50,6 +51,20 @@ export const buttonProps: readonly PropInfo[] = [
     type: formatType(BUTTON_TYPES),
     default: `"${BUTTON_DEFAULTS.type}"`,
     description: "**Type HTML** natif du bouton. Définit le comportement dans les formulaires",
+    required: false,
+  },
+  {
+    name: "mode",
+    type: formatType(BUTTON_MODES),
+    default: `"${BUTTON_DEFAULTS.mode}"`,
+    description: "**Mode d'apparence** du bouton. `solid` pour fond plein, `outline` pour bordure seule, `ghost` pour transparent.",
+    required: false,
+  },
+  {
+    name: "bordered",
+    type: "boolean",
+    default: String(BUTTON_DEFAULTS.bordered),
+    description: "Si `true`, ajoute une **bordure visible** au bouton. Utile pour créer des variantes outline ou ghost.",
     required: false,
   },
   {

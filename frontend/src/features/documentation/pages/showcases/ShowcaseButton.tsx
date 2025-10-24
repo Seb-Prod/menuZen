@@ -23,9 +23,11 @@ const renderPreview = (combo: ShowcaseCombo): JSX.Element => (
   <Button
     variant={combo.variant}
     size={combo.size}
+    mode={combo.mode}
     type={combo.type}
     fullWidth={combo.fullWidth}
     disabled={combo.disabled}
+    bordered={combo.bordered}
     align={combo.align}
   >
     Example
@@ -42,6 +44,7 @@ const renderPreview = (combo: ShowcaseCombo): JSX.Element => (
 const generateCode = (combo: ShowcaseCombo): string => {
   const propExpressions = [
     combo.variant !== "primary" && `variant="${combo.variant}"`,
+    combo.mode !== "solid" && `mode="${combo.mode}"`,
     combo.size !== "medium" && `size="${combo.size}"`,
     combo.type !== "button" && `type="${combo.type}"`,
     combo.align !== "left" && `align="${combo.align}"`,
@@ -49,7 +52,7 @@ const generateCode = (combo: ShowcaseCombo): string => {
     combo.disabled && 'disabled',
   ];
 
-  return generateCodeString("Button", propExpressions);
+  return generateCodeString("Button", propExpressions, "Example");
 };
 
 /**
@@ -75,7 +78,7 @@ const ShowcaseButton = (): JSX.Element => {
   return (
     <DocPageContainer
       title="Button"
-      description="Composant **Button** personnalisable avec différentes variantes, tailles et options d'affichage."
+      description="Composant **Button** - Bouton personnalisable avec différentes variantes, tailles et options d'affichage."
       usageExample={buttonUsageExample}
       params={BUTTON_SHOWCASE_CONSTANTS}
       renderPreview={renderPreview}

@@ -24,15 +24,27 @@ export const generateCodeString = (
   let openingTag = `${indent}<${componentName}`;
 
   if (propsArray.length > 0) {
-    openingTag += "\n" + propsArray.map(p => `${"  ".repeat(indentLevel + 1)}${p}`).join("\n") + `\n${indent}>`;
+    // Si des props sont présentes, elles sont listées sur de nouvelles lignes
+    openingTag += "\n" + propsArray.map(p => `${"  ".repeat(indentLevel + 1)}${p}`).join("\n");
+    
+    // CORRECTION : Ajouter la fermeture basée sur la présence d'enfants
+    if (hasChildren) {
+      openingTag += `\n${indent}>`; // Fermeture normale avec >
+    } else {
+      openingTag += `\n${indent}/>`; // Balise auto-fermante avec />
+    }
+
   } else {
+    // Si aucune prop n'est présente, la logique initiale est correcte
     openingTag += hasChildren ? ">" : "/>";
   }
 
-  // Si pas d'enfants, on retourne la balise auto-fermante
+  // Si pas d'enfants, on retourne immédiatement la balise auto-fermante (déjà construite dans openingTag)
   if (!hasChildren) {
     return openingTag;
   }
+
+  // --- Logique pour les composants avec enfants ---
 
   // Construire le contenu des enfants avec indentation supplémentaire
   let childrenContent = "";
@@ -59,5 +71,6 @@ export const generateCodeString = (
 
   const closingTag = `${indent}</${componentName}>`;
 
+  // Retourne la structure complète (ouverture, contenu, fermeture)
   return `${openingTag}\n${childrenContent}\n${closingTag}`;
 };

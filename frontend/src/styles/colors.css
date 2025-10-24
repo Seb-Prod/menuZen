@@ -67,6 +67,12 @@
     /* Bordures de séparation générales */
     --color-border-subtle: #EBEBE0;
     --color-border-default: #D8D2C2;
+
+    /* Couleur overlay */
+    --color-hover-overlay: 0, 0, 0;
+
+    /* Couleur focus */
+    --color-focus: #FFCC00;
 }
 
 /* ========================================
@@ -132,6 +138,12 @@
         /* Bordures de séparation générales */
         --color-border-subtle: #3A3A3A;
         --color-border-default: #4F4F4F;
+
+        /* Couleur overlay */
+        --color-hover-overlay: 255, 255, 255;
+
+        /* Couleur focus */
+        --color-focus: #F7CE46;
     }
 }
 
@@ -197,6 +209,12 @@
     /* Bordures de séparation générales */
     --color-border-subtle: #3A3A3A;
     --color-border-default: #4F4F4F;
+
+    /* Couleur overlay */
+    --color-hover-overlay: 255, 255, 255;
+
+    /* Couleur focus */
+    --color-focus: #F7CE46;
 }
 
 /* ========================================
@@ -267,6 +285,12 @@
     /* Bordures de séparation générales */
     --color-border-subtle: #EBEBE0;
     --color-border-default: #D8D2C2;
+
+    /* Couleur overlay */
+    --color-hover-overlay: 0, 0, 0;
+
+    /* Couleur focus */
+    --color-focus: #FFCC00;
 }
 
 /* ========================================

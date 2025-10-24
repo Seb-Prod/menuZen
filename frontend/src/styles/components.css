@@ -104,8 +104,8 @@
 }
 
 /* Styles communs à tous les variants */
-[class^="component-"],
-[class*=" component-"] {
+[class^="components-"],
+[class*=" components-"] {
     background-color: var(--bg);
     color: var(--text);
 

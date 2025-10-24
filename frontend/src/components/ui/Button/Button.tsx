@@ -5,7 +5,8 @@
 
 import type { JSX } from "react";
 import styles from "./Button.module.css";
-import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
+import { BUTTON_DEFAULTS, type ButtonProps } from './Button.types';
+import { classNames } from "@/utils/object";
 
 /**
  * Composant Button - Bouton personnalisable.
@@ -14,7 +15,7 @@ import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
  * dans son conteneur, ainsi que toutes les propriétés natives de HTMLButtonElement.
  * 
  * @component
- * @version 1.1.0
+ * @version 1.2.0
  * @since 2025-10-17
  * @author Seb-Prod
  * 
@@ -25,6 +26,7 @@ import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
  * @param {ButtonType} [props.type='button'] - Type de bouton HTML (button, submit, reset).
  * @param {boolean} [props.fullWidth=false] - Si vrai, le bouton occupe 100% de la largeur du conteneur.
  * @param {UiAlign} [props.align='left'] - Position horizontale du bouton dans son conteneur (left, center, right).
+ * @param {boolean} [props.bordered=false] - Si vrai, ajoute une bordure au bouton.
  * @param {boolean} [props.disabled=false] - Si vrai, désactive le bouton.
  * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
  * 
@@ -60,25 +62,27 @@ import { BUTTON_DEFAULTS, type ButtonProps } from "./Button.types";
 const Button = ({
   children,
   variant = BUTTON_DEFAULTS.variant,
+  mode = BUTTON_DEFAULTS.mode,
   size = BUTTON_DEFAULTS.size,
   fullWidth = BUTTON_DEFAULTS.fullWidth,
   className = BUTTON_DEFAULTS.className,
   type = BUTTON_DEFAULTS.type,
   disabled = BUTTON_DEFAULTS.disabled,
   align = BUTTON_DEFAULTS.align,
+  bordered = BUTTON_DEFAULTS.bordered,
   ...rest
 }: ButtonProps): JSX.Element => {
   // Construction des classes CSS
-  const classes = [
-    styles.button,
-    `component-${variant}`,
-    `component-${size}`,
-    `component-${align}`,
-    fullWidth && 'component-fullwidth',
-    className
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const classes = classNames(
+  styles.button,
+  styles[mode],
+  bordered && styles.bordered,
+  `component-${variant}`,
+  `component-${size}`,
+  `component-${align}`,
+  fullWidth && 'component-fullwidth',
+  className
+);
 
   return (
     <button
