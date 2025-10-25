@@ -66,6 +66,12 @@
    TAILLES DE COMPOSANTS
    ======================================== */
 
+.component-xs {
+    --size-padding: 0.25rem 0.5rem;
+    --size-font: 0.75rem;
+    --size-height: 1.5rem;
+}
+
 .component-small {
     --size-padding: 0.5rem 1rem;
     --size-font: 0.875rem;
@@ -82,6 +88,18 @@
     --size-padding: 1rem 2rem;
     --size-font: 1.125rem;
     --size-height: 3rem;
+}
+
+.component-xl {
+    --size-padding: 1.25rem 2.5rem;
+    --size-font: 1.25rem;
+    --size-height: 3.5rem;
+}
+
+.component-2xl {
+    --size-padding: 1.5rem 3rem;
+    --size-font: 1.5rem;
+    --size-height: 4rem;
 }
 
 /* ========================================

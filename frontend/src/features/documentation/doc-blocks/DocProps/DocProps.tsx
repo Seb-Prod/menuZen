@@ -81,7 +81,7 @@ const DocProps = ({ props, description }: DocPropsProps): JSX.Element => {
         </div>
       ) : ""}
       {showTable ? (
-        <Table headers={headers} data={data} className={styles.table} variant="info" size="small"/>
+        <Table headers={headers} data={data} className={styles.table} variant="info" size="xs"/>
       ) : (
         <Text>Aucune propriété n'est disponible pour ce composant.</Text>
       )}

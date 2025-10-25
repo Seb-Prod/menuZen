@@ -27,7 +27,8 @@
 
     /* Couleurs principales des composants */
     --color-primary: var(--primary-color);
-    --color-primary-bg-alt: #E6F4ED;;
+    --color-primary-bg-alt: #E6F4ED;
+    ;
     --color-primary-text: #FFFFFF;
     --color-primary-text-alt: #004D26;
     --color-primary-hover: #007A39;
@@ -84,6 +85,10 @@
 
     /* Couleur focus */
     --color-focus: #FFCC00;
+
+    /* Couleur pour color-mix */
+    --color-mix-darken: black;
+    --color-mix-lighten: white;
 }
 
 /* ========================================
@@ -166,6 +171,10 @@
 
         /* Couleur focus */
         --color-focus: #F7CE46;
+
+        /* Couleur pour color-mix */
+        --color-mix-darken: white;
+        --color-mix-lighten: black;
     }
 }
 
@@ -248,6 +257,10 @@
 
     /* Couleur focus */
     --color-focus: #F7CE46;
+
+    /* Couleur pour color-mix */
+    --color-mix-darken: white;
+    --color-mix-lighten: black;
 }
 
 /* ========================================
@@ -336,6 +349,10 @@
 
     /* Couleur focus */
     --color-focus: #FFCC00;
+
+    /* Couleur pour color-mix */
+    --color-mix-darken: black;
+    --color-mix-lighten: white;
 }
 
 /* ========================================

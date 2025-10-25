@@ -1,48 +1,57 @@
 .table {
   width: auto;
-  border-radius: 10px;
+  border-radius: 8px;
   border-collapse: collapse;
   overflow: hidden;
+  font-size: var(--size-font);
   color: var(--text);
-}
 
-/* ==== Header ==== */
-.table thead tr {
-  background-color: color-mix(in srgb, var(--bg) 85%, black 15%);
-  /* un peu plus foncé que var(--bg) */
-}
+  & thead tr {
+    background-color: color-mix(in srgb, var(--bg) 95%, var(--color-mix-lighten) 5%);
+    border-bottom: 2px solid var(--border);
+  }
 
-.table th {
-  text-align: left;
-  padding: 0.75rem;
-  font-weight: 600;
-  border-bottom: 2px solid var(--border);
-  border-right: 2px solid var(--border); /* Bordure verticale entre les colonnes */
-}
+  & thead th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border-right: 2px solid var(--border);
+  }
 
-/* Supprime la dernière bordure droite de l'en-tête */
-.table th:last-child {
-  border-right: none;
-}
+  & thead th:last-child {
+    border-right: none;
+  }
 
-/* ==== Body ==== */
-.table td {
-  padding: 0.75rem;
-  border-bottom: 2px solid var(--border);
-  border-right: 2px solid var(--border); /* Bordure verticale entre les colonnes */
-}
+  & tbody tr {
+    background-color: color-mix(in srgb, var(--bg) 85%, var(--color-mix-lighten) 15%);
+    color: var(--text-alt);
+    &:hover{
+      background-color: var(--bg-alt);
+      color:var(--text-alt)
+    }
+  }
 
-/* Supprime la dernière bordure droite des cellules */
-.table td:last-child {
-  border-right: none;
-}
+  & tbody tr:nth-child(even) {
+    background-color: color-mix(in srgb, var(--bg) 75%, var(--color-mix-lighten) 25%);
+    color: var(--text-alt);
+    &:hover{
+      background-color: var(--bg-alt);
+      color:var(--text-alt)
+    }
+  }
 
-/* Supprime la bordure du bas de la dernière ligne */
-.table tbody tr:last-child td {
-  border-bottom: none;
-}
+  & tbody td {
+    padding: 12px;
+    border-bottom: 2px solid var(--border);
+    border-right: 2px solid var(--border);
+    
+  }
 
-/* ==== Full width ==== */
-.fullWidth {
-  width: 100%;
+  & tbody td:last-child {
+    border-right: none;
+  }
+
+  & tbody tr:last-child td {
+    border-bottom: none;
+  }
 }

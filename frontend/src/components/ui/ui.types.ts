@@ -26,9 +26,12 @@ export const UI_VARIANTS = [
  * Tailles prédéfinies communes à plusieurs composants.
  */
 export const UI_SIZES = [
+  "xs",
   "small",
   "medium",
-  "large"
+  "large",
+  "xl",
+  "2xl"
 ] as const;
 
 /**

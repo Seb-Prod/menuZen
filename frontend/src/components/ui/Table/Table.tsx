@@ -6,6 +6,7 @@
 import type { JSX } from 'react';
 import styles from "./Table.module.css"
 import { TABLE_DEFAULTS, type TableProps } from './Table.types';
+import { classNames } from '@/utils/object';
 
 /**
  * Composant Table - Tableau HTML réutilisable et personnalisable.
@@ -80,22 +81,21 @@ const Table = ({
     className = TABLE_DEFAULTS.className
 }: TableProps): JSX.Element => {
     // Construction des classes CSS
-    const classes = [
+    const classes = classNames(
         styles.table,
         `component-${align}`,
+        `component-${variant}`,
+        `component-${size}`,
         fullWidth && styles.fullWidth,
         className
-    ].filter(Boolean).join(" ");
+    )
 
-    const classesCell = [
-        `component-${variant}`,
-        `component-${size}`
-    ].filter(Boolean).join(" ");
+    
 
     return (
         <table className={classes}>
             <thead>
-                <tr className={classesCell}>
+                <tr>
                     {headers.map((header, index) => (
                         <th key={index}>{header}</th>
                     ))}
@@ -103,7 +103,7 @@ const Table = ({
             </thead>
             <tbody>
                 {data.map((rowData, rowIndex) => (
-                    <tr key={rowIndex} className={classesCell}>
+                    <tr key={rowIndex}>
                         {rowData.map((cellData, cellIndex) => (
                             <td key={cellIndex}>{cellData}</td>
                         ))}
