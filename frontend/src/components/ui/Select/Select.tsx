@@ -24,7 +24,7 @@ import {
  * Supporte différentes variantes (couleurs), tailles et alignements.
  * 
  * @component
- * @version 1.0.0
+ * @version 1.1.0
  * @since 2025-10-21
  * @author Seb-Prod
  * 
@@ -158,8 +158,10 @@ const Select = ({
   const displayText = selectedOption?.label ?? placeholder;
 
   // Construction des classes CSS
-  const containerClasses = [
+  const classes = [
     styles.selectContainer,
+    `component-${variant}`,
+    `component-${size}`,
     `component-${align}`,
     fullWidth && styles.fullWidth,
     className
@@ -167,28 +169,11 @@ const Select = ({
     .filter(Boolean)
     .join(" ");
 
-  const buttonClasses = [
-    styles.selectButton,
-    `component-${variant}`,
-    `component-${size}`,
-    isOpen && styles.open
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  const dropdownClasses = [
-    styles.selectDropdown,
-    `component-${variant}`,
-    `component-${size}`,
-    `no-hover`,
-  ]
-    .filter(Boolean)
-    .join(" ");
 
   return (
     <div
       ref={selectRef}
-      className={containerClasses}
+      className={classes}
       data-disabled={disabled}
     >
       {/* Input caché pour les formulaires */}
@@ -198,40 +183,29 @@ const Select = ({
       <button
         type="button"
         id={id}
-        className={buttonClasses}
+        className={styles.main}
         onClick={handleToggle}
         disabled={disabled}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
-        <span className={styles.selectText}>{displayText}</span>
-        <ChevronIcon isOpen={isOpen} type="triangle" size={size} variant="none"/>
+        <span>{displayText}</span>
+        <ChevronIcon isOpen={isOpen} type="triangle" size={size} variant="none" />
       </button>
 
       {/* Menu déroulant */}
       {isOpen && (
-        <div className={dropdownClasses}>
+        <div className={styles.list}>
           <ul ref={listRef} role="listbox" className={styles.selectList} aria-labelledby={id}>
             {options.map((opt, index) => {
               const isSelected = opt.value === selectedValue;
-              
-              const optionClasses = [
-                styles.selectOption,
-                `component-${variant}`,
-                isSelected && `active`,
-                opt.disabled && styles.disabled
-              ]
-                .filter(Boolean)
-                .join(" ");
-
               return (
                 <li
                   key={opt.value}
                   role="option"
                   aria-selected={isSelected}
                   aria-disabled={opt.disabled}
-                  className={optionClasses}
-                  onClick={() => handleSelect(opt)}
+                  className={`${styles.item} ${isSelected ? styles.active : ''}`} onClick={() => handleSelect(opt)}
                   onMouseEnter={() => !opt.disabled && setFocusedIndex(index)}
                 >
                   {opt.label}

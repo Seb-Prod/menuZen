@@ -10,42 +10,54 @@
 
 .component-primary {
     --bg: var(--color-primary);
+    --bg-alt : var(--color-primary-bg-alt);
     --text: var(--color-primary-text);
+    --text-alt: var(--color-primary-text-alt);
     --bg-hover: var(--color-primary-hover);
     --border: var(--color-primary-border);
 }
 
 .component-secondary {
     --bg: var(--color-secondary);
+    --bg-alt : var(--color-secondary-bg-alt);
     --text: var(--color-secondary-text);
+    --text-alt: var(--color-secondary-text-alt);
     --bg-hover: var(--color-secondary-hover);
     --border: var(--color-secondary-border);
 }
 
 .component-error {
     --bg: var(--color-error);
+    --bg-alt: var(--color-error-bg-alt);
     --text: var(--color-error-text);
+    --text-alt:var(--color-error-text-alt);
     --bg-hover: var(--color-error-hover);
     --border: var(--color-error-border);
 }
 
 .component-success {
     --bg: var(--color-success);
+    --bg-alt:var(--color-success-bg-alt);
     --text: var(--color-success-text);
+    --text-alt:var(--color-success-text-alt);
     --bg-hover: var(--color-success-hover);
     --border: var(--color-success-border);
 }
 
 .component-info {
     --bg: var(--color-info);
+    --bg-alt:var(--color-info-bg-alt);
     --text: var(--color-info-text);
+    --text-alt:var(--color-info-text-alt);
     --bg-hover: var(--color-info-hover);
     --border: var(--color-info-border);
 }
 
 .component-neutral {
     --bg: var(--color-neutral);
+    --bg-alt:var(--color-neutral-bg-alt);
     --text: var(--color-neutral-text);
+    --text-var:var(--color-neutral-text-alt);
     --bg-hover: var(--color-neutral-hover);
     --border: var(--color-neutral-border);
 }

@@ -1,62 +1,90 @@
-/* Container principal */
 .selectContainer {
   position: relative;
+
+  &.fullWidth {
+    width: 100%;
+  }
 }
 
-.fullWidth{
-  width: 100%;
-}
-
-
-.selectContainer[data-disabled="true"] {
-  opacity: 1.0;
-  cursor: not-allowed;
-}
-
-
-
-/* Bouton principal */
-.selectButton {
+.main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid;
-  cursor: pointer;
-  transition: all 0.2s ease-out;
-  box-sizing: border-box;
   text-align: left;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  box-sizing: border-box;
+
+  background: var(--bg);
+  color: var(--text);
+  padding: var(--size-padding);
+  font-size: var(--size-font);
+  min-height: var(--size-height);
+
+  transition: all 0.2s ease-out;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: var(--color-disabled);
+    color: var(--color-disabled-text)
+  }
+
+  &:hover:not(:disabled) {
+    background: var(--bg-hover);
+    transform: translateY(-1px);
+  }
+
+  .main:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
 }
 
-
-
-/* Texte du bouton */
-.selectText {
-  flex-grow: 1;
-  margin-right: 8px;
-}
-
-
-/* --- Dropdown --- */
-.selectDropdown {
+.list {
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
   right: 0;
-  gap:4px;
-  border: 1px solid;
-  border-radius: 10px;
+  gap: 4px;
+  border: 2px solid var(--border);
+  background: var(--bg-alt);
+  border-radius: 8px;
   overflow: hidden;
+  padding: 5px;
   z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
   animation: slideDown 0.4s ease-out;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-   width: max-content; /* prend la largeur du contenu */
-  min-width: 100%; /* au minimum la taille du parent */
-  white-space: nowrap; /* évite le retour à la ligne */
+  width: max-content;
+  min-width: 100%;
+  white-space: nowrap;
 }
 
+.item {
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  font-size: var(--size-font);
+  min-height: var(--size-height);
+  color: var(--text-alt);
+  cursor: pointer;
+
+  &:hover:not(.active) {
+    border-radius: 8px;
+    background-color: var(--bg-hover);
+    color: var(--text);
+  }
+
+  &.active {
+    border-left: 5px solid var(--border);
+    transition: transform 0.2s ease-out;
+  }
+}
 
 
 
@@ -65,17 +93,9 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.selectList{
-  list-style-type: none;
-}
-
-.selectOption{
-  padding: 8px;
-  border-radius: 8px;
 }
