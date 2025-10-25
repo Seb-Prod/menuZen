@@ -15,6 +15,7 @@ import {
   useAutoScroll,
   useSyncExternalValue
 } from "./Select.hooks";
+import { classNames } from "@/utils/object";
 
 /**
  * Composant Select - Liste déroulante personnalisée.
@@ -158,17 +159,14 @@ const Select = ({
   const displayText = selectedOption?.label ?? placeholder;
 
   // Construction des classes CSS
-  const classes = [
+  const classes = classNames(
     styles.selectContainer,
     `component-${variant}`,
     `component-${size}`,
     `component-${align}`,
     fullWidth && styles.fullWidth,
     className
-  ]
-    .filter(Boolean)
-    .join(" ");
-
+  )
 
   return (
     <div
