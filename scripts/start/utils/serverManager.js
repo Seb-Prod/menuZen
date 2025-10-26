@@ -2,6 +2,22 @@ import { spawn } from 'child_process'
 import dotenv from 'dotenv'
 import path from 'path'
 import { backend, frontend, success, error, info } from '../../utils/colors.js'
+import os from 'os'
+
+// Fonction pour récupérer l’adresse IP locale (Wi-Fi / LAN)
+function getLocalIpAddress() {
+  const interfaces = os.networkInterfaces()
+  for (const name of Object.keys(interfaces)) {
+    for (const iface of interfaces[name]) {
+      if (iface.family === 'IPv4' && !iface.internal) {
+        return iface.address
+      }
+    }
+  }
+  return 'localhost'
+}
+
+const localIp = getLocalIpAddress()
 
 let backendProcess = null
 let frontendProcess = null
@@ -136,6 +152,7 @@ function startFrontend(debugMode) {
         console.log(backend(`   ⚙️  Backend:  http://localhost:${actualBackendPort}`))
         console.log(frontend(`   🖥️  Frontend: http://localhost:${actualFrontendPort}`))
         console.log('')
+        console.log(frontend(`   📱  Frontend (iPhone): http://${localIp}:${actualFrontendPort}`))
 
         // Vider la console après un démarrage réussi
         setTimeout(() => {
@@ -145,6 +162,7 @@ function startFrontend(debugMode) {
           console.log(info('📋 Serveurs actifs:'))
           console.log(backend(`   ⚙️  Backend:  http://localhost:${actualBackendPort}`))
           console.log(frontend(`   🖥️  Frontend: http://localhost:${actualFrontendPort}`))
+          console.log(frontend(`   📱  Frontend (iPhone): http://${localIp}:${actualFrontendPort}`))
           console.log('\n' + info('💡 Appuyez sur Ctrl+C pour arrêter les serveurs'))
           resolve()
         }, 500) // Petit délai pour s'assurer que tout est bien démarré
