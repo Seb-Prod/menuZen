@@ -1,0 +1,147 @@
+.toggle {
+    /* Variables par défaut (basées sur --size-height) */
+    --toggle-size: var(--size-height);
+    /* medium par défaut */
+    --bar-width: calc(var(--toggle-size) * 0.6);
+    --bar-height: calc(var(--toggle-size) * 0.1);
+    --bar-spacing: calc(var(--toggle-size) * 0.25);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    background-color: var(--bg);
+    border-radius: 50%;
+    padding: calc(var(--toggle-size) * 0.125);
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    margin: 8px;
+     box-shadow: 
+        0 1px 2px color-mix(in srgb, var(--color-mix-darken) 20%, transparent),
+        0 2px 4px color-mix(in srgb, var(--color-mix-darken) 16%, transparent),
+        0 4px 8px color-mix(in srgb, var(--color-mix-darken) 12%, transparent),
+        0 8px 16px color-mix(in srgb, var(--color-mix-darken) 8%, transparent);
+
+    &:hover {
+        background-color: var(--bg-hover);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.bar {
+    position: relative;
+    width: var(--bar-width);
+    height: var(--bar-height);
+    border-radius: 2px;
+    background: var(--text-alt);
+    transition: all 0.3s ease-in-out;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        height: var(--bar-height);
+        width: var(--bar-width);
+        left: 0;
+        background: var(--text-alt);
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+/* ===================================
+   TYPE: BURGER (burger → croix)
+   =================================== */
+.burger {
+    &::before {
+        transform: translateY(calc(var(--bar-spacing) * -1));
+    }
+
+    &::after {
+        transform: translateY(var(--bar-spacing));
+    }
+
+    &.open {
+        background-color: transparent;
+
+        &::before {
+            transform: rotate(45deg) translateY(0);
+        }
+
+        &::after {
+            transform: rotate(-45deg) translateY(0);
+        }
+    }
+}
+
+/* ===================================
+   TYPE: ARROW (flèche droite → gauche)
+   =================================== */
+.arrow {
+
+    &::before,
+    &::after {
+        width: calc(var(--bar-width) * 0.5);
+    }
+
+    &::before {
+        transform: translateY(calc(var(--bar-height) * 0)) translateX(calc(var(--bar-width) * 0.45)) rotate(-45deg);
+        transform-origin: right center;
+    }
+
+    &::after {
+        transform: translateY(calc(var(--bar-height) * 0)) translateX(calc(var(--bar-width) * 0.45)) rotate(45deg);
+        transform-origin: right center;
+    }
+
+    &.open {
+        &::before {
+            transform: translateY(calc(var(--bar-height) * 0)) translateX(calc(var(--bar-width) * 0.045)) rotate(45deg);
+            transform-origin: left center;
+        }
+
+        &::after {
+            transform: translateY(calc(var(--bar-height) * 0)) translateX(calc(var(--bar-width) * 0.045)) rotate(-45deg);
+            transform-origin: left center;
+        }
+    }
+}
+
+/* ===================================
+   TYPE: CHEVRON (chevron droit → gauche)
+   =================================== */
+.chevron {
+    background-color: transparent;
+
+    &::before,
+    &::after {
+        width: calc(var(--bar-width) * 0.6);
+    }
+
+    &::before {
+        transform: translateY(calc(var(--bar-height) * 0.3)) translateX(calc(var(--bar-width) * 0.1)) rotate(45deg);
+        transform-origin: right center;
+    }
+
+    &::after {
+        transform: translateY(calc(var(--bar-height) * -0.3)) translateX(calc(var(--bar-width) * 0.1)) rotate(-45deg);
+        transform-origin: right center;
+    }
+
+    &.open {
+        &::before {
+            transform: translateY(calc(var(--bar-height) * -0.3)) translateX(calc(var(--bar-width) * 0.27)) rotate(45deg);
+            transform-origin: left center;
+        }
+
+        &::after {
+            transform: translateY(calc(var(--bar-height) * 0.3)) translateX(calc(var(--bar-width) * 0.27)) rotate(-45deg);
+            transform-origin: left center;
+        }
+    }
+}

@@ -1,3 +1,14 @@
+.contain{
+    display: flex;
+    flex-direction: row;
+}
+
+button{
+    background: none;
+    border:none;
+}
+
+
 .aside {
     padding: 12px;
     box-sizing: border-box;
