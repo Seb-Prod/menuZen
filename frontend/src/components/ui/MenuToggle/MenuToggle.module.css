@@ -38,7 +38,7 @@
     width: var(--bar-width);
     height: var(--bar-height);
     border-radius: 2px;
-    background: var(--text-alt);
+    background: var(--bg-alt);
     transition: all 0.3s ease-in-out;
 
     &::before,
@@ -48,7 +48,7 @@
         height: var(--bar-height);
         width: var(--bar-width);
         left: 0;
-        background: var(--text-alt);
+        background: var(--bg-alt);
         border-radius: 2px;
         transition: all 0.3s ease-in-out;
     }
