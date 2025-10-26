@@ -1,5 +1,5 @@
 .table {
-  width: auto;
+  width: 100%;
   border-radius: 8px;
   border-collapse: collapse;
   overflow: hidden;
@@ -25,18 +25,20 @@
   & tbody tr {
     background-color: color-mix(in srgb, var(--bg) 85%, var(--color-mix-lighten) 15%);
     color: var(--text-alt);
-    &:hover{
+
+    &:hover {
       background-color: var(--bg-alt);
-      color:var(--text-alt)
+      color: var(--text-alt);
     }
   }
 
   & tbody tr:nth-child(even) {
     background-color: color-mix(in srgb, var(--bg) 75%, var(--color-mix-lighten) 25%);
     color: var(--text-alt);
-    &:hover{
+
+    &:hover {
       background-color: var(--bg-alt);
-      color:var(--text-alt)
+      color: var(--text-alt);
     }
   }
 
@@ -44,7 +46,6 @@
     padding: 12px;
     border-bottom: 2px solid var(--border);
     border-right: 2px solid var(--border);
-    
   }
 
   & tbody td:last-child {
@@ -53,5 +54,86 @@
 
   & tbody tr:last-child td {
     border-bottom: none;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+
+  .table,
+  .table thead,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+  }
+
+  /* Masquer le thead */
+  .table thead {
+    display: none;
+  }
+
+  /* Désactiver les effets hover sur mobile */
+  .table tbody tr:hover {
+    background-color: color-mix(in srgb, var(--bg) 85%, var(--color-mix-lighten) 15%);
+    color: var(--text-alt);
+  }
+
+  /* Espacer les lignes et ajouter border-radius */
+  .table tbody tr {
+    margin-bottom: 15px;
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  /* Styler les td */
+  .table tbody td {
+    padding: 12px;
+    padding-left: 150px !important;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    background-color: color-mix(in srgb, var(--bg) 85%, var(--color-mix-lighten) 15%);
+    color: var(--text-alt);
+  }
+
+  /* Border-radius sur la première cellule */
+  .table tbody tr td:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  /* Border-radius sur la dernière cellule */
+  .table tbody tr td:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom: none;
+  }
+
+  .table tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    bottom: 0;
+    background-color: color-mix(in srgb, var(--bg) 95%, var(--color-mix-lighten) 5%);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    font-weight: 600;
+    border-right: 1px solid var(--border);
+  }
+
+  /* Border-radius sur le ::before de la première cellule */
+  .table tbody tr td:first-child::before {
+    border-top-left-radius: 8px;
+  }
+
+  /* Border-radius sur le ::before de la dernière cellule */
+  .table tbody tr td:last-child::before {
+    border-bottom-left-radius: 8px;
   }
 }

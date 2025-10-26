@@ -14,9 +14,11 @@ import { classNames } from '@/utils/object';
  * Permet d'afficher des données tabulaires avec des en-têtes personnalisables
  * et supporte différentes variantes de style, tailles et options d'alignement. 
  * Le contenu des cellules peut être n'importe quel élément React (texte, composants, etc.).
+ * Le tableau est responsive et s'adapte automatiquement aux petits écrans (≤660px)
+ * en affichant les données en mode liste verticale avec les en-têtes de colonnes visibles.
  * 
  * @component
- * @version 1.1.0
+ * @version 1.2.0
  * @since 2025-10-22
  * @author Seb-Prod
  * 
@@ -54,7 +56,7 @@ import { classNames } from '@/utils/object';
  * />
  * 
  * @example
- * // Tableau pleine largeur en grande taille
+ * // Tableau pleine largeur en grande taille avec composants React
  * <Table 
  *   fullWidth
  *   size="large"
@@ -88,9 +90,7 @@ const Table = ({
         `component-${size}`,
         fullWidth && styles.fullWidth,
         className
-    )
-
-    
+    );
 
     return (
         <table className={classes}>
@@ -105,13 +105,18 @@ const Table = ({
                 {data.map((rowData, rowIndex) => (
                     <tr key={rowIndex}>
                         {rowData.map((cellData, cellIndex) => (
-                            <td key={cellIndex}>{cellData}</td>
+                            <td 
+                                key={cellIndex}
+                                data-label={headers[cellIndex]}
+                            >
+                                {cellData}
+                            </td>
                         ))}
                     </tr>
                 ))}
             </tbody>
         </table>
-    )
-}
+    );
+};
 
 export default Table;
