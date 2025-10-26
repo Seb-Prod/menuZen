@@ -1,4 +1,5 @@
 import './App.css'
+import { DeviceProvider } from './context/Device'
 import ShowcasePage from './pages/showcase'
 
 function App() {
@@ -6,9 +7,9 @@ function App() {
   console.log("API backend:", apiUrl)
 
   return (
-    <>
-     <ShowcasePage/>
-    </>
+    <DeviceProvider>
+      <ShowcasePage />
+    </DeviceProvider>
   )
 }
 
