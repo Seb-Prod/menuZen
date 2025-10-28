@@ -3,20 +3,22 @@
  * @module components/layout/SideBar
  */
 
-import { useState, type JSX } from "react";
+import { useState, useEffect, useRef, type JSX } from "react";
 import styles from './SideBar.module.css';
 import MenuToggle from "@/components/ui/MenuToggle";
-import { SIDEBAR_DEFAULTS, type SideBarProps } from "./SideBar.types";
+import { DEFAULTS, type Props } from './SideBar.types';
 import { classNames } from "@/utils/object";
+import { useDevice } from "@/context/Device";
 
 /**
  * Composant SideBar - Barre latérale pliable avec bouton de basculement.
  * 
  * Affiche une barre latérale qui peut être ouverte ou fermée via un bouton MenuToggle.
+ * En mode mobile, la sidebar devient un overlay qui se superpose au contenu.
  * Le contenu de la barre latérale est masqué lorsqu'elle est fermée et affiché lorsqu'elle est ouverte.
  * 
  * @component
- * @version 1.0.0
+ * @version 1.1.0
  * @since 2025-10-26
  * @author Seb-Prod
  * 
@@ -46,23 +48,15 @@ import { classNames } from "@/utils/object";
  *   </ul>
  * </SideBar>
  * 
- * @example
- * // Barre latérale avec icône flèche et sans variante de couleur
- * <SideBar type="arrow" variant="none">
- *   <div>Contenu personnalisé</div>
- * </SideBar>
- * 
  * @see {@link SideBarProps}
  * @see {@link SIDEBAR_DEFAULTS}
  * @see {@link MenuToggle}
  */
-const SideBar = ({
-    children,
-    type = SIDEBAR_DEFAULTS.type,
-    variant = SIDEBAR_DEFAULTS.variant
-}: SideBarProps): JSX.Element => {
-    // État local pour gérer l'ouverture/fermeture de la barre latérale
+const SideBar = (inputProps: Props): JSX.Element => {
+    const { children, type, variant, variantToggleMenu } = { ...DEFAULTS, ...inputProps };
     const [menuOpen, setMenuOpen] = useState(false);
+    const { isMobile } = useDevice();
+    const sidebarRef = useRef<HTMLDivElement>(null);
 
     /**
      * Gestionnaire pour basculer l'état d'ouverture de la barre latérale.
@@ -71,32 +65,75 @@ const SideBar = ({
         setMenuOpen(prev => !prev);
     };
 
+    /**
+     * Ferme la sidebar
+     */
+    const closeSidebar = () => {
+        setMenuOpen(false);
+    };
+
+    /**
+     * Gestion du clic extérieur pour fermer la sidebar en mode mobile
+     */
+    useEffect(() => {
+        if (!isMobile || !menuOpen) return;
+
+        const handleClickOutside = (event: MouseEvent) => {
+            if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
+                closeSidebar();
+            }
+        };
+
+        // Petit délai pour éviter que le clic d'ouverture ne ferme immédiatement
+        const timeoutId = setTimeout(() => {
+            document.addEventListener('mousedown', handleClickOutside);
+        }, 100);
+
+        return () => {
+            clearTimeout(timeoutId);
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMobile, menuOpen]);
+
     // Construction des classes CSS
     const classes = classNames(
         styles.sideBar,
-        `component-${variant}`,
+        `bg-${variant}`,
+        isMobile && styles.sideBarMobile
     );
 
-     const asideClasses = classNames(
+    const asideClasses = classNames(
         styles.aside,
-        menuOpen && styles.asideOpen
+        menuOpen && styles.asideOpen,
+        isMobile && styles.asideMobile,
+        isMobile && menuOpen && styles.asideMobileOpen
+    );
+
+    const overlayClasses = classNames(
+        styles.overlay,
+        isMobile && menuOpen && styles.overlayVisible
     );
 
     return (
-        <div className={classes}>
-            <aside className={asideClasses}>
-                {children}
-            </aside>
-            <div className={styles.toggle}>
-                <MenuToggle
-                    isOpen={menuOpen}
-                    onClick={handleToggle}
-                    type={type}
-                    variant={variant}
-                    size="small"
-                />
+        <>
+            {/* Overlay sombre en arrière-plan (mobile uniquement) */}
+            {isMobile && <div className={overlayClasses} onClick={closeSidebar} />}
+            
+            <div className={classes} ref={sidebarRef}>
+                <aside className={asideClasses}>
+                    {children}
+                </aside>
+                <div className={styles.toggle}>
+                    <MenuToggle
+                        isOpen={menuOpen}
+                        onClick={handleToggle}
+                        type={type}
+                        variant={variantToggleMenu}
+                        size="small"
+                    />
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

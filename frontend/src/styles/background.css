@@ -1,0 +1,58 @@
+/* ========================================
+   VARIANTS DE BACKGROUND DE MARQUE ET DE SURFACE
+   ======================================== */
+
+/* Fond utilisant la couleur de marque primaire (vert) */
+.bg-brand-primary {
+    --bg: var(--primary-color);
+    color: var(--color-primary-text);
+}
+
+/* Fond utilisant la couleur de marque secondaire (jaune) */
+.bg-brand-secondary {
+    --bg: var(--secondary-color);
+    color: var(--color-secondary-text);
+}
+
+/* Fond principal de l'application (surface de base) */
+.bg-surface-primary {
+    --bg: var(--primary-background);
+    color: var(--primary-text);
+}
+
+/* Fond secondaire pour les conteneurs, cartes, etc. */
+.bg-surface-secondary {
+    --bg: var(--secondary-background);
+    color: var(--primary-text);
+}
+
+/* Fond pour les éléments "élevés" (cartes, modales) ou couleur de surface la plus claire */
+.bg-surface-elevated {
+    --bg: var(--color-white);
+    color: var(--primary-text);
+}
+
+
+/* ========================================
+   VARIANTS DE BACKGROUND DE STATUT 
+   ======================================== */
+
+/* Fond léger pour les messages d'erreur/alertes */
+.bg-status-error {
+    --bg: var(--color-error-bg-alt);
+}
+
+/* Fond léger pour les messages de succès/validation */
+.bg-status-success {
+    --bg: var(--color-success-bg-alt);
+}
+
+/* Fond léger pour les messages d'information */
+.bg-status-info {
+    --bg: var(--color-info-bg-alt);
+}
+
+/* Fond léger pour les blocs neutres / sections de contenu */
+.bg-status-neutral {
+    --bg: var(--color-neutral-bg-alt);
+}

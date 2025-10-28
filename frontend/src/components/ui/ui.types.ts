@@ -22,6 +22,8 @@ export const UI_VARIANTS = [
   "neutral"
 ] as const;
 
+
+
 /**
  * Tailles prédéfinies communes à plusieurs composants.
  */

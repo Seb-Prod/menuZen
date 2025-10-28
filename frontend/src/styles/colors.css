@@ -12,6 +12,7 @@
     /* Couleurs de fond */
     --primary-background: #F9F5EA;
     --secondary-background: #F8ECD1;
+    --color-white: #FFFFFF;
 
     /* Texte */
     --primary-text: #123308;
@@ -100,6 +101,7 @@
         /* Fonds */
         --primary-background: #1F1E1D;
         --secondary-background: #2A2928;
+        --color-white: #2D2C2B;
 
         /* === Texte === */
         --primary-text: #F8ECD1;
@@ -186,6 +188,7 @@
     /* Fonds */
     --primary-background: #1F1E1D;
     --secondary-background: #2A2928;
+    --color-white: #2D2C2B;
 
     /* === Texte === */
     --primary-text: #F8ECD1;
@@ -276,6 +279,7 @@
     /* Couleurs de fond */
     --primary-background: #F9F5EA;
     --secondary-background: #F8ECD1;
+    --color-white: #FFFFFF;
 
     /* Texte */
     --primary-text: #123308;

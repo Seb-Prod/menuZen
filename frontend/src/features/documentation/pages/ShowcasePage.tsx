@@ -5,7 +5,6 @@ import { Page } from "@/components/layout";
 import ShowcaseSidebar from "./ShowCaseSidebar";
 import SectionDocumentation from "./SectionDocumentation";
 import { UI_CONTENT, PROJECTS_CONTENT, THEME_CONTENT, SECTION_KEYS } from "./ShowcaseContent";
-import { useDevice } from "@/context/Device";
 
 // Importation dynamique
 const showcaseModules = import.meta.glob("./showcases/Showcase*.tsx");
@@ -56,24 +55,8 @@ const ShowcasePage = (): JSX.Element => {
     }
   };
 
-  const { isMobile, isPWA, isStandalone, deviceType, isMobilePWA } = useDevice();
-
-
   return (
     <Page>
-      <div>
-      <p>Type d'appareil: {deviceType}</p>
-      <p>Mode mobile: {isMobile ? 'Oui' : 'Non'}</p>
-      <p>Mode PWA: {isPWA ? 'Oui ✅' : 'Non ❌'}</p>
-      <p>Mode mobile PWA: {isMobilePWA ? 'Oui ✅' : 'Non ❌'}</p>
-      <p>Mode Standalone: {isStandalone ? 'Installée' : 'Navigateur'}</p>
-      
-      {isPWA && isMobile && (
-        <div className="pwa-banner">
-          🎉 Application installée sur mobile !
-        </div>
-      )}
-    </div>
       <div className={styles.container}>
         <ShowcaseSidebar
           showcaseNames={showcaseNames}

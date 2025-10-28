@@ -3,8 +3,16 @@
     flex-direction: row;
 }
 
+/* Mode mobile : positionnement fixe pour l'overlay */
+.sideBarMobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+}
+
 .toggle {
-    background: var(--bg-alt);
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     align-self: flex-start;
@@ -21,7 +29,7 @@
     box-sizing: border-box;
     overflow-y: auto;
     max-height: 100vh;
-    background: var(--bg-alt);
+    background: var(--bg);
     border-right: 1px solid var(--border);
     border-top: 1px solid var(--border);
     
@@ -41,4 +49,35 @@
     padding-left: 12px;
     padding-right: 12px;
     opacity: 1;
+}
+
+/* Styles spécifiques mobile */
+.asideMobile {
+    height: 100vh;
+    border-top: none;
+    border-bottom-right-radius: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.asideMobileOpen {
+    /* Assure que l'animation se joue correctement en mobile */
+}
+
+/* Overlay semi-transparent pour le fond */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.overlayVisible {
+    opacity: 1;
+    visibility: visible;
 }
