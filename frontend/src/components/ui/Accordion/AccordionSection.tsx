@@ -5,28 +5,30 @@
 
 import { useState, type JSX } from "react";
 import styles from "./Accordion.module.css";
-import { ACCORDION_SECTION_DEFAULTS, type AccordionSectionProps } from "./Accordion.types";
+import { SECTION_DEFAULTS, type SectionProps } from "./Accordion.types";
 import ChevronIcon from "../ChevronIcon";
 import { useAccordion } from "./Accordion.context";
+import { classNames } from "@/utils/object";
 
 /**
  * Composant AccordionSection - Une section complète avec bascule et contenu.
  *
- * Ce composant gère son propre état d'ouverture/fermeture et affiche le contenu uniquement lorsqu'il est ouvert. Il peut surcharger les styles globaux hérités de l'Accordion parent.
+ * Ce composant gère son propre état d'ouverture/fermeture et affiche le contenu uniquement 
+ * lorsqu'il est ouvert. Il peut surcharger les styles globaux hérités de l'Accordion parent.
  *
  * @component
- * @version 2.2.0
+ * @version 2.3.0
  * @since 2025-10-17
  * @author Seb-Prod
  *
- * @param {AccordionSectionProps} props - Les propriétés du composant.
+ * @param {SectionProps} props - Les propriétés du composant.
  * @param {string} [props.label='Section'] - Le titre affiché sur l'en-tête de la section.
  * @param {boolean} [props.defaultOpen=false] - Si vrai, la section est ouverte par défaut au montage.
  * @param {ReactNode} [props.children] - Le contenu à afficher lorsque la section est ouverte.
  * @param {() => void} [props.onClick] - Fonction de rappel exécutée après chaque basculement.
- * @param {AccordionSize} [props.size] - Surcharge la taille globale héritée du contexte.
+ * @param {UiSize} [props.size] - Surcharge la taille globale héritée du contexte.
  * @param {AccordionChevronIcon} [props.chevronIcon] - Surcharge le type de chevron hérité du contexte.
- * @param {AccordionColorVariant} [props.variant] - Surcharge le schéma de couleur hérité du contexte.
+ * @param {UiVariant} [props.variant] - Surcharge le schéma de couleur hérité du contexte.
  *
  * @returns {JSX.Element} L'élément de section React.
  *
@@ -50,71 +52,66 @@ import { useAccordion } from "./Accordion.context";
  *   <AccordionItem label="Option 1" />
  * </AccordionSection>
  *
- * @see {@link AccordionSectionProps}
- * @see {@link ACCORDION_SECTION_DEFAULTS}
+ * @see {@link SectionProps}
+ * @see {@link SECTION_DEFAULTS}
  * @see {@link useAccordion}
  */
-const AccordionSection = ({
-  label = ACCORDION_SECTION_DEFAULTS.label,
-  defaultOpen = ACCORDION_SECTION_DEFAULTS.defaultOpen,
-  children,
-  onClick,
-  size: propSize,
-  chevronIcon: propChevronIcon,
-  variant: propVariant,
-}: AccordionSectionProps): JSX.Element => {
-  const context = useAccordion();
+const AccordionSection = (inputProps: SectionProps): JSX.Element => {
+    const { label, defaultOpen, children, onClick, size, chevronIcon, variant } = { ...SECTION_DEFAULTS, ...inputProps };
+    const context = useAccordion();
+    const [isOpen, setIsOpen] = useState(defaultOpen);
 
-  // Résolution des valeurs finales (props > contexte)
-  const finalSize = propSize ?? context.size;
-  const finalChevronIcon = propChevronIcon ?? context.chevronIcon;
-  const finalVariant = propVariant ?? context.variant;
-  const finalChevronAlignment = context.chevronAlignment;
+    // Résolution des valeurs finales (props > contexte)
+    const finalSize = size ?? context.size;
+    const finalChevronIcon = chevronIcon ?? context.chevronIcon;
+    const finalVariant = variant ?? context.variant;
+    const finalChevronAlignment = context.chevronAlignment;
 
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+    /**
+     * Gère le basculement de l'état ouvert/fermé et exécute le callback externe.
+     */
+    const handleToggle = (): void => {
+        setIsOpen(prev => !prev);
+        onClick?.();
+    };
 
-  /**
-   * Gère le basculement de l'état ouvert/fermé et exécute le callback externe.
-   */
-  const handleToggle = (): void => {
-    setIsOpen(prev => !prev);
-    onClick?.();
-  };
+    // Construction des classes CSS
+    const buttonClasses = classNames(
+        styles.button,
+        `text-${finalVariant}`,
+        `title-${finalSize}`,
+        finalChevronAlignment === 'edge' && styles.buttonAlignEdge
+    );
 
-  // Construction des classes CSS
-  const buttonClasses = [
-    styles.button,
-    `text-${finalVariant}`,
-    `title-${finalSize}`,
-    finalChevronAlignment === 'edge' && styles.buttonAlignEdge,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    return (
+        <div className={`${styles.section} ${styles[context.chevronAlignment]}`}>
+            <button
+                className={buttonClasses}
+                onClick={handleToggle}
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls={`section-content-${label}`}
+            >
+                <span className={styles.label}>{label}</span>
+                <ChevronIcon 
+                    isOpen={isOpen} 
+                    type={finalChevronIcon} 
+                    size={context.size} 
+                    variant="none" 
+                />
+            </button>
 
-  return (
-    <div className={`${styles.section} ${styles[context.chevronAlignment]}`}>
-      <button
-        className={buttonClasses}
-        onClick={handleToggle}
-        type="button"
-        aria-expanded={isOpen}
-        aria-controls={`section-content-${label}`}
-      >
-        <span className={styles.label}>{label}</span>
-        <ChevronIcon isOpen={isOpen} type={finalChevronIcon} size={context.size} variant="none" />
-      </button>
-
-      {isOpen && (
-        <div
-          id={`section-content-${label}`}
-          className={styles.content}
-          role="region"
-        >
-          {children}
+            {isOpen && (
+                <div
+                    id={`section-content-${label}`}
+                    className={styles.content}
+                    role="region"
+                >
+                    {children}
+                </div>
+            )}
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default AccordionSection;

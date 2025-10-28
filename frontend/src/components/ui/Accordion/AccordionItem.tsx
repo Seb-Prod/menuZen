@@ -3,10 +3,11 @@
  * @module components/ui/AccordionItem
  */
 
-import type { JSX } from "react";
+import { type JSX } from "react";
 import styles from "./Accordion.module.css";
+import { ITEM_DEFAULTS, type ItemProps } from "./Accordion.types";
 import { useAccordion } from "./Accordion.context";
-import { ACCORDION_ITEM_DEFAULTS, type AccordionItemProps } from "./Accordion.types";
+import { classNames } from "@/utils/object";
 
 /**
  * Composant AccordionItem - Élément cliquable dans une section d'accordéon.
@@ -21,13 +22,12 @@ import { ACCORDION_ITEM_DEFAULTS, type AccordionItemProps } from "./Accordion.ty
  * @since 2025-10-17
  * @author Seb-Prod
  *
- * @param {AccordionItemProps} props - Les propriétés du composant.
+ * @param {ItemProps} props - Les propriétés du composant.
  * @param {string} [props.label='Item'] - Le texte à afficher sur le bouton.
  * @param {() => void} [props.onClick] - Fonction de rappel exécutée lors du clic.
  * @param {boolean} [props.isActive=false] - Si vrai, applique un style actif au bouton.
- * @param {ReactNode} [props.children] - Contenu alternatif au label (pour des éléments complexes).
- * @param {AccordionItemActiveVariant} [props.itemVariant] - Surcharge la variante active héritée du contexte.
- * @param {AccordionSize} [props.size] - Surcharge la taille héritée du contexte.
+ * @param {UiVariant} [props.itemVariant] - Surcharge la variante active héritée du contexte.
+ * @param {UiSize} [props.size] - Surcharge la taille héritée du contexte.
  *
  * @returns {JSX.Element} L'élément bouton React.
  *
@@ -48,51 +48,38 @@ import { ACCORDION_ITEM_DEFAULTS, type AccordionItemProps } from "./Accordion.ty
  *   isActive={false}
  * />
  *
- * @example
- * // Item avec children personnalisé
- * <AccordionItem onClick={handleClick}>
- *   <span>🎉</span> Élément spécial
- * </AccordionItem>
- *
- * @see {@link AccordionItemProps}
- * @see {@link ACCORDION_ITEM_DEFAULTS}
+ * @see {@link ItemProps}
+ * @see {@link ITEM_DEFAULTS}
  * @see {@link useAccordion}
  */
-const AccordionItem = ({
-  label = ACCORDION_ITEM_DEFAULTS.label,
-  onClick,
-  isActive = false,
-  size: propSize,
-  itemVariant: propItemVariant,
-}: AccordionItemProps): JSX.Element => {
-  const context = useAccordion();
+const AccordionItem = (inputProps: ItemProps): JSX.Element => {
+    const { label, onClick, isActive, size, itemVariant } = { ...ITEM_DEFAULTS, ...inputProps };
+    const context = useAccordion();
 
-  // Résolution des valeurs finales (props > contexte)
-  const finalSize = propSize ?? context.size;
-  const finalVariant = propItemVariant ?? context.itemVariant;
+    // Résolution des valeurs finales (props > contexte)
+    const finalSize = size ?? context.size;
+    const finalVariant = itemVariant ?? context.itemVariant;
 
-  // Construction des classes CSS
-  const buttonClasses = [
-    styles.item,
-    `component-${finalVariant}`,
-    `component-${finalSize}`,
-    `transparent`,
-    isActive && `active`,
-    isActive && styles.active,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    // Construction des classes CSS
+    const buttonClasses = classNames(
+        styles.item,
+        `component-${finalVariant}`,
+        `component-${finalSize}`,
+        'transparent',
+        isActive && 'active',
+        isActive && styles.active
+    );
 
-  return (
-    <button
-      className={buttonClasses}
-      onClick={onClick}
-      type="button"
-      aria-pressed={isActive}
-    >
-      {label}
-    </button>
-  );
+    return (
+        <button
+            className={buttonClasses}
+            onClick={onClick}
+            type="button"
+            aria-pressed={isActive}
+        >
+            {label}
+        </button>
+    );
 };
 
 export default AccordionItem;

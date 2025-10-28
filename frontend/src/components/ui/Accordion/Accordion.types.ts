@@ -1,50 +1,22 @@
 /**
- * @file Défnition des types, constantes et valeur par défaut
+ * @file Définition des types, constantes et valeurs par défaut
  * @module components/ui/Accordion/Accordion.types
- * @version 2.0.2
+ * @version 2.1.2
  * @since 2025-10-17
+ * @see {@link Accordion} pour l'implémentation du composant principal.
  * @author Seb-Prod
  */
 
 import type { ReactNode } from 'react';
 import { CHEVRONICON_TYPE } from '../ChevronIcon/ChevronIcon.types';
+import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize, type UiVariant } from '../ui.types';
+import { omit } from '@/utils/object';
 
 // ================================
 // Constantes
 // ================================
 
-/** Définit le styles de l'accordion (couleur du label des sections et des items non actif). 
- */
-export const ACCORDION_COLOR_VARIANTS = [
-    "primary",
-    "secondary",
-    "error",
-    "success",
-    "info",
-    "neutral"
-] as const;
-
-/** Définit la taille des items et du label des sections. 
- */
-export const ACCORDION_SIZES = [
-    "small",
-    "medium",
-    "large"
-] as const
-
-/** Définit les styles (variant) des items quand ils sont **actifs** ou **survolés**. 
- */
-export const ACCORDION_ITEM_ACTIVE_VARIANTS = [
-    "primary",
-    "secondary",
-    "error",
-    "success",
-    "info",
-    "neutral"
-] as const;
-
-/** Définit la position du cheron par raport au label
- */
+/** Définit les positions du chevron par rapport au label. */
 export const CHEVRON_ALIGNMENTS = [
     "near-label",
     "edge"
@@ -54,10 +26,10 @@ export const CHEVRON_ALIGNMENTS = [
 // Types
 // ================================
 
-export type AccordionColorVariant = typeof ACCORDION_COLOR_VARIANTS[number];
+/** Type d'icône du chevron. */
 export type AccordionChevronIcon = typeof CHEVRONICON_TYPE[number];
-export type AccordionSize = typeof ACCORDION_SIZES[number];
-export type AccordionItemActiveVariant = typeof ACCORDION_ITEM_ACTIVE_VARIANTS[number];
+
+/** Position du chevron. */
 export type AccordionChevronAlignment = typeof CHEVRON_ALIGNMENTS[number];
 
 // ================================
@@ -66,10 +38,11 @@ export type AccordionChevronAlignment = typeof CHEVRON_ALIGNMENTS[number];
 
 /** Valeurs du contexte partagées par les sections internes. */
 export interface AccordionContextValue {
-    variant: AccordionColorVariant;
+    variant: UiVariant;
     chevronIcon: AccordionChevronIcon;
-    size: AccordionSize;
-    itemVariant: AccordionItemActiveVariant;
+    size: UiSize;
+    itemVariant: UiVariant;
+    chevronAlignment:AccordionChevronAlignment;
 }
 
 // ================================
@@ -77,23 +50,21 @@ export interface AccordionContextValue {
 // ================================
 
 /** Propriétés pour un élément (bouton, lien) à l'intérieur d'une section. */
-export type AccordionItemProps = {
+export type ItemProps = {
     /** Label affiché sur l'item. */
     label?: string;
     /** Fonction appelée lorsque l'item est cliqué (action de navigation, etc.). */
     onClick?: () => void;
     /** Indique si l'item est actuellement activé (ex: page ou route courante). */
     isActive?: boolean;
-    /** * Style spécifique appliqué à cet item quand il est actif ou survolé, 
-     * surchargenant le style global défini par AccordionProps. 
-     */
-    itemVariant?: AccordionItemActiveVariant;
-    /** Taille spécifique appliquée à cet item, surchargenant la taille globale. */
-    size?: AccordionSize;
+    /** Style spécifique appliqué à cet item quand il est actif ou survolé, surchargeant le style global défini par AccordionProps. */
+    itemVariant?: UiVariant;
+    /** Taille spécifique appliquée à cet item, surchargeant la taille globale. */
+    size?: UiSize;
 }
 
 /** Propriétés pour le composant AccordionSection (le conteneur collapsible). */
-export type AccordionSectionProps = {
+export type SectionProps = {
     /** Label de la section, affiché sur le bouton d'ouverture. */
     label?: string;
     /** Indique si la section doit être ouverte par défaut lors du montage. */
@@ -102,25 +73,25 @@ export type AccordionSectionProps = {
     children?: ReactNode;
     /** Fonction de rappel optionnelle lors de l'activation (ouverture/fermeture) de la section. */
     onClick?: () => void;
-    /** Taille spécifique appliquée à cette section, surchargenant la taille globale. */
-    size?: AccordionSize;
-    /** Type d'icône spécifique appliqué au chevron, surchargenant l'icône globale. */
+    /** Taille spécifique appliquée à cette section, surchargeant la taille globale. */
+    size?: UiSize;
+    /** Type d'icône spécifique appliqué au chevron, surchargeant l'icône globale. */
     chevronIcon?: AccordionChevronIcon;
-    /** Variante de couleur spécifique appliquée à cette section, surchargenant la variante globale. */
-    variant?: AccordionColorVariant;
+    /** Variante de couleur spécifique appliquée à cette section, surchargeant la variante globale. */
+    variant?: UiVariant;
 }
 
-/** Propriétés pour le composant Accordion principal. */
-export type AccordionProps = {
+/** Propriétés du composant. */
+export type Props = {
     /** Variante de couleur utilisée pour le style de base (labels non actifs). */
-    variant?: AccordionColorVariant;
+    variant?: UiVariant;
     /** Taille des items et des labels de section. */
-    size?: AccordionSize;
+    size?: UiSize;
     /** Type d'icône (chevron, plus-minus, etc.) d'ouverture/fermeture. */
     chevronIcon?: AccordionChevronIcon;
     /** Style appliqué aux items quand ils sont actifs ou au survol. */
-    itemVariant?: AccordionItemActiveVariant;
-    /** Contenu de l'accortion (AccordionSection, ou tout composant React). */
+    itemVariant?: UiVariant;
+    /** Contenu de l'accordion (AccordionSection, ou tout composant React). */
     children: ReactNode;
     /** Définit l'alignement horizontal du chevron d'ouverture/fermeture par rapport au label de section. */
     chevronAlignment?: AccordionChevronAlignment;
@@ -130,32 +101,33 @@ export type AccordionProps = {
 // Valeurs par défaut
 // ================================
 
-/** Valeur par défaut pour les propriétés du composant AccordionItem. */
-export const ACCORDION_ITEM_DEFAULTS = {
+/** Valeurs par défaut pour les props d'AccordionItem. */
+export const ITEM_DEFAULTS = {
     label: 'Item'
-} satisfies Partial<AccordionItemProps>
+} satisfies Partial<ItemProps>
 
-/** Valeur par défaut pour les propriétés du composant AccordionSection. */
-export const ACCORDION_SECTION_DEFAULTS = {
+/** Valeurs par défaut pour les props d'AccordionSection. */
+export const SECTION_DEFAULTS = {
     label: 'Section',
     defaultOpen: false,
-} satisfies Partial<AccordionSectionProps>
+} satisfies Partial<SectionProps>
 
-/** Valeur par défaut pour les propriétés du composant Accordion. */
-export const ACCORDION_DEFAULTS = {
-    variant: "primary" as AccordionColorVariant,
-    size: "medium" as AccordionSize,
+/** Valeurs par défaut pour les props. */
+export const DEFAULTS = {
+    ...omit(UI_DEFAULTS, ["justify", "align"]),
     chevronIcon: "chevron" as AccordionChevronIcon,
-    itemVariant: "primary" as AccordionItemActiveVariant,
     chevronAlignment: "near-label" as AccordionChevronAlignment,
-} satisfies Partial<AccordionProps>
+    itemVariant: "primary" as UiVariant
+} satisfies Partial<Props>
 
 // ================================
 // Showcase
 // ================================
+
+/** Constantes pour le showcase du composant Accordion. */
 export const ACCORDION_SHOWCASE_CONSTANTS = {
-    variant: ACCORDION_COLOR_VARIANTS,
-    size: ACCORDION_SIZES,
+    variant: UI_VARIANTS,
+    size: UI_SIZES,
     chevronIcon: CHEVRONICON_TYPE,
-    itemVariant: ACCORDION_ITEM_ACTIVE_VARIANTS
+    itemVariant: UI_VARIANTS
 } as const

@@ -3,10 +3,10 @@
  * @module components/ui/Accordion
  */
 
+import { type JSX } from "react";
 import styles from "./Accordion.module.css";
-import { ACCORDION_DEFAULTS, type AccordionProps } from './Accordion.types';
+import { DEFAULTS, type Props } from './Accordion.types';
 import { AccordionContext } from "./Accordion.context";
-import type { JSX } from "react";
 
 /**
  * Composant Accordion - Conteneur principal pour un système de sections dépliables.
@@ -16,15 +16,16 @@ import type { JSX } from "react";
  * à tous ses descendants (`AccordionSection` ou `AccordionItem`), assurant une cohérence visuelle.
  *
  * @component
- * @version 2.1.0
+ * @version 2.2.0
  * @since 2025-10-17
  * @author Seb-Prod
  *
- * @param {AccordionProps} props - Les propriétés du composant.
- * @param {AccordionColorVariant} [props.variant='primary'] - Schéma de couleur global appliqué aux labels de section et aux items non actifs.
- * @param {AccordionSize} [props.size='medium'] - Taille prédéfinie des items et des labels (small, medium, large).
+ * @param {Props} props - Les propriétés du composant.
+ * @param {UiVariant} [props.variant='primary'] - Schéma de couleur global appliqué aux labels de section et aux items non actifs.
+ * @param {UiSize} [props.size='medium'] - Taille prédéfinie des items et des labels (small, medium, large).
  * @param {AccordionChevronIcon} [props.chevronIcon='chevron'] - Type d'icône utilisé pour les chevrons d'ouverture/fermeture.
- * @param {AccordionItemActiveVariant} [props.itemVariant='primary'] - Schéma de couleur appliqué aux items actifs ou au survol.
+ * @param {UiVariant} [props.itemVariant='primary'] - Schéma de couleur appliqué aux items actifs ou au survol.
+ * @param {AccordionChevronAlignment} [props.chevronAlignment='near-label'] - Définit l'alignement horizontal du chevron par rapport au label.
  * @param {ReactNode} props.children - Les éléments qui composent l'accordéon (généralement `AccordionSection` ou `AccordionItem`).
  *
  * @returns {JSX.Element} L'élément conteneur de l'accordéon.
@@ -45,25 +46,20 @@ import type { JSX } from "react";
  *   </AccordionSection>
  * </Accordion>
  *
- * @see {@link AccordionProps}
- * @see {@link ACCORDION_DEFAULTS}
+ * @see {@link Props}
+ * @see {@link DEFAULTS}
  * @see {@link AccordionContext}
  */
-const Accordion = ({
-  variant = ACCORDION_DEFAULTS.variant,
-  size = ACCORDION_DEFAULTS.size,
-  chevronIcon = ACCORDION_DEFAULTS.chevronIcon,
-  itemVariant = ACCORDION_DEFAULTS.itemVariant,
-  chevronAlignment = ACCORDION_DEFAULTS.chevronAlignment,
-  children
-}: AccordionProps): JSX.Element => {
-  return (
-    <AccordionContext.Provider value={{ variant, size, chevronIcon, itemVariant, chevronAlignment }}>
-      <div className={styles.accordion}>
-        {children}
-      </div>
-    </AccordionContext.Provider>
-  );
+const Accordion = (inputProps: Props): JSX.Element => {
+    const { variant, size, chevronIcon, itemVariant, chevronAlignment, children } = { ...DEFAULTS, ...inputProps };
+
+    return (
+        <AccordionContext.Provider value={{ variant, size, chevronIcon, itemVariant, chevronAlignment }}>
+            <div className={styles.accordion}>
+                {children}
+            </div>
+        </AccordionContext.Provider>
+    );
 };
 
 export default Accordion;
