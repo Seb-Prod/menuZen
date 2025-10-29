@@ -41,7 +41,6 @@ export interface AccordionContextValue {
     variant: UiVariant;
     chevronIcon: AccordionChevronIcon;
     size: UiSize;
-    itemVariant: UiVariant;
     itemMode: UiMode;
     chevronAlignment: AccordionChevronAlignment;
 }
@@ -92,8 +91,6 @@ export type Props = {
     size?: UiSize;
     /** Type d'icône (chevron, plus-minus, etc.) d'ouverture/fermeture. */
     chevronIcon?: AccordionChevronIcon;
-    /** Style appliqué aux items quand ils sont actifs ou au survol. */
-    itemVariant?: UiVariant;
     /** Modes de rendu */
     itemMode?: UiMode;
     /** Contenu de l'accordion (AccordionSection, ou tout composant React). */
@@ -122,7 +119,6 @@ export const DEFAULTS = {
     ...omit(UI_DEFAULTS_BUTTON, ["align"]),
     chevronIcon: "chevron" as AccordionChevronIcon,
     chevronAlignment: "near-label" as AccordionChevronAlignment,
-    itemVariant: "primary" as UiVariant,
     itemMode: "solid" as UiMode
 } satisfies Partial<Props>
 
@@ -130,8 +126,8 @@ export const DEFAULTS = {
 // Showcase
 // ================================
 
-/** Constantes pour le showcase du composant Accordion. */
-export const ACCORDION_SHOWCASE_CONSTANTS = {
+/** Constantes pour le showcase du composant */
+export const SHOWCASE_CONSTANTS = {
     variant: UI_VARIANTS,
     size: UI_SIZES,
     chevronIcon: CHEVRONICON_TYPE,

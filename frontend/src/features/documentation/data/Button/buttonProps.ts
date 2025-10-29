@@ -9,7 +9,7 @@ import {
   BUTTON_MODES,
 } from "@/components/ui/Button/Button.types";
 import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
-import type { PropInfo } from "@/features/documentation/types/propsInfo";
+import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
 /**

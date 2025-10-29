@@ -1,6 +1,6 @@
 import { useState, type JSX } from "react";
 import { ComponentPlayground, DocProps, UsageExample} from "..";
-import type { PropInfo } from "../../types/propsInfo";
+import type { PropInfo } from "../../types/types";
 import { Heading, Text } from "@/components/ui";
 import {
     type Params,

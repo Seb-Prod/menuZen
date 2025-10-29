@@ -8,7 +8,7 @@ import {
   HEADING_DEFAULTS,
 } from "@/components/ui/Heading/Heading.types";
 import { UI_TEXT_JUSTIFY, UI_VARIANTS } from "@/components/ui/ui.types";
-import type { PropInfo } from "@/features/documentation/types/propsInfo";
+import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
 /**

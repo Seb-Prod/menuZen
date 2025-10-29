@@ -9,7 +9,7 @@ import {
   CHEVRONICON_VARIANTS,
 } from '@/components/ui/ChevronIcon/ChevronIcon.types';
 import { UI_SIZES } from '@/components/ui/ui.types';
-import type { PropInfo } from "@/features/documentation/types/propsInfo";
+import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
 /**

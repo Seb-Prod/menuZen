@@ -28,6 +28,7 @@ import { classNames } from "@/utils/object";
  * @param {boolean} [props.isActive=false] - Si vrai, applique un style actif au bouton.
  * @param {UiVariant} [props.itemVariant] - Surcharge la variante active héritée du contexte.
  * @param {UiSize} [props.size] - Surcharge la taille héritée du contexte.
+ * @param {UiMode} [props.itemMode] - Surcharge le mode d'apparence du bouton hérité du contexte.
  *
  * @returns {JSX.Element} L'élément bouton React.
  *
@@ -58,7 +59,7 @@ const AccordionItem = (inputProps: ItemProps): JSX.Element => {
 
     // Résolution des valeurs finales (props > contexte)
     const finalSize = size ?? context.size;
-    const finalVariant = itemVariant ?? context.itemVariant;
+    const finalVariant = itemVariant ?? context.variant;
     const finalMode = itemMode ?? context.itemMode;
 
     // Construction des classes CSS

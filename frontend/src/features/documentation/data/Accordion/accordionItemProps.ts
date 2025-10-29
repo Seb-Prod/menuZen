@@ -1,12 +1,12 @@
 import { formatType } from "@/features/documentation/utils";
-import { ACCORDION_ITEM_DEFAULTS, ACCORDION_SHOWCASE_CONSTANTS } from '@/components/ui/Accordion/Accordion.types';
+import { SHOWCASE_CONSTANTS, ITEM_DEFAULTS } from '@/components/ui/Accordion/Accordion.types';
 
 export default [
   // --- Propriété : label ---
   {
     name: "label",
     type: "string",
-    default: ACCORDION_ITEM_DEFAULTS.label,
+    default: ITEM_DEFAULTS.label,
     description: "**Texte principal affiché sur l'élément** de l'accordéon. Ce texte est visible même si l'item contient des `children`.",
   },
   // --- Propriété : onClick ---
@@ -26,17 +26,17 @@ export default [
   // --- Propriété : itemVariant (Override) ---
   {
     name: "itemVariant",
-    type: formatType(ACCORDION_SHOWCASE_CONSTANTS.itemVariant),
+    type: formatType(SHOWCASE_CONSTANTS.itemVariant),
     default: "Hérité du composant Accordion parent (`AccordionProps.itemVariant`)",
     description: "**Surcharges la variante de couleur active/survolée globale définie par le composant Accordion.** Applique spécifiquement un style de mise en évidence différent à cet item.",
-    values: ACCORDION_SHOWCASE_CONSTANTS.itemVariant
+    values: SHOWCASE_CONSTANTS.itemVariant
   },
   // --- Propriété : size (Override) ---
   {
     name: "size",
-    type: formatType(ACCORDION_SHOWCASE_CONSTANTS.size),
+    type: formatType(SHOWCASE_CONSTANTS.size),
     default: "Hérité du composant Accordion parent (`AccordionProps.size`)",
     description: "**Surcharges la taille globale définie par le composant Accordion.** Applique spécifiquement une taille différente à cet item.",
-    values: ACCORDION_SHOWCASE_CONSTANTS.size
+    values: SHOWCASE_CONSTANTS.size
   },
 ] as const;

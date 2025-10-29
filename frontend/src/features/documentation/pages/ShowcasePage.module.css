@@ -1,50 +1,11 @@
-.container {
+.page {
   display: flex;
   min-height: 100vh;
 }
 
-.list {
-  list-style: none;
-  padding: 0px;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.listItem {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 0.6rem 1.9rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  color: var(--primary-text);
-}
-
-.listItem:hover {
-  background-color: var(--secondary-button-hover);
-  color: var(--secondary-button-text);
-}
-
-.active {
-  background-color: var(--secondary-button);
-  color: var(--secondary-button-text);
-}
-
-/* Contenu principal */
 .main {
   flex: 1;
   overflow-y: auto;
   box-sizing: border-box;
   height: 100vh;
-}
-
-.empty {
-  font-style: italic;
-  color: #999;
-  text-align: center;
-  margin-top: 2rem;
 }

@@ -6,7 +6,7 @@
 import type { JSX } from "react";
 import styles from "./DocProps.module.css";
 import stylesMarkdown from "../ReactMarkdown.module.css";
-import type { PropInfo } from "../../types/propsInfo";
+import type { PropInfo } from "../../types/types";
 import { Table, Text } from "@/components/ui";
 import ReactMarkdown from "react-markdown";
 

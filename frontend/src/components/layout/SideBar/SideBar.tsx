@@ -54,8 +54,8 @@ import { useDevice } from "@/context/Device";
  */
 const SideBar = (inputProps: Props): JSX.Element => {
     const { children, type, variant, variantToggleMenu } = { ...DEFAULTS, ...inputProps };
-    const [menuOpen, setMenuOpen] = useState(false);
     const { isMobile } = useDevice();
+    const [menuOpen, setMenuOpen] = useState(!isMobile);
     const sidebarRef = useRef<HTMLDivElement>(null);
 
     /**

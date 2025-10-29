@@ -11,7 +11,7 @@ import UsageExample from "../UsageExample";
 import type { Combination, Params } from "../../utils/showcaseHelpers";
 import ComponentPlayground from "../ComponentPlayground";
 import { DocProps } from '..';
-import type { PropInfo } from "../../types/propsInfo";
+import type { PropInfo } from "../../types/types";
 
 type DocPageContainerProps<T extends Params> = {
     /** Titre de la page de documentation. */
@@ -21,7 +21,7 @@ type DocPageContainerProps<T extends Params> = {
     /** Contenu personnalisé à insérer dans l'accordion (remplace la section Props par défaut). */
     children?: ReactNode;
     /** Code d'exemple d'utilisation du composant au format string. */
-    usageExample: string;
+    usageExample?: string;
     /** Objet définissant les paramètres de variation et leurs valeurs possibles. */
     params: T;
     /** Fonction retournant le JSX du composant à prévisualiser. */
@@ -94,15 +94,15 @@ type DocPageContainerProps<T extends Params> = {
  * @see {@link UsageExample}
  * @see {@link ComponentPlayground}
  */
-const DocPageContainer = <T extends Params>({ 
-    title, 
-    description, 
-    usageExample, 
-    children, 
-    params, 
-    props, 
-    renderPreview, 
-    generateCode 
+const DocPageContainer = <T extends Params>({
+    title,
+    description,
+    usageExample,
+    children,
+    params,
+    props,
+    renderPreview,
+    generateCode
 }: DocPageContainerProps<T>): JSX.Element => {
     const initialParams = params
         ? (Object.fromEntries(
@@ -124,9 +124,11 @@ const DocPageContainer = <T extends Params>({
                         <DocProps props={props} />
                     </AccordionSection>
                 )}
-                <AccordionSection label="Example d'utilisation">
-                    <UsageExample code={usageExample} />
-                </AccordionSection>
+                {usageExample && (
+                    <AccordionSection label="Example d'utilisation">
+                        <UsageExample code={usageExample} />
+                    </AccordionSection>
+                )}
                 <AccordionSection label="Playground interactif" defaultOpen>
                     <ComponentPlayground
                         params={params}
