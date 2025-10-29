@@ -13,7 +13,14 @@ interface ShowcaseSidebarProps {
 const ShowcaseSidebar = ({ showcaseNames, selected, onSelect }: ShowcaseSidebarProps): JSX.Element => (
   <SideBar variantToggleMenu="info" variant="surface-secondary">
     <ThemeToggle />
-    <Accordion variant="info" size="small" chevronIcon="dots" itemVariant="secondary" chevronAlignment="edge">
+    <Accordion
+      variant="info"
+      size="large"
+      chevronIcon="dots"
+      itemVariant="info"
+      itemMode="ghost"
+      chevronAlignment="edge"
+    >
       <AccordionSection label="Design System" onClick={() => onSelect(SECTION_KEYS.THEME)}>
         <AccordionItem label="Couleurs & Typo" onClick={() => onSelect(SECTION_KEYS.THEME)} isActive={selected === SECTION_KEYS.THEME} />
       </AccordionSection>

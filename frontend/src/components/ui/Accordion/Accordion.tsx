@@ -51,10 +51,10 @@ import { AccordionContext } from "./Accordion.context";
  * @see {@link AccordionContext}
  */
 const Accordion = (inputProps: Props): JSX.Element => {
-    const { variant, size, chevronIcon, itemVariant, chevronAlignment, children } = { ...DEFAULTS, ...inputProps };
+    const { variant, size, chevronIcon, itemVariant, itemMode, chevronAlignment, children } = { ...DEFAULTS, ...inputProps };
 
     return (
-        <AccordionContext.Provider value={{ variant, size, chevronIcon, itemVariant, chevronAlignment }}>
+        <AccordionContext.Provider value={{ variant, size, chevronIcon, itemVariant, itemMode, chevronAlignment }}>
             <div className={styles.accordion}>
                 {children}
             </div>

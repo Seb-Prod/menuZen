@@ -9,7 +9,7 @@
 
 import type { ReactNode } from 'react';
 import { CHEVRONICON_TYPE } from '../ChevronIcon/ChevronIcon.types';
-import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize, type UiVariant } from '../ui.types';
+import { UI_DEFAULTS_BUTTON, UI_SIZES, UI_VARIANTS, type UiMode, type UiSize, type UiVariant } from '../ui.types';
 import { omit } from '@/utils/object';
 
 // ================================
@@ -42,7 +42,8 @@ export interface AccordionContextValue {
     chevronIcon: AccordionChevronIcon;
     size: UiSize;
     itemVariant: UiVariant;
-    chevronAlignment:AccordionChevronAlignment;
+    itemMode: UiMode;
+    chevronAlignment: AccordionChevronAlignment;
 }
 
 // ================================
@@ -59,6 +60,8 @@ export type ItemProps = {
     isActive?: boolean;
     /** Style spécifique appliqué à cet item quand il est actif ou survolé, surchargeant le style global défini par AccordionProps. */
     itemVariant?: UiVariant;
+    /** Modes de rendu de l'item*/
+    itemMode?: UiMode;
     /** Taille spécifique appliquée à cet item, surchargeant la taille globale. */
     size?: UiSize;
 }
@@ -91,6 +94,8 @@ export type Props = {
     chevronIcon?: AccordionChevronIcon;
     /** Style appliqué aux items quand ils sont actifs ou au survol. */
     itemVariant?: UiVariant;
+    /** Modes de rendu */
+    itemMode?: UiMode;
     /** Contenu de l'accordion (AccordionSection, ou tout composant React). */
     children: ReactNode;
     /** Définit l'alignement horizontal du chevron d'ouverture/fermeture par rapport au label de section. */
@@ -114,10 +119,11 @@ export const SECTION_DEFAULTS = {
 
 /** Valeurs par défaut pour les props. */
 export const DEFAULTS = {
-    ...omit(UI_DEFAULTS, ["justify", "align"]),
+    ...omit(UI_DEFAULTS_BUTTON, ["align"]),
     chevronIcon: "chevron" as AccordionChevronIcon,
     chevronAlignment: "near-label" as AccordionChevronAlignment,
-    itemVariant: "primary" as UiVariant
+    itemVariant: "primary" as UiVariant,
+    itemMode: "solid" as UiMode
 } satisfies Partial<Props>
 
 // ================================

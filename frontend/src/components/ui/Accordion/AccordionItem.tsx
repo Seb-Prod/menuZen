@@ -53,19 +53,20 @@ import { classNames } from "@/utils/object";
  * @see {@link useAccordion}
  */
 const AccordionItem = (inputProps: ItemProps): JSX.Element => {
-    const { label, onClick, isActive, size, itemVariant } = { ...ITEM_DEFAULTS, ...inputProps };
+    const { label, onClick, isActive, size, itemVariant, itemMode } = { ...ITEM_DEFAULTS, ...inputProps };
     const context = useAccordion();
 
     // Résolution des valeurs finales (props > contexte)
     const finalSize = size ?? context.size;
     const finalVariant = itemVariant ?? context.itemVariant;
+    const finalMode = itemMode ?? context.itemMode;
 
     // Construction des classes CSS
     const buttonClasses = classNames(
         styles.item,
+        styles[finalMode],
         `component-${finalVariant}`,
         `component-${finalSize}`,
-        'transparent',
         isActive && 'active',
         isActive && styles.active
     );

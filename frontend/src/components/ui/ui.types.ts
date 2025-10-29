@@ -1,7 +1,7 @@
 /**
  * @file Types et constantes communes à tous les composants UI.
  * @module components/ui/ui.types
- * @version 1.1.0
+ * @version 1.2.0
  * @since 2025-10-21
  * @author Seb-Prod
  */
@@ -22,7 +22,14 @@ export const UI_VARIANTS = [
   "neutral"
 ] as const;
 
-
+/**
+ * Modes de rendu des composants.
+ */
+export const UI_MODE = [
+  "solid",
+  "outline",
+  "ghost"
+] as const;
 
 /**
  * Tailles prédéfinies communes à plusieurs composants.
@@ -57,6 +64,16 @@ export const UI_TEXT_JUSTIFY = [
   "justify"
 ] as const;
 
+/**
+ * États possibles des composants UI.
+ */
+export const UI_STATES = [
+  "disabled",
+  "loading",
+  "active",
+  "hover"
+] as const;
+
 // ================================
 // Types génériques
 // ================================
@@ -65,6 +82,8 @@ export type UiVariant = typeof UI_VARIANTS[number];
 export type UiSize = typeof UI_SIZES[number];
 export type UiAlign = typeof UI_ALIGN[number];
 export type UiTextJustify = typeof UI_TEXT_JUSTIFY[number];
+export type UiMode = typeof UI_MODE[number];
+export type UiState = typeof UI_STATES[number];
 
 // ================================
 // Valeurs par défaut globales
@@ -76,3 +95,24 @@ export const UI_DEFAULTS = {
   align: "left" as UiAlign,
   justify: "left" as UiTextJustify,
 } as const;
+
+export const UI_DEFAULTS_BUTTON = {
+  variant: "primary" as UiVariant,
+  size: "medium" as UiSize,
+  align: "left" as UiAlign,
+  mode: "solid" as UiMode,
+} as const;
+
+// ================================
+// Types utilitaires
+// ================================
+
+/**
+ * Type des valeurs par défaut globales.
+ */
+export type UiDefaults = typeof UI_DEFAULTS;
+
+/**
+ * Type des valeurs par défaut pour les boutons.
+ */
+export type UiDefaultsButton = typeof UI_DEFAULTS_BUTTON;
