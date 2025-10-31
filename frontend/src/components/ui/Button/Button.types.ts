@@ -19,39 +19,13 @@ import { omit } from '@/utils/object';
 
 /** Définit les types HTML standards pour les boutons.
  */
-export const BUTTON_TYPES = [
+export const TYPES = [
   "button",
   "submit",
   "reset"
 ] as const;
 
-/** Définit les états possibles pour l'option `fullWidth`
- */
-export const BUTTON_FULLWIDTH_OPTIONS = [
-  false,
-  true
-] as const;
-
-/** Définit les états possibles pour l'option `disabled`
- */
-export const BUTTON_DISABLED_OPTIONS = [
-  false,
-  true
-] as const;
-
-/** Définit si une bordure
- */
-export const BUTTON_BORDERED = [
-  false,
-  true,
-] as const
-
-export const BUTTON_OUTLINE = [
-  false,
-  true,
-] as const
-
-export const BUTTON_MODES = [
+export const MODES = [
   "solid",
   "outline",
   "ghost"
@@ -61,55 +35,49 @@ export const BUTTON_MODES = [
 // Types
 // ================================
 
-export type ButtonType = typeof BUTTON_TYPES[number];
-export type ButtonMode = typeof BUTTON_MODES[number];
+export type Type = typeof TYPES[number];
+export type Mode = typeof MODES[number];
 
 // ================================
 // Props des composants
 // ================================
-export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
+export type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
   /** Contenu du bouton */
   children?: ReactNode;
   /** Style du bouton */
   variant?: UiVariant;
   /** Mode d'apparence du bouton (solid, outline, ghost) */
-  mode?: ButtonMode;
+  mode?: Mode;
   /** Taille du bouton */
   size?: UiSize;
   /** Prend toute la largeur du parent */
   fullWidth?: boolean;
   /** Type du bouton */
-  type?: ButtonType;
+  type?: Type;
   /** Alignement dans le conteneur parent */
   align?: UiAlign;
-  /** Bordure autour */
-  bordered?: boolean;
 };
 
 // ================================
 // Valeurs par défaut
 // ================================
 
-export const BUTTON_DEFAULTS = {
+export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["justify"]),
   fullWidth: false,
-  type: "button" as ButtonType,
+  type: "button" as Type,
   disabled: false,
-  bordered: true,
-  mode: "solid" as ButtonMode,
+  mode: "solid" as Mode,
   className: ""
-} satisfies Partial<ButtonProps>;
+} satisfies Partial<Props>;
 
 // ================================
 // Showcase
 // ================================
-export const BUTTON_SHOWCASE_CONSTANTS = {
-  type: BUTTON_TYPES,
+export const SHOWCASE_CONSTANTS = {
+  type: TYPES,
   variant: UI_VARIANTS,
-  mode: BUTTON_MODES,
-  bordered: BUTTON_BORDERED,
+  mode: MODES,
   align: UI_ALIGN,
   size: UI_SIZES,
-  fullWidth: BUTTON_FULLWIDTH_OPTIONS,
-  disabled: BUTTON_DISABLED_OPTIONS,
 } as const;

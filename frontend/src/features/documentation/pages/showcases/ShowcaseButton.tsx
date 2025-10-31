@@ -1,14 +1,16 @@
+/**
+ * @file Page de documentation et showcase pour le composant Button.
+ * @module pages/showcase/ShowcaseButton
+ */
+
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
 import Button from "@/components/ui/Button";
-import { BUTTON_SHOWCASE_CONSTANTS } from '@/components/ui/Button/Button.types';
+import { SHOWCASE_CONSTANTS } from '@/components/ui/Button/Button.types';
 import { buttonProps, buttonUsageExample } from "../../data/Button";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import type { JSX } from "react";
-import type { ShowcaseProps } from "../../types/types";
 
 
-
-// 🎉 Génération automatique depuis buttonProps !
 const { renderPreview, generateCode } = createShowcaseFromProps(
   Button,
   "Button",
@@ -18,26 +20,17 @@ const { renderPreview, generateCode } = createShowcaseFromProps(
   }
 );
 
-const ShowcaseButton = ({onNavigate}:ShowcaseProps): JSX.Element => {
+const ShowcaseButton = (): JSX.Element => {
   return (
     <>
       <DocPageContainer
         title="Button"
-        description="Composant **Button** - Bouton personnalisable..."
-        usageExample={buttonUsageExample}
-        params={BUTTON_SHOWCASE_CONSTANTS}
+        description="Composant **Button** — Élément interactif personnalisable prenant en charge plusieurs variantes, tailles et apparences (`solid`, `outline`, `ghost`). Il assure cohérence visuelle et compatibilité avec toutes les propriétés natives d’un bouton HTML." usageExample={buttonUsageExample}
+        params={SHOWCASE_CONSTANTS}
         renderPreview={renderPreview}
         generateCode={generateCode}
         props={buttonProps}
       />
-      <div style={{ marginTop: "1rem" }}>
-        <button
-          onClick={() => onNavigate?.("Switch")}
-          className="text-blue-500 underline"
-        >
-          Voir la documentation du composant Input
-        </button>
-      </div>
     </>
 
   );

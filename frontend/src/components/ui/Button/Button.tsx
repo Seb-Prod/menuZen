@@ -5,14 +5,27 @@
 
 import type { JSX } from "react";
 import styles from "./Button.module.css";
-import { BUTTON_DEFAULTS, type ButtonProps } from './Button.types';
+import { DEFAULTS, type Props } from './Button.types';
 import { classNames } from "@/utils/object";
 
 /**
- * Composant Button - Bouton personnalisable.
+ * Composant **Button** — Élément interactif polyvalent permettant de déclencher une action, soumettre un formulaire ou naviguer dans l’application.
  * 
- * Supporte différentes variantes (couleurs), tailles et alignements
- * dans son conteneur, ainsi que toutes les propriétés natives de HTMLButtonElement.
+ * Ce composant prend en charge plusieurs variantes de style (`variant`), tailles (`size`) et options d’alignement (`align`), afin de s’adapter à divers contextes d’utilisation (CTA, actions secondaires, validations de formulaire, etc.).
+ * 
+ * Le paramètre `mode` permet de définir l’apparence visuelle du bouton :
+ * - **"solid"** : style plein, idéal pour les actions principales.
+ * - **"outline"** : bouton avec contour, pour les actions secondaires.
+ * - **"ghost"** : style minimal sans fond ni bordure, parfait pour les actions discrètes ou contextuelles.
+ * 
+ * Il hérite également de toutes les propriétés natives d’un `HTMLButtonElement`, garantissant une compatibilité totale avec les comportements standards du navigateur.
+ * 
+ * En complément, le composant gère :
+ * - L’état **désactivé** (`disabled`) pour bloquer les interactions utilisateur.
+ * - Le mode **pleine largeur** (`fullWidth`) pour s’adapter à la largeur du conteneur parent.
+ * - La personnalisation via la prop `className` pour ajouter des styles externes.
+ * 
+ * Il constitue un bloc fondamental du système de design, assurant cohérence et accessibilité à travers toute l’interface.
  * 
  * @component
  * @version 1.2.0
@@ -23,10 +36,13 @@ import { classNames } from "@/utils/object";
  * @param {React.ReactNode} [props.children] - Contenu à afficher dans le bouton (texte, icône, etc.).
  * @param {UiVariant} [props.variant='primary'] - Schéma de couleur du bouton (primary, secondary, warning, neutral).
  * @param {UiSize} [props.size='medium'] - Taille prédéfinie du bouton (small, medium, large).
+ * @param {UiMode} [props.mode='solid'] - Apparence visuelle du bouton :  
+ *   - **"solid"** : style plein pour les actions principales.  
+ *   - **"outline"** : contour pour les actions secondaires.  
+ *   - **"ghost"** : style minimal pour les actions discrètes.
  * @param {ButtonType} [props.type='button'] - Type de bouton HTML (button, submit, reset).
  * @param {boolean} [props.fullWidth=false] - Si vrai, le bouton occupe 100% de la largeur du conteneur.
  * @param {UiAlign} [props.align='left'] - Position horizontale du bouton dans son conteneur (left, center, right).
- * @param {boolean} [props.bordered=false] - Si vrai, ajoute une bordure au bouton.
  * @param {boolean} [props.disabled=false] - Si vrai, désactive le bouton.
  * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
  * 
@@ -56,33 +72,21 @@ import { classNames } from "@/utils/object";
  *   Envoyer le formulaire
  * </Button>
  * 
- * @see {@link ButtonProps}
- * @see {@link BUTTON_DEFAULTS}
+ * @see {@link Props}
+ * @see {@link DEFAULTS}
  */
-const Button = ({
-  children,
-  variant = BUTTON_DEFAULTS.variant,
-  mode = BUTTON_DEFAULTS.mode,
-  size = BUTTON_DEFAULTS.size,
-  fullWidth = BUTTON_DEFAULTS.fullWidth,
-  className = BUTTON_DEFAULTS.className,
-  type = BUTTON_DEFAULTS.type,
-  disabled = BUTTON_DEFAULTS.disabled,
-  align = BUTTON_DEFAULTS.align,
-  bordered = BUTTON_DEFAULTS.bordered,
-  ...rest
-}: ButtonProps): JSX.Element => {
+const Button = (inputProps: Props): JSX.Element => {
+  const { mode, variant, size, align, fullWidth, className, disabled, type, children, ...rest } = { ...DEFAULTS, ...inputProps }
   // Construction des classes CSS
   const classes = classNames(
-  styles.button,
-  styles[mode],
-  bordered && styles.bordered,
-  `component-${variant}`,
-  `component-${size}`,
-  `component-${align}`,
-  fullWidth && 'component-fullwidth',
-  className
-);
+    styles.button,
+    styles[mode],
+    `component-${variant}`,
+    `component-${size}`,
+    `component-${align}`,
+    fullWidth && 'component-fullwidth',
+    className
+  );
 
   return (
     <button

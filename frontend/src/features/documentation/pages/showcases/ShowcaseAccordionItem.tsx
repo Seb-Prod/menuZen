@@ -9,10 +9,6 @@ import { accordionItemProps } from "../../data/Accordion";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import type { ShowcaseProps } from "../../types/types";
 
-
-/**
- * Page de documentation interactive pour le composant AccordionItem.
- */
 const ShowcaseAccordionSection = ({ onNavigate }: ShowcaseProps): JSX.Element => {
   return (
     <DocPageContainer
