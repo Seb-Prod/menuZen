@@ -1,0 +1,29 @@
+.link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.link button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--text-alt);
+  font-size: var(--size-font);
+}
+
+.link .icon {
+  flex-shrink: 0;
+}
+
+.link .target {
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg);
+  border-radius: 2px;
+  padding: 0px 5px;
+}

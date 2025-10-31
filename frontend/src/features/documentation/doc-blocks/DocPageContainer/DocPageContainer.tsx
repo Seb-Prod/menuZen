@@ -68,7 +68,7 @@ const DocPageContainer = <T extends Params>({
       <Accordion variant="info">
         {children}
         {!children && props && (
-          <AccordionSection label="Props">
+          <AccordionSection label="Props" defaultOpen>
             <DocProps props={props} />
           </AccordionSection>
         )}

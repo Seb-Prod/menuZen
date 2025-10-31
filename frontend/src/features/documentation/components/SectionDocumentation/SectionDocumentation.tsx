@@ -10,7 +10,7 @@ import { Heading, Text } from "@/components/ui";
 /**
  * Composant SectionDocumentation - Section d'affichage de documentation.
  * 
- * Affiche une section de documentation avec un titre souligné et une description textuelle.
+ * Affiche une section de documentation avec un titre et une description textuelle.
  * Utilisé pour présenter les différentes parties de la documentation des composants.
  * 
  * @component
