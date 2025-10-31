@@ -7,6 +7,7 @@ import type { JSX } from "react";
 import styles from "./ChevronIcon.module.css";
 import { DEFAULTS, type Props } from './ChevronIcon.types';
 import { CHEVRON_ICONS } from './ChevronIcon.constants';
+import { classNames } from "@/utils/object";
 
 /**
  * Composant ChevronIcon - Icône animée pour les accordéons, menus déroulants et autres interactions d’ouverture/fermeture.
@@ -83,14 +84,12 @@ const ChevronIcon = (inputProps: Props): JSX.Element => {
     const hasAriaLabel = Boolean(ariaLabel);
 
     // Construction des classes CSS
-    const classes = [
+    const classes = classNames(
         styles.chevron,
         styles[`size-${size}`],
         `text-${variant}`,
         shouldRotate ? (isOpen ? styles.open : styles.closed) : ''
-    ]
-        .filter(Boolean)
-        .join(" ");
+    )
 
     return (
         <span

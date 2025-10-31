@@ -4,7 +4,8 @@
  */
 
 import type { JSX } from "react";
-import { HEADING_DEFAULTS, type HeadingProps } from "./Heading.types";
+import { DEFAULTS, type Props } from './Heading.types';
+import { classNames } from "@/utils/object";
 
 /**
  * Composant Heading - Affiche un titre sémantique avec styles personnalisables.
@@ -19,7 +20,7 @@ import { HEADING_DEFAULTS, type HeadingProps } from "./Heading.types";
  * 
  * @param {HeadingProps} props - Les propriétés du composant.
  * @param {ReactNode} props.children - Le contenu à afficher dans le titre.
- * @param {HeadingAs} [props.as='h1'] - Le niveau de titre sémantique (1=h1, 2=h2, ..., 6=h6).
+ * @param {As} [props.as='h1'] - Le niveau de titre sémantique (1=h1, 2=h2, ..., 6=h6).
  * @param {UiVariant} [props.variant='primary'] - La couleur prédéfinie du titre (primary, secondary, dark, light, neutral, warning, success).
  * @param {UiTextJustify} [props.justify='left'] - L'alignement horizontal du texte (left, right, center, justify).
  * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
@@ -49,25 +50,20 @@ import { HEADING_DEFAULTS, type HeadingProps } from "./Heading.types";
  * </Heading>
  */
 
-const Heading = ({ 
-  children, 
-  variant = HEADING_DEFAULTS.variant,
-  as = HEADING_DEFAULTS.as,
-  justify = HEADING_DEFAULTS.justify,
-  className = ""
-}: HeadingProps): JSX.Element => {
+const Heading = (inputProps: Props): JSX.Element => {
+  const { as, variant, justify, className, children } = { ...DEFAULTS, ...inputProps }
   const Tag = as as keyof JSX.IntrinsicElements;
-  
+
   // Construction sécurisée des classes CSS
-  const classNames = [
+  const classes = classNames(
     `text-${variant}`,
     `text-fullWidth`,
     `text-${justify}`,
     className
-  ].filter(Boolean).join(' ').trim();
-  
+  )
+
   return (
-    <Tag className={classNames || undefined}>
+    <Tag className={classes || undefined}>
       {children}
     </Tag>
   );

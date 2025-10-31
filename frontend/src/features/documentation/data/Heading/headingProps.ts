@@ -3,10 +3,7 @@
  * @module features/documentation/data/Heading
  */
 
-import {
-  HEADING_AS,
-  HEADING_DEFAULTS,
-} from "@/components/ui/Heading/Heading.types";
+import { AS, DEFAULTS } from "@/components/ui/Heading/Heading.types";
 import { UI_TEXT_JUSTIFY, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
@@ -26,22 +23,22 @@ import { formatType } from "@/features/documentation/utils";
 export const headingProps: readonly PropInfo[] = [
   {
     name: "as",
-    type: formatType(HEADING_AS),
-    default: `"${HEADING_DEFAULTS.variant}"`,
+    type: formatType(AS),
+    default: `"${DEFAULTS.as}"`,
     description: "**Niveau sémantique** du heading (h1 à h6). Détermine la hiérarchie du titre dans la structure du document et son rendu visuel.",
     required: false,
   },
   {
     name: "variant",
     type: formatType(UI_VARIANTS),
-    default: `"${HEADING_DEFAULTS.variant}"`,
+    default: `"${DEFAULTS.variant}"`,
     description: "**Couleur** du texte du heading. Permet d'adapter le titre au contexte visuel.",
     required: false,
   },
   {
     name: "justify",
     type: formatType(UI_TEXT_JUSTIFY),
-    default: `"${HEADING_DEFAULTS.justify}"`,
+    default: `"${DEFAULTS.justify}"`,
     description: "**Alignement horizontal** du texte dans son conteneur parent. Contrôle le positionnement du titre.",
     required: false,
   },
@@ -55,7 +52,7 @@ export const headingProps: readonly PropInfo[] = [
   {
     name: "className",
     type: "string",
-    default: `"${HEADING_DEFAULTS.className}"`,
+    default: `"${DEFAULTS.className}"`,
     description: "**Classes CSS additionnelles** pour personnalisation avancée. S'ajoute aux classes de base du composant sans les remplacer.",
     required: false,
   },

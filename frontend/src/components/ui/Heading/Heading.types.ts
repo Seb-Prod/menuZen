@@ -20,22 +20,22 @@ import { omit } from '@/utils/object';
 /**
  * Définit les niveaux de titre sémantique disponibles (h1 à h6).
  */
-export const HEADING_AS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
+export const AS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 
 // ================================
 // Types
 // ================================
 
-export type HeadingAs = typeof HEADING_AS[number];
+export type As = typeof AS[number];
 // ================================
 // Props du composant
 // ================================
 
-export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
+export type Props = HTMLAttributes<HTMLHeadingElement> & {
   /** Contenu du titre */
   children: ReactNode;
   /** Niveau sémantique du titre */
-  as?: HeadingAs;
+  as?: As;
   /** Couleur du texte */
   variant?: UiVariant;
   /** Alignement du texte */
@@ -46,18 +46,18 @@ export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
 // Valeurs par défaut
 // ================================
 
-export const HEADING_DEFAULTS = {
+export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["align"]),
-  as: 'h1' as HeadingAs,
+  as: 'h1' as As,
   className: ""
-} satisfies Partial<HeadingProps>;
+} satisfies Partial<Props>;
 
 // ================================
 // Showcase
 // ================================
 
-export const HEADING_SHOWCASE_CONSTANTS = {
-  as: HEADING_AS,
+export const SHOWCASE_CONSTANTS = {
+  as: AS,
   variant: UI_VARIANTS,
   justify: UI_TEXT_JUSTIFY
 } as const;
