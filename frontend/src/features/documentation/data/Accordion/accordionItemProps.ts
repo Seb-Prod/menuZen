@@ -1,5 +1,4 @@
-import { formatType } from "@/features/documentation/utils";
-import { SHOWCASE_CONSTANTS, ITEM_DEFAULTS } from '@/components/ui/Accordion/Accordion.types';
+import { ITEM_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
 
 export default [
   // --- Propriété : label ---
@@ -7,29 +6,23 @@ export default [
     name: "label",
     type: "string",
     default: ITEM_DEFAULTS.label,
-    description: "**Texte principal affiché sur l'élément** de l'accordéon. Ce texte est visible même si l'item contient des `children`.",
+    description:
+      "**Texte du lien ou du bouton à l’intérieur d’une section.** Représente une option, une page ou une action que l’utilisateur peut sélectionner.",
   },
+
   // --- Propriété : onClick ---
   {
     name: "onClick",
     type: "() => void",
-    default: "undefined",
-    description: "**Fonction de rappel (callback) appelée lorsque l'utilisateur clique sur l'item.** Idéal pour les actions de navigation ou les événements spécifiques.",
+    description:
+      "**Fonction appelée lors du clic sur l’item.** Peut être utilisée pour effectuer une navigation, une action de sélection ou une logique métier.",
   },
+
   // --- Propriété : isActive ---
   {
     name: "isActive",
     type: "boolean",
-    default: "false",
-    description: "**Indique si l'item est actuellement actif ou sélectionné** (ex: la route ou la page courante). Si `true`, l'item affichera le style défini par `itemVariant`.",
-  },
-
-  // --- Propriété : size (Override) ---
-  {
-    name: "size",
-    type: formatType(SHOWCASE_CONSTANTS.size),
-    default: "Hérité du composant Accordion parent (`AccordionProps.size`)",
-    description: "**Surcharges la taille globale définie par le composant Accordion.** Applique spécifiquement une taille différente à cet item.",
-    values: SHOWCASE_CONSTANTS.size
+    description:
+      "**Indique si l’item est actuellement actif.** Utile pour mettre en évidence la page ou la route correspondant à l’élément (par exemple, dans un menu de navigation).",
   },
 ] as const;

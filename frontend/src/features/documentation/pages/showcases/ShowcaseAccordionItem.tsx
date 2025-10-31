@@ -15,7 +15,7 @@ import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer
 const ShowcaseAccordionSection = (): JSX.Element => {
   return (
     <DocPageContainer
-      title="AccordionSection"
+      title="AccordionItem"
       description="Composant **AccordionSection** - Gère son propre état d'**ouverture/fermeture** et affiche le contenu uniquement lorsqu'il est ouvert."
       props={accordionSectionProps}
     />

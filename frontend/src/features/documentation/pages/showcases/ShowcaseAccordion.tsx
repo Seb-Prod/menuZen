@@ -10,6 +10,7 @@ import { SHOWCASE_CONSTANTS } from '@/components/ui/Accordion/Accordion.types';
 import { accordionProps, accordionUsageExample } from "../../data/Accordion";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
+import type { ShowcaseProps } from "../../types/types";
 
 type ShowcaseCombo = Combination<typeof SHOWCASE_CONSTANTS>;
 
@@ -17,18 +18,16 @@ const { renderPreview: baseRenderPreview, generateCode: baseGenerateCode } = cre
   Accordion,
   "Accordion",
   accordionProps,
-  {
-    excludeFromCode: ["children"]
-  }
+  { excludeFromCode: ["children"] }
 );
 
 const renderPreview = (combo: ShowcaseCombo): JSX.Element => {
   const baseElement = baseRenderPreview(combo);
-  
+
   return (
     <Accordion {...baseElement.props}>
       <AccordionSection label="Section n°1">
-        <AccordionItem label="Item n°1" isActive/>
+        <AccordionItem label="Item n°1" isActive />
         <AccordionItem label="Item n°2" />
       </AccordionSection>
       <AccordionSection label="Section n°2">
@@ -39,13 +38,8 @@ const renderPreview = (combo: ShowcaseCombo): JSX.Element => {
 };
 
 const generateCode = (combo: ShowcaseCombo): string => {
-  // Récupère le code de base (ouverture + props)
   const baseCode = baseGenerateCode(combo);
-  
-  // Extrait la partie <Accordion ...> sans la fermeture
   const openingTag = baseCode.replace(/>.*<\/Accordion>$/s, '>');
-  
-  // Construit le code complet avec les children
   return `${openingTag}
   <AccordionSection label="Section n°1">
     <AccordionItem label="Item n°1" />
@@ -60,7 +54,7 @@ const generateCode = (combo: ShowcaseCombo): string => {
 /**
  * Page de documentation interactive pour le composant Accordion.
  */
-const ShowcaseAccordion = (): JSX.Element => {
+const ShowcaseAccordion = ({ onNavigate }: ShowcaseProps): JSX.Element => {
   return (
     <DocPageContainer
       title="Accordion"
@@ -70,6 +64,8 @@ const ShowcaseAccordion = (): JSX.Element => {
       renderPreview={renderPreview}
       generateCode={generateCode}
       props={accordionProps}
+      links={["AccordionSection", "AccordionItem"]}
+      onNavigate={onNavigate}
     />
   );
 };

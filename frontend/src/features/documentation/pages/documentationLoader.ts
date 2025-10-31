@@ -43,10 +43,6 @@ export const loadDocument = (componentName: string): (() => Promise<{ default: R
   const modulePath = `./showcases/Showcase${componentName}.tsx`;
   const loader = documentationModules[modulePath];
   
-  console.log('Trying to load:', modulePath);
-  console.log('Available modules:', Object.keys(documentationModules));
-  console.log('Loader found:', !!loader);
-  
   return loader
     ? (loader as () => Promise<{ default: React.ComponentType }>)
     : null;

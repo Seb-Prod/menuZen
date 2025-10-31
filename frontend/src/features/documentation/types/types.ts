@@ -1,8 +1,8 @@
 /**
  * @file Types globaux pour la feature documentation
  * @module features/documentation/types
- * @version 1.0.0
- * @since 2025-10-29
+ * @version 1.0.1
+ * @since 2025-10-31
  * @author Seb-Prod
  */
 
@@ -60,4 +60,30 @@ export type DocumentationItem = {
   key: string;
   label: string;
   children?: DocumentationItem[];
+};
+
+// ================================
+// Types de navigation interne
+// ================================
+
+/**
+ * Fonction de navigation interne permettant de changer la section ou la documentation affichée.
+ * 
+ * @callback OnNavigate
+ * @param {string} key - Clé du composant ou de la section à afficher.
+ * 
+ * @example
+ * onNavigate("Button"); // Affiche la documentation du composant Button
+ */
+export type OnNavigate = (key: string) => void;
+
+/**
+ * Props communes à tous les composants de type Showcase.
+ * Fournit un accès à la navigation interne via `onNavigate`.
+ * 
+ * @interface ShowcaseProps
+ * @property {OnNavigate} [onNavigate] - Fonction de navigation interne vers une autre documentation.
+ */
+export interface ShowcaseProps {
+  onNavigate?: OnNavigate;
 }

@@ -8,57 +8,48 @@ export default function MyComponent(): JSX.Element {
     // Logique de navigation ici (ex: router.push(path))
   };
   
-  // Définit si l'élément "Documentation" est la page courante
-  const isDocActive = true; 
+  // Exemple d’état actif pour indiquer la page courante
+  const isDocActive = true;
 
   return (
     <div>
-      
-      {/* Conteneur principal Accordion avec styles globaux */}
-      <Accordion 
-        variant="primary" // Couleur principale par défaut pour les labels
-        itemVariant="success" // Couleur verte pour l'état actif/survolé
-        chevronIcon="arrow" // Flèche comme icône de bascule
+      {/* Conteneur principal Accordion */}
+      <Accordion
+        variant="primary"      // Thème principal de l’Accordion
+        size="medium"          // Taille globale des sections et items
+        chevronIcon="arrow"    // Icône utilisée pour ouvrir/fermer les sections
+        chevronAlignment="end" // Positionne le chevron à droite du label
       >
 
-        {/* --- Section 1 : Navigation avec état actif --- */}
-        <AccordionSection 
-          label="Menu Principal"
-          defaultOpen={true} // Ouvrir par défaut au montage
-        >
+        {/* --- Section 1 : Navigation principale --- */}
+        <AccordionSection label="Menu Principal" defaultOpen={true}>
           <AccordionItem 
             label="Accueil" 
-            onClick={() => handleItemClick("Accueil")}
+            onClick={() => handleItemClick("Accueil")} 
           />
           <AccordionItem 
             label="Documentation" 
-            onClick={() => handleItemClick("Documentation")}
-            isActive={isDocActive} // Indicateur de page courante
+            onClick={() => handleItemClick("Documentation")} 
+            isActive={isDocActive} 
           />
           <AccordionItem 
             label="Contact" 
-            onClick={() => handleItemClick("Contact")}
+            onClick={() => handleItemClick("Contact")} 
           />
         </AccordionSection>
 
-        {/* --- Section 2 : Configuration avec surcharges de style --- */}
-        <AccordionSection 
-          label="Paramètres Avancés"
-          variant="neutral" // Surcharge la couleur du label de section à 'neutral'
-          size="large" // Surcharge la taille de la section
-        >
+        {/* --- Section 2 : Paramètres --- */}
+        <AccordionSection label="Paramètres">
           <AccordionItem 
             label="Thème Sombre" 
-            onClick={() => handleItemClick("Thème")}
+            onClick={() => handleItemClick("Thème Sombre")} 
           />
-          {/* Item avec surcharge de taille individuelle */}
           <AccordionItem 
             label="Gérer les licences" 
-            onClick={() => handleItemClick("Licences")}
-            size="small" 
-            itemVariant="error" // Surcharge la couleur active à 'error' (rouge)
+            onClick={() => handleItemClick("Licences")} 
           />
         </AccordionSection>
+
       </Accordion>
     </div>
   );

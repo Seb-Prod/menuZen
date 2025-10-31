@@ -9,7 +9,7 @@ import Spinner from "@/components/ui/Spinner";
 import { Page } from "@/components/layout";
 import DocumentationSidebar from "../components/DocumentationSidebar/DocumentationSidebar";
 import SectionDocumentation from "../components/SectionDocumentation/SectionDocumentation";
-import type { SelectedKey } from "../types/types";
+import type { SelectedKey, ShowcaseProps } from "../types/types";
 import { getDocumentationNames, loadDocument } from "./documentationLoader";
 import { LAYOUT_CONTENT, SECTION_KEYS, THEME_CONTENT, UI_CONTENT } from "./DocumentationContent";
 
@@ -67,17 +67,17 @@ const DocumentationPage = (): JSX.Element => {
         // Si la sélection n'est pas une section, c'est une documentation composant
         if (selected && !(Object.values(SECTION_KEYS) as string[]).includes(selected)) {
           const documentationLoader = loadDocument(selected);
-          
+
           if (documentationLoader) {
-            const SelectedComponent = lazy(documentationLoader);
+            const SelectedComponent = lazy<React.ComponentType<ShowcaseProps>>(documentationLoader);
             return (
               <Suspense fallback={<Spinner />}>
-                <SelectedComponent />
+                <SelectedComponent onNavigate={handleSectionClick} />
               </Suspense>
             );
           }
         }
-        
+
         // Page d'accueil par défaut
         return (
           <SectionDocumentation

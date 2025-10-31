@@ -1,5 +1,4 @@
-import { formatType } from "@/features/documentation/utils";
-import { SECTION_DEFAULTS, SHOWCASE_CONSTANTS } from '@/components/ui/Accordion/Accordion.types';
+import { SECTION_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
 
 export default [
   // --- Propriété : label ---
@@ -7,51 +6,33 @@ export default [
     name: "label",
     type: "string",
     default: SECTION_DEFAULTS.label,
-    description: "**Label affiché sur le bouton (l'en-tête) de la section.** C'est le texte cliquable qui permet d'ouvrir ou de fermer le contenu.",
+    description:
+      "**Texte affiché sur le bouton d’ouverture de la section.** Sert de titre principal pour identifier le contenu interne de la section.",
   },
+
   // --- Propriété : defaultOpen ---
   {
     name: "defaultOpen",
     type: "boolean",
     default: SECTION_DEFAULTS.defaultOpen,
-    description: "**Indique si le contenu de la section doit être visible (ouvert) par défaut** lors du premier montage du composant.",
+    description:
+      "**Indique si la section doit être ouverte par défaut lors du montage du composant.** Utile pour afficher certaines sections directement déployées à l’ouverture de la page.",
   },
+
   // --- Propriété : children ---
   {
     name: "children",
     type: "ReactNode",
     required: true,
-    description: "**Contenu à afficher à l'intérieur de la section lorsqu'elle est ouverte.** Il s'agit généralement de composants `<AccordionItem />` ou de tout autre contenu React.",
+    description:
+      "**Contenu interne de la section.** Généralement composé d’un ou plusieurs éléments `<AccordionItem />`, mais peut contenir tout type de contenu React.",
   },
+
   // --- Propriété : onClick ---
   {
     name: "onClick",
     type: "() => void",
-    default: "undefined",
-    description: "**Fonction de rappel (callback) appelée lors de l'activation de la section** (c'est-à-dire quand l'utilisateur clique pour l'ouvrir ou la fermer).",
-  },
-  // --- Propriété : size (Override) ---
-  {
-    name: "size",
-    type: formatType(SHOWCASE_CONSTANTS.size),
-    default: "Hérité du composant Accordion parent (`AccordionProps.size`)",
-    description: "**Surcharges la taille globale définie par le composant Accordion.** Applique spécifiquement une taille différente à cette section.",
-    values: SHOWCASE_CONSTANTS.size
-  },
-  // --- Propriété : chevronIcon (Override) ---
-  {
-    name: "chevronIcon",
-    type: formatType(SHOWCASE_CONSTANTS.chevronIcon),
-    default: "Hérité du composant Accordion parent (`AccordionProps.chevronIcon`)",
-    description: "**Surcharges l'icône de chevron globale définie par le composant Accordion.** Applique spécifiquement un type d'icône différent à cette section.",
-    values: SHOWCASE_CONSTANTS.chevronIcon
-  },
-  // --- Propriété : variant (Override) ---
-  {
-    name: "variant",
-    type: formatType(SHOWCASE_CONSTANTS.variant),
-    default: "Hérité du composant Accordion parent (`AccordionProps.variant`)",
-    description: "**Surcharges la variante de couleur globale définie par le composant Accordion.** Applique spécifiquement une couleur de label différente à cette section.",
-    values: SHOWCASE_CONSTANTS.variant
+    description:
+      "**Callback optionnel exécuté lors du clic sur le label de la section.** Peut être utilisé pour déclencher une action spécifique ou synchroniser un état externe.",
   },
 ] as const;
