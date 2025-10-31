@@ -7,6 +7,7 @@
 .section {
   display: flex;
   flex-direction: column;
+  padding: 4px 0px;
 
   .button {
     text-align: left;
@@ -16,6 +17,8 @@
     align-items: center;
     justify-content: flex-start;
     gap: 0.5em;
+    color: var(--text-alt);
+    font-size: var(--size-font);
   }
 
   .buttonAlignEdge {
@@ -38,55 +41,21 @@
 
   border-radius: 8px;
 
-  padding: 4px 10px;
+  padding: 4px 0px;
   font-size: var(--size-font);
   /* min-height: var(--size-height); */
 
   transition: all 0.2s ease-in-out;
 
-  &.solid {
-    background-color: var(--bg);
-    color: var(--text);
+  background-color: transparent;
+  border: none;
+  color: var(--text-alt);
 
-    &:hover:not(:disabled) {
-      background-color: var(--bg-hover);
-      color: var(--text);
-    }
+  &:hover:not(:disabled) {
+    padding: 4px 10px;
+    background-color: rgba(var(--color-hover-overlay), 0.05);
   }
 
-  &.outline {
-    background-color: transparent;
-    border: 2px solid var(--bg);
-    color: var(--bg);
-
-    &:hover:not(:disabled) {
-      background: var(--bg);
-      color: var(--text);
-    }
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--color-focus, currentColor);
-    outline-offset: 2px;
-  }
-
-  &.bordered {
-    border: solid 2px var(--border);
-
-    &:hover:not(:disabled) {
-      border-color: var(--border-hover, var(--border));
-    }
-  }
-
-  &.ghost {
-    background-color: transparent;
-    border: none;
-    color: var(--bg);
-
-    &:hover:not(:disabled) {
-      background-color: rgba(var(--color-hover-overlay), 0.05);
-    }
-  }
 
   &:active:not(:disabled) {
     transform: scale(0.98);
@@ -100,7 +69,10 @@
     opacity: 0.6;
   }
 
-  &.active{
-    padding-left: 16px;
+  &.active {
+    padding: 4px 10px;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-left: solid 5px var(--bg);
   }
 }

@@ -26,14 +26,6 @@ export default [
     description: "**Type d'icône utilisé pour indiquer l'état (ouvert/fermé) des AccordionSection.** Ce type d'icône est **transmis via le contexte** et peut être surchargé par section via `AccordionSectionProps.chevronIcon`.",
     values: SHOWCASE_CONSTANTS.chevronIcon
   },
-  // --- Propriété : itemVariant ---
-  {
-    name: "itemVariant",
-    type: formatType(SHOWCASE_CONSTANTS.itemVariant),
-    default: DEFAULTS.itemVariant,
-    description: "**Schéma de couleur appliqué aux AccordionItem lorsqu'ils sont actifs ou survolés.** Cette variante est **transmise via le contexte** aux `AccordionItem` et définit leur style mis en évidence. Elle peut être surchargée par item via `AccordionItemProps.itemVariant`.",
-    values: SHOWCASE_CONSTANTS.itemVariant
-  },
   // --- Propriété : children ---
   {
     name: "children",

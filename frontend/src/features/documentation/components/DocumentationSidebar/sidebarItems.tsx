@@ -41,7 +41,6 @@ export const renderItem = (
             <AccordionSection
                 key={item.key}
                 label={item.label}
-                size="small"
                 onClick={() => onSelect(item.children![0].key)}
             >
                 {item.children.map((child) => (

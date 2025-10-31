@@ -89,7 +89,7 @@ const ChevronIcon = ({
     // Construction des classes CSS
     const classes = [
         styles.chevron,
-        styles[size],
+        styles[`size-${size}`],
         `text-${variant}`,
         shouldRotate ? (isOpen ? styles.open : styles.closed) : ''
     ]

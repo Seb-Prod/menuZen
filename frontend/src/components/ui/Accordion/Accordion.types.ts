@@ -41,7 +41,6 @@ export interface AccordionContextValue {
     variant: UiVariant;
     chevronIcon: AccordionChevronIcon;
     size: UiSize;
-    itemMode: UiMode;
     chevronAlignment: AccordionChevronAlignment;
 }
 
@@ -131,5 +130,4 @@ export const SHOWCASE_CONSTANTS = {
     variant: UI_VARIANTS,
     size: UI_SIZES,
     chevronIcon: CHEVRONICON_TYPE,
-    itemVariant: UI_VARIANTS
 } as const

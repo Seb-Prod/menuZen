@@ -23,14 +23,7 @@ export default [
     default: "false",
     description: "**Indique si l'item est actuellement actif ou sélectionné** (ex: la route ou la page courante). Si `true`, l'item affichera le style défini par `itemVariant`.",
   },
-  // --- Propriété : itemVariant (Override) ---
-  {
-    name: "itemVariant",
-    type: formatType(SHOWCASE_CONSTANTS.itemVariant),
-    default: "Hérité du composant Accordion parent (`AccordionProps.itemVariant`)",
-    description: "**Surcharges la variante de couleur active/survolée globale définie par le composant Accordion.** Applique spécifiquement un style de mise en évidence différent à cet item.",
-    values: SHOWCASE_CONSTANTS.itemVariant
-  },
+
   // --- Propriété : size (Override) ---
   {
     name: "size",

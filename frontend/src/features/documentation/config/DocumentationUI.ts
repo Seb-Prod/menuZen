@@ -13,5 +13,17 @@ export const UI_STRUCTURE: DocumentationItem[] = [
   {
     key: "Button",
     label: "Button",
-  }
+  },
+  {
+    key: "ChevronIcon",
+    label: "ChevronIcon",
+  },
+  {
+    key: "Switch",
+    label: "Switch",
+  },
+  {
+    key: "Table",
+    label: "Table",
+  },
 ];

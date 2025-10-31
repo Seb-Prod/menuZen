@@ -45,7 +45,7 @@ const DocumentationSidebar = ({ showcaseNames, selected, onSelect }: Props): JSX
   return (
     <SideBar variantToggleMenu="info" variant="surface-secondary">
       <ThemeToggle />
-      <Accordion>
+      <Accordion variant="info">
         <AccordionSection label="Design System" onClick={() => onSelect(SECTION_KEYS.THEME)}>
           {filteredDesignStructure.map((item) => renderItem(item, selected, onSelect))}
         </AccordionSection>

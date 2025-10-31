@@ -78,8 +78,8 @@ const AccordionSection = (inputProps: SectionProps): JSX.Element => {
     // Construction des classes CSS
     const buttonClasses = classNames(
         styles.button,
-        `text-${finalVariant}`,
-        `title-${finalSize}`,
+        `component-${finalVariant}`,
+        `component-${finalSize}`,
         finalChevronAlignment === 'edge' && styles.buttonAlignEdge
     );
 

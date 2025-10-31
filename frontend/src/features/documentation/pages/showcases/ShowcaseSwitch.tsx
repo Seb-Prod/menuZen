@@ -5,58 +5,51 @@
 
 import Switch from "@/components/ui/Switch";
 import { useState, type JSX } from "react";
-import type { Combination } from "../../utils/showcaseHelpers";
 import { SWITCH_SHOWCASE_CONSTANTS } from "@/components/ui/Switch/Switch.types";
 import { switchProps, switchUsageExample } from "../../data/Switch";
-import { generateCodeString } from "../../utils";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
+import { createShowcaseFromProps } from "../../utils/showcaseFactory";
+import type { Combination } from "../../utils/showcaseHelpers";
 
 type ShowcaseCombo = Combination<typeof SWITCH_SHOWCASE_CONSTANTS>;
 
 /**
- * Composant de prévisualisation du Switch avec les paramètres sélectionnés.
- * 
- * @param {ShowcaseCombo} combo - Combinaison des props du Switch.
- * @returns {JSX.Element} Instance du Switch avec les props appliquées.
+ * Génération automatique des fonctions de showcase depuis switchProps
  */
-const RenderPreview = ({ combo }: { combo: ShowcaseCombo }): JSX.Element => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  return (
-    <Switch
-      variant={combo.variant}
-      labelColor={combo.labelColor}
-      size={combo.size}
-      align={combo.align}
-      checked={isChecked}
-      onChange={(checked) => setIsChecked(checked)}
-    />
-  );
-};
-
-/**
- * Fonction wrapper pour le rendu du preview.
- */
-const renderPreview = (combo: ShowcaseCombo): JSX.Element => (
-  <RenderPreview combo={combo} />
+const { renderPreview: baseRenderPreview, generateCode } = createShowcaseFromProps(
+  Switch,
+  "Switch",
+  switchProps,
+  {
+    // Exclure checked et onChange car ils nécessitent un état local
+    excludeFromRender: ["checked", "onChange"],
+    excludeFromCode: ["checked", "onChange"]
+  }
 );
 
 /**
- * Génère le code TSX correspondant à la combinaison de props sélectionnée.
- * Omet les props avec valeurs par défaut pour un code plus concis.
- * 
- * @param {ShowcaseCombo} combo - Combinaison des props du Switch.
- * @returns {string} Code TSX formaté représentant le Switch configuré.
+ * Wrapper avec état local pour gérer le checked du Switch.
+ * Nécessaire car Switch est un composant contrôlé.
  */
-const generateCode = (combo: ShowcaseCombo): string => {
-  const propExpressions = [
-    combo.variant !== "primary" && `variant="${combo.variant}"`,
-    combo.size !== "medium" && `size="${combo.size}"`,
-    combo.align !== "center" && `align="${combo.align}"`,
-    combo.labelColor !== "primary" && `labelColor="${combo.labelColor}"`,
-  ];
+const renderPreview = (combo: ShowcaseCombo): JSX.Element => {
+  // Composant wrapper avec hook
+  const PreviewWithState = (): JSX.Element => {
+    const [isChecked, setIsChecked] = useState(false);
+    
+    // Récupère le rendu de base
+    const baseElement = baseRenderPreview(combo);
+    
+    // Ajoute les props d'état
+    return (
+      <Switch
+        {...baseElement.props}
+        checked={isChecked}
+        onChange={(checked) => setIsChecked(checked)}
+      />
+    );
+  };
 
-  return generateCodeString("Switch", propExpressions);
+  return <PreviewWithState />;
 };
 
 /**
