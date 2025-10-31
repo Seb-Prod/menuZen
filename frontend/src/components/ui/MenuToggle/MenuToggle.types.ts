@@ -8,7 +8,7 @@
  */
 
 import { omit } from "@/utils/object";
-import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize } from "../ui.types";
+import { BOOLEAN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize } from "../ui.types";
 
 // ================================
 // Constantes
@@ -16,38 +16,31 @@ import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize } from "../ui.types";
 
 /** Définit les types pour le composant MenuToggle.
  */
-export const MENUTOGGLE_TYPE = [
+export const TYPE = [
     "burger",
     "arrow",
     "chevron"
 ] as const;
 
 /** Définit les variantes de couleur */
-export const MENUTOGGLE_VARIANTS = [
+export const VARIANTS = [
   ...UI_VARIANTS,
   "none"
-] as const;
-
-/** Définit l'etat pour le composant MenuToogle.
- */
-export const MENUTOGGLE_ISOPEN = [
-    true,
-    false
 ] as const;
 
 // ================================
 // Types
 // ================================
 
-export type MenuToggleType = typeof MENUTOGGLE_TYPE[number];
-export type MenuToggleVariant = typeof MENUTOGGLE_VARIANTS[number];
+export type Type = typeof TYPE[number];
+export type Variant = typeof VARIANTS[number];
 
 // ================================
 // Props des composants
 // ================================
-export type MenuToggleProps = {
+export type Props = {
     /** Définit la forme visuelle de l'icône. */
-    type?: MenuToggleType;
+    type?: Type;
     /** Etat de l'icone */
     isOpen?: boolean;
     /** Taille de l'icône */
@@ -57,7 +50,7 @@ export type MenuToggleProps = {
     /** Texte alternatif pour l'acccesibilité lorsque l'icône est fermé */
     ariaLabelClose?:string;
     /** Variante de couleur de l'icône */
-    variant?: MenuToggleVariant;
+    variant?: Variant;
     /** Fonction appelée lors du clic sur l'icône */
     onClick?: () => void;
 }
@@ -66,22 +59,22 @@ export type MenuToggleProps = {
 // Valeurs par défaut
 // ================================
 
-export const MENUTOGGLE_DEFAULTS = {
+export const DEFAULTS = {
     ...omit(UI_DEFAULTS, ["justify"]),
-    type: "chevron" as MenuToggleType,
+    type: "chevron" as Type,
     isOpen: false as boolean,
     ariaLabelOpen: "Fermer le menu",
     ariaLabelClose: "Ouvrir le menu",
     variant: "primary"
 
-} satisfies Partial<MenuToggleProps>
+} satisfies Partial<Props>
 
 // ================================
 // Showcase
 // ================================
-export const MENUTOGGLE_SHOWCASE_CONSTANTS = {
-    type: MENUTOGGLE_TYPE,
+export const SHOWCASE_CONSTANTS = {
+    type: TYPE,
     size: UI_SIZES,
-    isOpen : MENUTOGGLE_ISOPEN,
-    variant: MENUTOGGLE_VARIANTS
+    isOpen : BOOLEAN,
+    variant: VARIANTS
 } as const

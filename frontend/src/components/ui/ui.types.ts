@@ -14,8 +14,8 @@
  * Variantes Boolean
  */
 export const BOOLEAN = [
-  true,
   false,
+  true
 ] as const
 
 /**

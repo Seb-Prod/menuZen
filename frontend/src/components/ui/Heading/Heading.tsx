@@ -18,7 +18,7 @@ import { classNames } from "@/utils/object";
  * @since 2025-10-21
  * @author Seb-Prod
  * 
- * @param {HeadingProps} props - Les propriétés du composant.
+ * @param {Props} props - Les propriétés du composant.
  * @param {ReactNode} props.children - Le contenu à afficher dans le titre.
  * @param {As} [props.as='h1'] - Le niveau de titre sémantique (1=h1, 2=h2, ..., 6=h6).
  * @param {UiVariant} [props.variant='primary'] - La couleur prédéfinie du titre (primary, secondary, dark, light, neutral, warning, success).
@@ -48,6 +48,9 @@ import { classNames } from "@/utils/object";
  * <Heading as="h4" className="my-custom-class">
  *   Titre personnalisé
  * </Heading>
+ * 
+ * @see {@link Props}
+ * @see {@link DEFAULTS}
  */
 
 const Heading = (inputProps: Props): JSX.Element => {

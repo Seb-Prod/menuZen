@@ -23,6 +23,10 @@ export const UI_STRUCTURE: DocumentationItem[] = [
     label: "Heading",
   },
   {
+    key: "MenuToggle",
+    label: "MenuToggle",
+  },
+  {
     key: "Switch",
     label: "Switch",
   },
