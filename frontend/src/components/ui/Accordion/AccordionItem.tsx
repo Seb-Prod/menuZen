@@ -14,11 +14,10 @@ import { classNames } from "@/utils/object";
  *
  * Ce composant représente un élément interactif (bouton) généralement utilisé
  * à l'intérieur d'une `AccordionSection`. Il peut afficher un label et réagir
- * au clic. Les styles sont hérités du contexte mais peuvent être surchargés
- * individuellement.
+ * au clic. Les styles sont hérités du contexte.
  *
  * @component
- * @version 2.0.2
+ * @version 2.1.2
  * @since 2025-10-17
  * @author Seb-Prod
  *
@@ -26,9 +25,6 @@ import { classNames } from "@/utils/object";
  * @param {string} [props.label='Item'] - Le texte à afficher sur le bouton.
  * @param {() => void} [props.onClick] - Fonction de rappel exécutée lors du clic.
  * @param {boolean} [props.isActive=false] - Si vrai, applique un style actif au bouton.
- * @param {UiVariant} [props.itemVariant] - Surcharge la variante active héritée du contexte.
- * @param {UiSize} [props.size] - Surcharge la taille héritée du contexte.
- * @param {UiMode} [props.itemMode] - Surcharge le mode d'apparence du bouton hérité du contexte.
  *
  * @returns {JSX.Element} L'élément bouton React.
  *
@@ -38,15 +34,6 @@ import { classNames } from "@/utils/object";
  *   label="Détails du produit"
  *   onClick={() => console.log('Cliqué!')}
  *   isActive={true}
- * />
- *
- * @example
- * // Item avec surcharge de style
- * <AccordionItem
- *   label="Élément important"
- *   itemVariant="error"
- *   size="large"
- *   isActive={false}
  * />
  *
  * @see {@link ItemProps}

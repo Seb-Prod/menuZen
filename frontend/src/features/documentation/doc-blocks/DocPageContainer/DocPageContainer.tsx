@@ -25,9 +25,9 @@ type DocPageContainerProps<T extends Params> = {
     /** Objet définissant les paramètres de variation et leurs valeurs possibles. */
     params: T;
     /** Fonction retournant le JSX du composant à prévisualiser. */
-    renderPreview: (combo: Combination<T>) => JSX.Element;
+    renderPreview?: (combo: Combination<T>) => JSX.Element;
     /** Fonction générant le code TSX correspondant aux paramètres. */
-    generateCode: (combo: Combination<T>) => string;
+    generateCode?: (combo: Combination<T>) => string;
     /** Liste des propriétés du composant à documenter dans le tableau. */
     props?: readonly PropInfo[];
 }
@@ -129,15 +129,18 @@ const DocPageContainer = <T extends Params>({
                         <UsageExample code={usageExample} />
                     </AccordionSection>
                 )}
-                <AccordionSection label="Playground interactif" defaultOpen>
-                    <ComponentPlayground
-                        params={params}
-                        renderPreview={renderPreview}
-                        selectedParams={selectedParams}
-                        setSelectedParams={setSelectedParams}
-                        generateCode={generateCode}
-                    />
-                </AccordionSection>
+                {renderPreview && generateCode && (
+                    <AccordionSection label="Playground interactif" defaultOpen>
+                        <ComponentPlayground
+                            params={params}
+                            renderPreview={renderPreview}
+                            selectedParams={selectedParams}
+                            setSelectedParams={setSelectedParams}
+                            generateCode={generateCode}
+                        />
+                    </AccordionSection>
+                )}
+
             </Accordion>
         </div>
     );

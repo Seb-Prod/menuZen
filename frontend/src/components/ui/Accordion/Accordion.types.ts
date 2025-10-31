@@ -1,7 +1,7 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut
  * @module components/ui/Accordion/Accordion.types
- * @version 2.1.2
+ * @version 2.2.2
  * @since 2025-10-17
  * @see {@link Accordion} pour l'implémentation du composant principal.
  * @author Seb-Prod
@@ -9,7 +9,7 @@
 
 import type { ReactNode } from 'react';
 import { CHEVRONICON_TYPE } from '../ChevronIcon/ChevronIcon.types';
-import { UI_DEFAULTS_BUTTON, UI_SIZES, UI_VARIANTS, type UiMode, type UiSize, type UiVariant } from '../ui.types';
+import { UI_DEFAULTS_BUTTON, UI_SIZES, UI_VARIANTS, type UiSize, type UiVariant } from '../ui.types';
 import { omit } from '@/utils/object';
 
 // ================================
@@ -56,12 +56,6 @@ export type ItemProps = {
     onClick?: () => void;
     /** Indique si l'item est actuellement activé (ex: page ou route courante). */
     isActive?: boolean;
-    /** Style spécifique appliqué à cet item quand il est actif ou survolé, surchargeant le style global défini par AccordionProps. */
-    itemVariant?: UiVariant;
-    /** Modes de rendu de l'item*/
-    itemMode?: UiMode;
-    /** Taille spécifique appliquée à cet item, surchargeant la taille globale. */
-    size?: UiSize;
 }
 
 /** Propriétés pour le composant AccordionSection (le conteneur collapsible). */
@@ -74,12 +68,6 @@ export type SectionProps = {
     children?: ReactNode;
     /** Fonction de rappel optionnelle lors de l'activation (ouverture/fermeture) de la section. */
     onClick?: () => void;
-    /** Taille spécifique appliquée à cette section, surchargeant la taille globale. */
-    size?: UiSize;
-    /** Type d'icône spécifique appliqué au chevron, surchargeant l'icône globale. */
-    chevronIcon?: AccordionChevronIcon;
-    /** Variante de couleur spécifique appliquée à cette section, surchargeant la variante globale. */
-    variant?: UiVariant;
 }
 
 /** Propriétés du composant. */
@@ -90,8 +78,6 @@ export type Props = {
     size?: UiSize;
     /** Type d'icône (chevron, plus-minus, etc.) d'ouverture/fermeture. */
     chevronIcon?: AccordionChevronIcon;
-    /** Modes de rendu */
-    itemMode?: UiMode;
     /** Contenu de l'accordion (AccordionSection, ou tout composant React). */
     children: ReactNode;
     /** Définit l'alignement horizontal du chevron d'ouverture/fermeture par rapport au label de section. */
@@ -118,7 +104,6 @@ export const DEFAULTS = {
     ...omit(UI_DEFAULTS_BUTTON, ["align"]),
     chevronIcon: "chevron" as AccordionChevronIcon,
     chevronAlignment: "near-label" as AccordionChevronAlignment,
-    itemMode: "solid" as UiMode
 } satisfies Partial<Props>
 
 // ================================
@@ -130,4 +115,5 @@ export const SHOWCASE_CONSTANTS = {
     variant: UI_VARIANTS,
     size: UI_SIZES,
     chevronIcon: CHEVRONICON_TYPE,
+    chevronAlignment: CHEVRON_ALIGNMENTS,
 } as const

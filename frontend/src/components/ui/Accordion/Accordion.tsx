@@ -12,7 +12,7 @@ import { AccordionContext } from "./Accordion.context";
  * Composant Accordion - Conteneur principal pour un système de sections dépliables.
  *
  * Ce composant enveloppe l'ensemble de la structure et utilise le `AccordionContext.Provider`
- * pour transmettre des propriétés de style globales (`variant`, `size`, `chevronIcon`, `itemVariant`)
+ * pour transmettre des propriétés de style globales (`variant`, `size`, `chevronIcon`)
  * à tous ses descendants (`AccordionSection` ou `AccordionItem`), assurant une cohérence visuelle.
  *
  * @component
@@ -24,7 +24,6 @@ import { AccordionContext } from "./Accordion.context";
  * @param {UiVariant} [props.variant='primary'] - Schéma de couleur global appliqué aux labels de section et aux items non actifs.
  * @param {UiSize} [props.size='medium'] - Taille prédéfinie des items et des labels (small, medium, large).
  * @param {AccordionChevronIcon} [props.chevronIcon='chevron'] - Type d'icône utilisé pour les chevrons d'ouverture/fermeture.
- * @param {UiVariant} [props.itemVariant='primary'] - Schéma de couleur appliqué aux items actifs ou au survol.
  * @param {AccordionChevronAlignment} [props.chevronAlignment='near-label'] - Définit l'alignement horizontal du chevron par rapport au label.
  * @param {ReactNode} props.children - Les éléments qui composent l'accordéon (généralement `AccordionSection` ou `AccordionItem`).
  *
@@ -39,7 +38,7 @@ import { AccordionContext } from "./Accordion.context";
  *
  * @example
  * // Accordion de navigation avec style de chevron différent
- * <Accordion variant="neutral" chevronIcon="plus-minus" itemVariant="info">
+ * <Accordion variant="neutral" chevronIcon="plus-minus">
  *   <AccordionSection label="Produits">
  *     <AccordionItem label="Nouveautés" />
  *     <AccordionItem label="Promotions" isActive={true} />

@@ -7,7 +7,7 @@ import { Accordion, AccordionItem, AccordionSection } from "@/components/ui/Acco
 import type { JSX } from "react";
 import type { Combination } from "../../utils/showcaseHelpers";
 import { SHOWCASE_CONSTANTS } from '@/components/ui/Accordion/Accordion.types';
-import { accordionProps } from "../../data/Accordion";
+import { accordionProps, accordionUsageExample } from "../../data/Accordion";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
 
@@ -18,7 +18,7 @@ const { renderPreview: baseRenderPreview, generateCode: baseGenerateCode } = cre
   "Accordion",
   accordionProps,
   {
-    excludeFromCode: ["children"] // On exclut children car on le gère manuellement
+    excludeFromCode: ["children"]
   }
 );
 
@@ -28,7 +28,7 @@ const renderPreview = (combo: ShowcaseCombo): JSX.Element => {
   return (
     <Accordion {...baseElement.props}>
       <AccordionSection label="Section n°1">
-        <AccordionItem label="Item n°1" />
+        <AccordionItem label="Item n°1" isActive/>
         <AccordionItem label="Item n°2" />
       </AccordionSection>
       <AccordionSection label="Section n°2">
@@ -64,8 +64,9 @@ const ShowcaseAccordion = (): JSX.Element => {
   return (
     <DocPageContainer
       title="Accordion"
-      description="Composant **Accordion** - Ce composant enveloppe l'ensemble de la structure et utilise le `AccordionContext.Provider` pour transmettre des propriétés de style globales (`variant`, `size`, `chevronIcon`, `itemVariant`) à tous ses descendants (`AccordionSection` ou `AccordionItem`), assurant une cohérence visuelle."
+      description="Composant **Accordion** - Ce composant enveloppe l'ensemble de la structure et utilise le `AccordionContext.Provider` pour transmettre des propriétés de style globales (`variant`, `size`, `chevronIcon`, `chevronAlignment`) à tous ses descendants (`AccordionSection` ou `AccordionItem`), assurant une cohérence visuelle."
       params={SHOWCASE_CONSTANTS}
+      usageExample={accordionUsageExample}
       renderPreview={renderPreview}
       generateCode={generateCode}
       props={accordionProps}
