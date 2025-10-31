@@ -8,7 +8,7 @@
  */
 
 import { omit } from "@/utils/object";
-import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize } from "../ui.types";
+import { BOOLEAN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize } from "../ui.types";
 
 // ================================
 // Constantes
@@ -16,7 +16,7 @@ import { UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize } from "../ui.types";
 
 /** Définit les variantes pour le composant ChevronIcon.
  */
-export const CHEVRONICON_TYPE = [
+export const TYPE = [
     "chevron",
     "arrow",
     "plus-minus",
@@ -25,31 +25,24 @@ export const CHEVRONICON_TYPE = [
 ] as const;
 
 /** Définit les variantes de couleur */
-export const CHEVRONICON_VARIANTS = [
+export const VARIANTS = [
   ...UI_VARIANTS,
   "none"
-] as const;
-
-/** Définit l'etat pour le composant ChevronIcon.
- */
-export const CHEVRONICON_ISOPEN = [
-    true,
-    false
 ] as const;
 
 // ================================
 // Types
 // ================================
 
-export type ChevronIconType = typeof CHEVRONICON_TYPE[number];
-export type ChevronIconVariant = typeof CHEVRONICON_VARIANTS[number];
+export type Type = typeof TYPE[number];
+export type Variant = typeof VARIANTS[number];
 
 // ================================
 // Props des composants
 // ================================
-export type ChevronIconProps = {
+export type Props = {
     /** Définit la forme visuelle de l'icône. */
-    type?: ChevronIconType;
+    type?: Type;
     /** Etat de l'icone */
     isOpen?: boolean;
     /** Taille de l'icône */
@@ -59,29 +52,29 @@ export type ChevronIconProps = {
     /** Texte alternatif pour l'acccesibilité lorsque l'icône est fermé */
     ariaLabelClose?:string;
     /** Variante de couleur de l'icône */
-    variant?: ChevronIconVariant;
+    variant?: Variant;
 }
 
 // ================================
 // Valeurs par défaut
 // ================================
 
-export const CHEVRONICON_DEFAULTS = {
+export const DEFAULTS = {
     ...omit(UI_DEFAULTS, ["justify"]),
-    type: "chevron" as ChevronIconType,
+    type: "chevron" as Type,
     isOpen: false as boolean,
     ariaLabelOpen: "Fermer le menu",
     ariaLabelClose: "Ouvrir le menu",
     variant: "primary"
 
-} satisfies Partial<ChevronIconProps>
+} satisfies Partial<Props>
 
 // ================================
 // Showcase
 // ================================
-export const CHEVRONICON_SHOWCASE_CONSTANTS = {
-    type: CHEVRONICON_TYPE,
+export const SHOWCASE_CONSTANTS = {
+    type: TYPE,
     size: UI_SIZES,
-    isOpen : CHEVRONICON_ISOPEN,
-    variant: CHEVRONICON_VARIANTS
+    isOpen : BOOLEAN,
+    variant: VARIANTS
 } as const

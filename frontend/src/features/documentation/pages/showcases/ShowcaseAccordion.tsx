@@ -64,7 +64,7 @@ const ShowcaseAccordion = ({ onNavigate }: ShowcaseProps): JSX.Element => {
       renderPreview={renderPreview}
       generateCode={generateCode}
       props={accordionProps}
-      links={["AccordionSection", "AccordionItem"]}
+      links={["AccordionSection", "AccordionItem", "ChevronIcon"]}
       onNavigate={onNavigate}
     />
   );

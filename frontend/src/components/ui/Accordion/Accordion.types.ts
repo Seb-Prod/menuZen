@@ -8,7 +8,7 @@
  */
 
 import type { ReactNode } from 'react';
-import { CHEVRONICON_TYPE } from '../ChevronIcon/ChevronIcon.types';
+import { TYPE } from '../ChevronIcon/ChevronIcon.types';
 import { UI_DEFAULTS_BUTTON, UI_SIZES, UI_VARIANTS, type UiSize, type UiVariant } from '../ui.types';
 import { omit } from '@/utils/object';
 
@@ -27,7 +27,7 @@ export const CHEVRON_ALIGNMENTS = [
 // ================================
 
 /** Type d'icône du chevron. */
-export type AccordionChevronIcon = typeof CHEVRONICON_TYPE[number];
+export type AccordionChevronIcon = typeof TYPE[number];
 
 /** Position du chevron. */
 export type AccordionChevronAlignment = typeof CHEVRON_ALIGNMENTS[number];
@@ -114,6 +114,6 @@ export const DEFAULTS = {
 export const SHOWCASE_CONSTANTS = {
     variant: UI_VARIANTS,
     size: UI_SIZES,
-    chevronIcon: CHEVRONICON_TYPE,
+    chevronIcon: TYPE,
     chevronAlignment: CHEVRON_ALIGNMENTS,
 } as const

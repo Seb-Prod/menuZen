@@ -5,35 +5,37 @@
 
 import type { JSX } from "react";
 import styles from "./ChevronIcon.module.css";
-import { CHEVRONICON_DEFAULTS, type ChevronIconProps } from './ChevronIcon.types';
+import { DEFAULTS, type Props } from './ChevronIcon.types';
 import { CHEVRON_ICONS } from './ChevronIcon.constants';
 
 /**
- * Composant ChevronIcon - Icône animée pour les accordéons et menus déroulants
+ * Composant ChevronIcon - Icône animée pour les accordéons, menus déroulants et autres interactions d’ouverture/fermeture.
  * 
- * Ce composant affiche différents types d'icônes (chevron, flèche, plus/moins, triangle, points)
- * avec une animation de rotation ou de changement d'état selon le type choisi.
+ * Ce composant affiche différents types d’icônes (`chevron`, `arrow`, `plus-minus`, `triangle`, `dots`)  
+ * et peut animer leur rotation ou leur changement d’apparence selon l’état ouvert/fermé (`isOpen`).  
+ * Il prend également en charge l’accessibilité via les propriétés `ariaLabelOpen` et `ariaLabelClose`.
  * 
  * @component
  * @version 1.3.0
  * @since 2025-10-17
  * @author Seb-Prod
  * 
- * @param {ChevronIconProps} props - Les propriétés du composant
- * @param {ChevronIconType} props.type - Type d'icône à afficher ('chevron', 'arrow', 'plus-minus', 'triangle', 'dots')
- * @param {ChevronIconColor} props.colorStyle - Couleur de l'icône (primary, secondary, succes, info, error, neutral)
- * @param {ChevronIconSize} props.size - Taille de l'icône ('small', 'medium', 'large')
- * @param {boolean} props.isOpen - État ouvert/fermé de l'icône
- * @param {string} [props.ariaLabelOpen] - Label pour l'accessibilité quand l'icône est ouverte
- * @param {string} [props.ariaLabelClose] - Label pour l'accessibilité quand l'icône est fermée
+ * @param {Props} props - Les propriétés du composant.
+ * @param {Type} [props.type='chevron'] - Type d’icône à afficher (`chevron`, `arrow`, `plus-minus`, `triangle`, `dots`).
+ * @param {UiVariant} [props.variant='primary'] - Variante de couleur (`primary`, `secondary`, `success`, `info`, `error`, `neutral`, `none`).
+ * @param {UiSize} [props.size='medium'] - Taille prédéfinie de l’icône (`small`, `medium`, `large`).
+ * @param {boolean} [props.isOpen=false] - État d’ouverture ou de fermeture de l’icône.
+ * @param {string} [props.ariaLabelOpen='Fermer le menu'] - Libellé d’accessibilité lorsque l’icône est en état ouvert.
+ * @param {string} [props.ariaLabelClose='Ouvrir le menu'] - Libellé d’accessibilité lorsque l’icône est en état fermé.
  * 
- * @returns {JSX.Element} L'élément bouton React (JSX).
+ * @returns {JSX.Element} Élément React représentant une icône SVG animée.
  * 
  * @example
- * // Utilisation simple
+ * // Icône simple
  * <ChevronIcon />
  * 
- * // Avec aria-labels pour l'accessibilité
+ * @example
+ * // Icône de menu avec accessibilité
  * <ChevronIcon 
  *   type="chevron" 
  *   isOpen={isOpen} 
@@ -41,18 +43,12 @@ import { CHEVRON_ICONS } from './ChevronIcon.constants';
  *   ariaLabelClose="Ouvrir le menu"
  * />
  * 
- * @see {@link ChevronIconProps}
- * @see {@link CHEVRONICON_DEFAULTS}
+ * @see {@link Props}
+ * @see {@link DEFAULTS}
  */
-const ChevronIcon = ({
-    type = CHEVRONICON_DEFAULTS.type,
-    size = CHEVRONICON_DEFAULTS.size,
-    isOpen = CHEVRONICON_DEFAULTS.isOpen,
-    variant = CHEVRONICON_DEFAULTS.variant,
-    ariaLabelOpen,
-    ariaLabelClose
-}: ChevronIconProps): JSX.Element => {
 
+const ChevronIcon = (inputProps: Props): JSX.Element => {
+    const { type, isOpen, ariaLabelOpen, ariaLabelClose, size, variant } = { ...DEFAULTS, ...inputProps }
     /**
      * Retourne l'icône SVG appropriée selon le type et l'état
      */

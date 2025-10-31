@@ -3,12 +3,8 @@
  * @module features/documentation/data/ChevronIcon
  */
 
-import {
-  CHEVRONICON_DEFAULTS,
-  CHEVRONICON_TYPE,
-  CHEVRONICON_VARIANTS,
-} from '@/components/ui/ChevronIcon/ChevronIcon.types';
-import { UI_SIZES } from '@/components/ui/ui.types';
+import { DEFAULTS, TYPE } from '@/components/ui/ChevronIcon/ChevronIcon.types';
+import { UI_SIZES, UI_VARIANTS } from '@/components/ui/ui.types';
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
@@ -27,43 +23,43 @@ import { formatType } from "@/features/documentation/utils";
 export const chevronIconProps: readonly PropInfo[] = [
   {
     name: "type",
-    type: formatType(CHEVRONICON_TYPE),
-    default: `"${CHEVRONICON_DEFAULTS.type}"`,
+    type: formatType(TYPE),
+    default: `"${DEFAULTS.type}"`,
     description: "Définit la **forme visuelle** de l'icône (chevron, flèche, plus/moins, etc.).",
     required: false,
   },
   {
     name: "isOpen",
     type: "boolean",
-    default: String(CHEVRONICON_DEFAULTS.isOpen),
+    default: String(DEFAULTS.isOpen),
     description: "Si `true`, déclenche l'**animation de transition** pour représenter l'état ouvert.",
     required: false,
   },
   {
     name: "variant",
-    type: formatType(CHEVRONICON_VARIANTS),
-    default: `"${CHEVRONICON_DEFAULTS.variant}"`,
+    type: formatType(UI_VARIANTS),
+    default: `"${DEFAULTS.variant}"`,
     description: "**Variante de couleur** appliquée à l'icône. Si `none` garde la couleur du parent. ",
     required: false,
   },
   {
     name: "size",
     type: formatType(UI_SIZES),
-    default: `"${CHEVRONICON_DEFAULTS.size}"`,
+    default: `"${DEFAULTS.size}"`,
     description: "**Taille** prédéfinie de l'icône Chevron.",
     required: false,
   },
   {
     name: "ariaLabelOpen",
     type: "string",
-    default: `"${CHEVRONICON_DEFAULTS.ariaLabelOpen}"`,
+    default: `"${DEFAULTS.ariaLabelOpen}"`,
     description: "**Texte alternatif** (aria-label) pour l'accessibilité lorsque l'icône est en état **ouvert**.",
     required: false,
   },
   {
     name: "ariaLabelClose",
     type: "string",
-    default: `"${CHEVRONICON_DEFAULTS.ariaLabelClose}"`,
+    default: `"${DEFAULTS.ariaLabelClose}"`,
     description: "**Texte alternatif** (aria-label) pour l'accessibilité lorsque l'icône est en état **fermé**.",
     required: false,
   },

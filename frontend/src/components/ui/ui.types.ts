@@ -11,6 +11,14 @@
 // ================================
 
 /**
+ * Variantes Boolean
+ */
+export const BOOLEAN = [
+  true,
+  false,
+] as const
+
+/**
  * Variantes de couleur disponibles dans le design system.
  */
 export const UI_VARIANTS = [

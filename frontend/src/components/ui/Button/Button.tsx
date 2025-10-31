@@ -36,7 +36,7 @@ import { classNames } from "@/utils/object";
  * @param {React.ReactNode} [props.children] - Contenu à afficher dans le bouton (texte, icône, etc.).
  * @param {UiVariant} [props.variant='primary'] - Schéma de couleur du bouton (primary, secondary, warning, neutral).
  * @param {UiSize} [props.size='medium'] - Taille prédéfinie du bouton (small, medium, large).
- * @param {UiMode} [props.mode='solid'] - Apparence visuelle du bouton :  
+ * @param {Mode} [props.mode='solid'] - Apparence visuelle du bouton :  
  *   - **"solid"** : style plein pour les actions principales.  
  *   - **"outline"** : contour pour les actions secondaires.  
  *   - **"ghost"** : style minimal pour les actions discrètes.
