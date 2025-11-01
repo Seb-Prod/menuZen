@@ -5,7 +5,7 @@
 
 import { useRef, type JSX } from "react";
 import styles from "./Select.module.css";
-import { SELECT_DEFAULTS, type SelectProps } from "./Select.types";
+import { DEFAULTS, type Props } from "./Select.types";
 import ChevronIcon from "../ChevronIcon";
 import {
   useSelectState,
@@ -29,8 +29,8 @@ import { classNames } from "@/utils/object";
  * @since 2025-10-21
  * @author Seb-Prod
  * 
- * @param {SelectProps} props - Les propriétés du composant.
- * @param {SelectOption[]} props.options - Liste des options disponibles dans le menu déroulant.
+ * @param {Props} props - Les propriétés du composant.
+ * @param {Option[]} props.options - Liste des options disponibles dans le menu déroulant.
  * @param {string} [props.value] - Valeur sélectionnée (mode contrôlé).
  * @param {UiVariant} [props.variant='neutral'] - Schéma de couleur du sélecteur (primary, secondary, warning, neutral).
  * @param {UiSize} [props.size='medium'] - Taille prédéfinie du sélecteur (small, medium, large).
@@ -86,24 +86,12 @@ import { classNames } from "@/utils/object";
  *   ]}
  * />
  * 
- * @see {@link SelectProps}
- * @see {@link SelectOption}
- * @see {@link SELECT_DEFAULTS}
+ * @see {@link Props}
+ * @see {@link Option}
+ * @see {@link DEFAULTS}
  */
-const Select = ({
-  options = SELECT_DEFAULTS.options,
-  value,
-  variant = SELECT_DEFAULTS.variant,
-  size = SELECT_DEFAULTS.size,
-  align = SELECT_DEFAULTS.align,
-  fullWidth = SELECT_DEFAULTS.fullWidth,
-  onChange,
-  placeholder = SELECT_DEFAULTS.placeholder,
-  disabled = SELECT_DEFAULTS.disabled,
-  className = SELECT_DEFAULTS.className,
-  name,
-  id,
-}: SelectProps): JSX.Element => {
+const Select = (inputProps: Props): JSX.Element => {
+  const { value, disabled, onChange, options, placeholder, variant, size, align, fullWidth, className, id, name } = { ...DEFAULTS, ...inputProps }
   // Références DOM
   const selectRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);

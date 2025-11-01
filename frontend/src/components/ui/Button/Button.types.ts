@@ -10,7 +10,7 @@
  */
 
 import type { ReactNode, ButtonHTMLAttributes } from 'react';
-import { UI_ALIGN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiAlign, type UiSize, type UiVariant } from '../ui.types';
+import { BOOLEAN, UI_ALIGN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiAlign, type UiSize, type UiVariant } from '../ui.types';
 import { omit } from '@/utils/object';
 
 // ================================
@@ -79,5 +79,8 @@ export const SHOWCASE_CONSTANTS = {
   variant: UI_VARIANTS,
   mode: MODES,
   align: UI_ALIGN,
+  fullWidth: BOOLEAN,
   size: UI_SIZES,
+  disabled:BOOLEAN,
+
 } as const;

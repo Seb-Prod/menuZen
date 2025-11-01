@@ -4,7 +4,7 @@
  */
 
 import {
-  SELECT_DEFAULTS,
+  DEFAULTS,
 } from "@/components/ui/Select/Select.types";
 import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
@@ -23,28 +23,28 @@ export const selectProps: readonly PropInfo[] = [
   {
     name: "variant",
     type: formatType(UI_VARIANTS),
-    default: `"${SELECT_DEFAULTS.variant}"`,
+    default: `"${DEFAULTS.variant}"`,
     description: "Définit le **schéma de couleur** et le style visuel (couleur du fond, de la bordure, etc.) du sélecteur. Ce style s'applique au bouton d'affichage et aux options.",
     required: false,
   },
   {
     name: "size",
     type: formatType(UI_SIZES),
-    default: `"${SELECT_DEFAULTS.size}"`,
+    default: `"${DEFAULTS.size}"`,
     description: "Définit la **taille** visuelle du bouton du sélecteur et des éléments de la liste déroulante (hauteur, padding, taille de police).",
     required: false,
   },
   {
     name: "align",
     type: formatType(UI_ALIGN),
-    default: `"${SELECT_DEFAULTS.align}"`,
+    default: `"${DEFAULTS.align}"`,
     description: "Définit l'**alignement horizontal** du menu déroulant par rapport au bouton du sélecteur (utile pour gérer le débordement sur les bords de l'écran).",
     required: false,
   },
   {
     name: "fullWidth",
     type: "boolean",
-    default: `"${SELECT_DEFAULTS.fullWidth}"`,
+    default: `"${DEFAULTS.fullWidth}"`,
     description: "Si `true`, le select occupe **100% de la largeur** de son conteneur parent. Utile pour les mises en page mobiles ou les formulaires.",
     required: false,
   },
@@ -72,7 +72,7 @@ export const selectProps: readonly PropInfo[] = [
   {
     name: "placeholder",
     type: "string",
-    default: `"${SELECT_DEFAULTS.placeholder}"`,
+    default: `"${DEFAULTS.placeholder}"`,
     description: "Texte affiché dans le bouton du sélecteur lorsque `value` est vide ou non définie.",
     required: false,
   },
