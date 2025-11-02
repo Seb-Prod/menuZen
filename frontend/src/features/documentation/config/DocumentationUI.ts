@@ -31,6 +31,10 @@ export const UI_STRUCTURE: DocumentationItem[] = [
     label: "Select",
   },
   {
+    key: "Spinner",
+    label: "Spinner",
+  },
+  {
     key: "Switch",
     label: "Switch",
   },

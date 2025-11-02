@@ -4,12 +4,16 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  color: var(--bg);
+  font-size: var(--size-font);
 }
 
 /* Base spinner - Animation circulaire avec points */
 .spinner {
-  --d: 22px; /* Distance du centre */
-  --dot-size: 4px; /* Taille des points */
+  --d: 22px;
+  /* Distance du centre */
+  --dot-size: 4px;
+  /* Taille des points */
   width: var(--dot-size);
   height: var(--dot-size);
   border-radius: 50%;
@@ -26,29 +30,43 @@
   margin: calc(var(--d) + var(--dot-size) * 2);
 }
 
-/* Sizes */
-.spinner.small {
+/* Tailles */
+.spinner.size-xs {
+  --d: 8px;
+  --dot-size: 1px;
+}
+
+.spinner.size-small {
+  --d: 12px;
+  --dot-size: 2px;
+}
+
+.spinner.size-medium {
   --d: 16px;
   --dot-size: 3px;
 }
 
-.spinner.medium {
-  --d: 22px;
+.spinner.size-large {
+  --d: 20px;
   --dot-size: 4px;
 }
 
-.spinner.large {
-  --d: 32px;
+.spinner.size-xl {
+  --d: 24px;
+  --dot-size: 5px;
+}
+
+.spinner.size-2xl {
+  --d: 28px;
   --dot-size: 6px;
 }
 
 
 
 
-
 /* Animation */
 @keyframes spinner-rotate {
-  100% { 
-    transform: rotate(1turn); 
+  100% {
+    transform: rotate(1turn);
   }
 }

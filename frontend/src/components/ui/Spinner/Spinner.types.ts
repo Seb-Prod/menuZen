@@ -25,7 +25,7 @@ import { omit } from '@/utils/object';
 // Props du composant
 // ================================
 
-export type SpinnerProps = {
+export type Props = {
   /** Variante visuelle du Spinner */
   variant?: UiVariant;
   /** Taille du Spinner */
@@ -40,9 +40,9 @@ export type SpinnerProps = {
 // Valeurs par défaut
 // ================================
 
-export const SPINNER_DEFAULTS = {
+export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["justify"]),
-} satisfies Partial<SpinnerProps>;
+} satisfies Partial<Props>;
 
 // ================================
 // Showcase
@@ -52,7 +52,7 @@ export const SPINNER_DEFAULTS = {
  * Constantes utilisées pour générer les combinaisons de démonstration
  * dans la page de showcase du Spinner.
  */
-export const SPINNER_SHOWCASE_CONSTANTS = {
+export const SHOWCASE_CONSTANTS = {
   variant: UI_VARIANTS,
   size: UI_SIZES,
   align: UI_ALIGN,

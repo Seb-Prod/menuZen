@@ -5,7 +5,8 @@
 
 import type { JSX } from "react";
 import styles from "./Spinner.module.css";
-import { SPINNER_DEFAULTS, type SpinnerProps } from "./Spinner.types";
+import { DEFAULTS, type Props } from "./Spinner.types";
+import { classNames } from "@/utils/object";
 
 /**
  * Composant **Spinner** – Indicateur de chargement animé.
@@ -18,7 +19,7 @@ import { SPINNER_DEFAULTS, type SpinnerProps } from "./Spinner.types";
  * @since 2025-10-21
  * @author Seb-Prod
  * 
- * @param {SpinnerProps} props - Les propriétés du composant.
+ * @param {Props} props - Les propriétés du composant.
  * @param {React.ReactNode} [props.children] - Contenu optionnel affiché sous le spinner (texte, icône, etc.).
  * @param {UiVariant} [props.variant='primary'] - Schéma de couleur du spinner (primary, secondary, error, success, info, neutral).
  * @param {UiSize} [props.size='medium'] - Taille prédéfinie du spinner (small, medium, large).
@@ -48,35 +49,34 @@ import { SPINNER_DEFAULTS, type SpinnerProps } from "./Spinner.types";
  *   Veuillez patienter
  * </Spinner>
  * 
- * @see {@link SpinnerProps}
- * @see {@link SPINNER_DEFAULTS}
+ * @see {@link Props}
+ * @see {@link DEFAULTS}
  */
-const Spinner = ({
-  children,
-  variant = SPINNER_DEFAULTS.variant,
-  size = SPINNER_DEFAULTS.size,
-  align = SPINNER_DEFAULTS.align,
-}: SpinnerProps): JSX.Element => {
+const Spinner = (inputProps: Props): JSX.Element => {
+  const { size, variant, align, children } = { ...DEFAULTS, ...inputProps }
   // Construction des classes CSS dynamiques
-  const classes = [
-    styles.spinner,
-    styles[size],
-    `text-${variant}`,
+  const classes = classNames(
+    styles.root,
     `component-${align}`,
-  ]
-    .filter(Boolean)
-    .join(" ");
+    `component-${variant}`,
+    `component-${size}`
+  )
+
+  const classesSpinner = classNames(
+    styles.spinner,
+    `size-${size}`,
+  )
 
   return (
-    <div className={`${styles.root} component-${align}`}>
-      <div className={classes} aria-busy="true" role="status" />
+    <div className={classes}>
+      <div className={classesSpinner} aria-busy="true" role="status" />
       {children && (
-        <div className={`${styles.text} text-${variant} text-${size}`}>
+        <div className={styles.text}>
           {children}
         </div>
       )}
       {!children && (
-        <div className={`${styles.text} text-${variant} text-${size}`}>
+        <div className={styles.text}>
           Chargement en cours...
         </div>
       )}

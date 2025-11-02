@@ -5,13 +5,10 @@
 
 import Select from "@/components/ui/Select";
 import type { JSX } from "react";
-import type { Combination } from "../../utils/showcaseHelpers";
 import { SHOWCASE_CONSTANTS } from '@/components/ui/Select/Select.types';
 import { selectProps, selectUsageExample } from "../../data/Select";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer"; // Assurez-vous d'importer le DocPageContainer
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
-
-type SelectShowcaseCombo = Combination<typeof SHOWCASE_CONSTANTS>;
 
 /**
  * Définit un jeu d'options minimal pour le rendu de la preview.
