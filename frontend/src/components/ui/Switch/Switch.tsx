@@ -5,7 +5,8 @@
 
 import type { JSX } from "react";
 import styles from "./Switch.module.css";
-import { SWITCH_DEFAULTS, type SwitchProps } from "./Switch.types";
+import { DEFAULTS, type Props } from "./Switch.types";
+import { classNames } from "@/utils/object";
 
 /**
  * Composant **Switch** – Interrupteur à bascule personnalisable.
@@ -57,25 +58,11 @@ import { SWITCH_DEFAULTS, type SwitchProps } from "./Switch.types";
  *   variant="warning"
  * />
  * 
- * @see {@link SwitchProps}
- * @see {@link SWITCH_DEFAULTS}
- * @see {@link SwitchVariant}
+ * @see {@link Props}
+ * @see {@link DEFAULTS}
  */
-const Switch = ({
-  id = "switch",
-  label = SWITCH_DEFAULTS.label,
-  checked = false,
-  disabled = false,
-  onChange,
-  variant = SWITCH_DEFAULTS.variant,
-  size = SWITCH_DEFAULTS.size,
-  align = SWITCH_DEFAULTS.align,
-  labelColor = SWITCH_DEFAULTS.labelColor,
-  name,
-  value,
-  ariaLabel,
-  ariaDescribedBy,
-}: SwitchProps): JSX.Element => {
+const Switch = (inputProps: Props): JSX.Element => {
+  const { onChange, size, disabled, variant, align, id, label, name, value, checked, ariaDescribedBy, ariaLabel } = { ...DEFAULTS, ...inputProps }
   // Gestion du changement d'état
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
@@ -84,25 +71,22 @@ const Switch = ({
   };
 
   // Construction des classes CSS dynamiques
-  const classes = [
+  const classes = classNames(
     styles.switch,
-    styles[size],
+    styles[`size-${size}`],
     disabled && styles.disabled,
     `component-${variant}`,
     `component-${align}`,
-    `no-hover`,
-    `transparent`
-  ]
-    .filter(Boolean)
-    .join(" ");
+    `component-${size}`,
+  )
 
   return (
     <div className={classes}>
       <label htmlFor={id} className={styles.label}>
-        <span className={`${styles.labelText} text-${labelColor}`}>
+        <span>
           {label}
         </span>
-        
+
         <input
           type="checkbox"
           id={id}
@@ -115,7 +99,7 @@ const Switch = ({
           aria-label={ariaLabel}
           aria-describedby={ariaDescribedBy}
         />
-        
+
         <span className={styles.toggle} data-variant={variant}>
           <span className={styles.circle} />
         </span>

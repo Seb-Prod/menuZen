@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   background: inherit;
+  color:var(--text-alt);
+  font-size: var(--size-font);
 }
 
 /* Label et structure générale */
@@ -11,8 +13,6 @@
   gap: 15px;
   cursor: pointer;
   padding: 10px;
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
 }
 
 .labelText {
@@ -42,7 +42,6 @@
 /* États du toggle selon le variant */
 .input:checked + .toggle {
   background: var(--bg);
-  
 }
 
 /* Bulle du toggle */
@@ -62,7 +61,6 @@
 .input:checked ~ .toggle .circle {
   transform: translateX(24px);
   background: var(--text);
-  
 }
 
 /* État désactivé */
@@ -75,33 +73,102 @@
   background: var(--color-neutral-200, #e5e7eb);
 }
 
+/* ========================================
+   TAILLES
+   ======================================== */
 
-
-/* Tailles */
-.small .toggle {
-  width: 40px;
-  height: 20px;
+/* Extra Small (xs) */
+.size-xs .toggle {
+  width: 32px;
+  height: 16px;
+  border-radius: 8px;
 }
 
-.small .circle {
+.size-xs .circle {
+  width: 12px;
+  height: 12px;
+}
+
+.size-xs .input:checked ~ .toggle .circle {
+  transform: translateX(16px);
+}
+
+/* Small */
+.size-small .toggle {
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.size-small .circle {
   width: 16px;
   height: 16px;
 }
 
-.small .input:checked ~ .toggle .circle {
+.size-small .input:checked ~ .toggle .circle {
   transform: translateX(20px);
 }
 
-.large .toggle {
-  width: 60px;
-  height: 32px;
+/* Medium (taille par défaut) */
+.size-medium .toggle {
+  width: 50px;
+  height: 26px;
+  border-radius: 13px;
 }
 
-.large .circle {
+.size-medium .circle {
+  width: 22px;
+  height: 22px;
+}
+
+.size-medium .input:checked ~ .toggle .circle {
+  transform: translateX(24px);
+}
+
+/* Large */
+.size-large .toggle {
+  width: 60px;
+  height: 32px;
+  border-radius: 16px;
+}
+
+.size-large .circle {
   width: 28px;
   height: 28px;
 }
 
-.large .input:checked ~ .toggle .circle {
+.size-large .input:checked ~ .toggle .circle {
   transform: translateX(28px);
+}
+
+/* Extra Large (xl) */
+.size-xl .toggle {
+  width: 70px;
+  height: 38px;
+  border-radius: 19px;
+}
+
+.size-xl .circle {
+  width: 34px;
+  height: 34px;
+}
+
+.size-xl .input:checked ~ .toggle .circle {
+  transform: translateX(32px);
+}
+
+/* 2 Extra Large (2xl) */
+.size-2Xl .toggle {
+  width: 80px;
+  height: 44px;
+  border-radius: 22px;
+}
+
+.size-2Xl .circle {
+  width: 40px;
+  height: 40px;
+}
+
+.size-2Xl .input:checked ~ .toggle .circle {
+  transform: translateX(36px);
 }
