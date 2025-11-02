@@ -6,7 +6,8 @@
 import type { JSX } from "react";
 import styles from "./Text.module.css";
 // Assurez-vous d'importer toutes les valeurs par défaut nécessaires
-import { TEXT_DEFAULTS, type TextProps } from './Text.types';
+import { DEFAULTS, type Props } from './Text.types';
+import { classNames } from "@/utils/object";
 
 /**
  * Composant Text - Affiche du texte avec une balise sémantique personnalisable et des styles
@@ -20,10 +21,10 @@ import { TEXT_DEFAULTS, type TextProps } from './Text.types';
  * 
  * @param {TextProps} props - Les propriétés passées au composant.
  * @param {React.ReactNode} props.children - Le contenu (texte ou autres éléments) à afficher.
- * @param {TextAs} [props.as='span'] - La balise HTML sémantique à rendre (span, p, strong, em, label).
+ * @param {As} [props.as='span'] - La balise HTML sémantique à rendre (span, p, strong, em, label).
  * @param {UiVariant} [props.variant='primary'] - La variante de couleur thématique prédéfinie du texte (ex: primary, error, neutral).
  * @param {UiAlign} [props.justify='left'] - L'alignement horizontal du texte (left, center, right, justify).
- * @param {TextSize} [props.size='md'] - La taille prédéfinie du texte (xs, sm, md, lg, xl).
+ * @param {UiSize} [props.size='medium'] - La taille prédéfinie du texte (xs, sm, md, lg, xl).
  * @param {TextWeight} [props.weight='regular'] - Le poids (épaisseur) de la police (light, regular, medium, bold).
  * @param {string} [props.className=''] - Des classes CSS personnalisées supplémentaires.
  * 
@@ -45,21 +46,13 @@ import { TEXT_DEFAULTS, type TextProps } from './Text.types';
  * Information importante.
  * </Text>
  * 
- * @see {@link TextProps}
- * @see {@link TEXT_DEFAULTS}
+ * @see {@link Props}
+ * @see {@link DEFAULTS}
  */
 
-const Text = ({
-    children,
-    as = TEXT_DEFAULTS.as,
-    variant = TEXT_DEFAULTS.variant,
-    justify = TEXT_DEFAULTS.justify,
-    size = TEXT_DEFAULTS.size,
-    weight = TEXT_DEFAULTS.weight,
-    className = "",
-    ...rest // Capture toutes les autres props HTML
-}: TextProps): JSX.Element => {
-    
+const Text = (inputProps: Props): JSX.Element => {
+    const { as, justify, variant, size, weight, className, children, ...rest } = { ...DEFAULTS, ...inputProps }
+
     // Détermine la balise HTML à rendre
     const Tag = `${as}` as keyof JSX.IntrinsicElements;
 
@@ -67,18 +60,18 @@ const Text = ({
     const isFullWidthNeeded = justify !== 'left';
 
     // Construction des classes CSS (Alignée sur le modèle du Button)
-    const classes = [
-        styles.Text, 
-        `text-${variant}`, // Couleur globale
-        styles[`align-${justify}`], // Alignement (doit inclure display: block; et width: 100% dans le CSS pour center/right)
-        isFullWidthNeeded && 'text-fullWidth', // Classe pour forcer width: 100% (si non 'left')
-        styles[size], // Taille du module CSS (ex: styles.md)
-        styles[`weight-${weight}`], // Poids du module CSS
+    const classes = classNames(
+        styles.text,
+        `component-${variant}`,
+        `component-${size}`,
+        styles[`align-${justify}`],
+        isFullWidthNeeded && 'text-fullWidth',
+        styles[`weight-${weight}`],
         className
-    ].filter(Boolean).join(' ');
+    )
 
     return (
-        <Tag className={classes} data-as={as} {...rest}> 
+        <Tag className={classes} data-as={as} {...rest}>
             {children}
         </Tag>
     );

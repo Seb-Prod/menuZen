@@ -1,5 +1,7 @@
-.Text {
+.text {
     display: inline;
+    color: var(--text-alt);
+    font-size: var(--size-font);
 }
 
 
@@ -24,32 +26,7 @@
     text-align: justify;
 }
 
-/* Tailles */
 
-.xs {
-    font-size: var(--font-size-xs);
-    line-height: var(--line-height-normal);
-}
-
-.sm {
-    font-size: var(--font-size-sm);
-    line-height: var(--line-height-normal);
-}
-
-.md {
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-normal);
-}
-
-.lg {
-    font-size: var(--font-size-lg);
-    line-height: var(--line-height-relaxed);
-}
-
-.xl {
-    font-size: var(--font-size-xl);
-    line-height: var(--line-height-relaxed);
-}
 
 /* Poids */
 

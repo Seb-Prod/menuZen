@@ -4,12 +4,11 @@
  */
 
 import {
-  TEXT_AS,
-  TEXT_DEFAULTS,
-  TEXT_SIZES,
-  TEXT_WEIGHTS,
+  AS,
+  DEFAULTS,
+  WEIGHTS,
 } from "@/components/ui/Text/Text.types";
-import { UI_TEXT_JUSTIFY, UI_VARIANTS } from "@/components/ui/ui.types";
+import { UI_SIZES, UI_TEXT_JUSTIFY, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
@@ -28,36 +27,36 @@ import { formatType } from "@/features/documentation/utils";
 export const textProps: readonly PropInfo[] = [
   {
     name: "as",
-    type: formatType(TEXT_AS),
-    default: `"${TEXT_DEFAULTS.as}"`,
+    type: formatType(AS),
+    default: `"${DEFAULTS.as}"`,
     description: "**Balise HTML sémantique** à rendre (span, p, strong, em, label).",
     required: false,
   },
   {
     name: "variant",
     type: formatType(UI_VARIANTS),
-    default: `"${TEXT_DEFAULTS.variant}"`,
+    default: `"${DEFAULTS.variant}"`,
     description: "**Couleur thématique** du texte.",
     required: false,
   },
   {
     name: "size",
-    type: formatType(TEXT_SIZES),
-    default: `"${TEXT_DEFAULTS.size}"`,
+    type: formatType(UI_SIZES),
+    default: `"${DEFAULTS.size}"`,
     description: "**Taille prédéfinie** du texte (xs, sm, md, lg, xl).",
     required: false,
   },
   {
     name: "weight",
-    type: formatType(TEXT_WEIGHTS),
-    default: `"${TEXT_DEFAULTS.weight}"`,
+    type: formatType(WEIGHTS),
+    default: `"${DEFAULTS.weight}"`,
     description: "**Poids (épaisseur)** de la police (light, regular, medium, bold).",
     required: false,
   },
   {
     name: "align",
     type: formatType(UI_TEXT_JUSTIFY),
-    default: `"${TEXT_DEFAULTS.justify}"`,
+    default: `"${DEFAULTS.justify}"`,
     description: "**Alignement du texte** (left, center, right, justify).",
     required: false,
   },
@@ -71,7 +70,7 @@ export const textProps: readonly PropInfo[] = [
   {
     name: "className",
     type: "string",
-    default: `"${TEXT_DEFAULTS.className}"`,
+    default: `"${DEFAULTS.className}"`,
     description: "**Classes CSS additionnelles** pour personnalisation avancée. S'ajoute aux classes de base du composant.",
     required: false,
   },

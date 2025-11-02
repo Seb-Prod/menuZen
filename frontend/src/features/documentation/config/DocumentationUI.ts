@@ -42,4 +42,8 @@ export const UI_STRUCTURE: DocumentationItem[] = [
     key: "Table",
     label: "Table",
   },
+  {
+    key: "Text",
+    label: "Text",
+  },
 ];

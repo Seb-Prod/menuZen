@@ -10,7 +10,7 @@
  */
 
 import type { ReactNode } from 'react';
-import { UI_DEFAULTS, UI_TEXT_JUSTIFY, UI_VARIANTS, type UiTextJustify, type UiVariant } from '../ui.types';
+import { UI_DEFAULTS, UI_SIZES, UI_TEXT_JUSTIFY, UI_VARIANTS, type UiSize, type UiTextJustify, type UiVariant } from '../ui.types';
 import { omit } from '@/utils/object';
 
 // ================================
@@ -20,7 +20,7 @@ import { omit } from '@/utils/object';
 /**
  * Définit les balises HTML sémantiques utilisables pour le texte.
  */
-export const TEXT_AS = [
+export const AS = [
   "span",
   "p",
   "label",
@@ -28,21 +28,12 @@ export const TEXT_AS = [
   "em"
 ] as const;
 
-/**
- * Définit les tailles de police prédéfinies (basées sur une échelle design).
- */
-export const TEXT_SIZES = [
-  "xs",
-  "sm",
-  "md",
-  "lg",
-  "xl"
-] as const;
 
 /**
  * Définit les poids de police (épaisseur) du texte.
  */
-export const TEXT_WEIGHTS = [
+export const 
+WEIGHTS = [
   "light",
   "regular",
   "medium",
@@ -54,23 +45,22 @@ export const TEXT_WEIGHTS = [
 // Types
 // ================================
 
-export type TextAs = typeof TEXT_AS[number];
-export type TextSize = typeof TEXT_SIZES[number];
-export type TextWeight = typeof TEXT_WEIGHTS[number];
+export type As = typeof AS[number];
+export type Weight = typeof WEIGHTS[number];
 
 // ================================
 // Props des composants
 // ================================
 
-export type TextProps = {
+export type Props = {
   /** Balise HTML sémantique à rendre */
-  as?: TextAs;
+  as?: As;
   /** Couleur thématique du texte */
   variant?: UiVariant;
   /** Taille de la police */
-  size?: TextSize;
+  size?: UiSize;
   /** Poids (épaisseur) de la police */
-  weight?: TextWeight;
+  weight?: Weight;
   /** Alignement du texte */
   justify?: UiTextJustify;
   /** Contenu textuel à afficher */
@@ -83,22 +73,21 @@ export type TextProps = {
 // Valeurs par défaut
 // ================================
 
-export const TEXT_DEFAULTS = {
+export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["align"]),
-  as: "span" as TextAs,
-  size: "md" as TextSize,
-  weight: "regular" as TextWeight,
+  as: "span" as As,
+  weight: "regular" as Weight,
   className: ""
-} satisfies Partial<TextProps>;
+} satisfies Partial<Props>;
 
 // ================================
 // Showcase
 // ================================
 
-export const TEXT_SHOWCASE_CONSTANTS = {
-  as: TEXT_AS,
+export const SHOWCASE_CONSTANTS = {
+  as: AS,
   variant: UI_VARIANTS,
-  size: TEXT_SIZES,
-  weight: TEXT_WEIGHTS,
+  size: UI_SIZES,
+  weight: WEIGHTS,
   justify: UI_TEXT_JUSTIFY,
 } as const;
