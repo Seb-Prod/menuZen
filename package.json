@@ -16,5 +16,8 @@
     "dotenv": "^17.2.2",
     "inquirer": "^12.9.6",
     "open": "^10.2.0"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.9.5"
   }
 }
