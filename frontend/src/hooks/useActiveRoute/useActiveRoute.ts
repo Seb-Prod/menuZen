@@ -34,6 +34,8 @@ export const useActiveRoute = (
 
   if (exact) {
     // Vérification exacte
+    console.log("je teste")
+    console.log(location.pathname === route)
     return location.pathname === route;
   }
 

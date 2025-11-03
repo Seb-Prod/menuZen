@@ -1,0 +1,36 @@
+/* NotFound.module.css */
+
+.container {
+    /* 1. Disposition Flexbox pour centrer le contenu verticalement et horizontalement */
+    display: flex;
+    flex-direction: column; /* Les éléments s'empilent verticalement */
+    align-items: center; /* Centrage horizontal */
+    justify-content: center; /* Centrage vertical */
+    
+    /* 2. Assurer que le conteneur prend la hauteur disponible (important pour le centrage vertical) */
+    /* La balise 'Page' est supposée gérer la hauteur minimale du viewport (min-height: 100vh) */
+    width: 100%;
+    min-height: 50vh; /* Utilise au moins 50% de la hauteur du viewport pour le centrage */
+    padding: 20px;
+    box-sizing: border-box; /* Assure que le padding n'augmente pas la taille */
+    
+    /* 3. Espacement entre les éléments enfants */
+    gap: 30px; 
+}
+
+/* Style spécifique pour la grande taille du code 404 (si non géré par le composant Heading) */
+/* Si votre composant Heading gère déjà la taille, cette section peut être optionnelle. */
+/* On cible ici le Link, qui contient le Button, pour le centrer si besoin */
+.container > a {
+    text-decoration: none; /* Enlève le soulignement par défaut du Link */
+    margin-top: 10px; /* Ajoute un peu d'espace au-dessus du bouton */
+}
+
+/* Styles pour les petits écrans (Mobile) */
+@media (max-width: 768px) {
+    .container {
+        /* Réduit l'espace sur mobile */
+        gap: 20px; 
+        min-height: 70vh; /* Augmente la hauteur du conteneur pour le centrage si le contenu est court */
+    }
+}

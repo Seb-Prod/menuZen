@@ -9,6 +9,8 @@ import { classNames } from "@/utils/object";
 import { useActiveRoute } from "@/hooks/useActiveRoute";
 import { DEFAULTS, type Props } from "./NavItem.types";
 import styles from "./NavItem.module.css";
+import { useDevice } from "@/context/Device";
+import { Text } from "@/components/ui/"
 
 /**
  * Composant **NavItem** – Élément de navigation cliquable.
@@ -67,9 +69,11 @@ const NavItem = (inputProps: Props): JSX.Element => {
     };
 
     const isActive = useActiveRoute(to);
+    const { isMobilePWA } = useDevice();
 
     const classes = classNames(
         styles.navItem,
+        isMobilePWA && styles.navItemMobilePWA,
         isActive && styles.active,
         `component-${variant}`,
         `component-${size}`,
@@ -78,8 +82,8 @@ const NavItem = (inputProps: Props): JSX.Element => {
 
     return (
         <Link to={to} className={classes}>
-            {Icon && <Icon className={styles.icon} />}
-            <span className={styles.label}>{label}</span>
+            {isMobilePWA && Icon && <Icon className={styles.icon} />}
+            <Text weight="bold">{label}</Text>
         </Link>
     );
 };

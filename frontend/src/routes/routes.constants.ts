@@ -37,7 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
     to: ROUTES.SHOPPING,
     icon: FaShoppingCart,
     label: "Panier",
-    showInWeb: true,
+    showInWeb: false,
     showInPWA: true,
     showInFooter: false
   },
@@ -45,7 +45,7 @@ export const NAV_ITEMS: NavItem[] = [
     to: ROUTES.PLANNING,
     icon: FaCalendarAlt,
     label: "Planning",
-    showInWeb: true,
+    showInWeb: false,
     showInPWA: true,
     showInFooter: false
   },
@@ -53,6 +53,14 @@ export const NAV_ITEMS: NavItem[] = [
     to: ROUTES.MENU,
     icon: IoMenu,
     label: "Menu",
+    showInWeb: false,
+    showInPWA: true,
+    showInFooter: false
+  },
+  {
+    to: ROUTES.DOCUMENTATION,
+    icon: IoMenu,
+    label: "Documentation",
     showInWeb: true,
     showInPWA: true,
     showInFooter: false

@@ -12,13 +12,14 @@ import Button from "@/components/ui/Button";
 import { ROUTES } from "@/routes";
 import styles from "./NotFound.module.css";
 import { Page } from "@/components/layout";
+import { Heading, Text } from "@/components/ui";
 
 const NotFound = (): JSX.Element => {
     return (
         <Page>
             <div className={styles.container}>
-                <h1>404</h1>
-                <p>Oups ! Cette page n'existe pas.</p>
+                <Heading variant="error" justify="center">404</Heading>
+                <Text variant="error" weight="bold" justify="center">Oups ! Cette page n'existe pas.</Text>
                 <Link to={ROUTES.HOME}>
                     <Button variant="primary">
                         Retour à l'accueil

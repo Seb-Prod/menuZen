@@ -22,7 +22,8 @@ export const ROUTE_KEYS = [
   "SHOPPING",
   "ABOUT",
   "CONTACT",
-  "PRIVACY"
+  "PRIVACY",
+  "DOCUMENTATION"
 ] as const;
 
 /**
@@ -35,7 +36,8 @@ export const ROUTE_PATHS = {
   SHOPPING: "/shopping",
   ABOUT: "/about",
   CONTACT: "/contact",
-  PRIVACY: "/privacy"
+  PRIVACY: "/privacy",
+  DOCUMENTATION: "/documentation"
 } as const;
 
 // ================================

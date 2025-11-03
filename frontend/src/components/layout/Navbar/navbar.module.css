@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mode desktop : navbar en haut */
+.navbar {
+    position: sticky;
+}
+
+/* Mode mobile PWA : navbar en bas */
+.navbar[data-mobile="true"] {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}

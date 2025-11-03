@@ -7,6 +7,7 @@ import type { JSX } from "react";
 import { getWebNavItems } from '@/routes';
 import NavItem from './NavItem';
 import styles from "./navbar.module.css";
+import { useDevice } from "@/context/Device";
 
 /**
  * Composant **Navbar** – Barre de navigation principale (desktop/web).
@@ -39,10 +40,11 @@ import styles from "./navbar.module.css";
  * @see {@link getWebNavItems}
  */
 const Navbar = (): JSX.Element => {
+    const { isMobilePWA } = useDevice();
     const navItems = getWebNavItems();
     
     return (
-        <nav className={styles.navbar}>
+        <nav className={styles.navbar} data-mobile={isMobilePWA}>
             {navItems.map((item) => (
                 <NavItem 
                     key={item.to}

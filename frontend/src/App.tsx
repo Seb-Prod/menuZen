@@ -13,9 +13,8 @@ function App() {
     <DeviceProvider>
       <BrowserRouter>
         <Routes>
-          <Route path={ROUTES.HOME} element={<ShowcasePage />} />
-          <Route path={ROUTES.MENU} element={<NotFound />} />
-          <Route path="*" element={<ShowcasePage />} />
+          <Route path={ROUTES.DOCUMENTATION} element={<ShowcasePage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </DeviceProvider>

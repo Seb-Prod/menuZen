@@ -10,3 +10,7 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+.main[data-mobile="true"] {
+    padding-bottom: 0px;
+}
