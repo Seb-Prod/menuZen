@@ -1,23 +1,25 @@
 .navbar {
     display: flex;
-    position: fixed;
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: white;
+    background-color: var(--bg);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Mode desktop : navbar en haut */
+/* Mode desktop : navbar en haut - sticky pour rester visible au scroll */
 .navbar {
     position: sticky;
+    top: 0;
 }
 
-/* Mode mobile PWA : navbar en bas */
+/* Mode mobile PWA : navbar en bas - fixed pour rester toujours visible */
 .navbar[data-mobile="true"] {
     position: fixed;
+    top: auto;
     bottom: 0;
     left: 0;
     right: 0;
+    border-radius: 12px 12px 0 0;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }

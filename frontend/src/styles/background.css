@@ -5,31 +5,31 @@
 /* Fond utilisant la couleur de marque primaire (vert) */
 .bg-brand-primary {
     --bg: var(--primary-color);
-    color: var(--color-primary-text);
+    --color: var(--color-primary-text);
 }
 
 /* Fond utilisant la couleur de marque secondaire (jaune) */
 .bg-brand-secondary {
     --bg: var(--secondary-color);
-    color: var(--color-secondary-text);
+    --color: var(--color-secondary-text);
 }
 
 /* Fond principal de l'application (surface de base) */
 .bg-surface-primary {
     --bg: var(--primary-background);
-    color: var(--primary-text);
+    --color: var(--primary-text);
 }
 
 /* Fond secondaire pour les conteneurs, cartes, etc. */
 .bg-surface-secondary {
     --bg: var(--secondary-background);
-    color: var(--primary-text);
+    --color: var(--primary-text);
 }
 
 /* Fond pour les éléments "élevés" (cartes, modales) ou couleur de surface la plus claire */
 .bg-surface-elevated {
     --bg: var(--color-white);
-    color: var(--primary-text);
+    --color: var(--primary-text);
 }
 
 
