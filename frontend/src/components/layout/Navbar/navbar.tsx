@@ -41,7 +41,7 @@ import { classNames } from "@/utils/object";
  * @see {@link getWebNavItems}
  */
 const Navbar = (): JSX.Element => {
-    const { isMobilePWA } = useDevice();
+    const { isMobilePWA , isMobile } = useDevice();
     const navItems = getWebNavItems();
 
     const classes = classNames(
@@ -49,6 +49,14 @@ const Navbar = (): JSX.Element => {
         'bg-brand-primary'
     )
     
+   if(isMobile && !isMobilePWA){
+    return(
+        <div className={classes}>
+            <span>test</span>
+        </div>
+    )
+   }
+
     return (
         <nav className={classes} data-mobile={isMobilePWA}>
             {navItems.map((item) => (
