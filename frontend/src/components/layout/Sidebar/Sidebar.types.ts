@@ -1,9 +1,9 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut
- * @module components/layout/SideBar.types
+ * @module components/layout/Sidebar.types
  * @version 1.1.0
  * @since 2025-10-26
- * @see {@link SideBar} pour l'implémentation du composant principal.
+ * @see {@link Sidebar} pour l'implémentation du composant principal.
  * @author Seb-Prod
  */
 

@@ -48,11 +48,11 @@ import { useDevice } from "@/context/Device";
  *   </ul>
  * </SideBar>
  * 
- * @see {@link SideBarProps}
+ * @see {@link SidebarProps}
  * @see {@link SIDEBAR_DEFAULTS}
  * @see {@link MenuToggle}
  */
-const SideBar = (inputProps: Props): JSX.Element => {
+const Sidebar = (inputProps: Props): JSX.Element => {
     const { children, type, variant, variantToggleMenu } = { ...DEFAULTS, ...inputProps };
     const { isMobile } = useDevice();
     const [menuOpen, setMenuOpen] = useState(!isMobile);
@@ -138,4 +138,4 @@ const SideBar = (inputProps: Props): JSX.Element => {
     );
 };
 
-export default SideBar;
+export default Sidebar;

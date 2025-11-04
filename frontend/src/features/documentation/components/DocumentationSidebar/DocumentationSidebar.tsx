@@ -4,7 +4,7 @@
  */
 
 import type { JSX } from "react";
-import { SideBar } from "@/components/layout";
+import { Sidebar } from "@/components/layout";
 import { Accordion, AccordionSection } from "@/components/ui/Accordion";
 import { ThemeToggle } from "@/components/ui";
 import { filterStructure, renderItem } from "./sidebarItems";
@@ -43,7 +43,7 @@ const DocumentationSidebar = ({ showcaseNames, selected, onSelect }: Props): JSX
   const filteredDesignStructure = filterStructure(DESIGN_STRUCTURE, showcaseNames);
 
   return (
-    <SideBar variantToggleMenu="info" variant="surface-secondary">
+    <Sidebar variantToggleMenu="info" variant="surface-secondary">
       <ThemeToggle />
       <Accordion variant="info">
         <AccordionSection label="Design System" onClick={() => onSelect(SECTION_KEYS.THEME)}>
@@ -58,7 +58,7 @@ const DocumentationSidebar = ({ showcaseNames, selected, onSelect }: Props): JSX
           {filteredLayoutStructure.map((item) => renderItem(item, selected, onSelect))}
         </AccordionSection>
       </Accordion>
-    </SideBar>
+    </Sidebar>
   );
 };
 
