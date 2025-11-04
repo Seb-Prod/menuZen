@@ -9,6 +9,7 @@ import NavItem from './NavItem';
 import styles from "./navbar.module.css";
 import { useDevice } from "@/context/Device";
 import { classNames } from "@/utils/object";
+import Logo from "@/components/ui/Logo";
 
 /**
  * Composant **Navbar** – Barre de navigation principale (desktop/web).
@@ -59,6 +60,7 @@ const Navbar = (): JSX.Element => {
 
     return (
         <nav className={classes} data-mobile={isMobilePWA}>
+            <Logo/>
             {navItems.map((item) => (
                 <NavItem 
                     key={item.to}

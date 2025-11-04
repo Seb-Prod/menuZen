@@ -6,6 +6,6 @@
  * @author Seb-Prod
  */
 
-export { default } from './navbar';
+export { default } from './Navbar';
 export { default as NavItem } from './NavItem';
 export type { Props as NavItemProps } from './NavItem/NavItem.types';

@@ -1,0 +1,35 @@
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(var(--color-hover-overlay), 0.15);
+    margin: 4px;
+    padding: 4px;
+    border-radius: 12px;
+}
+
+.logo_right {
+    flex-direction: row;
+}
+
+.logo_bottom {
+    flex-direction: column;
+}
+
+.logo_image {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--bg-alt);
+    flex-shrink: 0;
+    width: var(--size-height);
+    height: var(--size-height);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

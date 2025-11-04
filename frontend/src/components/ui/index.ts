@@ -5,3 +5,4 @@ export { default as Text } from './Text';
 export { default as Table } from './Table';
 export { default as Seclect } from './Select';
 export { default as ThemeToggle } from './ThemeToggle';
+export { default as Logo } from './Logo';
