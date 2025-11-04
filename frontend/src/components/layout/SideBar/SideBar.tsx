@@ -6,7 +6,7 @@
 import { useState, useEffect, useRef, type JSX } from "react";
 import styles from './SideBar.module.css';
 import MenuToggle from "@/components/ui/MenuToggle";
-import { DEFAULTS, type Props } from './SideBar.types';
+import { DEFAULTS, type Props } from './Sidebar.types';
 import { classNames } from "@/utils/object";
 import { useDevice } from "@/context/Device";
 
@@ -99,7 +99,8 @@ const SideBar = (inputProps: Props): JSX.Element => {
     const classes = classNames(
         styles.sideBar,
         `bg-${variant}`,
-        isMobile && styles.sideBarMobile
+        isMobile && styles.sideBarMobile,
+        menuOpen && styles.isOpen
     );
 
     const asideClasses = classNames(

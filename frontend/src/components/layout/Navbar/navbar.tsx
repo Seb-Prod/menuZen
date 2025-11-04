@@ -1,6 +1,6 @@
 /**
  * @file Composant Navbar.
- * @module components/layout/navbar
+ * @module components/layout/Navbar
  */
 
 import type { JSX } from "react";

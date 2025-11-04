@@ -1,11 +1,12 @@
 .page {
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 .main {
+  padding: 4px;
+  padding-top: 35px;
   flex: 1;
   overflow-y: auto;
   box-sizing: border-box;
-  height: 100vh;
 }

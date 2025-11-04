@@ -15,7 +15,7 @@
 
 /* Mode mobile PWA : navbar en bas - fixed pour rester toujours visible */
 .navbar[data-mobile="true"] {
-    position: fixed;
+    position: sticky;
     top: auto;
     bottom: 0;
     left: 0;

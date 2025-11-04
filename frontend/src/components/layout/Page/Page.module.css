@@ -3,14 +3,16 @@
     display: flex;
     flex-direction: column;
     background: var(--primary--background);
+    overflow: hidden; 
 }
 
 .main {
-    flex: 1;
+    flex: 1; 
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .main[data-mobile="true"] {
+    /* Si nécessaire, ajustez les paddings ici pour la PWA */
     padding-bottom: 0px;
 }

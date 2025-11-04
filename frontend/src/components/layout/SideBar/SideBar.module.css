@@ -1,6 +1,10 @@
 .sideBar {
+    position:fixed;
     display: flex;
     flex-direction: row;
+    position: sticky; /* Assure que le conteneur reste visible */
+    top: 0;
+    height: 100vh;
 }
 
 /* Mode mobile : positionnement fixe pour l'overlay */
