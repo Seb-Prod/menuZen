@@ -21,9 +21,34 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  /* Empêcher le bounce effect sur iOS et le pull-to-refresh */
+  overscroll-behavior: none;
+}
+
 body {
   color: var(--primary-text);
   background-color: var(--primary-background);
-  margin:0;
-  padding: 0;
+}
+
+/* Support pour les appareils avec encoche (iOS) */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* Root container pour PWA */
+#root {
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height pour mobile */
+  overflow: hidden;
+  position: relative;
 }
