@@ -8,6 +8,7 @@
   cursor: pointer;
   gap: 0.5rem;
   transition: all 0.2s ease-in-out;
+  color:var(--text-alt)
 }
 
 .navItem:link,
@@ -15,7 +16,7 @@
 .navItem:hover,
 .navItem:active,
 .navItem:focus {
-  color: inherit;
+  /* color: inherit; */
   text-decoration: none;
 }
 
@@ -25,6 +26,11 @@
   text-decoration-color: var(--bg-alt);
   text-decoration-thickness: 2px;
   text-underline-offset: 8px; /* Espace entre le texte et le soulignement */
+}
+
+.navItem[data-mobile="true"].active{
+  color:var(--text-alt);
+  text-decoration-color: var(--text-alt);
 }
 
 .navItem:hover:not(.active) {

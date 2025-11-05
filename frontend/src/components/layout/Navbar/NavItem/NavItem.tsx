@@ -68,7 +68,7 @@ const NavItem = (inputProps: Props): JSX.Element => {
     };
 
     const isActive = useActiveRoute(to);
-    const { isMobilePWA } = useDevice();
+    const { isMobilePWA, isMobile } = useDevice();
 
     const classes = classNames(
         styles.navItem,
@@ -80,7 +80,7 @@ const NavItem = (inputProps: Props): JSX.Element => {
     );
 
     return (
-        <Link to={to} className={classes}>
+        <Link to={to} className={classes} data-mobile={!isMobilePWA && isMobile}>
             {isMobilePWA && Icon && <Icon className={styles.icon} />}
             <span>{label}</span>
         </Link>

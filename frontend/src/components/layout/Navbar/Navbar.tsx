@@ -74,54 +74,60 @@ const Navbar = (): JSX.Element => {
   // --- Mode mobile (non PWA) ---
   if (isMobile && !isMobilePWA) {
     return (
-      <div className={classes}>
-        <Logo />
-        <div ref={toggleButtonRef}>
-          <MenuToggle type="burger" isOpen={isOpen} onClick={toggle} />
-        </div>
+      <header>
+        <nav className={classes}>
+          <Logo />
+          <div ref={toggleButtonRef}>
+            <MenuToggle type="burger" isOpen={isOpen} onClick={toggle} />
+          </div>
 
-        {isModalVisible && (
-          <Modal ref={modalRef} onClose={close} origin="bottom" isClosing={!isOpen}>
-            <div className={classesNavItems} data-mobile={isMobile}>
-              {navItems.map((item) => (
-                <NavItem
-                  key={item.to}
-                  to={item.to}
-                  icon={item.icon}
-                  label={item.label}
-                  variant="primary"
-                />
-              ))}
-            </div>
-          </Modal>
-        )}
-      </div>
+          {isModalVisible && (
+            <Modal ref={modalRef} onClose={close} origin="top" isClosing={!isOpen} variant="surface-primary">
+              <div className={classesNavItems} data-mobile={isMobile}>
+                {navItems.map((item) => (
+                  <NavItem
+                    key={item.to}
+                    to={item.to}
+                    icon={item.icon}
+                    label={item.label}
+                    variant="primary"
+                  />
+                ))}
+              </div>
+            </Modal>
+          )}
+        </nav>
+      </header>
+
     );
   }
 
   // --- Mode desktop ou PWA ---
   return (
-    <nav className={classes} data-mobile={isMobilePWA}>
-      {!isMobilePWA && <Logo />}
+    <header>
+      <nav className={classes} data-mobile={isMobilePWA}>
+        {!isMobilePWA && <Logo />}
 
-      <div className={classesNavItems}>
-        {navItems.map((item) => (
-          <NavItem
-            key={item.to}
-            to={item.to}
-            icon={item.icon}
-            label={item.label}
-            variant="primary"
-          />
-        ))}
+        <div className={classesNavItems}>
+          {navItems.map((item) => (
+            <NavItem
+              key={item.to}
+              to={item.to}
+              icon={item.icon}
+              label={item.label}
+              variant="primary"
+            />
+          ))}
 
-        {!isMobilePWA && (
-          <Button mode="ghost" variant="neutral">
-            Apparence
-          </Button>
-        )}
-      </div>
-    </nav>
+          {!isMobilePWA && (
+            <Button mode="ghost" variant="neutral">
+              Apparence
+            </Button>
+          )}
+        </div>
+      </nav>
+    </header>
+
   );
 };
 

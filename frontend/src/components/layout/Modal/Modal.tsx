@@ -30,14 +30,20 @@ import { DEFAULTS, type Props } from "./Modal.types";
  */
 
 const Modal = forwardRef<HTMLDivElement, Props>((inputProps, ref): JSX.Element => {
-  const { variant, origin, onClose, children, isClosing } = { ...DEFAULTS, ...inputProps };
+  const { variant, origin, onClose, children, isClosing, fullScreen } = { ...DEFAULTS, ...inputProps };
 
   const classes = classNames(
     styles.modal,
     `bg-${variant}`,
     styles[`from-${origin}`],
+    fullScreen && styles.fullScreen,
     !isClosing && styles.opening,
     isClosing && styles.closing
+  );
+
+  const overlayClasses = classNames(
+    styles.overlay,
+    !isClosing ? styles.opening : styles.closing
   );
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -47,7 +53,7 @@ const Modal = forwardRef<HTMLDivElement, Props>((inputProps, ref): JSX.Element =
   };
 
   return (
-    <div className={styles.overlay} onClick={handleOverlayClick}>
+    <div className={overlayClasses} onClick={handleOverlayClick}>
       <div className={classes} ref={ref}>
         {children}
       </div>

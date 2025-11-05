@@ -40,6 +40,7 @@ export type Props = {
     /** */
     onClose?: () => void;
     isClosing?: boolean;
+    fullScreen?: boolean;
 }
 
 // ================================
@@ -49,6 +50,7 @@ export const DEFAULTS = {
     variant: "brand-primary" as LayoutVariant,
     origin: "center" as Origin,
     onClose: undefined,
+    fullScreen: true,
 } satisfies Partial<Props>
 
 // ================================
