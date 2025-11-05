@@ -1,0 +1,72 @@
+.overlay {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  height: calc(100vh - var(--navbar-height, 60px));
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+/* Entrée (déjà présentes) */
+.opening.from-top { animation: slideFromTop 0.3s ease-out forwards; }
+.opening.from-bottom { animation: slideFromBottom 0.3s ease-out forwards; }
+.opening.from-left { animation: slideFromLeft 2.3s ease-out forwards}
+.opening.from-right { animation: slideFromRight 0.3s ease-out forwards; }
+
+/* Sortie */
+.closing.from-top { animation: slideToTop 0.3s ease-in forwards; }
+.closing.from-bottom { animation: slideToBottom 0.3s ease-in forwards; }
+.closing.from-left { animation: slideToLeft 0.3s ease-in forwards;}
+.closing.from-right { animation: slideToRight 0.3s ease-in forwards; }
+
+@keyframes slideToTop {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-30%); opacity: 0; }
+}
+
+@keyframes slideToBottom {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(30%); opacity: 0; }
+}
+
+@keyframes slideToLeft {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes slideToRight {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(30%); opacity: 0; }
+}
+
+@keyframes slideFromTop {
+  from { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes slideFromBottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}

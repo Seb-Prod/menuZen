@@ -1,55 +1,59 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut
- * @module components/ui/Logo.types
+ * @module components/layout/Modal.types
  * @version 1.0.0
- * @since 2025-11-04
+ * @since 2025-11-05
  * @see {@link Logo} pour l'implémentation du composant principal.
  * @author Seb-Prod
  */
 
-import { omit } from "@/utils/object";
-import { UI_DEFAULTS, UI_SIZES, type UiSize } from "../ui.types";
+import type { ReactNode } from "react";
+import { type LayoutVariant } from "../layout.types";
 
 // ================================
 // Constantes
 // ================================
-export const ALIGN = [
+export const ORIGIN = [
+    "top",
+    "bottom",
+    "left",
     "right",
-    "bottom"
+    "center",
 ] as const;
 
 // ================================
 // Types
 // ================================
-/** Alignement du texte */
-export type Align = typeof ALIGN[number];
+/** Direction */
+export type Origin = typeof ORIGIN[number];
 
 // ================================
 // Props des composants
 // ================================
 export type Props = {
-    /** Taille du logo */
-    size?: UiSize;
-    /** Alignement du texte */
-    align?: Align;
-    /** Texte à afficher (optionnel) */
-    text?: string;
+    /** Direction */
+    origin?: Origin;
+    /** Théme */
+    variant?: LayoutVariant
+    /** Contenu du bouton */
+    children?: ReactNode;
+    /** */
+    onClose?: () => void;
+    isClosing?: boolean;
 }
 
 // ================================
 // Valeurs par défaut
 // ================================
 export const DEFAULTS = {
-    ...omit(UI_DEFAULTS, ["justify", "align", "variant"]),
-    size: "medium" as UiSize,
-    align: "right" as Align,
-    text: "Forge"
+    variant: "brand-primary" as LayoutVariant,
+    origin: "center" as Origin,
+    onClose: undefined,
 } satisfies Partial<Props>
 
 // ================================
 // Showcase
 // ================================
 export const SHOWCASE_CONSTANTS = {
-    size: UI_SIZES,
-    align: ALIGN
+    origin: ORIGIN
 } as const
