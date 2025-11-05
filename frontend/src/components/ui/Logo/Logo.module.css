@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: rgba(var(--color-hover-overlay), 0.15);
+    background-color: rgba(var(--color-hover-overlay), 0.05);
     margin: 4px;
     padding: 4px;
     border-radius: 12px;

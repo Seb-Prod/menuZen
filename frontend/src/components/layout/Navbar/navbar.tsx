@@ -3,13 +3,15 @@
  * @module components/layout/Navbar
  */
 
-import type { JSX } from "react";
+import { useState, type JSX } from "react";
 import { getWebNavItems } from '@/routes';
 import NavItem from './NavItem';
 import styles from "./navbar.module.css";
 import { useDevice } from "@/context/Device";
 import { classNames } from "@/utils/object";
 import Logo from "@/components/ui/Logo";
+import { Button } from "@/components/ui";
+import MenuToggle from "@/components/ui/MenuToggle";
 
 /**
  * Composant **Navbar** – Barre de navigation principale (desktop/web).
@@ -42,34 +44,50 @@ import Logo from "@/components/ui/Logo";
  * @see {@link getWebNavItems}
  */
 const Navbar = (): JSX.Element => {
-    const { isMobilePWA , isMobile } = useDevice();
+    const { isMobilePWA, isMobile } = useDevice();
     const navItems = getWebNavItems();
 
     const classes = classNames(
         styles.navbar,
         'bg-brand-primary'
     )
-    
-   if(isMobile && !isMobilePWA){
-    return(
-        <div className={classes}>
-            <span>test</span>
-        </div>
+
+    const classesNavItems = classNames(
+        styles.navItems,
+        isMobilePWA && styles.navItemsPWA
     )
-   }
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpenNav = () => {
+        setIsOpen(!isOpen);
+    };
+
+    if (isMobile && !isMobilePWA) {
+        return (
+            <div className={classes}>
+                <Logo />
+                <MenuToggle type="burger" isOpen={isOpen} onClick={handleOpenNav} />
+            </div>
+        )
+    }
 
     return (
         <nav className={classes} data-mobile={isMobilePWA}>
-            <Logo/>
-            {navItems.map((item) => (
-                <NavItem 
-                    key={item.to}
-                    to={item.to}
-                    icon={item.icon}
-                    label={item.label}
-                    variant="primary"
-                />
-            ))}
+            {!isMobilePWA && (<Logo />)}
+            <div className={classesNavItems}>
+                {navItems.map((item) => (
+                    <NavItem
+                        key={item.to}
+                        to={item.to}
+                        icon={item.icon}
+                        label={item.label}
+                        variant="primary"
+                    />
+                ))}
+                {!isMobilePWA && (<Button mode="ghost" variant="neutral">Apparence</Button>)}
+            </div>
+
         </nav>
     );
 };

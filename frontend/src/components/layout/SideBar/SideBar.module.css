@@ -2,16 +2,15 @@
     position:fixed;
     display: flex;
     flex-direction: row;
-    position: sticky; /* Assure que le conteneur reste visible */
+    position: sticky;
     top: 0;
-    height: 100vh;
 }
 
 /* Mode mobile : positionnement fixe pour l'overlay */
 .sideBarMobile {
     position: fixed;
+    position: sticky;
     left: 0;
-    height: 100dvh;
     z-index: 1000;
 }
 
@@ -26,7 +25,7 @@
     box-sizing: border-box;
     overflow-y: auto;
     background: var(--bg);
-    border-radius: 0 12px;
+    border-radius: 0 12px 12px 0;
 
     /* Animation de la largeur */
     width: 0;

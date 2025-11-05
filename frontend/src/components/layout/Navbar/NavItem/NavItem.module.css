@@ -3,6 +3,7 @@
 .navItem {
   padding: var(--size-padding);
   font-size: var(--size-font);
+  font-weight: bold;
   min-height: var(--size-height);
   cursor: pointer;
   gap: 0.5rem;
