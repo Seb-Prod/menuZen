@@ -17,5 +17,6 @@ export { default as NavItem } from './NavItem';
 export type { Props as NavItemProps } from './NavItem/NavItem.types';
 export {
   useNavbarToggle,
-  useCloseOnDesktop
+  useCloseOnDesktop, 
+  useToggleAparence
 } from './Navbar.hooks';

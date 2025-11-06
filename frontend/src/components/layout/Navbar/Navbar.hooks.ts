@@ -70,3 +70,19 @@ export const useNavbarToggle = (): {
 
     return { isOpen, toggle, close };
 };
+
+export const useToggleAparence = (): {
+    isOpen: boolean;
+    open: () => void;
+    close: () => void;
+} => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    // Ouverture
+    const open = useCallback(() => setIsOpen(true), []);
+    
+    // Fermeture
+    const close = useCallback(() => setIsOpen(false), []);
+    
+    return { isOpen, open, close };
+}

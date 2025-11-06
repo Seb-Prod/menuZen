@@ -10,11 +10,11 @@ import { useDevice } from "@/context/Device";
 
 // --- Utils & hooks ---
 import { classNames } from "@/utils/object";
-import { useCloseOnDesktop, useNavbarToggle } from "./Navbar.hooks";
+import { useCloseOnDesktop, useNavbarToggle, useToggleAparence } from "./Navbar.hooks";
 
 // --- UI Components ---
 import Logo from "@/components/ui/Logo";
-import { Button } from "@/components/ui";
+import { Button, ThemeToggle } from "@/components/ui";
 import MenuToggle from "@/components/ui/MenuToggle";
 import NavItem from "./NavItem";
 
@@ -56,11 +56,13 @@ const Navbar = (): JSX.Element => {
   // --- Contexte & hooks principaux ---
   const { isMobile, isMobilePWA } = useDevice();
   const { isOpen, toggle, close } = useNavbarToggle();
+  const { isOpen: isOpenTheme, open: openTheme, close: closeTheme } = useToggleAparence();
   const isModalVisible = useModalVisibilityWithAnimation(isOpen, 300);
 
   // --- Données & références ---
   const navItems = useMemo(() => getWebNavItems(), []);
-  const modalRef = useRef<HTMLDivElement>(null);
+  const menuModalRef = useRef<HTMLDivElement>(null);
+  const themeModalRef = useRef<HTMLDivElement>(null);
   const toggleButtonRef = useRef<HTMLDivElement>(null);
 
   // --- Classes dynamiques ---
@@ -68,8 +70,10 @@ const Navbar = (): JSX.Element => {
   const classesNavItems = classNames(styles.navItems, isMobilePWA && styles.navItemsPWA);
 
   // --- Gestion fermeture du menu ---
-  useClickOutside(isOpen, modalRef, toggleButtonRef, close);
+  useClickOutside(isOpen, menuModalRef, toggleButtonRef, close);
+  useClickOutside(isOpenTheme, themeModalRef, null, closeTheme);
   useCloseOnDesktop(isMobile, isMobilePWA, close);
+  useCloseOnDesktop(isMobile, isMobilePWA, closeTheme);
 
   // --- Mode mobile (non PWA) ---
   if (isMobile && !isMobilePWA) {
@@ -82,7 +86,7 @@ const Navbar = (): JSX.Element => {
           </div>
 
           {isModalVisible && (
-            <Modal ref={modalRef} onClose={close} origin="top" isClosing={!isOpen} variant="surface-primary">
+            <Modal ref={menuModalRef} onClose={close} origin="top" isClosing={!isOpen} variant="surface-primary">
               <div className={classesNavItems} data-mobile={isMobile}>
                 {navItems.map((item) => (
                   <NavItem
@@ -93,6 +97,7 @@ const Navbar = (): JSX.Element => {
                     variant="primary"
                   />
                 ))}
+                <ThemeToggle />
               </div>
             </Modal>
           )}
@@ -120,9 +125,14 @@ const Navbar = (): JSX.Element => {
           ))}
 
           {!isMobilePWA && (
-            <Button mode="ghost" variant="neutral">
+            <Button mode="ghost" variant="neutral" onClick={openTheme}>
               Apparence
             </Button>
+          )}
+          {isOpenTheme && (
+            <Modal ref={themeModalRef} onClose={closeTheme} origin="top" isClosing={!isOpenTheme} variant="surface-primary">
+              <ThemeToggle />
+            </Modal>
           )}
         </div>
       </nav>
