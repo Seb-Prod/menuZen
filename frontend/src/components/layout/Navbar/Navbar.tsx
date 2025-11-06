@@ -10,18 +10,18 @@ import { useDevice } from "@/context/Device";
 
 // --- Utils & hooks ---
 import { classNames } from "@/utils/object";
-import { useClickOutside, useCloseOnDesktop, useModalVisibilityWithAnimation, useNavbarToggle } from "./Navbar.hooks";
+import { useCloseOnDesktop, useNavbarToggle } from "./Navbar.hooks";
 
 // --- UI Components ---
 import Logo from "@/components/ui/Logo";
 import { Button } from "@/components/ui";
 import MenuToggle from "@/components/ui/MenuToggle";
-import Modal from "../Modal";
 import NavItem from "./NavItem";
 
 // --- Styles & routes ---
 import styles from "./Navbar.module.css";
 import { getWebNavItems } from "@/routes";
+import { Modal, useClickOutside, useModalVisibilityWithAnimation } from "../Modal";
 
 /**
  * Composant **Navbar** – Barre de navigation principale (desktop/web).

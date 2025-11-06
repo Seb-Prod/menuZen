@@ -15,11 +15,7 @@
 export { default } from './Navbar';
 export { default as NavItem } from './NavItem';
 export type { Props as NavItemProps } from './NavItem/NavItem.types';
-
-// 🔹 Hooks personnalisés
 export {
   useNavbarToggle,
-  useClickOutside,
-  useCloseOnDesktop,
-  useModalVisibilityWithAnimation
+  useCloseOnDesktop
 } from './Navbar.hooks';
