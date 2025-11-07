@@ -87,7 +87,7 @@ export type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChan
 export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["justify", "variant"]),
   id: "switch",
-  label:"label",
+  label:"",
   variant: "primary",
   checked: false,
   disabled: false,

@@ -12,7 +12,7 @@
   align-items: center;
   gap: 15px;
   cursor: pointer;
-  padding: 10px;
+  padding: 4px;
 }
 
 .labelText {
@@ -31,10 +31,9 @@
 /* Piste du toggle */
 .toggle {
   position: relative;
-  width: 50px;
-  height: 26px;
   border-radius: 15px;
-  background: color-mix(in srgb, red 85%, black 25%);
+  background: color-mix(in srgb, var(--bg) 25%, white 25%);
+  border: solid 1px var(--bg);
   transition: background-color 0.3s ease;
   flex-shrink: 0;
 }
@@ -79,8 +78,8 @@
 
 /* Extra Small (xs) */
 .size-xs .toggle {
-  width: 32px;
-  height: 16px;
+  width: 34px;
+  height: 18px;
   border-radius: 8px;
 }
 
@@ -95,8 +94,8 @@
 
 /* Small */
 .size-small .toggle {
-  width: 40px;
-  height: 20px;
+  width: 42px;
+  height: 22px;
   border-radius: 10px;
 }
 
@@ -111,8 +110,8 @@
 
 /* Medium (taille par défaut) */
 .size-medium .toggle {
-  width: 50px;
-  height: 26px;
+  width: 52px;
+  height: 28px;
   border-radius: 13px;
 }
 
@@ -127,8 +126,8 @@
 
 /* Large */
 .size-large .toggle {
-  width: 60px;
-  height: 32px;
+  width: 62px;
+  height: 34px;
   border-radius: 16px;
 }
 
@@ -143,8 +142,8 @@
 
 /* Extra Large (xl) */
 .size-xl .toggle {
-  width: 70px;
-  height: 38px;
+  width: 72px;
+  height: 40px;
   border-radius: 19px;
 }
 
@@ -158,13 +157,13 @@
 }
 
 /* 2 Extra Large (2xl) */
-.size-2Xl .toggle {
-  width: 80px;
-  height: 44px;
+.size-2xl .toggle {
+  width: 82px;
+  height: 46px;
   border-radius: 22px;
 }
 
-.size-2Xl .circle {
+.size-2xl .circle {
   width: 40px;
   height: 40px;
 }

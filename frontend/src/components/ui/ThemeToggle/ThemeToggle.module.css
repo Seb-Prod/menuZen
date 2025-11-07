@@ -1,9 +1,19 @@
 .container{
-    margin:8px
+    display: flex;
+    flex-direction: column;
+    margin:8px;
+    width: 300px;
 }
 
 .switchWrapper{
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr max-content;
     align-items: center;
+}
+
+.switchWrapper > :nth-child(2) {
+    justify-self: end; 
+}
+.switchWrapper > :nth-child(1) {
+    justify-self: start; 
 }
