@@ -1,34 +1,54 @@
 /**
- * @file Définitions des types et valeurs par défaut pour ThemeToggle.
- * @module components/ui/ThemeToggle/ThemeToggle.types
+ * @file Définition des types, constantes et valeurs par défaut
+ * @module components/ui/ThemeToggle.types
+ * @version 1.0.0
+ * @since 2025-11-06
+ * @see {@link ThemeToggle} pour l'implémentation du composant principal.
+ * @author Seb-Prod
  */
 
-/**
- * Thème explicite et forcé (Clair ou Sombre).
- * @typedef {'light' | 'dark'} ThemeForcee
- */
-export type ThemeForcee = 'light' | 'dark';
+// ================================
+// Constantes
+// ================================
 
-/**
- * Mode de gestion du thème : automatique (auto), clair (light) ou sombre (dark).
- * @typedef {ThemeForcee | 'auto'} ModeTheme
- */
-export type ModeTheme = ThemeForcee | 'auto';
+/** Thèmes forcés disponibles */
+export const THEME_FORCEE = [
+    "light",
+    "dark",
+] as const;
 
-/**
- * Propriétés acceptées par le composant ThemeToggle.
- * @interface ThemeToggleProps
- * @property {ModeTheme} [initialTheme] - Le mode de thème initial à utiliser.
- * @property {(theme: ModeTheme) => void} [onChange] - Fonction de rappel appelée lorsque le mode de thème change.
- */
-export interface ThemeToggleProps {
-  initialTheme?: ModeTheme;
-  onChange?: (theme: ModeTheme) => void;
+/** Modes de thème disponibles */
+export const MODE_THEME = [
+    ...THEME_FORCEE,
+    "auto",
+] as const;
+
+// ================================
+// Types
+// ================================
+
+/** Thème explicite et forcé (Clair ou Sombre) */
+export type ThemeForcee = typeof THEME_FORCEE[number];
+
+/** Mode de gestion du thème : automatique (auto), clair (light) ou sombre (dark) */
+export type ModeTheme = typeof MODE_THEME[number];
+
+// ================================
+// Props des composants
+// ================================
+
+export type ThemeToggleProps = {
+    /** Le mode de thème initial à utiliser */
+    initialTheme?: ModeTheme;
+    /** Fonction de rappel appelée lorsque le mode de thème change */
+    onChange?: (theme: ModeTheme) => void;
 }
 
-/**
- * Valeurs par défaut pour le composant ThemeToggle.
- */
+// ================================
+// Valeurs par défaut
+// ================================
+
 export const THEMETOGGLE_DEFAULTS = {
-  initialTheme: 'auto' as ModeTheme,
-};
+    initialTheme: "auto" as ModeTheme,
+    onChange: undefined,
+} satisfies Partial<ThemeToggleProps>;

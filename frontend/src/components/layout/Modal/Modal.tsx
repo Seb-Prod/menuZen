@@ -30,12 +30,13 @@ import { DEFAULTS, type Props } from "./Modal.types";
  */
 
 const Modal = forwardRef<HTMLDivElement, Props>((inputProps, ref): JSX.Element => {
-  const { variant, origin, onClose, children, isClosing, fullScreen } = { ...DEFAULTS, ...inputProps };
+  const { variant, origin,position, onClose, children, isClosing, fullScreen } = { ...DEFAULTS, ...inputProps };
 
   const classes = classNames(
     styles.modal,
     `bg-${variant}`,
     styles[`from-${origin}`],
+    styles[`pos-${position}`],
     fullScreen && styles.fullScreen,
     !isClosing && styles.opening,
     isClosing && styles.closing

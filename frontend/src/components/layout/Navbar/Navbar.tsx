@@ -58,6 +58,7 @@ const Navbar = (): JSX.Element => {
   const { isOpen, toggle, close } = useNavbarToggle();
   const { isOpen: isOpenTheme, open: openTheme, close: closeTheme } = useToggleAparence();
   const isModalVisible = useModalVisibilityWithAnimation(isOpen, 300);
+  const isThemeVisible = useModalVisibilityWithAnimation(isOpenTheme, 300);
 
   // --- Données & références ---
   const navItems = useMemo(() => getWebNavItems(), []);
@@ -86,7 +87,7 @@ const Navbar = (): JSX.Element => {
           </div>
 
           {isModalVisible && (
-            <Modal ref={menuModalRef} onClose={close} origin="top" isClosing={!isOpen} variant="surface-primary">
+            <Modal ref={menuModalRef} onClose={close} origin="left" position="top" isClosing={!isOpen} variant="surface-primary" fullScreen>
               <div className={classesNavItems} data-mobile={isMobile}>
                 {navItems.map((item) => (
                   <NavItem
@@ -125,12 +126,20 @@ const Navbar = (): JSX.Element => {
           ))}
 
           {!isMobilePWA && (
-            <Button mode="ghost" variant="neutral" onClick={openTheme}>
+            <Button mode="ghost" variant="neutral" onClick={() => {
+              // On n’agit que si la modale est totalement fermée
+              if (!isOpenTheme && !isThemeVisible) {
+                openTheme();
+              } else if (isOpenTheme) {
+                closeTheme();
+              }
+            }}
+            >
               Apparence
             </Button>
           )}
-          {isOpenTheme && (
-            <Modal ref={themeModalRef} onClose={closeTheme} origin="top" isClosing={!isOpenTheme} variant="surface-primary">
+          {isThemeVisible && (
+            <Modal ref={themeModalRef} onClose={closeTheme} origin="center" isClosing={!isOpenTheme} variant="surface-primary">
               <ThemeToggle />
             </Modal>
           )}

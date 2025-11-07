@@ -3,35 +3,67 @@
  * @module components/ui/ThemeToggle
  */
 
-import type { JSX } from 'react';
+import { type JSX } from 'react';
+
+// --- Utils & hooks ---
+import { useThemeManager } from './ThemeToggle.hooks';
+
+// --- UI Components ---
+import { Heading, Switch, Text } from '@/components/ui';
+
+// --- Types & constants ---
+import {
+  THEMETOGGLE_DEFAULTS,
+  type ThemeToggleProps
+} from './ThemeToggle.types';
+
+// --- Styles ---
 import styles from './ThemeToggle.module.css';
 
-import { 
-  THEMETOGGLE_DEFAULTS, 
-  type ThemeToggleProps 
-} from './ThemeToggle.types'; 
-
-// Importation du Hook de gestion de la logique
-import { useThemeManager } from './useThemeManager'; 
-
-// Importation du composant Switch
-import Switch from '../Switch/Switch';
 
 /**
- * Composant ThemeToggle - Un interrupteur à deux niveaux pour gérer le thème couleur (Clair/Sombre) de l'application.
- * Il délègue toute la logique d'état et de synchronisation au Hook `useThemeManager`.
- * Utilise le composant Switch pour les interrupteurs.
- * 
+ * Composant **ThemeToggle** – Interrupteur de gestion du thème de l'application.
+ *
+ * Permet à l'utilisateur de basculer entre :
+ * - Mode automatique (suit les préférences système)
+ * - Mode manuel (light/dark forcé)
+ *
+ * Utilise un système à deux niveaux :
+ * 1. Switch principal : Auto/Manuel
+ * 2. Switch secondaire : Clair/Sombre (uniquement en mode manuel)
+ *
+ * Toute la logique d'état et de synchronisation est déléguée au hook `useThemeManager`.
+ *
  * @component
+ * @version 1.0.0
+ * @since 2025-11-06
+ * @author Seb-Prod
+ *
  * @param {ThemeToggleProps} props - Les propriétés du composant.
- * @returns {JSX.Element} Le composant d'interface utilisateur pour basculer le thème.
+ * @param {ModeTheme} [props.initialTheme='auto'] - Le mode de thème initial.
+ * @param {(theme: ModeTheme) => void} [props.onChange] - Callback appelé lors d'un changement de thème.
+ *
+ * @returns {JSX.Element} Interface de contrôle du thème avec deux interrupteurs.
+ *
+ * @example
+ * // Utilisation simple
+ * <ThemeToggle />
+ *
+ * @example
+ * // Avec thème initial et callback
+ * <ThemeToggle 
+ *   initialTheme="dark"
+ *   onChange={(theme) => console.log('Nouveau thème:', theme)}
+ * />
+ *
+ * @see {@link Switch}
+ * @see {@link useThemeManager}
  */
 const ThemeToggle = ({
   initialTheme = THEMETOGGLE_DEFAULTS.initialTheme,
   onChange,
 }: ThemeToggleProps): JSX.Element => {
-    
-  // **UTILISATION DU HOOK**
+  // --- Hooks principaux ---
   const {
     modeTheme,
     themeSysteme,
@@ -39,46 +71,40 @@ const ThemeToggle = ({
     handleSecondaryToggle,
   } = useThemeManager(initialTheme, onChange);
 
+  // --- Données dérivées ---
   const estForce = modeTheme !== 'auto';
-  // const themeAffiche = estForce ? modeTheme : themeSysteme;
-  const labelModeTheme = estForce ? 'Manuel' : 'Auto';
+  const labelModeTheme = estForce ? 'Manuel' : 'Automatique';
+
+  // Thème actuellement APPLIQUÉ (affiché à l'utilisateur)
+  const themeActif = estForce ? modeTheme : themeSysteme;
+  const labelThemeActif = themeActif === 'light' ? 'Clair ☀️' : 'Sombre 🌙';
 
   return (
     <div className={styles.container}>
-      {/* Interrupteur Principal: Auto / Manuel */}
+      {/* Interrupteur principal : Auto / Manuel */}
+      <Heading as="h4" justify='center'>Apparence et Thème</Heading>
       <div className={styles.switchWrapper}>
+        <Text>Mode : {labelModeTheme}</Text>
         <Switch
           id="master-toggle-switch"
-          label={`${labelModeTheme} :`}
           checked={estForce}
           onChange={handleMasterToggle}
           variant="primary"
-          size="medium"
+          size="small"
         />
       </div>
-
-      {/* Contrôle Secondaire: Clair / Sombre ou Affichage Auto */}
-      <div className={styles.secondaryControl}>
-        {estForce ? (
-          <Switch
-            id="secondary-toggle-switch"
-            label={modeTheme === 'light' ? 'Clair ☀️' : 'Sombre 🌙'}
-            checked={modeTheme === 'dark'}
-            onChange={handleSecondaryToggle}
-            variant={modeTheme === 'dark' ? 'neutral' : 'info'}
-            size="medium"
-          />
-        ) : (
-          <div className={styles.autoDisplay}>
-            <span className={styles.labelTitle}>Système :</span>
-            <span
-              className={styles.systemThemeIndicator}
-              data-system-theme={themeSysteme}
-            >
-              {themeSysteme === 'light' ? ' Clair ☀️' : ' Sombre 🌙'}
-            </span>
-          </div>
-        )}
+      {/* Interrupteur secondaire : Clair / Sombre (uniquement en mode Manuel) */}
+      <div className={styles.switchWrapper}>
+        {/* Affiche le thème actif, et indique si c'est le thème système en mode Auto */}
+        <Text>Thème actuel : {labelThemeActif}</Text>
+        <Switch
+          id="secondary-toggle-switch"
+          checked={modeTheme === 'dark'}
+          onChange={handleSecondaryToggle}
+          variant="primary"
+          size="small"
+          disabled={!estForce}
+        />
       </div>
     </div>
   );

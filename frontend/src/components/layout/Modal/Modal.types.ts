@@ -13,7 +13,7 @@ import { type LayoutVariant } from "../layout.types";
 // ================================
 // Constantes
 // ================================
-export const ORIGIN = [
+export const POSITION = [
     "top",
     "bottom",
     "left",
@@ -21,18 +21,19 @@ export const ORIGIN = [
     "center",
 ] as const;
 
+
 // ================================
 // Types
 // ================================
 /** Direction */
-export type Origin = typeof ORIGIN[number];
+export type Position = typeof POSITION[number];
 
 // ================================
 // Props des composants
 // ================================
 export type Props = {
     /** Direction */
-    origin?: Origin;
+    origin?: Position;
     /** Théme */
     variant?: LayoutVariant
     /** Contenu du bouton */
@@ -41,6 +42,7 @@ export type Props = {
     onClose?: () => void;
     isClosing?: boolean;
     fullScreen?: boolean;
+    position?:Position;
 }
 
 // ================================
@@ -48,14 +50,8 @@ export type Props = {
 // ================================
 export const DEFAULTS = {
     variant: "brand-primary" as LayoutVariant,
-    origin: "center" as Origin,
+    origin: "center" as Position,
+    position:"center" as Position,
     onClose: undefined,
-    fullScreen: true,
+    fullScreen: false,
 } satisfies Partial<Props>
-
-// ================================
-// Showcase
-// ================================
-export const SHOWCASE_CONSTANTS = {
-    origin: ORIGIN
-} as const
