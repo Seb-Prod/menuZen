@@ -1,0 +1,140 @@
+/**
+ * Separator Component Styles
+ * @author Seb-Prod
+ * @version 1.0.0
+ * @since 2025-11-08
+ */
+
+/* ================================ */
+/* Base */
+/* ================================ */
+
+/**
+ * Classe de base pour tous les séparateurs
+ * Utilise la couleur de fond définie par le thème
+ */
+.separator{
+    background-color: var(--bg);
+}
+
+/* ================================ */
+/* Orientation - Horizontal */
+/* ================================ */
+
+/**
+ * Séparateur horizontal - s'étend sur toute la largeur
+ */
+.horizontal{
+    width: 100%;
+}
+
+/* Variations d'épaisseur pour orientation horizontale */
+.horizontal.thickness-xs{
+    height: 0.5px;
+}
+
+.horizontal.thickness-small{
+    height: 1px;
+}
+
+.horizontal.thickness-medium{
+    height: 2px;
+}
+
+.horizontal.thickness-large{
+    height: 3px;
+}
+
+.horizontal.thickness-xl{
+    height: 4px;
+}
+
+.horizontal.thickness-2xl{
+    height: 5px;
+}
+
+/* Variations d'espacement pour orientation horizontale */
+.horizontal.space-xs{
+    margin: 0.25rem 0;
+}
+
+.horizontal.space-small{
+    margin: 0.5rem 0;
+}
+
+.horizontal.space-medium{
+    margin: 1rem 0;
+}
+
+.horizontal.space-large{
+    margin: 1.5rem 0;
+}
+
+.horizontal.space-xl{
+    margin: 2rem 0;
+}
+
+.horizontal.space-2xl{
+    margin: 3rem 0;
+}
+
+/* ================================ */
+/* Orientation - Vertical */
+/* ================================ */
+
+/**
+ * Séparateur vertical - s'étend sur toute la hauteur
+ */
+.vertical{
+    height: 100%;
+}
+
+/* Variations d'épaisseur pour orientation verticale */
+.vertical.thickness-xs{
+    width: 0.5px;
+}
+
+.vertical.thickness-small{
+    width: 1px;
+}
+
+.vertical.thickness-medium{
+    width: 2px;
+}
+
+.vertical.thickness-large{
+    width: 3px;
+}
+
+.vertical.thickness-xl{
+    width: 4px;
+}
+
+.vertical.thickness-2xl{
+    width: 5px;
+}
+
+/* Variations d'espacement pour orientation verticale */
+.vertical.space-xs{
+    margin: 0 0.25rem;
+}
+
+.vertical.space-small{
+    margin: 0 0.5rem;
+}
+
+.vertical.space-medium{
+    margin: 0 1rem;
+}
+
+.vertical.space-large{
+    margin: 0 1.5rem;
+}
+
+.vertical.space-xl{
+    margin: 0 2rem;
+}
+
+.vertical.space-2xl{
+    margin: 0 3rem;
+}

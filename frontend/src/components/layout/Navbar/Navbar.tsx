@@ -14,7 +14,7 @@ import { useCloseOnDesktop, useNavbarToggle, useToggleAparence } from "./Navbar.
 
 // --- UI Components ---
 import Logo from "@/components/ui/Logo";
-import { Button, ThemeToggle } from "@/components/ui";
+import { Button, Separator, ThemeToggle } from "@/components/ui";
 import MenuToggle from "@/components/ui/MenuToggle";
 import NavItem from "./NavItem";
 
@@ -38,16 +38,7 @@ import { Modal, useClickOutside, useModalVisibilityWithAnimation } from "../Moda
  * @returns {JSX.Element} Barre de navigation avec les liens configurés.
  *
  * @example
- * // Utilisation simple dans un Header
  * <Navbar />
- *
- * @example
- * // Dans un layout
- * const Header = () => (
- *   <header>
- *     <Navbar />
- *   </header>
- * );
  *
  * @see {@link NavItem}
  * @see {@link getWebNavItems}
@@ -98,8 +89,9 @@ const Navbar = (): JSX.Element => {
                     variant="primary"
                   />
                 ))}
-                <ThemeToggle />
               </div>
+              <Separator spacing="medium"/>
+              <ThemeToggle />
             </Modal>
           )}
         </nav>
