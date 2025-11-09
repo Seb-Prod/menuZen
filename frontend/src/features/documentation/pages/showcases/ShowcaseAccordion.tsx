@@ -6,13 +6,13 @@
 import { Accordion, AccordionItem, AccordionSection } from "@/components/ui/Accordion";
 import type { JSX } from "react";
 import type { Combination } from "../../utils/showcaseHelpers";
-import { SHOWCASE_CONSTANTS } from '@/components/ui/Accordion/Accordion.types';
+import { SHOWCASE } from '@/components/ui/Accordion/Accordion.types';
 import { accordionProps, accordionUsageExample } from "../../data/Accordion";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
 import type { ShowcaseProps } from "../../types/types";
 
-type ShowcaseCombo = Combination<typeof SHOWCASE_CONSTANTS>;
+type ShowcaseCombo = Combination<typeof SHOWCASE>;
 
 const { renderPreview: baseRenderPreview, generateCode: baseGenerateCode } = createShowcaseFromProps(
   Accordion,
@@ -59,7 +59,7 @@ const ShowcaseAccordion = ({ onNavigate }: ShowcaseProps): JSX.Element => {
     <DocPageContainer
       title="Accordion"
       description="Composant **Accordion** - Ce composant enveloppe l'ensemble de la structure et utilise le `AccordionContext.Provider` pour transmettre des propriétés de style globales (`variant`, `size`, `chevronIcon`, `chevronAlignment`) à tous ses descendants (`AccordionSection` ou `AccordionItem`), assurant une cohérence visuelle."
-      params={SHOWCASE_CONSTANTS}
+      params={SHOWCASE}
       usageExample={accordionUsageExample}
       renderPreview={renderPreview}
       generateCode={generateCode}

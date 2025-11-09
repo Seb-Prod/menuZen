@@ -7,7 +7,7 @@ import Table from "@/components/ui/Table";
 import type { JSX } from "react";
 import { tableProps, tableUsageExample } from "../../data/Table";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
-import { TABLE_SHOWCASE_CONSTANTS } from "@/components/ui/Table/Table.types";
+import { SHOWCASE } from "@/components/ui/Table/Table.types";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
 
 /**
@@ -61,7 +61,7 @@ const ShowcaseTable = (): JSX.Element => {
       title="Table"
       description="Composant **Table** réutilisable pour afficher des données tabulaires avec en-têtes personnalisables et différentes variantes de style."
       usageExample={tableUsageExample}
-      params={TABLE_SHOWCASE_CONSTANTS}
+      params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
       props={tableProps}

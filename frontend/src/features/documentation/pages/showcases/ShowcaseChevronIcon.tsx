@@ -5,7 +5,7 @@
 
 import ChevronIcon from "@/components/ui/ChevronIcon";
 import type { JSX } from "react";
-import { SHOWCASE_CONSTANTS } from '@/components/ui/ChevronIcon/ChevronIcon.types';
+import { SHOWCASE } from '@/components/ui/ChevronIcon/ChevronIcon.types';
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import { chevronIconProps, chevroniconUsageExample } from "../../data/ChevronIcon";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
@@ -23,7 +23,7 @@ const ShowcaseChevronIcon = (): JSX.Element => {
       description="Composant **ChevronIcon** indique visuellement l'état de bascule d'un élément (ouvert/fermé) via une **icône animée**. Il supporte différents types d'icônes (chevron, flèche, plus/moins, triangle, etc.) et s'intègre parfaitement aux composants de type accordéon et menus déroulants."
       props={chevronIconProps}
       usageExample={chevroniconUsageExample}
-      params={SHOWCASE_CONSTANTS}
+      params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
     />

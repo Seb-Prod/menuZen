@@ -5,7 +5,7 @@
 
 import Select from "@/components/ui/Select";
 import type { JSX } from "react";
-import { SHOWCASE_CONSTANTS } from '@/components/ui/Select/Select.types';
+import { SHOWCASE } from '@/components/ui/Select/Select.types';
 import { selectProps, selectUsageExample } from "../../data/Select";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer"; // Assurez-vous d'importer le DocPageContainer
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
@@ -40,7 +40,7 @@ const ShowcaseSelect = (): JSX.Element => {
       title="Select"
       description="Composant **Select** est une liste déroulante personnalisée et accessible qui supporte la navigation au clavier, la gestion des variantes de style, de la taille, et de l'alignement du menu."
       usageExample={selectUsageExample}
-      params={SHOWCASE_CONSTANTS}
+      params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
       props={selectProps}

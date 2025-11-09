@@ -13,8 +13,8 @@ import { Heading, Switch, Text } from '@/components/ui';
 
 // --- Types & constants ---
 import {
-  THEMETOGGLE_DEFAULTS,
-  type ThemeToggleProps
+  DEFAULTS,
+  type Props
 } from './ThemeToggle.types';
 
 // --- Styles ---
@@ -60,9 +60,9 @@ import styles from './ThemeToggle.module.css';
  * @see {@link useThemeManager}
  */
 const ThemeToggle = ({
-  initialTheme = THEMETOGGLE_DEFAULTS.initialTheme,
+  initialTheme = DEFAULTS.initialTheme,
   onChange,
-}: ThemeToggleProps): JSX.Element => {
+}: Props): JSX.Element => {
   // --- Hooks principaux ---
   const {
     modeTheme,

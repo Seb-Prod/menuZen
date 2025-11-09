@@ -17,12 +17,12 @@ export { default } from './ThemeToggle';
 export { useThemeManager } from './ThemeToggle.hooks';
 export { getThemeSysteme } from './ThemeToggle.utils';
 export type { 
-  ThemeToggleProps, 
+  Props, 
   ModeTheme, 
   ThemeForcee 
 } from './ThemeToggle.types';
 export { 
   THEME_FORCEE, 
   MODE_THEME, 
-  THEMETOGGLE_DEFAULTS 
+  DEFAULTS 
 } from './ThemeToggle.types';

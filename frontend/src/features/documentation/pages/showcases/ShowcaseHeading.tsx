@@ -4,7 +4,7 @@
  */
 
 import { headingProps, headingUsageExample } from "../../data/Heading";
-import { SHOWCASE_CONSTANTS } from "@/components/ui/Heading/Heading.types";
+import { SHOWCASE } from "@/components/ui/Heading/Heading.types";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
 import { Heading } from "@/components/ui";
@@ -25,7 +25,7 @@ const ShowcaseHeading = () => {
       description="Composant **Heading** personnalisable avec différents niveaux sémantiques, couleurs et options d'alignement."
       props={headingProps}
       usageExample={headingUsageExample}
-      params={SHOWCASE_CONSTANTS}
+      params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
     />

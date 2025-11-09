@@ -8,7 +8,7 @@ import type { JSX } from "react";
 import { textProps, textUsageExample } from "../../data/Text";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
-import { SHOWCASE_CONSTANTS } from "@/components/ui/Text/Text.types";
+import { SHOWCASE } from "@/components/ui/Text/Text.types";
 
 const {renderPreview, generateCode} = createShowcaseFromProps(
   Text,
@@ -22,7 +22,7 @@ const ShowcaseText = (): JSX.Element => {
       title="Text"
       description="Composant **Text** personnalisable avec différentes balises sémantiques, couleurs, tailles, poids et alignements."
       usageExample={textUsageExample}
-      params={SHOWCASE_CONSTANTS}
+      params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
       props={textProps}

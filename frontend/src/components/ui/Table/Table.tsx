@@ -5,7 +5,7 @@
 
 import type { JSX } from 'react';
 import styles from "./Table.module.css"
-import { TABLE_DEFAULTS, type TableProps } from './Table.types';
+import { DEFAULTS, type Props } from './Table.types';
 import { classNames } from '@/utils/object';
 
 /**
@@ -76,12 +76,12 @@ import { classNames } from '@/utils/object';
 const Table = ({
     headers,
     data,
-    align = TABLE_DEFAULTS.align,
-    variant = TABLE_DEFAULTS.variant,
-    size = TABLE_DEFAULTS.size,
-    fullWidth = TABLE_DEFAULTS.fullWidth,
-    className = TABLE_DEFAULTS.className
-}: TableProps): JSX.Element => {
+    align = DEFAULTS.align,
+    variant = DEFAULTS.variant,
+    size = DEFAULTS.size,
+    fullWidth = DEFAULTS.fullWidth,
+    className = DEFAULTS.className
+}: Props): JSX.Element => {
     // Construction des classes CSS
     const classes = classNames(
         styles.table,

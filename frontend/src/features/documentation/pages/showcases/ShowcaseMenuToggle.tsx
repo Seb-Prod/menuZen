@@ -4,7 +4,7 @@
  */
 
 import { menuToggleProps, menuToggleUsageExample } from "../../data/MenuToggle";
-import { SHOWCASE_CONSTANTS } from "@/components/ui/MenuToggle/MenuToggle.types";
+import { SHOWCASE } from "@/components/ui/MenuToggle/MenuToggle.types";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
 import MenuToggle from "@/components/ui/MenuToggle";
@@ -26,7 +26,7 @@ Accessible via les labels \`ariaLabelOpen\` et \`ariaLabelClose\`.
       `}
       props={menuToggleProps}
       usageExample={menuToggleUsageExample}
-      params={SHOWCASE_CONSTANTS}
+      params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
     />

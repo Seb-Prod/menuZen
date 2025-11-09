@@ -5,7 +5,7 @@
 
 import Switch from "@/components/ui/Switch";
 import { type JSX } from "react";
-import { SHOWCASE_CONSTANTS } from "@/components/ui/Switch/Switch.types";
+import { SHOWCASE } from "@/components/ui/Switch/Switch.types";
 import { switchProps, switchUsageExample } from "../../data/Switch";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
@@ -22,7 +22,7 @@ const ShowcaseSwitch = (): JSX.Element => {
       title="Switch"
       description="Composant **Switch** - Interrupteur à bascule permettant d'activer ou désactiver une option. Idéal pour les paramètres, préférences utilisateur et états binaires avec retour visuel immédiat."
       usageExample={switchUsageExample}
-      params={SHOWCASE_CONSTANTS}
+      params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
       props={switchProps}

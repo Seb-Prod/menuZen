@@ -5,7 +5,7 @@
 
 import Spinner from "@/components/ui/Spinner";
 import type { JSX } from "react";
-import { SHOWCASE_CONSTANTS } from "@/components/ui/Spinner/Spinner.types";
+import { SHOWCASE } from "@/components/ui/Spinner/Spinner.types";
 import { spinnerProps, spinnerUsageExample } from "../../data/Spinner";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
@@ -22,7 +22,7 @@ const ShowcaseSpinner = (): JSX.Element => {
       title="Spinner"
       description="Composant **Spinner** est un indicateur de chargement rotatif avec différentes tailles, variantes de couleur et options d'alignement."
       usageExample={spinnerUsageExample}
-      params={SHOWCASE_CONSTANTS}
+      params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
       props={spinnerProps}
