@@ -1,12 +1,16 @@
 /**
- * @file Définition des types, constantes et valeurs par défaut
- * @module components/ui/Switch.types
- * @version 1.2.0
+ * @file Définition des types, constantes et valeurs par défaut du composant Switch
+ * @module components/ui/Switch/Switch.types
+ * @description
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
+ * les valeurs par défaut et les configurations pour le composant Switch.
+ * 
+ * @version 1.2.1
  * @since 2025-10-23
- * @see {@link Switch} pour l'implémentation du composant principal.
- * @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_ALIGN} pour les constantes partagées.
- * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut.
  * @author Seb-Prod
+ * 
+ * @see {@link Switch} pour l'implémentation du composant principal.
+ * @see {@link UI_VARIANTS}, {@link UI_SIZES} pour les constantes partagées du système UI.
  */
 
 import type { ReactNode, InputHTMLAttributes } from 'react';
@@ -18,7 +22,10 @@ import { omit } from '@/utils/object';
 // ================================
 
 /**
- * États possibles d'un switch (activé/désactivé)
+ * États possibles du switch.
+ * 
+ * @constant
+ * @type {readonly ['checked', 'unchecked']}
  */
 export const STATES = [
   "checked",
@@ -26,8 +33,9 @@ export const STATES = [
 ] as const;
 
 /**
- * Variantes de couleur disponibles pour le Switch
- * (exclut 'error' qui n'a pas de sens pour un switch)
+ * Variantes de couleur disponibles pour le Switch (exclut 'error').
+ * 
+ * @constant
  */
 export const SWITCH_VARIANTS = UI_VARIANTS.filter(v => v !== 'error');
 
@@ -35,12 +43,25 @@ export const SWITCH_VARIANTS = UI_VARIANTS.filter(v => v !== 'error');
 // Types
 // ================================
 
+/**
+ * État du switch.
+ * 
+ * @typedef {('checked'|'unchecked')} State
+ */
 export type State = typeof STATES[number];
+
+/**
+ * Variante de couleur du switch (exclut 'error').
+ * 
+ * @typedef SwitchVariant
+ */
 export type SwitchVariant = Exclude<UiVariant, 'error'>;
 
 /**
- * Fonction de callback appelée lors du changement d'état du switch
- * @param checked - Nouvel état du switch (true = activé, false = désactivé)
+ * Fonction de callback lors du changement d'état.
+ * 
+ * @typedef {Function} SwitchChangeHandler
+ * @param {boolean} checked - Nouvel état du switch.
  */
 export type SwitchChangeHandler = (checked: boolean) => void;
 
@@ -48,35 +69,31 @@ export type SwitchChangeHandler = (checked: boolean) => void;
 // Props du composant
 // ================================
 
+/**
+ * Propriétés du composant Switch.
+ * 
+ * @typedef {Object} Props
+ * @property {string} [id] - Identifiant unique du switch.
+ * @property {ReactNode} [label] - Texte du label.
+ * @property {boolean} [checked] - État du switch.
+ * @property {boolean} [disabled] - Switch désactivé.
+ * @property {SwitchChangeHandler} [onChange] - Callback lors du changement d'état.
+ * @property {SwitchVariant} [variant] - Variante visuelle.
+ * @property {UiSize} [size] - Taille du Switch.
+ * @property {UiAlign} [align] - Alignement horizontal.
+ * @property {string} [ariaLabel] - Label pour l'accessibilité.
+ * @property {string} [ariaDescribedBy] - Description pour l'accessibilité.
+ */
 export type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange' | 'size'> & {
-  /** Identifiant unique du switch (utilisé pour l'association label/input) */
   id?: string;
-
-  /** Texte du label affiché à côté du switch */
   label?: ReactNode;
-
-  /** État initial ou contrôlé du switch (true = activé, false = désactivé) */
   checked?: boolean;
-
-  /** Si true, désactive l'interaction avec le switch */
   disabled?: boolean;
-
-  /** Callback appelé lors du changement d'état */
   onChange?: SwitchChangeHandler;
-
-  /** Variante visuelle du Switch (détermine la couleur quand activé) */
   variant?: SwitchVariant;
-
-  /** Taille du Switch */
   size?: UiSize;
-
-  /** Alignement horizontal dans le conteneur parent */
   align?: UiAlign;
-
-  /** Attribut aria-label pour l'accessibilité (si pas de label visible) */
   ariaLabel?: string;
-
-  /** Attribut aria-describedby pour l'accessibilité */
   ariaDescribedBy?: string;
 };
 
@@ -84,10 +101,16 @@ export type Props = Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChan
 // Valeurs par défaut
 // ================================
 
+/**
+ * Valeurs par défaut pour le composant Switch.
+ * 
+ * @constant
+ * @type {Partial<Props>}
+ */
 export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["justify", "variant"]),
   id: "switch",
-  label:"",
+  label: "",
   variant: "primary",
   checked: false,
   disabled: false,
@@ -98,7 +121,13 @@ export const DEFAULTS = {
 // Showcase
 // ================================
 
-export const SHOWCASE_CONSTANTS = {
+/**
+ * Configuration pour la présentation/démonstration du composant.
+ * 
+ * @constant
+ * @type {Object}
+ */
+export const SHOWCASE = {
   variant: SWITCH_VARIANTS,
   size: UI_SIZES,
   align: UI_ALIGN,

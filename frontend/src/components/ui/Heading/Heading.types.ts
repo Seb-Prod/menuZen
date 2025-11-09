@@ -1,12 +1,16 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut du composant Heading
- * @module components/ui/Heading.types
- * @version 1.3.0
+ * @module components/ui/Heading/Heading.types
+ * @description
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
+ * les valeurs par défaut et les configurations pour le composant Heading.
+ * 
+ * @version 1.3.1
  * @since 2025-10-21
- * @see {@link Heading} pour l'implémentation du composant principal.
- * @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_TEXT_JUSTIFY} pour les constantes partagées.
- * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut.
  * @author Seb-Prod
+ * 
+ * @see {@link Heading} pour l'implémentation du composant principal.
+ * @see {@link UI_VARIANTS}, {@link UI_TEXT_JUSTIFY} pour les constantes partagées du système UI.
  */
 
 import type { ReactNode, HTMLAttributes } from 'react';
@@ -18,7 +22,10 @@ import { omit } from '@/utils/object';
 // ================================
 
 /**
- * Définit les niveaux de titre sémantique disponibles (h1 à h6).
+ * Niveaux de titre sémantique disponibles.
+ * 
+ * @constant
+ * @type {readonly ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']}
  */
 export const AS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 
@@ -26,19 +33,30 @@ export const AS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 // Types
 // ================================
 
+/**
+ * Niveau sémantique du titre.
+ * 
+ * @typedef {('h1'|'h2'|'h3'|'h4'|'h5'|'h6')} As
+ */
 export type As = typeof AS[number];
+
 // ================================
 // Props du composant
 // ================================
 
+/**
+ * Propriétés du composant Heading.
+ * 
+ * @typedef {Object} Props
+ * @property {ReactNode} children - Contenu du titre.
+ * @property {As} [as] - Niveau sémantique du titre.
+ * @property {UiVariant} [variant] - Couleur du texte.
+ * @property {UiTextJustify} [justify] - Alignement du texte.
+ */
 export type Props = HTMLAttributes<HTMLHeadingElement> & {
-  /** Contenu du titre */
   children: ReactNode;
-  /** Niveau sémantique du titre */
   as?: As;
-  /** Couleur du texte */
   variant?: UiVariant;
-  /** Alignement du texte */
   justify?: UiTextJustify;
 };
 
@@ -46,6 +64,12 @@ export type Props = HTMLAttributes<HTMLHeadingElement> & {
 // Valeurs par défaut
 // ================================
 
+/**
+ * Valeurs par défaut pour le composant Heading.
+ * 
+ * @constant
+ * @type {Partial<Props>}
+ */
 export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["align"]),
   as: 'h1' as As,
@@ -56,7 +80,13 @@ export const DEFAULTS = {
 // Showcase
 // ================================
 
-export const SHOWCASE_CONSTANTS = {
+/**
+ * Configuration pour la présentation/démonstration du composant.
+ * 
+ * @constant
+ * @type {Object}
+ */
+export const SHOWCASE = {
   as: AS,
   variant: UI_VARIANTS,
   justify: UI_TEXT_JUSTIFY

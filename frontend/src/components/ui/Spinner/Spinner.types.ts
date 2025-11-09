@@ -1,12 +1,16 @@
 /**
- * @file Définition des types, constantes et valeurs par défaut
- * @module components/ui/Spinner.types
- * @version 1.2.0
+ * @file Définition des types, constantes et valeurs par défaut du composant Spinner
+ * @module components/ui/Spinner/Spinner.types
+ * @description
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
+ * les valeurs par défaut et les configurations pour le composant Spinner.
+ * 
+ * @version 1.2.1
  * @since 2025-10-21
+ * @author Seb-Prod
+ * 
  * @see {@link Spinner} pour l'implémentation du composant principal.
-* @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_ALIGN} pour les constantes partagées.
- * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut.
- * @autor Seb-Prod
+ * @see {@link UI_VARIANTS}, {@link UI_SIZES} pour les constantes partagées du système UI.
  */
 
 import type { ReactNode } from 'react';
@@ -14,25 +18,22 @@ import { UI_ALIGN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiAlign, type UiSize
 import { omit } from '@/utils/object';
 
 // ================================
-// Constantes
-// ================================
-
-// ================================
-// Types
-// ================================
-
-// ================================
 // Props du composant
 // ================================
 
+/**
+ * Propriétés du composant Spinner.
+ * 
+ * @typedef {Object} Props
+ * @property {UiVariant} [variant] - Variante visuelle du Spinner.
+ * @property {UiSize} [size] - Taille du Spinner.
+ * @property {UiAlign} [align] - Alignement horizontal dans le conteneur parent.
+ * @property {ReactNode} [children] - Contenu éventuel du Spinner.
+ */
 export type Props = {
-  /** Variante visuelle du Spinner */
   variant?: UiVariant;
-  /** Taille du Spinner */
   size?: UiSize;
-  /** Alignement horizontal dans le conteneur parent */
   align?: UiAlign;
-  /** Contenu éventuel du Spinner (rarement utilisé) */
   children?: ReactNode;
 };
 
@@ -40,6 +41,12 @@ export type Props = {
 // Valeurs par défaut
 // ================================
 
+/**
+ * Valeurs par défaut pour le composant Spinner.
+ * 
+ * @constant
+ * @type {Partial<Props>}
+ */
 export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["justify"]),
 } satisfies Partial<Props>;
@@ -49,10 +56,12 @@ export const DEFAULTS = {
 // ================================
 
 /**
- * Constantes utilisées pour générer les combinaisons de démonstration
- * dans la page de showcase du Spinner.
+ * Configuration pour la présentation/démonstration du composant.
+ * 
+ * @constant
+ * @type {Object}
  */
-export const SHOWCASE_CONSTANTS = {
+export const SHOWCASE = {
   variant: UI_VARIANTS,
   size: UI_SIZES,
   align: UI_ALIGN,

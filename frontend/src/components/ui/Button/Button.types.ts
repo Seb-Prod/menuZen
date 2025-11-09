@@ -1,12 +1,16 @@
 /**
- * @file Définition des types, constantes et valeurs par défaut
- * @module components/ui/Button.types
- * @version 1.2.0
+ * @file Définition des types, constantes et valeurs par défaut du composant Button
+ * @module components/ui/Button/Button.types
+ * @description
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
+ * les valeurs par défaut et les configurations pour le composant Button.
+ * 
+ * @version 1.2.1
  * @since 2025-10-17
- * @see {@link Button} pour l'implémentation du composant principal.
- * @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_ALIGN} pour les constantes partagées.
- * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut.
  * @author Seb-Prod
+ * 
+ * @see {@link Button} pour l'implémentation du composant principal.
+ * @see {@link UI_VARIANTS}, {@link UI_SIZES} pour les constantes partagées du système UI.
  */
 
 import type { ReactNode, ButtonHTMLAttributes } from 'react';
@@ -17,7 +21,11 @@ import { omit } from '@/utils/object';
 // Constantes
 // ================================
 
-/** Définit les types HTML standards pour les boutons.
+/**
+ * Types HTML standards pour les boutons.
+ * 
+ * @constant
+ * @type {readonly ['button', 'submit', 'reset']}
  */
 export const TYPES = [
   "button",
@@ -25,6 +33,12 @@ export const TYPES = [
   "reset"
 ] as const;
 
+/**
+ * Modes d'apparence du bouton.
+ * 
+ * @constant
+ * @type {readonly ['solid', 'outline', 'ghost']}
+ */
 export const MODES = [
   "solid",
   "outline",
@@ -35,26 +49,43 @@ export const MODES = [
 // Types
 // ================================
 
+/**
+ * Type du bouton.
+ * 
+ * @typedef {('button'|'submit'|'reset')} Type
+ */
 export type Type = typeof TYPES[number];
+
+/**
+ * Mode d'apparence du bouton.
+ * 
+ * @typedef {('solid'|'outline'|'ghost')} Mode
+ */
 export type Mode = typeof MODES[number];
 
 // ================================
 // Props des composants
 // ================================
+
+/**
+ * Propriétés du composant Button.
+ * 
+ * @typedef {Object} Props
+ * @property {ReactNode} [children] - Contenu du bouton.
+ * @property {UiVariant} [variant] - Style du bouton.
+ * @property {Mode} [mode] - Mode d'apparence (solid, outline, ghost).
+ * @property {UiSize} [size] - Taille du bouton.
+ * @property {boolean} [fullWidth] - Prend toute la largeur du parent.
+ * @property {Type} [type] - Type du bouton.
+ * @property {UiAlign} [align] - Alignement dans le conteneur parent.
+ */
 export type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
-  /** Contenu du bouton */
   children?: ReactNode;
-  /** Style du bouton */
   variant?: UiVariant;
-  /** Mode d'apparence du bouton (solid, outline, ghost) */
   mode?: Mode;
-  /** Taille du bouton */
   size?: UiSize;
-  /** Prend toute la largeur du parent */
   fullWidth?: boolean;
-  /** Type du bouton */
   type?: Type;
-  /** Alignement dans le conteneur parent */
   align?: UiAlign;
 };
 
@@ -62,6 +93,12 @@ export type Props = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> & {
 // Valeurs par défaut
 // ================================
 
+/**
+ * Valeurs par défaut pour le composant Button.
+ * 
+ * @constant
+ * @type {Partial<Props>}
+ */
 export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["justify"]),
   fullWidth: false,
@@ -74,13 +111,19 @@ export const DEFAULTS = {
 // ================================
 // Showcase
 // ================================
-export const SHOWCASE_CONSTANTS = {
+
+/**
+ * Configuration pour la présentation/démonstration du composant.
+ * 
+ * @constant
+ * @type {Object}
+ */
+export const SHOWCASE = {
   type: TYPES,
   variant: UI_VARIANTS,
   mode: MODES,
   align: UI_ALIGN,
   fullWidth: BOOLEAN,
   size: UI_SIZES,
-  disabled:BOOLEAN,
-
+  disabled: BOOLEAN,
 } as const;

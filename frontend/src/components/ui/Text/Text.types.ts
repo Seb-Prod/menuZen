@@ -1,12 +1,16 @@
 /**
- * @file Définition des types, constantes et valeurs par défaut
- * @module components/ui/Text.types
- * @version 1.2.0
+ * @file Définition des types, constantes et valeurs par défaut du composant Text
+ * @module components/ui/Text/Text.types
+ * @description
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
+ * les valeurs par défaut et les configurations pour le composant Text.
+ * 
+ * @version 1.2.1
  * @since 2025-10-22
- * @see {@link Text} pour l'implémentation du composant principal.
- * @see {@link UI_VARIANTS}, {@link UI_SIZES}, {@link UI_ALIGN} pour les constantes partagées.
- * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut. 
  * @author Seb-Prod
+ * 
+ * @see {@link Text} pour l'implémentation du composant principal.
+ * @see {@link UI_VARIANTS}, {@link UI_SIZES} pour les constantes partagées du système UI.
  */
 
 import type { ReactNode } from 'react';
@@ -18,7 +22,10 @@ import { omit } from '@/utils/object';
 // ================================
 
 /**
- * Définit les balises HTML sémantiques utilisables pour le texte.
+ * Balises HTML sémantiques disponibles.
+ * 
+ * @constant
+ * @type {readonly ['span', 'p', 'label', 'strong', 'em']}
  */
 export const AS = [
   "span",
@@ -28,44 +35,60 @@ export const AS = [
   "em"
 ] as const;
 
-
 /**
- * Définit les poids de police (épaisseur) du texte.
+ * Poids de police disponibles.
+ * 
+ * @constant
+ * @type {readonly ['light', 'regular', 'medium', 'bold']}
  */
-export const 
-WEIGHTS = [
+export const WEIGHTS = [
   "light",
   "regular",
   "medium",
   "bold"
 ] as const;
 
-
 // ================================
 // Types
 // ================================
 
+/**
+ * Balise HTML sémantique.
+ * 
+ * @typedef {('span'|'p'|'label'|'strong'|'em')} As
+ */
 export type As = typeof AS[number];
+
+/**
+ * Poids de la police.
+ * 
+ * @typedef {('light'|'regular'|'medium'|'bold')} Weight
+ */
 export type Weight = typeof WEIGHTS[number];
 
 // ================================
 // Props des composants
 // ================================
 
+/**
+ * Propriétés du composant Text.
+ * 
+ * @typedef {Object} Props
+ * @property {As} [as] - Balise HTML sémantique.
+ * @property {UiVariant} [variant] - Couleur thématique du texte.
+ * @property {UiSize} [size] - Taille de la police.
+ * @property {Weight} [weight] - Poids de la police.
+ * @property {UiTextJustify} [justify] - Alignement du texte.
+ * @property {ReactNode} children - Contenu textuel.
+ * @property {string} [className] - Classes CSS personnalisées.
+ */
 export type Props = {
-  /** Balise HTML sémantique à rendre */
   as?: As;
-  /** Couleur thématique du texte */
   variant?: UiVariant;
-  /** Taille de la police */
   size?: UiSize;
-  /** Poids (épaisseur) de la police */
   weight?: Weight;
-  /** Alignement du texte */
   justify?: UiTextJustify;
-  /** Contenu textuel à afficher */
   children: ReactNode;
-  /** Classes CSS personnalisées supplémentaires */
   className?: string;
 };
 
@@ -73,6 +96,12 @@ export type Props = {
 // Valeurs par défaut
 // ================================
 
+/**
+ * Valeurs par défaut pour le composant Text.
+ * 
+ * @constant
+ * @type {Partial<Props>}
+ */
 export const DEFAULTS = {
   ...omit(UI_DEFAULTS, ["align"]),
   as: "span" as As,
@@ -84,7 +113,13 @@ export const DEFAULTS = {
 // Showcase
 // ================================
 
-export const SHOWCASE_CONSTANTS = {
+/**
+ * Configuration pour la présentation/démonstration du composant.
+ * 
+ * @constant
+ * @type {Object}
+ */
+export const SHOWCASE = {
   as: AS,
   variant: UI_VARIANTS,
   size: UI_SIZES,

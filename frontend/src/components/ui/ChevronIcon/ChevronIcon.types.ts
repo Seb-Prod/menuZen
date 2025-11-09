@@ -1,10 +1,16 @@
 /**
- * @file Définition des types, constantes et valeurs par défaut
- * @module components/ui/ChevronIcon.types
- * @version 1.4.0
+ * @file Définition des types, constantes et valeurs par défaut du composant ChevronIcon
+ * @module components/ui/ChevronIcon/ChevronIcon.types
+ * @description
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
+ * les valeurs par défaut et les configurations pour le composant ChevronIcon.
+ * 
+ * @version 1.4.1
  * @since 2025-10-17
- * @see {@link ChevronIcon} pour l'implémentation du composant principal.
  * @author Seb-Prod
+ * 
+ * @see {@link ChevronIcon} pour l'implémentation du composant principal.
+ * @see {@link UI_VARIANTS}, {@link UI_SIZES} pour les constantes partagées du système UI.
  */
 
 import { omit } from "@/utils/object";
@@ -14,7 +20,11 @@ import { BOOLEAN, UI_DEFAULTS, UI_SIZES, UI_VARIANTS, type UiSize } from "../ui.
 // Constantes
 // ================================
 
-/** Définit les variantes pour le composant ChevronIcon.
+/**
+ * Types d'icônes disponibles.
+ * 
+ * @constant
+ * @type {readonly ['chevron', 'arrow', 'plus-minus', 'triangle', 'dots']}
  */
 export const TYPE = [
     "chevron",
@@ -24,7 +34,12 @@ export const TYPE = [
     "dots"
 ] as const;
 
-/** Définit les variantes de couleur */
+/**
+ * Variantes de couleur pour l'icône.
+ * 
+ * @constant
+ * @type {readonly [...UI_VARIANTS, 'none']}
+ */
 export const VARIANTS = [
   ...UI_VARIANTS,
   "none"
@@ -34,24 +49,41 @@ export const VARIANTS = [
 // Types
 // ================================
 
+/**
+ * Type de l'icône.
+ * 
+ * @typedef {('chevron'|'arrow'|'plus-minus'|'triangle'|'dots')} Type
+ */
 export type Type = typeof TYPE[number];
+
+/**
+ * Variante de couleur de l'icône.
+ * 
+ * @typedef Variant
+ */
 export type Variant = typeof VARIANTS[number];
 
 // ================================
 // Props des composants
 // ================================
+
+/**
+ * Propriétés du composant ChevronIcon.
+ * 
+ * @typedef {Object} Props
+ * @property {Type} [type] - Forme visuelle de l'icône.
+ * @property {boolean} [isOpen] - État de l'icône (ouvert/fermé).
+ * @property {UiSize} [size] - Taille de l'icône.
+ * @property {string} [ariaLabelOpen] - Texte alternatif quand l'icône est ouverte.
+ * @property {string} [ariaLabelClose] - Texte alternatif quand l'icône est fermée.
+ * @property {Variant} [variant] - Variante de couleur.
+ */
 export type Props = {
-    /** Définit la forme visuelle de l'icône. */
     type?: Type;
-    /** Etat de l'icone */
     isOpen?: boolean;
-    /** Taille de l'icône */
     size?: UiSize;
-    /** Texte alternatif pour l'acccesibilité lorsque l'icône est ouvert */
     ariaLabelOpen?: string;
-    /** Texte alternatif pour l'acccesibilité lorsque l'icône est fermé */
-    ariaLabelClose?:string;
-    /** Variante de couleur de l'icône */
+    ariaLabelClose?: string;
     variant?: Variant;
 }
 
@@ -59,22 +91,34 @@ export type Props = {
 // Valeurs par défaut
 // ================================
 
+/**
+ * Valeurs par défaut pour le composant ChevronIcon.
+ * 
+ * @constant
+ * @type {Partial<Props>}
+ */
 export const DEFAULTS = {
     ...omit(UI_DEFAULTS, ["justify"]),
     type: "chevron" as Type,
-    isOpen: false as boolean,
+    isOpen: false,
     ariaLabelOpen: "Fermer le menu",
     ariaLabelClose: "Ouvrir le menu",
     variant: "primary"
-
 } satisfies Partial<Props>
 
 // ================================
 // Showcase
 // ================================
-export const SHOWCASE_CONSTANTS = {
+
+/**
+ * Configuration pour la présentation/démonstration du composant.
+ * 
+ * @constant
+ * @type {Object}
+ */
+export const SHOWCASE = {
     type: TYPE,
     size: UI_SIZES,
-    isOpen : BOOLEAN,
+    isOpen: BOOLEAN,
     variant: VARIANTS
 } as const
