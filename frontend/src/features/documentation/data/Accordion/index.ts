@@ -12,4 +12,4 @@
 export { accordionProps } from './props';
 export { accordionUsageExample } from './usage';
 export { renderPreview, generateCode } from './showcase';
-export { accordionDescription, componentName, relatedComponents } from './config';
+export { description, componentName, relatedComponents } from './config';

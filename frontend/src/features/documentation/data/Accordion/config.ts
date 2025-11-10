@@ -11,7 +11,7 @@
 
 export const componentName = "Accordion";
 
-export const accordionDescription = 
+export const description = 
   "Composant de sections dépliables. Utilise le contexte pour transmettre les propriétés de style globales à tous ses descendants (AccordionSection, AccordionItem).";
 
 export const relatedComponents = [

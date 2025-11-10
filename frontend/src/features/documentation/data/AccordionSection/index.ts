@@ -10,4 +10,4 @@
  */
 
 export { accordionSectionProps } from './props';
-export { accordionSectionDescription, componentName, relatedComponents } from './config';
+export { description, componentName, relatedComponents } from './config';

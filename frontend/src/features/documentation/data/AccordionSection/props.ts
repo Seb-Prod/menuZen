@@ -1,6 +1,6 @@
 /**
  * @file Métadonnées des propriétés du composant AccordionSection
- * @module features/documentation/data/Accordion/rops
+ * @module features/documentation/data/AccordionSection/props
  * @description
  * Documentation des props pour le showcase
  * 
@@ -11,7 +11,6 @@
  * @see {@link PropInfo} pour la structure des métadonnées
  * @see {@link AccordionSection} pour l'implémentation du composant
  */
-
 
 import { SECTION_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
 import type { PropInfo } from "../../types/types";

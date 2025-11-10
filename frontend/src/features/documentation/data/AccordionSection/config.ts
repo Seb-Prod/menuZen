@@ -11,7 +11,7 @@
 
 export const componentName = "AccordionSection";
 
-export const accordionSectionDescription = 
+export const description = 
   "Composant **AccordionSection** - Gère son propre état d'**ouverture/fermeture** et affiche le contenu uniquement lorsqu'il est ouvert.";
 
 export const relatedComponents = [

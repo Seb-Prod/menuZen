@@ -16,7 +16,7 @@ import {
   accordionUsageExample, 
   renderPreview, 
   generateCode,
-  accordionDescription,
+  description,
   componentName,
   relatedComponents
 } from "../../data/Accordion";
@@ -31,7 +31,7 @@ const ShowcaseAccordion = ({ onNavigate }: ShowcaseProps): JSX.Element => {
   return (
     <DocPageContainer
       title={componentName}
-      description={accordionDescription}
+      description={description}
       params={SHOWCASE}
       usageExample={accordionUsageExample}
       renderPreview={renderPreview}

@@ -5,17 +5,17 @@
 
 
 import type { JSX } from "react";
-import { accordionItemProps } from "../../data/Accordion";
+import { componentName, description, accordionItemProps, relatedComponents } from "../../data/AccordionItem";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import type { ShowcaseProps } from "../../types/types";
 
 const ShowcaseAccordionSection = ({ onNavigate }: ShowcaseProps): JSX.Element => {
   return (
     <DocPageContainer
-      title="AccordionItem"
-      description="Composant **AccordionSection** - Ce composant représente un élément interactif (bouton) généralement utilisé à l'intérieur d'une `AccordionSection`. Il peut afficher un label et réagir au clic. Les styles sont hérités du contexte."
+      title={componentName}
+      description={description}
       props={accordionItemProps}
-      links={["Accordion", "AccordionSection"]}
+      links={relatedComponents}
       onNavigate={onNavigate}
     />
   );

@@ -1,8 +1,8 @@
 /**
- * @file Métadonnées des propriétés du composant AccordionItem pour la documentation
- * @module features/documentation/data/Accordion/AccordionItemProps
+ * @file Métadonnées des propriétés du composant AccordionItem
+ * @module features/documentation/data/Accordion/props
  * @description
- * Ce fichier définit les métadonnées de toutes les propriétés du composant AccordionItem.
+ * Documentation des props pour le showcase
  * 
  * @version 2.2.2
  * @since 2025-10-17
@@ -15,12 +15,6 @@
 import { ITEM_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
 import type { PropInfo } from "../../types/types";
 
-/**
- * Liste des propriétés du composant AccordionItem avec leurs métadonnées.
- * 
- * @constant
- * @type {readonly PropInfo[]}
- */
 export const accordionItemProps: readonly PropInfo[] = [
   {
     name: "label",
