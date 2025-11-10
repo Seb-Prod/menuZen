@@ -1,24 +1,22 @@
 /**
- * @file Métadonnées des propriétés du composant MenuToggle pour la documentation.
- * @module features/documentation/data/MenuToggle
+ * @file Définition des propriétés du composant
+ * @module features/documentation/data/MenuToggle/props
+ * @description
+ * Documentation des props pour le showcase
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
+ * 
+ * @see {@link PropInfo} pour la structure des métadonnées
+ * @see {@link MenuToggle} pour l'implémentation du composant
  */
 
-import { DEFAULTS, TYPE, VARIANTS } from "@/components/ui/MenuToggle/MenuToggle.types";
+import { DEFAULTS, TYPE, VARIANTS } from "@/components/ui/MenuToggle";
 import { UI_SIZES } from "@/components/ui/ui.types";
-import type { PropInfo } from "@/features/documentation/types/types";
-import { formatType } from "@/features/documentation/utils";
+import type { PropInfo } from "../../types/types";
+import { formatType } from "./../../utils";
 
-/**
- * Liste des propriétés du composant MenuToggle avec leurs métadonnées.
- * Utilisé pour générer automatiquement la documentation des props
- * dans les pages de documentation.
- * 
- * @constant
- * @type {readonly PropInfo[]}
- * 
- * @see {@link PropInfo}
- * @see {@link MenuToggle}
- */
 export const menuToggleProps: readonly PropInfo[] = [
   {
     name: "type",

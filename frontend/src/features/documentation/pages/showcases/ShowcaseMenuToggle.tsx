@@ -1,29 +1,23 @@
 /**
- * @file Page de documentation et showcase pour le composant MenuToggle.
+ * @file Page de documentation et showcase pour le composant MenuToggle
  * @module features/documentation/pages/showcase/ShowcaseMenuToggle
+ * @description
+ * Page interactive de documentation du composant.
+ * 
+ * @version 3.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
  */
 
-import { menuToggleProps, menuToggleUsageExample } from "../../data/MenuToggle";
+import { componentName, description, generateCode, menuToggleProps, menuToggleUsageExample, renderPreview } from "../../data/MenuToggle";
 import { SHOWCASE } from "@/components/ui/MenuToggle/MenuToggle.types";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
-import { createShowcaseFromProps } from "../../utils/showcaseFactory";
-import MenuToggle from "@/components/ui/MenuToggle";
-
-const { renderPreview, generateCode } = createShowcaseFromProps(
-  MenuToggle,
-  "MenuToggle",
-  menuToggleProps
-);
 
 const ShowcaseMenuToggle = () => {
   return (
     <DocPageContainer
-      title="MenuToggle"
-      description={`
-Composant **MenuToggle** — Icône animée pour ouvrir ou fermer un menu.  
-Il prend en charge plusieurs types d’icônes (**burger**, **flèche**, **chevron**) et anime leur état selon que le menu est **ouvert** ou **fermé**.  
-Accessible via les labels \`ariaLabelOpen\` et \`ariaLabelClose\`.
-      `}
+      title={componentName}
+      description={description}
       props={menuToggleProps}
       usageExample={menuToggleUsageExample}
       params={SHOWCASE}

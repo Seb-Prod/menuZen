@@ -11,4 +11,4 @@
 
 export { default as MenuToggle } from "./MenuToggle";
 export type { Props as MenuToggleProps } from "./MenuToggle.types";
-export { DEFAULTS, SHOWCASE } from './MenuToggle.types';
+export { DEFAULTS, SHOWCASE, TYPE, VARIANTS } from './MenuToggle.types';
