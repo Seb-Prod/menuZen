@@ -1,6 +1,7 @@
 /**
- * @file Composant Accordion.
+ * @file Composant Accordion
  * @module components/ui/Accordion
+ * @description Conteneur principal pour un système de sections dépliables
  */
 
 import { type JSX } from "react";
@@ -9,45 +10,27 @@ import { DEFAULTS, type Props } from './Accordion.types';
 import { AccordionContext } from "./Accordion.context";
 
 /**
- * Composant Accordion - Conteneur principal pour un système de sections dépliables.
- *
- * Ce composant enveloppe l'ensemble de la structure et utilise le `AccordionContext.Provider`
- * pour transmettre des propriétés de style globales (`variant`, `size`, `chevronIcon`)
- * à tous ses descendants (`AccordionSection` ou `AccordionItem`), assurant une cohérence visuelle.
- *
+ * Composant **Accordion** - Conteneur pour sections dépliables
+ * 
+ * Utilise le contexte pour transmettre les propriétés de style globales
+ * à tous ses descendants (AccordionSection, AccordionItem).
+ * 
  * @component
  * @version 2.2.0
  * @since 2025-10-17
  * @author Seb-Prod
- *
+ * 
  * @param {Props} props - Les propriétés du composant.
- * @param {UiVariant} [props.variant='primary'] - Schéma de couleur global appliqué aux labels de section et aux items non actifs.
- * @param {UiSize} [props.size='medium'] - Taille prédéfinie des items et des labels (small, medium, large).
- * @param {AccordionChevronIcon} [props.chevronIcon='chevron'] - Type d'icône utilisé pour les chevrons d'ouverture/fermeture.
- * @param {AccordionChevronAlignment} [props.chevronAlignment='near-label'] - Définit l'alignement horizontal du chevron par rapport au label.
- * @param {ReactNode} props.children - Les éléments qui composent l'accordéon (généralement `AccordionSection` ou `AccordionItem`).
- *
+ * 
  * @returns {JSX.Element} L'élément conteneur de l'accordéon.
- *
+ * 
  * @example
- * // Utilisation basique avec sections
  * <Accordion variant="secondary" size="large">
  *   <AccordionSection label="Catégorie A">...</AccordionSection>
  *   <AccordionSection label="Catégorie B">...</AccordionSection>
  * </Accordion>
- *
- * @example
- * // Accordion de navigation avec style de chevron différent
- * <Accordion variant="neutral" chevronIcon="plus-minus">
- *   <AccordionSection label="Produits">
- *     <AccordionItem label="Nouveautés" />
- *     <AccordionItem label="Promotions" isActive={true} />
- *   </AccordionSection>
- * </Accordion>
- *
- * @see {@link Props}
- * @see {@link DEFAULTS}
- * @see {@link AccordionContext}
+ * 
+ * @see {@link Props} Pour les types détaillés des propriétés
  */
 const Accordion = (inputProps: Props): JSX.Element => {
     const { variant, size, chevronIcon, chevronAlignment, children } = { ...DEFAULTS, ...inputProps };

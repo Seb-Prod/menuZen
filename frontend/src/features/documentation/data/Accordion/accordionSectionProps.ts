@@ -1,6 +1,29 @@
-import { SECTION_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
+/**
+ * @file Métadonnées des propriétés du composant AccordionSection pour la documentation
+ * @module features/documentation/data/Accordion/AccordionSectionProps
+ * @description
+ * Ce fichier définit les métadonnées de toutes les propriétés du composant AccordionSection.
+ * 
+ * @version 2.2.2
+ * @since 2025-10-17
+ * @author Seb-Prod
+ * 
+ * @see {@link PropInfo} pour la structure des métadonnées
+ * @see {@link AccordionSection} pour l'implémentation du composant
+ */
 
-export default [
+
+import { SECTION_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
+import type { PropInfo } from "../../types/types";
+
+/**
+ * Liste des propriétés du composant Accordion avec leurs métadonnées.
+ * 
+ * @constant
+ * @type {readonly PropInfo[]}
+ */
+
+export const accordionSectionProps : readonly PropInfo[] = [
   // --- Propriété : label ---
   {
     name: "label",

@@ -1,6 +1,7 @@
 /**
  * @file Composant AccordionItem
- * @module components/ui/AccordionItem
+ * @module components/ui/Accordion/AccordionItem
+ * @description Élément cliquable dans une section d'accordéon
  */
 
 import { type JSX } from "react";
@@ -10,41 +11,33 @@ import { useAccordion } from "./Accordion.context";
 import { classNames } from "@/utils/object";
 
 /**
- * Composant AccordionItem - Élément cliquable dans une section d'accordéon.
- *
- * Ce composant représente un élément interactif (bouton) généralement utilisé
- * à l'intérieur d'une `AccordionSection`. Il peut afficher un label et réagir
- * au clic. Les styles sont hérités du contexte.
- *
+ * Composant **AccordionItem** - Élément cliquable
+ * 
+ * Représente un élément interactif utilisé à l'intérieur d'une AccordionSection.
+ * Les styles sont hérités du contexte.
+ * 
  * @component
  * @version 2.1.2
  * @since 2025-10-17
  * @author Seb-Prod
- *
+ * 
  * @param {ItemProps} props - Les propriétés du composant.
- * @param {string} [props.label='Item'] - Le texte à afficher sur le bouton.
- * @param {() => void} [props.onClick] - Fonction de rappel exécutée lors du clic.
- * @param {boolean} [props.isActive=false] - Si vrai, applique un style actif au bouton.
- *
+ * 
  * @returns {JSX.Element} L'élément bouton React.
- *
+ * 
  * @example
- * // Item simple dans une section
  * <AccordionItem
  *   label="Détails du produit"
  *   onClick={() => console.log('Cliqué!')}
  *   isActive={true}
  * />
- *
- * @see {@link ItemProps}
- * @see {@link ITEM_DEFAULTS}
- * @see {@link useAccordion}
+ * 
+ * @see {@link ItemProps} Pour les types détaillés des propriétés
  */
 const AccordionItem = (inputProps: ItemProps): JSX.Element => {
     const { label, onClick, isActive } = { ...ITEM_DEFAULTS, ...inputProps };
     const context = useAccordion();
 
-    // Construction des classes CSS
     const buttonClasses = classNames(
         styles.item,
         `component-${context.size}`,

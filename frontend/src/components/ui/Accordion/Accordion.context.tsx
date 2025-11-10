@@ -1,30 +1,31 @@
 /**
- * @file Contexte pour les composants Accordion.
- * @module components/ui/AccordionContext
+ * @file Contexte pour les composants Accordion
+ * @module components/ui/Accordion/AccordionContext
+ * @description
+ * Fournit un contexte React pour partager les valeurs de configuration
+ * entre les composants de l'Accordion (Section, Item, etc.).
+ * 
+ * @version 1.0.0
+ * @since 2025-10-17
+ * @author Seb-Prod
  */
 
 import { createContext, useContext } from 'react';
 import type { AccordionContextValue } from './Accordion.types';
 
 /**
- * Contexte pour partager des styles et des configurations à travers l'arborescence des composants Accordion.
+ * Contexte pour partager les styles et configurations de l'Accordion.
  */
 export const AccordionContext = createContext<AccordionContextValue | undefined>(undefined);
 
 /**
- * Hook personnalisé permettant d'accéder aux valeurs de style et de configuration
- * de l'Accordion parent.
- *
- * Ce hook doit être utilisé uniquement dans les composants descendants d'un Accordion
- * (comme AccordionSection, AccordionItem, etc.).
- *
- * @returns {AccordionContextValue} Les valeurs du contexte (variant, size, chevronIcon, itemVariant, chevronAlignment).
- *
- * @throws {Error} Lance une erreur si le hook est utilisé en dehors d'un Provider AccordionContext.
- *
+ * Hook personnalisé pour accéder aux valeurs du contexte Accordion.
+ * 
+ * @returns {AccordionContextValue} Les valeurs du contexte.
+ * @throws {Error} Si utilisé en dehors d'un Provider AccordionContext.
+ * 
  * @example
- * // Dans AccordionSection ou AccordionItem
- * const { variant, size, chevronIcon, itemVariant, chevronAlignment } = useAccordion();
+ * const { variant, size, chevronIcon } = useAccordion();
  */
 export const useAccordion = (): AccordionContextValue => {
     const context = useContext(AccordionContext);

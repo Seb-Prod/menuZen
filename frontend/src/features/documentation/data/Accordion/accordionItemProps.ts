@@ -1,7 +1,27 @@
-import { ITEM_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
+/**
+ * @file Métadonnées des propriétés du composant AccordionItem pour la documentation
+ * @module features/documentation/data/Accordion/AccordionItemProps
+ * @description
+ * Ce fichier définit les métadonnées de toutes les propriétés du composant AccordionItem.
+ * 
+ * @version 2.2.2
+ * @since 2025-10-17
+ * @author Seb-Prod
+ * 
+ * @see {@link PropInfo} pour la structure des métadonnées
+ * @see {@link AccordionItem} pour l'implémentation du composant
+ */
 
-export default [
-  // --- Propriété : label ---
+import { ITEM_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
+import type { PropInfo } from "../../types/types";
+
+/**
+ * Liste des propriétés du composant AccordionItem avec leurs métadonnées.
+ * 
+ * @constant
+ * @type {readonly PropInfo[]}
+ */
+export const accordionItemProps: readonly PropInfo[] = [
   {
     name: "label",
     type: "string",
@@ -9,16 +29,12 @@ export default [
     description:
       "**Texte du lien ou du bouton à l’intérieur d’une section.** Représente une option, une page ou une action que l’utilisateur peut sélectionner.",
   },
-
-  // --- Propriété : onClick ---
   {
     name: "onClick",
     type: "() => void",
     description:
       "**Fonction appelée lors du clic sur l’item.** Peut être utilisée pour effectuer une navigation, une action de sélection ou une logique métier.",
   },
-
-  // --- Propriété : isActive ---
   {
     name: "isActive",
     type: "boolean",

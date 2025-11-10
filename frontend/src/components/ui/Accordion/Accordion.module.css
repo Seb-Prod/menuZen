@@ -1,78 +1,203 @@
+/**
+ * @file Styles du composant Accordion
+ * @module components/ui/Accordion
+ * @description
+ * Styles refactorisés avec variables CSS cohérentes et performances optimisées
+ * 
+ * @version 2.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
+ */
+
+/* ========================================
+   ACCORDION CONTAINER
+   ======================================== */
 .accordion {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: var(--accordion-gap, 1px);
 }
 
+/* ========================================
+   SECTION
+   ======================================== */
 .section {
   display: flex;
   flex-direction: column;
+  gap: var(--section-gap, 5px);
+}
 
-  .button {
-    text-align: left;
-    background: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.5em;
-    color: var(--text-alt);
-    font-size: var(--size-font);
-    padding: 4px 0px;
+/* Section Button (Header) */
+.section .button {
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5em;
+  
+  /* Variables de padding */
+  padding: var(--section-padding-y, 4px) var(--section-padding-x, 0);
+  
+  /* Variables de style */
+  border-radius: var(--section-radius, 0);
+  color: var(--text-alt);
+  font-size: var(--size-font);
+  
+  /* Transitions ciblées */
+  transition: 
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--text-primary);
   }
 
-  .buttonAlignEdge {
-    justify-content: space-between;
-    gap: 0;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-left: 10px;
+  &:focus-visible {
+    outline: 2px solid var(--color-focus, var(--bg));
+    outline-offset: 2px;
   }
 }
 
+/* Variante avec bordure pour section */
+.section.bordered .button {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+/* Alignement Edge (chevron à droite) */
+.section .buttonAlignEdge {
+  justify-content: space-between;
+  gap: 0;
+}
+
+/* Contenu de la section (items) */
+.section .content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-items-gap, 5px);
+  margin-left: var(--section-indent, 10px);
+}
+
+/* ========================================
+   ITEM
+   ======================================== */
 .item {
   text-align: left;
-  border: none;
   cursor: pointer;
-
-  border-radius: 8px;
-
-  padding: 4px 0px;
+  
+  /* Variables de padding */
+  padding: var(--item-padding-y, 4px) var(--item-padding-x, 0);
+  
+  /* Variables de style */
+  border-radius: var(--item-radius, 8px);
   font-size: var(--size-font);
-  /* min-height: var(--size-height); */
-
-  transition: all 0.2s ease-in-out;
-
-  background-color: transparent;
+  
+  /* Reset */
+  background: none;
   border: none;
+  
+  /* Colors */
+  background-color: transparent;
   color: var(--text-alt);
+  
+  /* Transitions optimisées */
+  transition: 
+    background-color 0.2s ease-in-out,
+    padding 0.2s ease-in-out,
+    transform 0.15s ease-in-out,
+    color 0.2s ease-in-out;
+}
 
-  &:hover:not(:disabled) {
-    padding: 4px 10px;
-    background-color: rgba(var(--color-hover-overlay), 0.15);
+/* Hover state */
+.item:hover:not(:disabled):not(.active) {
+  padding-left: calc(var(--item-padding-x, 0) + 10px);
+  background-color: var(--color-hover);
+  color: var(--text-primary);
+}
+
+/* Active state */
+.item.active {
+  padding-left: calc(var(--item-padding-x, 0) + 10px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 3px solid var(--bg);
+  background-color: var(--color-active);
+  color: var(--text-primary);
+}
+
+/* Active avec bordure pour item */
+.item.active.bordered {
+  border-left-color: var(--bg);
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Pressed state */
+.item:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Focus state */
+.item:focus-visible {
+  outline: 2px solid var(--color-focus, var(--bg));
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: var(--text-disabled);
+}
+
+/* ========================================
+   VARIANTS
+   ======================================== */
+
+/* Variant: Bordered */
+.item.bordered {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.item.bordered:hover:not(:disabled):not(.active) {
+  border-color: var(--color-border-hover);
+  background-color: var(--color-hover);
+}
+
+/* Variant: Shadow */
+.item.shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.item.shadow:hover:not(:disabled) {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .accordion {
+    gap: var(--accordion-gap-mobile, 2px);
   }
-
-
-  &:active:not(:disabled) {
-    transform: scale(0.98);
+  
+  .section .content {
+    margin-left: var(--section-indent-mobile, 5px);
   }
+}
 
-  &:disabled {
-    background-color: var(--color-disabled);
-    color: var(--color-disabled-text);
-    border: solid 1px var(--color-disabled);
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-
-  &.active {
-    padding: 4px 10px;
-    border-top-left-radius: 0%;
-    border-bottom-left-radius: 0%;
-    border-left: solid 5px var(--bg);
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .section .button,
+  .item {
+    transition: none;
   }
 }
