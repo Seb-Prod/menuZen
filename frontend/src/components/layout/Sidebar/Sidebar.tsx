@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useRef, type JSX } from "react";
 import styles from './SideBar.module.css';
-import MenuToggle from "@/components/ui/MenuToggle";
+import { MenuToggle } from "@/components/ui";
 import { DEFAULTS, type Props } from './Sidebar.types';
 import { classNames } from "@/utils/object";
 import { useDevice } from "@/context/Device";
@@ -119,7 +119,7 @@ const Sidebar = (inputProps: Props): JSX.Element => {
         <>
             {/* Overlay sombre en arrière-plan (mobile uniquement) */}
             {isMobile && <div className={overlayClasses} onClick={closeSidebar} />}
-            
+
             <div className={classes} ref={sidebarRef}>
                 <aside className={asideClasses}>
                     {children}

@@ -14,8 +14,7 @@ import { useCloseOnDesktop, useNavbarToggle, useToggleAparence } from "./Navbar.
 
 // --- UI Components ---
 import Logo from "@/components/ui/Logo";
-import { Button, Separator, ThemeToggle } from "@/components/ui";
-import MenuToggle from "@/components/ui/MenuToggle";
+import { Button, Separator, ThemeToggle, MenuToggle } from "@/components/ui";
 import NavItem from "./NavItem";
 
 // --- Styles & routes ---
