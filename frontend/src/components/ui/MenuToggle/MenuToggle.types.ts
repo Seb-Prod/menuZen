@@ -2,8 +2,7 @@
  * @file Définition des types, constantes et valeurs par défaut du composant MenuToggle
  * @module components/ui/MenuToggle/MenuToggle.types
  * @description
- * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
- * les valeurs par défaut et les configurations pour le composant MenuToggle.
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes, les valeurs par défaut et les configurations pour le composant.
  * 
  * @version 1.0.1
  * @since 2025-10-26
@@ -76,6 +75,7 @@ export type Variant = typeof VARIANTS[number];
  * @property {string} [ariaLabelClose] - Texte alternatif quand l'icône est fermée.
  * @property {Variant} [variant] - Variante de couleur.
  * @property {Function} [onClick] - Fonction appelée lors du clic.
+ * @property {string} [className] - Classe(s) CSS personnalisée(s) à ajouter au conteneur principal.
  */
 export type Props = {
     type?: Type;
@@ -85,6 +85,7 @@ export type Props = {
     ariaLabelClose?: string;
     variant?: Variant;
     onClick?: () => void;
+    className?: string;
 }
 
 // ================================
@@ -103,7 +104,8 @@ export const DEFAULTS = {
     isOpen: false,
     ariaLabelOpen: "Fermer le menu",
     ariaLabelClose: "Ouvrir le menu",
-    variant: "primary"
+    variant: "primary",
+    className: ""
 } satisfies Partial<Props>
 
 // ================================

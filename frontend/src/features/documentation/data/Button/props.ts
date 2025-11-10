@@ -1,6 +1,15 @@
 /**
- * @file Métadonnées des propriétés du composant Button pour la documentation.
- * @module features/documentation/data/Button
+ * @file Définition des propriétés du composant Button
+ * @module features/documentation/data/Button/props
+ * @description
+ * Documentation des props pour le showcase
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
+ * 
+ * @see {@link PropInfo} pour la structure des métadonnées
+ * @see {@link Button} pour l'implémentation du composant
  */
 
 import { DEFAULTS, MODES, TYPES } from "@/components/ui/Button/Button.types";
@@ -8,18 +17,6 @@ import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
-/**
- * Liste des propriétés du composant Button avec leurs métadonnées.
- * 
- * Utilisé pour générer automatiquement la documentation des props
- * dans les pages de documentation.
- * 
- * @constant
- * @type {readonly PropInfo[]}
- * 
- * @see {@link PropInfo}
- * @see {@link Button}
- */
 export const buttonProps: readonly PropInfo[] = [
   {
     name: "variant",

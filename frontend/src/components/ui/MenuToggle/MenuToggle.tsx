@@ -1,6 +1,6 @@
 /**
  * @file Composant MenuToggle
- * @module components/ui/MenuToogle
+ * @module components/ui/MenuToggle
  */
 
 import type { JSX } from "react";
@@ -9,68 +9,63 @@ import { DEFAULTS, type Props } from "./MenuToggle.types";
 import { classNames } from "@/utils/object";
 
 /**
- * Composant MenuToggle - Icône animée pour ouvrir / fermer des menu
+ * Composant **MenuToggle** — Icône animée d’ouverture/fermeture de menu.
  * 
- * Ce composant affiche différents types d'icônes (burger, fléche, chevron)
- * avec une animation de rotation ou de changement d'état selon le type choisi.
+ * Affiche différents types d’icônes (`chevron`, `arrow`, `burger`) avec animation de rotation
+ * ou de transformation selon l’état `isOpen`. Inclut un support complet de l’accessibilité.
  * 
  * @component
- * @version 1.0.0
- * @since 2025-10-17
+ * @version 1.0.1
+ * @since 2025-11-10
  * @author Seb-Prod
  * 
- * @param {Props} props - Les propriétés du composant
- * @param {Type} props.type - Type d'icône à afficher ('chevron', 'arrow', 'burger')
- * @param {Variant} props.variant - Couleur de l'icône (primary, secondary, succes, info, error, neutral)
- * @param {UiSize} props.size - Taille de l'icône ('small', 'medium', 'large')
- * @param {boolean} props.isOpen - État ouvert/fermé de l'icône
- * @param {string} [props.ariaLabelOpen] - Label pour l'accessibilité quand l'icône est ouverte
- * @param {string} [props.ariaLabelClose] - Label pour l'accessibilité quand l'icône est fermée
- * 
- * @returns {JSX.Element} L'élément MenuToggle React (JSX).
+ * @param {Props} props - Les propriétés du composant.
+ * @returns {JSX.Element} Bouton d’icône animée servant à ouvrir ou fermer un menu.
  * 
  * @example
- * // Utilisation simple
- * <MenuToggle />
+ * <MenuToggle type="chevron" isOpen={isOpen} onClick={toggleMenu} />
  * 
- * // Avec aria-labels pour l'accessibilité
- * <MenuToogle 
- *   type="chevron" 
- *   isOpen={isOpen} 
- *   ariaLabelOpen="Fermer le menu"
- *   ariaLabelClose="Ouvrir le menu"
+ * @example
+ * <MenuToggle
+ *   type="burger"
+ *   isOpen={isOpen}
+ *   ariaLabelOpen="Fermer la navigation"
+ *   ariaLabelClose="Ouvrir la navigation"
  * />
  * 
- * @see {@link Props}
- * @see {@link DEFAULTS}
+ * @see {@link Props} Pour les types détaillés des propriétés
+ * @see {@link DEFAULTS} Pour les valeurs par défaut
  */
 const MenuToggle = (inputProps: Props): JSX.Element => {
-    const { variant, size, type, isOpen, ariaLabelClose, ariaLabelOpen, onClick } = { ...DEFAULTS, ...inputProps }
+  const props = { ...DEFAULTS, ...inputProps };
+  const { variant, size, type, isOpen, ariaLabelClose, ariaLabelOpen, onClick, className } = props;
 
-    // Construction des classes CSS
-    const classes = classNames(
-        styles.toggle,
-        `component-${variant}`,
-        `component-${size}`
-    )
+  const classes = classNames(
+    styles.toggle,
+    `component-${variant}`,
+    `component-${size}`,
+    className
+  );
 
-    const barClasses = classNames(
-        styles.bar,
-        styles[type],
-        isOpen && styles.open,
-    );
+  const barClasses = classNames(
+    styles.bar,
+    styles[type],
+    isOpen && styles.open
+  );
 
-    return (
-        <button
-            className={classes}
-            onClick={onClick}
-            aria-label={isOpen ? ariaLabelOpen : ariaLabelClose}
-            aria-expanded={isOpen}
-            type="button"
-        >
-            <span className={barClasses}></span>
-        </button>
-    );
+  return (
+    <button
+      type="button"
+      className={classes}
+      onClick={onClick}
+      role="switch"
+      aria-checked={isOpen}
+      aria-expanded={isOpen}
+      aria-label={isOpen ? (ariaLabelOpen ?? "Fermer le menu") : (ariaLabelClose ?? "Ouvrir le menu")}
+    >
+      <span className={barClasses}></span>
+    </button>
+  );
 };
 
 export default MenuToggle;

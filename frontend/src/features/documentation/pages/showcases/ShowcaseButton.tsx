@@ -1,31 +1,30 @@
 /**
- * @file Page de documentation et showcase pour le composant Button.
- * @module pages/showcase/ShowcaseButton
+ * @file Page de documentation et showcase pour le composant Button
+ * @module features/documentation/pages/showcase/ShowcaseButton
+ * @description
+ * Page interactive de documentation du composant Button.
+ * 
+ * @version 3.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
  */
 
-import { createShowcaseFromProps } from "../../utils/showcaseFactory";
-import Button from "@/components/ui/Button";
 import { SHOWCASE } from '@/components/ui/Button/Button.types';
-import { buttonProps, buttonUsageExample } from "../../data/Button";
+import { buttonProps, buttonUsageExample, componentName, description, generateCode, renderPreview } from "../../data/Button";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import type { JSX } from "react";
 
-
-const { renderPreview, generateCode } = createShowcaseFromProps(
-  Button,
-  "Button",
-  buttonProps,
-  {
-    defaultChildren: "Example"
-  }
-);
-
+/**
+ * Page de showcase pour le composant Accordion
+ * Délègue toute la logique métier aux fichiers data/Accordion/*
+ */
 const ShowcaseButton = (): JSX.Element => {
   return (
     <>
       <DocPageContainer
-        title="Button"
-        description="Composant **Button** — Élément interactif personnalisable prenant en charge plusieurs variantes, tailles et apparences (`solid`, `outline`, `ghost`). Il assure cohérence visuelle et compatibilité avec toutes les propriétés natives d’un bouton HTML." usageExample={buttonUsageExample}
+        title={componentName}
+        description={description}
+        usageExample={buttonUsageExample}
         params={SHOWCASE}
         renderPreview={renderPreview}
         generateCode={generateCode}

@@ -1,45 +1,45 @@
 /**
- * @file Composant Heading.
+ * @file Composant Heading
  * @module components/ui/Heading
+ * @description Composant d’affichage de titres sémantiques (h1 à h6) avec styles personnalisables.
  */
 
-import type { JSX } from "react";
-import { DEFAULTS, type Props } from './Heading.types';
+import { type JSX } from "react";
+import { DEFAULTS, type Props } from "./Heading.types";
 import { classNames } from "@/utils/object";
 
 /**
- * Composant Heading - Affiche un titre sémantique avec styles personnalisables.
+ * Composant **Heading** — Élément typographique pour afficher des titres hiérarchiques.
  * 
- * Génère des balises HTML de titre (h1 à h6) avec des options de style
- * prédéfinies pour la couleur, l'alignement et des classes personnalisées.
+ * Ce composant génère dynamiquement une balise HTML de titre (`h1` à `h6`) selon la prop `as`.  
+ * Il propose plusieurs variantes de couleur (`variant`), options d’alignement (`justify`)  
+ * et la possibilité d’ajouter des classes CSS personnalisées via `className`.
+ * 
+ * Il garantit la cohérence visuelle et sémantique des titres à travers l’application,  
+ * tout en offrant une grande souplesse de personnalisation.
  * 
  * @component
- * @version 1.2.0
+ * @version 1.3.0
  * @since 2025-10-21
  * @author Seb-Prod
  * 
  * @param {Props} props - Les propriétés du composant.
- * @param {ReactNode} props.children - Le contenu à afficher dans le titre.
- * @param {As} [props.as='h1'] - Le niveau de titre sémantique (1=h1, 2=h2, ..., 6=h6).
- * @param {UiVariant} [props.variant='primary'] - La couleur prédéfinie du titre (primary, secondary, dark, light, neutral, warning, success).
- * @param {UiTextJustify} [props.justify='left'] - L'alignement horizontal du texte (left, right, center, justify).
- * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
  * 
- * Les types détaillés sont définis dans {@link HeadingProps}.
+ * @returns {JSX.Element} Élément React représentant un titre sémantique stylisé.
  * 
  * @example
- * // Titre principal par défaut (h1)
+ * // Titre principal (h1)
  * <Heading>Mon titre principal</Heading>
  * 
  * @example
- * // Sous-titre avec couleur personnalisée
+ * // Sous-titre coloré
  * <Heading as="h2" variant="secondary">
  *   Sous-titre coloré
  * </Heading>
  * 
  * @example
  * // Titre centré avec couleur de succès
- * <Heading as="h3" justify="center" color="success">
+ * <Heading as="h3" justify="center" variant="success">
  *   Opération réussie !
  * </Heading>
  * 
@@ -49,27 +49,22 @@ import { classNames } from "@/utils/object";
  *   Titre personnalisé
  * </Heading>
  * 
- * @see {@link Props}
- * @see {@link DEFAULTS}
+ * @see {@link Props} Pour les types détaillés des propriétés
+ * @see {@link DEFAULTS} Pour les valeurs par défaut
  */
-
 const Heading = (inputProps: Props): JSX.Element => {
-  const { as, variant, justify, className, children } = { ...DEFAULTS, ...inputProps }
+  const { as, variant, justify, className, children } = { ...DEFAULTS, ...inputProps };
   const Tag = as as keyof JSX.IntrinsicElements;
 
-  // Construction sécurisée des classes CSS
+  // Construction dynamique et sécurisée des classes CSS
   const classes = classNames(
     `text-${variant}`,
-    `text-fullWidth`,
     `text-${justify}`,
+    "text-fullWidth",
     className
-  )
-
-  return (
-    <Tag className={classes || undefined}>
-      {children}
-    </Tag>
   );
+
+  return <Tag className={classes}>{children}</Tag>;
 };
 
 export default Heading;
