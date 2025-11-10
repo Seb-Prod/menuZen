@@ -16,7 +16,7 @@ export { default as Text } from './Text';
 export { default as Table } from './Table';
 export { default as Seclect } from './Select';
 export { default as ThemeToggle } from './ThemeToggle';
-export { default as Logo } from './Logo';
+export { Logo } from './Logo';
 export { default as Switch } from './Switch';
 export { Separator } from './Separator';
 export { Input } from './Input';

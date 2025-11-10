@@ -22,6 +22,19 @@ import { Text } from "@/components/ui";
  * 
  * @param {Props} props - Les propriétés du composant.
  * @returns {JSX.Element} Logo avec texte optionnel aligné à droite ou en dessous.
+ * 
+ * @example
+ * <Logo/>
+ * 
+ * @example
+ * <Logo
+ *   align="bottom"
+ *   size="large"
+ *   text="Mon app"
+ * />
+ * 
+ * @see {@link Props} Pour les types détaillés des propriétés
+ * @see {@link DEFAULTS} Pour les valeurs par défaut
  */
 const Logo = (inputProps: Props): JSX.Element => {
   const props = { ...DEFAULTS, ...inputProps };

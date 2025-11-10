@@ -1,9 +1,15 @@
 /**
- * @file Exemple d'utilisation du composant Logo pour la documentation.
- * @module features/documentation/data/Logo
+ * @file Exemples d'utilisation du composant
+ * @module features/documentation/data/Logo/usage
+ * @description
+ * Code examples et documentation d'usage
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
  */
 
-const logoUsageExample = `import Logo from "@/components/ui/Logo";
+export const logoUsageExample = `import Logo from "@/components/ui/Logo";
 
 export default function MyComponent() {
   return (
@@ -25,5 +31,3 @@ export default function MyComponent() {
     </>
   );
 }`;
-
-export default logoUsageExample;

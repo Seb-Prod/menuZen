@@ -13,8 +13,7 @@ import { classNames } from "@/utils/object";
 import { useCloseOnDesktop, useNavbarToggle, useToggleAparence } from "./Navbar.hooks";
 
 // --- UI Components ---
-import Logo from "@/components/ui/Logo";
-import { Button, Separator, ThemeToggle, MenuToggle } from "@/components/ui";
+import { Button, Separator, ThemeToggle, MenuToggle, Logo } from "@/components/ui";
 import NavItem from "./NavItem";
 
 // --- Styles & routes ---

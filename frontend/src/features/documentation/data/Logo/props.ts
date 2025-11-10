@@ -1,29 +1,22 @@
 /**
- * @file Métadonnées des propriétés du composant Logo pour la documentation.
- * @module features/documentation/data/Logo
+ * @file Définition des propriétés du composant
+ * @module features/documentation/data/Logo/props
+ * @description
+ * Documentation des props pour le showcase
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
+ * 
+ * @see {@link PropInfo} pour la structure des métadonnées
+ * @see {@link Logo} pour l'implémentation du composant
  */
 
-import { ALIGN, DEFAULTS } from "@/components/ui/Logo/Logo.types";
+import { ALIGN, DEFAULTS } from "@/components/ui/Logo";
 import { UI_SIZES } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
-/**
- * Liste des propriétés du composant Logo avec leurs métadonnées.
- * 
- * Utilisé pour générer automatiquement la documentation des props
- * dans les pages de documentation.
- * 
- * **Note importante :** Le composant utilise une image qui doit être nommée `logo.png` 
- * et placée dans le dossier `src/assets/`. Cette image sera automatiquement 
- * affichée dans un conteneur circulaire.
- * 
- * @constant
- * @type {readonly PropInfo[]}
- * 
- * @see {@link PropInfo}
- * @see {@link Logo}
- */
 export const logoProps: readonly PropInfo[] = [
   {
     name: "size",

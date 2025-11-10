@@ -10,7 +10,7 @@
  */
 
 import { componentName, description, generateCode, menuToggleProps, menuToggleUsageExample, renderPreview } from "../../data/MenuToggle";
-import { SHOWCASE } from "@/components/ui/MenuToggle/MenuToggle.types";
+import { SHOWCASE } from "@/components/ui/MenuToggle";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 
 const ShowcaseMenuToggle = () => {

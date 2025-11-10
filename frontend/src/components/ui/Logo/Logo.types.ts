@@ -2,8 +2,7 @@
  * @file Définition des types, constantes et valeurs par défaut du composant Logo
  * @module components/ui/Logo/Logo.types
  * @description
- * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
- * les valeurs par défaut et les configurations pour le composant Logo.
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes, les valeurs par défaut et les configurations pour le composant.
  * 
  * @version 1.0.1
  * @since 2025-11-04

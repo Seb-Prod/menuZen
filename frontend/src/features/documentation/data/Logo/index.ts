@@ -1,21 +1,15 @@
 /**
- * @file Point d'entrée pour les métadonnées du composant Logo.
+ * @file Point d'entrée pour les données du composant
  * @module features/documentation/data/Logo
+ * @description
+ * Exporte toutes les configurations et données relatives au showcase
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
  */
 
-export { logoProps } from "./logoProps";
-export { default as logoUsageExample } from "./logoUsageExample";
-
-/**
- * Nom du composant pour la documentation.
- * @constant
- */
-export const componentName = "Logo";
-
-/**
- * Description du composant pour la documentation.
- * @constant
- */
-export const logoDescription = `Composant **Logo** affichant l'identité visuelle de l'application. Supporte différentes tailles et positions du texte (en bas ou à droite du logo).
-
-> **📁 Requis :** Placez votre image de logo nommée \`logo.png\` dans le dossier \`src/assets/\` pour que le composant fonctionne correctement.`;
+export { logoProps } from "./props"
+export { logoUsageExample } from "./usage"
+export { renderPreview, generateCode } from "./showcase"
+export { description, componentName } from "./config"
