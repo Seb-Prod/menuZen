@@ -1,21 +1,31 @@
 /**
- * @file Page de documentation et showcase pour le composant AccordionSection.
- * @module pages/showcase/ShowcaseAccordionSection
+ * @file Page de documentation et showcase pour le composant AccordionSection
+ * @module features/documentation/pages/showcase/ShowcaseAccordionSection
+ * @description
+ * Page interactive de documentation du composant AccordionSection.
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
  */
 
 
 import type { JSX } from "react";
-import { accordionSectionProps } from "../../data/Accordion";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import type { ShowcaseProps } from "../../types/types";
+import { accordionSectionDescription, accordionSectionProps , componentName, relatedComponents} from "../../data/AccordionSection";
 
+/**
+ * Page de showcase pour le composant AccordionSection
+ * Délègue toute la logique métier aux fichiers data/AccordionSection/*
+ */
 const ShowcaseAccordionSection = ({ onNavigate }: ShowcaseProps): JSX.Element => {
   return (
     <DocPageContainer
-      title="AccordionSection"
-      description="Composant **AccordionSection** - Gère son propre état d'**ouverture/fermeture** et affiche le contenu uniquement lorsqu'il est ouvert."
+      title={componentName}
+      description={accordionSectionDescription}
       props={accordionSectionProps}
-      links={["Accordion", "AccordionItem"]}
+      links={relatedComponents}
       onNavigate={onNavigate}
     />
   );

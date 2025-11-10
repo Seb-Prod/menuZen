@@ -1,8 +1,8 @@
 /**
- * @file Métadonnées des propriétés du composant AccordionSection pour la documentation
- * @module features/documentation/data/Accordion/AccordionSectionProps
+ * @file Métadonnées des propriétés du composant AccordionSection
+ * @module features/documentation/data/Accordion/rops
  * @description
- * Ce fichier définit les métadonnées de toutes les propriétés du composant AccordionSection.
+ * Documentation des props pour le showcase
  * 
  * @version 2.2.2
  * @since 2025-10-17
@@ -16,15 +16,7 @@
 import { SECTION_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
 import type { PropInfo } from "../../types/types";
 
-/**
- * Liste des propriétés du composant Accordion avec leurs métadonnées.
- * 
- * @constant
- * @type {readonly PropInfo[]}
- */
-
 export const accordionSectionProps : readonly PropInfo[] = [
-  // --- Propriété : label ---
   {
     name: "label",
     type: "string",
@@ -32,8 +24,6 @@ export const accordionSectionProps : readonly PropInfo[] = [
     description:
       "**Texte affiché sur le bouton d’ouverture de la section.** Sert de titre principal pour identifier le contenu interne de la section.",
   },
-
-  // --- Propriété : defaultOpen ---
   {
     name: "defaultOpen",
     type: "boolean",
@@ -41,8 +31,6 @@ export const accordionSectionProps : readonly PropInfo[] = [
     description:
       "**Indique si la section doit être ouverte par défaut lors du montage du composant.** Utile pour afficher certaines sections directement déployées à l’ouverture de la page.",
   },
-
-  // --- Propriété : children ---
   {
     name: "children",
     type: "ReactNode",
@@ -50,8 +38,6 @@ export const accordionSectionProps : readonly PropInfo[] = [
     description:
       "**Contenu interne de la section.** Généralement composé d’un ou plusieurs éléments `<AccordionItem />`, mais peut contenir tout type de contenu React.",
   },
-
-  // --- Propriété : onClick ---
   {
     name: "onClick",
     type: "() => void",
