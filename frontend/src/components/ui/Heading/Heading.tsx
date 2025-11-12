@@ -1,7 +1,6 @@
 /**
  * @file Composant Heading
  * @module components/ui/Heading
- * @description Composant d’affichage de titres sémantiques (h1 à h6) avec styles personnalisables.
  */
 
 import { type JSX } from "react";
@@ -24,7 +23,6 @@ import { classNames } from "@/utils/object";
  * @author Seb-Prod
  * 
  * @param {Props} props - Les propriétés du composant.
- * 
  * @returns {JSX.Element} Élément React représentant un titre sémantique stylisé.
  * 
  * @example
@@ -37,26 +35,15 @@ import { classNames } from "@/utils/object";
  *   Sous-titre coloré
  * </Heading>
  * 
- * @example
- * // Titre centré avec couleur de succès
- * <Heading as="h3" justify="center" variant="success">
- *   Opération réussie !
- * </Heading>
- * 
- * @example
- * // Titre avec classes CSS personnalisées
- * <Heading as="h4" className="my-custom-class">
- *   Titre personnalisé
- * </Heading>
- * 
  * @see {@link Props} Pour les types détaillés des propriétés
  * @see {@link DEFAULTS} Pour les valeurs par défaut
  */
 const Heading = (inputProps: Props): JSX.Element => {
-  const { as, variant, justify, className, children } = { ...DEFAULTS, ...inputProps };
+  const props = { ...DEFAULTS, ...inputProps };
+  const { as, variant, justify, className, children } = props;
+  
   const Tag = as as keyof JSX.IntrinsicElements;
 
-  // Construction dynamique et sécurisée des classes CSS
   const classes = classNames(
     `text-${variant}`,
     `text-${justify}`,

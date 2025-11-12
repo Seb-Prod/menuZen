@@ -1,30 +1,25 @@
 /**
- * @file Page de documentation et showcase pour le composant Heading.
+ * @file Page de documentation et showcase pour le composant Heading
  * @module features/documentation/pages/showcase/ShowcaseHeading
+ * @description
+ * Page interactive de documentation du composant.
+ * 
+ * @version 3.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
  */
 
-import { headingProps, headingUsageExample } from "../../data/Heading";
-import { SHOWCASE } from "@/components/ui/Heading/Heading.types";
+import { componentName, description, generateCode, props, usageExample, renderPreview } from "../../data/Heading";
+import { SHOWCASE } from "@/components/ui/Heading";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
-import { createShowcaseFromProps } from "../../utils/showcaseFactory";
-import { Heading } from "@/components/ui";
 
-const { renderPreview, generateCode} = createShowcaseFromProps(
-  Heading,
-  "Heading",
-  headingProps,
-  {
-    defaultChildren: "Example"
-  }
-)
-
-const ShowcaseHeading = () => {
+const ShowcaseLogo = () => {
   return (
     <DocPageContainer
-      title="Heading"
-      description="Composant **Heading** personnalisable avec différents niveaux sémantiques, couleurs et options d'alignement."
-      props={headingProps}
-      usageExample={headingUsageExample}
+      title={componentName}
+      description={description}
+      props={props}
+      usageExample={usageExample}
       params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
@@ -32,4 +27,4 @@ const ShowcaseHeading = () => {
   );
 };
 
-export default ShowcaseHeading;
+export default ShowcaseLogo;

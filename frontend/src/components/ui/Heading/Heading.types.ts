@@ -3,7 +3,7 @@
  * @module components/ui/Heading/Heading.types
  * @description
  * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
- * les valeurs par défaut et les configurations pour le composant Heading.
+ * les valeurs par défaut et les configurations pour le composant.
  * 
  * @version 1.3.1
  * @since 2025-10-21
