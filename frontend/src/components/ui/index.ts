@@ -9,7 +9,7 @@
  * @author Seb-Prod
  */
 
-export { default as Button } from './Button';
+export { Button } from './Button';
 export { default as Spinner } from './Spinner';
 export { Heading } from './Heading';
 export { default as Text } from './Text';

@@ -1,5 +1,5 @@
 /**
- * @file Définition des propriétés du composant Button
+ * @file Définition des propriétés du composan
  * @module features/documentation/data/Button/props
  * @description
  * Documentation des props pour le showcase
@@ -12,12 +12,12 @@
  * @see {@link Button} pour l'implémentation du composant
  */
 
-import { DEFAULTS, MODES, TYPES } from "@/components/ui/Button/Button.types";
+import { DEFAULTS, MODES, TYPES } from "@/components/ui/Button";
 import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
-export const buttonProps: readonly PropInfo[] = [
+export const props: readonly PropInfo[] = [
   {
     name: "variant",
     type: formatType(UI_VARIANTS),

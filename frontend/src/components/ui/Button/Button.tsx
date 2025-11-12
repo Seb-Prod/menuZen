@@ -1,7 +1,6 @@
 /**
  * @file Composant Button
  * @module components/ui/Button
- * @description Élément interactif polyvalent pour déclencher une action, soumettre un formulaire ou naviguer dans l’application.
  */
 
 import { type JSX } from "react";
@@ -14,18 +13,6 @@ import { classNames } from "@/utils/object";
  * 
  * Permet de gérer différents contextes d’utilisation (CTA, actions secondaires, validations de formulaire, etc.)
  * grâce à ses variantes (`variant`), tailles (`size`), modes (`mode`) et options d’alignement (`align`).
- * 
- * Les modes disponibles :
- * - **"solid"** : style plein, idéal pour les actions principales.
- * - **"outline"** : bouton avec contour, pour les actions secondaires.
- * - **"ghost"** : style minimal sans fond ni bordure, pour les actions discrètes.
- * 
- * Le composant prend également en charge :
- * - L’état **désactivé** (`disabled`) pour bloquer les interactions utilisateur.
- * - Le mode **pleine largeur** (`fullWidth`) pour occuper tout l’espace horizontal disponible.
- * - La personnalisation via `className` pour ajouter des styles externes.
- * 
- * Il hérite des propriétés natives d’un `HTMLButtonElement`, garantissant une compatibilité complète.
  * 
  * @component
  * @version 1.2.0
@@ -64,18 +51,8 @@ import { classNames } from "@/utils/object";
  * @see {@link DEFAULTS} Pour les valeurs par défaut
  */
 const Button = (inputProps: Props): JSX.Element => {
-  const {
-    mode,
-    variant,
-    size,
-    align,
-    fullWidth,
-    className,
-    disabled,
-    type,
-    children,
-    ...rest
-  } = { ...DEFAULTS, ...inputProps };
+  const props = { ...DEFAULTS, ...inputProps };
+  const { mode, variant, size, align, fullWidth, className, disabled, type, children, ...rest } = props;
 
   const classes = classNames(
     styles.button,

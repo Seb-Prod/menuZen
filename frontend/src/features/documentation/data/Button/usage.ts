@@ -9,7 +9,7 @@
  * @author Seb-Prod
  */
 
-export const buttonUsageExample = `import Button from "@/components/ui/Button";
+export const usageExample = `import Button from "@/components/ui/Button";
 
 export default function MyComponent() {
   const handleClick = () => {

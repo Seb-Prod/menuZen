@@ -8,7 +8,7 @@
 
 import type { JSX } from "react";
 import { Link } from "react-router-dom";
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui";
 import { ROUTES } from "@/routes";
 import styles from "./NotFound.module.css";
 import { Page } from "@/components/layout";
