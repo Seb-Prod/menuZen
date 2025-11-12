@@ -1,7 +1,6 @@
 /**
  * @file Composant Accordion
  * @module components/ui/Accordion
- * @description Conteneur principal pour un système de sections dépliables
  */
 
 import { type JSX } from "react";

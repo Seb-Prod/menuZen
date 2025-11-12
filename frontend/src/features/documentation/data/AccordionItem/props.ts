@@ -1,6 +1,6 @@
 /**
- * @file Métadonnées des propriétés du composant AccordionItem
- * @module features/documentation/data/Accordion/props
+ * @file Métadonnées des propriétés du composant
+ * @module features/documentation/data/AccordionItem/props
  * @description
  * Documentation des props pour le showcase
  * 
@@ -15,7 +15,7 @@
 import { ITEM_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
 import type { PropInfo } from "../../types/types";
 
-export const accordionItemProps: readonly PropInfo[] = [
+export const props: readonly PropInfo[] = [
   {
     name: "label",
     type: "string",

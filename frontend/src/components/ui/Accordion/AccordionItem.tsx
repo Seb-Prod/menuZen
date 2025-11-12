@@ -1,7 +1,6 @@
 /**
  * @file Composant AccordionItem
  * @module components/ui/Accordion/AccordionItem
- * @description Élément cliquable dans une section d'accordéon
  */
 
 import { type JSX } from "react";

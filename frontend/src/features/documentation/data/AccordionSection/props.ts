@@ -1,5 +1,5 @@
 /**
- * @file Métadonnées des propriétés du composant AccordionSection
+ * @file Métadonnées des propriétés du composant
  * @module features/documentation/data/AccordionSection/props
  * @description
  * Documentation des props pour le showcase
@@ -15,7 +15,7 @@
 import { SECTION_DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
 import type { PropInfo } from "../../types/types";
 
-export const accordionSectionProps : readonly PropInfo[] = [
+export const props : readonly PropInfo[] = [
   {
     name: "label",
     type: "string",

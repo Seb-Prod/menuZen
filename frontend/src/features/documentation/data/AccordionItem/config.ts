@@ -1,6 +1,6 @@
 /**
  * @file Configuration générale du composant AccordionItem
- * @module features/documentation/data/AccordionSection/config
+ * @module features/documentation/data/AccordionItem/config
  * @description
  * Contient les constantes et configurations globales du showcase AccordionItem
  * 
@@ -12,7 +12,7 @@
 export const componentName = "AccordionItem";
 
 export const description = 
-  "Composant **AccordionSection** - Ce composant représente un élément interactif (bouton) généralement utilisé à l'intérieur d'une `AccordionSection`. Il peut afficher un label et réagir au clic. Les styles sont hérités du contexte.";
+  "Composant **AccordionItem** - Ce composant représente un élément interactif (bouton) généralement utilisé à l'intérieur d'une `AccordionSection`. Il peut afficher un label et réagir au clic. Les styles sont hérités du contexte.";
 
 export const relatedComponents = [
   "Accordion",

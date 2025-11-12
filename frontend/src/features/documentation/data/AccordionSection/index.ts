@@ -9,5 +9,5 @@
  * @author Seb-Prod
  */
 
-export { accordionSectionProps } from './props';
+export { props } from './props';
 export { description, componentName, relatedComponents } from './config';

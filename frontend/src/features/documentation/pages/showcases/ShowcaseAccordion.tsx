@@ -12,8 +12,8 @@
 import type { JSX } from "react";
 import { SHOWCASE } from '@/components/ui/Accordion/Accordion.types';
 import { 
-  accordionProps, 
-  accordionUsageExample, 
+  props, 
+  usageExample, 
   renderPreview, 
   generateCode,
   description,
@@ -23,20 +23,16 @@ import {
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import type { ShowcaseProps } from "../../types/types";
 
-/**
- * Page de showcase pour le composant Accordion
- * Délègue toute la logique métier aux fichiers data/Accordion/*
- */
 const ShowcaseAccordion = ({ onNavigate }: ShowcaseProps): JSX.Element => {
   return (
     <DocPageContainer
       title={componentName}
       description={description}
       params={SHOWCASE}
-      usageExample={accordionUsageExample}
+      usageExample={usageExample}
       renderPreview={renderPreview}
       generateCode={generateCode}
-      props={accordionProps}
+      props={props}
       links={relatedComponents}
       onNavigate={onNavigate}
     />

@@ -1,5 +1,5 @@
 /**
- * @file Définition des propriétés du composant Accordion
+ * @file Définition des propriétés du composant
  * @module features/documentation/data/Accordion/props
  * @description
  * Documentation des props pour le showcase
@@ -16,7 +16,7 @@ import { formatType } from "@/features/documentation/utils";
 import { SHOWCASE, DEFAULTS } from "@/components/ui/Accordion/Accordion.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 
-export const accordionProps: readonly PropInfo[] = [
+export const props: readonly PropInfo[] = [
   {
     name: "variant",
     type: formatType(SHOWCASE.variant),

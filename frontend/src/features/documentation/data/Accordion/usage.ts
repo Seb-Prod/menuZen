@@ -1,5 +1,5 @@
 /**
- * @file Exemples d'utilisation du composant Accordion
+ * @file Exemples d'utilisation du composant
  * @module features/documentation/data/Accordion/usage
  * @description
  * Code examples et documentation d'usage
@@ -9,7 +9,7 @@
  * @author Seb-Prod
  */
 
-export const accordionUsageExample = `import { Accordion, AccordionSection, AccordionItem } from "@/components/ui/Accordion";
+export const usageExample = `import { Accordion, AccordionSection, AccordionItem } from "@/components/ui/Accordion";
 import type { JSX } from "react";
 
 export default function MyComponent(): JSX.Element {
@@ -66,5 +66,3 @@ export default function MyComponent(): JSX.Element {
   );
 }
 `;
-
-export default accordionUsageExample;

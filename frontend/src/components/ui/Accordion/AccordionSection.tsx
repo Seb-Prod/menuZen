@@ -1,7 +1,6 @@
 /**
  * @file Composant AccordionSection
  * @module components/ui/Accordion/AccordionSection
- * @description Section complète avec bascule et contenu dans un accordéon
  */
 
 import { useState, type JSX } from "react";

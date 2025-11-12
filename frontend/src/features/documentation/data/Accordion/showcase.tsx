@@ -1,8 +1,8 @@
 /**
- * @file Logique de rendu du showcase Accordion
+ * @file Logique de rendu du showcase
  * @module features/documentation/data/Accordion/showcase
  * @description
- * Fonctions renderPreview et generateCode spécifiques au composant Accordion
+ * Fonctions renderPreview et generateCode spécifiques au composant
  * 
  * @version 1.0.0
  * @since 2025-11-10
@@ -13,7 +13,7 @@ import { Accordion, AccordionItem, AccordionSection } from "@/components/ui/Acco
 import type { JSX } from "react";
 import type { Combination } from "../../utils/showcaseHelpers";
 import { SHOWCASE } from '@/components/ui/Accordion/Accordion.types';
-import { accordionProps } from "./props";
+import { props } from "./props";
 import { componentName } from "./config";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
 
@@ -26,7 +26,7 @@ const {
 } = createShowcaseFromProps(
   Accordion,
   componentName,
-  accordionProps,
+  props,
   { excludeFromCode: ["children"] }
 );
 

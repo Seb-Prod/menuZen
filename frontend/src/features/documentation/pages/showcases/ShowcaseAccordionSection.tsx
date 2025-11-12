@@ -13,18 +13,14 @@
 import type { JSX } from "react";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 import type { ShowcaseProps } from "../../types/types";
-import { description, accordionSectionProps , componentName, relatedComponents} from "../../data/AccordionSection";
+import { description, props , componentName, relatedComponents} from "../../data/AccordionSection";
 
-/**
- * Page de showcase pour le composant AccordionSection
- * Délègue toute la logique métier aux fichiers data/AccordionSection/*
- */
 const ShowcaseAccordionSection = ({ onNavigate }: ShowcaseProps): JSX.Element => {
   return (
     <DocPageContainer
       title={componentName}
       description={description}
-      props={accordionSectionProps}
+      props={props}
       links={relatedComponents}
       onNavigate={onNavigate}
     />

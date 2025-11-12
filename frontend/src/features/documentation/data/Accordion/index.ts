@@ -9,7 +9,7 @@
  * @author Seb-Prod
  */
 
-export { accordionProps } from './props';
-export { accordionUsageExample } from './usage';
+export { props } from './props';
+export { usageExample } from './usage';
 export { renderPreview, generateCode } from './showcase';
 export { description, componentName, relatedComponents } from './config';
