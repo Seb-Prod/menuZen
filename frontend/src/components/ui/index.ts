@@ -24,3 +24,4 @@ export { Accordion } from './Accordion';
 export { AccordionItem } from './Accordion';
 export { AccordionSection } from './Accordion'
 export { MenuToggle } from './MenuToggle';
+export { ChevronIcon } from './ChevronIcon';

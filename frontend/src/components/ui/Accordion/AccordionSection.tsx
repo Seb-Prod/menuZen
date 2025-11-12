@@ -7,7 +7,7 @@
 import { useState, type JSX } from "react";
 import styles from "./Accordion.module.css";
 import { SECTION_DEFAULTS, type SectionProps } from "./Accordion.types";
-import ChevronIcon from "../ChevronIcon";
+import {ChevronIcon} from "@/components/ui";
 import { useAccordion } from "./Accordion.context";
 import { classNames } from "@/utils/object";
 

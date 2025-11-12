@@ -1,12 +1,16 @@
 /**
  * @file Constantes pour le composant ChevronIcon
  * @module components/ui/ChevronIcon/constants
+ * @description
+ * Collection des icônes SVG utilisées par le composant ChevronIcon. Chaque icône est pré-définie pour faciliter la maintenance et la réutilisation
+ * 
+ * @version 1.0.0
+ * @since 2025-11-12
+ * @author Seb-Prod
+ * 
+ * @see {@link ChevronIcon} pour l'implémentation du composant principal.
  */
 
-/**
- * Collection des icônes SVG utilisées par le composant ChevronIcon
- * Chaque icône est pré-définie pour faciliter la maintenance et la réutilisation
- */
 export const CHEVRON_ICONS = {
   /**
    * Icône chevron classique (v inversé)

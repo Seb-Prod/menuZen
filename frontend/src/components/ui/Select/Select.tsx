@@ -6,7 +6,7 @@
 import { useRef, type JSX } from "react";
 import styles from "./Select.module.css";
 import { DEFAULTS, type Props } from "./Select.types";
-import ChevronIcon from "../ChevronIcon";
+import {ChevronIcon} from "@/components/ui";
 import {
   useSelectState,
   useSelectHandlers,
