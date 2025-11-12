@@ -1,6 +1,15 @@
 /**
- * @file Métadonnées des propriétés du composant Select pour la documentation.
- * @module features/documentation/data/Select
+ * @file Définition des propriétés du composant
+ * @module features/documentation/data/Select/props
+ * @description
+ * Documentation des props pour le showcase
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
+ * 
+ * @see {@link PropInfo} pour la structure des métadonnées
+ * @see {@link Select} pour l'implémentation du composant
  */
 
 import {
@@ -10,16 +19,7 @@ import { UI_ALIGN, UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
-/**
- * Liste des propriétés du composant Select avec leurs métadonnées.
- * * Utilisé pour générer automatiquement la documentation des props
- * dans les pages de documentation.
- * * @constant
- * @type {readonly PropInfo[]}
- * * @see {@link PropInfo}
- * @see {@link Select}
- */
-export const selectProps: readonly PropInfo[] = [
+export const props: readonly PropInfo[] = [
   {
     name: "variant",
     type: formatType(UI_VARIANTS),
@@ -51,7 +51,7 @@ export const selectProps: readonly PropInfo[] = [
   {
     name: "options",
     type: "SelectOption[]",
-    default: undefined, // Non-applicable pour le défaut de la prop
+    default: undefined,
     description: "Tableau d'objets définissant les choix disponibles. Chaque objet doit inclure `value` et `label`, et peut inclure `disabled`.",
     required: true,
   },

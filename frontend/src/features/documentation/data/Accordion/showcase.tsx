@@ -9,10 +9,9 @@
  * @author Seb-Prod
  */
 
-import { Accordion, AccordionItem, AccordionSection } from "@/components/ui/Accordion";
+import { Accordion, AccordionItem, AccordionSection, SHOWCASE } from "@/components/ui/Accordion";
 import type { JSX } from "react";
 import type { Combination } from "../../utils/showcaseHelpers";
-import { SHOWCASE } from '@/components/ui/Accordion/Accordion.types';
 import { props } from "./props";
 import { componentName } from "./config";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";

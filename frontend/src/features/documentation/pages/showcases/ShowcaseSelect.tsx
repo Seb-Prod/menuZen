@@ -1,51 +1,30 @@
 /**
- * @file Page de documentation et showcase pour le composant Select.
- * @module pages/showcase/ShowcaseSelect
+ * @file Page de documentation et showcase pour le composant Select
+ * @module features/documentation/pages/showcase/ShowcaseSelect
+ * @description
+ * Page interactive de documentation du composant.
+ * 
+ * @version 3.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
  */
 
-import Select from "@/components/ui/Select";
-import type { JSX } from "react";
-import { SHOWCASE } from '@/components/ui/Select/Select.types';
-import { selectProps, selectUsageExample } from "../../data/Select";
-import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer"; // Assurez-vous d'importer le DocPageContainer
-import { createShowcaseFromProps } from "../../utils/showcaseFactory";
+import { componentName, description, generateCode, props, usageExample, renderPreview } from "../../data/Select";
+import { SHOWCASE } from "@/components/ui/MenuToggle";
+import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 
-/**
- * Définit un jeu d'options minimal pour le rendu de la preview.
- * @constant
- */
-const PREVIEW_OPTIONS = [
-  { value: '1', label: 'Option 1' },
-  { value: '2', label: 'Option 2' },
-  { value: '3', label: 'Option 3' },
-];
-
-const { renderPreview, generateCode} = createShowcaseFromProps(
-  Select,
-  "Select",
-  selectProps,
-  {
-    additionalRenderProps: {
-      options: PREVIEW_OPTIONS,
-    },
-    additionalCodeProps: {
-      options: `options={[{ value: "1", label: "Option 1" }, { value: "2", label: "Option 2" }, { value: "3", label: "Option 3" }]}`,
-    },
-  }
-)
-
-const ShowcaseSelect = (): JSX.Element => {
+const ShowcaseMenuToggle = () => {
   return (
     <DocPageContainer
-      title="Select"
-      description="Composant **Select** est une liste déroulante personnalisée et accessible qui supporte la navigation au clavier, la gestion des variantes de style, de la taille, et de l'alignement du menu."
-      usageExample={selectUsageExample}
+      title={componentName}
+      description={description}
+      props={props}
+      usageExample={usageExample}
       params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
-      props={selectProps}
     />
   );
 };
 
-export default ShowcaseSelect;
+export default ShowcaseMenuToggle;

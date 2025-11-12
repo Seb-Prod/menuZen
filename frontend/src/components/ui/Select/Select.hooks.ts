@@ -1,40 +1,29 @@
 /**
- * @file Hooks personnalisés pour le composant Select.
+ * @file Hooks personnalisés pour le composant Select
  * @module components/ui/Select/Select.hooks
- * @version 1.0.0
+ * 
+ * @version 1.1.1
  * @since 2025-10-21
  * @author Seb-Prod
  */
 
 import { useState, useEffect, useCallback } from "react";
-import type { SelectOption } from "./Select.types";
+import type { Option } from "./Select.types";
 
-/**
- * Interface pour les valeurs de retour du hook useSelectState.
- */
 interface UseSelectStateReturn {
-  /** Indique si le menu déroulant est ouvert */
   isOpen: boolean;
-  /** Valeur actuellement sélectionnée */
   selectedValue: string;
-  /** Index de l'option actuellement focalisée */
   focusedIndex: number;
-  /** Fonction pour définir l'état d'ouverture */
   setIsOpen: (value: boolean | ((prev: boolean) => boolean)) => void;
-  /** Fonction pour définir la valeur sélectionnée */
   setSelectedValue: (value: string) => void;
-  /** Fonction pour définir l'index de l'option focalisée */
   setFocusedIndex: (value: number | ((prev: number) => number)) => void;
 }
 
 /**
- * Hook pour gérer l'état interne du composant Select.
+ * Gère l'état interne du composant Select.
  * 
- * Gère l'ouverture/fermeture du menu, la valeur sélectionnée et l'index
- * de l'option actuellement focalisée au clavier.
- * 
- * @param {string} [initialValue] - Valeur initiale sélectionnée.
- * @returns {UseSelectStateReturn} État et setters pour le Select.
+ * @param initialValue - Valeur initiale sélectionnée
+ * @returns État et setters pour le Select
  */
 export const useSelectState = (initialValue?: string): UseSelectStateReturn => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,32 +40,20 @@ export const useSelectState = (initialValue?: string): UseSelectStateReturn => {
   };
 };
 
-/**
- * Interface pour les paramètres du hook useSelectKeyboard.
- */
 interface UseSelectKeyboardParams {
-  /** Indique si le menu déroulant est ouvert */
   isOpen: boolean;
-  /** Index de l'option actuellement focalisée */
   focusedIndex: number;
-  /** Liste des options disponibles */
-  options: SelectOption[];
-  /** Fonction pour définir l'index de l'option focalisée */
+  options: Option[];
   setFocusedIndex: (value: number | ((prev: number) => number)) => void;
-  /** Fonction pour sélectionner une option */
-  handleSelect: (option: SelectOption) => void;
-  /** Fonction pour fermer le menu déroulant */
+  handleSelect: (option: Option) => void;
   closeDropdown: () => void;
 }
 
 /**
- * Hook pour gérer la navigation au clavier dans le Select.
+ * Gère la navigation au clavier dans le Select.
+ * Navigation avec flèches haut/bas, sélection avec Entrée, fermeture avec Échap.
  * 
- * Implémente la navigation avec les flèches haut/bas, la sélection avec Entrée,
- * et la fermeture avec Échap. Filtre automatiquement les options désactivées.
- * 
- * @param {UseSelectKeyboardParams} params - Paramètres de configuration.
- * @returns {void}
+ * @param params - Paramètres de configuration
  */
 export const useSelectKeyboard = ({
   isOpen,
@@ -120,26 +97,17 @@ export const useSelectKeyboard = ({
   }, [isOpen, focusedIndex, options, handleSelect, closeDropdown, setFocusedIndex]);
 };
 
-/**
- * Interface pour les paramètres du hook useClickOutside.
- */
 interface UseClickOutsideParams<T extends HTMLElement = HTMLElement> {
-  /** Référence à l'élément conteneur */
   ref: React.RefObject<T | null>;
-  /** Indique si la détection est active */
   isActive: boolean;
-  /** Fonction appelée lors d'un clic extérieur */
   onClickOutside: () => void;
 }
 
 /**
- * Hook pour détecter les clics à l'extérieur d'un élément.
+ * Détecte les clics à l'extérieur d'un élément.
+ * Utilisé pour fermer le menu déroulant.
  * 
- * Utile pour fermer le menu déroulant lorsque l'utilisateur clique
- * en dehors du composant Select.
- * 
- * @param {UseClickOutsideParams} params - Paramètres de configuration.
- * @returns {void}
+ * @param params - Paramètres de configuration
  */
 export const useClickOutside = <T extends HTMLElement = HTMLElement>({
   ref,
@@ -160,26 +128,16 @@ export const useClickOutside = <T extends HTMLElement = HTMLElement>({
   }, [isActive, onClickOutside, ref]);
 };
 
-/**
- * Interface pour les paramètres du hook useAutoScroll.
- */
 interface UseAutoScrollParams {
-  /** Référence à l'élément de liste */
   listRef: React.RefObject<HTMLUListElement | null>;
-  /** Indique si le menu déroulant est ouvert */
   isOpen: boolean;
-  /** Index de l'option actuellement focalisée */
   focusedIndex: number;
 }
 
 /**
- * Hook pour gérer le scroll automatique vers l'option focalisée.
+ * Gère le scroll automatique vers l'option focalisée.
  * 
- * Fait défiler automatiquement la liste pour que l'option focalisée
- * au clavier soit toujours visible à l'écran.
- * 
- * @param {UseAutoScrollParams} params - Paramètres de configuration.
- * @returns {void}
+ * @param params - Paramètres de configuration
  */
 export const useAutoScroll = ({
   listRef,
@@ -196,42 +154,26 @@ export const useAutoScroll = ({
   }, [focusedIndex, isOpen, listRef]);
 };
 
-/**
- * Interface pour les paramètres du hook useSelectHandlers.
- */
 interface UseSelectHandlersParams {
-  /** Indique si le composant est désactivé */
   disabled: boolean;
-  /** Fonction pour définir l'état d'ouverture */
   setIsOpen: (value: boolean | ((prev: boolean) => boolean)) => void;
-  /** Fonction pour définir la valeur sélectionnée */
   setSelectedValue: (value: string) => void;
-  /** Fonction pour définir l'index de l'option focalisée */
   setFocusedIndex: (value: number | ((prev: number) => number)) => void;
-  /** Fonction de callback externe appelée lors du changement */
   onChange?: (value: string) => void;
 }
 
-/**
- * Interface pour les valeurs de retour du hook useSelectHandlers.
- */
 interface UseSelectHandlersReturn {
-  /** Fonction pour gérer le toggle du menu */
   handleToggle: () => void;
-  /** Fonction pour gérer la sélection d'une option */
-  handleSelect: (option: SelectOption) => void;
-  /** Fonction pour fermer le menu déroulant */
+  handleSelect: (option: Option) => void;
   closeDropdown: () => void;
 }
 
 /**
- * Hook pour gérer les handlers d'événements du Select.
+ * Gère les handlers d'événements du Select.
+ * Fournit les fonctions de toggle, sélection et fermeture.
  * 
- * Fournit les fonctions de gestion du toggle, de la sélection d'options
- * et de la fermeture du menu déroulant.
- * 
- * @param {UseSelectHandlersParams} params - Paramètres de configuration.
- * @returns {UseSelectHandlersReturn} Handlers pour les événements du Select.
+ * @param params - Paramètres de configuration
+ * @returns Handlers pour les événements du Select
  */
 export const useSelectHandlers = ({
   disabled,
@@ -240,15 +182,13 @@ export const useSelectHandlers = ({
   setFocusedIndex,
   onChange,
 }: UseSelectHandlersParams): UseSelectHandlersReturn => {
-  // Fermeture du menu déroulant
   const closeDropdown = useCallback(() => {
     setIsOpen(false);
     setFocusedIndex(-1);
   }, [setIsOpen, setFocusedIndex]);
 
-  // Sélection d'une option
   const handleSelect = useCallback(
-    (option: SelectOption) => {
+    (option: Option) => {
       if (option.disabled) return;
       setSelectedValue(option.value);
       closeDropdown();
@@ -257,7 +197,6 @@ export const useSelectHandlers = ({
     [closeDropdown, onChange, setSelectedValue]
   );
 
-  // Toggle ouverture/fermeture
   const handleToggle = useCallback(() => {
     if (!disabled) setIsOpen(prev => !prev);
   }, [disabled, setIsOpen]);
@@ -270,14 +209,11 @@ export const useSelectHandlers = ({
 };
 
 /**
- * Hook pour synchroniser la valeur externe avec l'état interne.
+ * Synchronise la valeur externe avec l'état interne.
+ * Permet d'utiliser le Select en mode contrôlé.
  * 
- * Permet d'utiliser le Select en mode contrôlé en synchronisant
- * la prop `value` avec l'état interne.
- * 
- * @param {string} [value] - Valeur externe à synchroniser.
- * @param {(value: string) => void} setSelectedValue - Fonction pour mettre à jour la valeur interne.
- * @returns {void}
+ * @param value - Valeur externe à synchroniser
+ * @param setSelectedValue - Fonction pour mettre à jour la valeur interne
  */
 export const useSyncExternalValue = (
   value: string | undefined,

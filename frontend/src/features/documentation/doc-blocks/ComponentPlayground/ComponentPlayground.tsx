@@ -6,9 +6,8 @@
 import { type JSX } from "react";
 import styles from "./ComponentPlayground.module.css";
 import CodeBlock from "../CodeBlock";
-import { Heading, Text } from "@/components/ui";
+import { Heading, Text, Select } from "@/components/ui";
 import type { Combination, Params } from "../../utils/showcaseHelpers";
-import Select from "@/components/ui/Select";
 
 type ComponentPlaygroundProps<T extends Params> = {
     /** Les paramètres de variation disponibles pour le composant. */
@@ -76,7 +75,7 @@ const ComponentPlayground = <T extends Params>({
     renderPreview,
     generateCode
 }: ComponentPlaygroundProps<T>): JSX.Element => {
-    
+
     // Safety check : bien que le parent doive l'assurer, nous gérons le cas où params est absent.
     if (!params) {
         // En l'absence de paramètres, on n'affiche pas la section de sélection.
@@ -97,7 +96,7 @@ const ComponentPlayground = <T extends Params>({
             </>
         );
     }
-    
+
     // Si params est présent, on affiche la sélection des variations.
     return (
         <>
@@ -113,8 +112,8 @@ const ComponentPlayground = <T extends Params>({
                                 fullWidth
                                 options={paramValues.map((value) => ({
                                     value: String(value),
-                                    label: typeof value === 'boolean' 
-                                        ? (value ? 'true' : 'false') 
+                                    label: typeof value === 'boolean'
+                                        ? (value ? 'true' : 'false')
                                         : String(value)
                                 }))}
                                 value={String(selectedParams[paramName])}

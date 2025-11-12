@@ -11,12 +11,12 @@
 
 import { Button } from "@/components/ui";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
-import { buttonProps } from "./props";
+import { props } from "./props";
 
 const { renderPreview, generateCode } = createShowcaseFromProps(
   Button,
   "Button",
-  buttonProps,
+  props,
   {
     defaultChildren: "Example"
   }

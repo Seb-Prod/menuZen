@@ -9,4 +9,6 @@
  * @author Seb-Prod
  */
 
-export { default } from './Select';
+export { default as Select } from './Select';
+export type { Props as SelectProps} from "./Select.types"
+export {DEFAULTS, SHOWCASE} from "./Select.types"

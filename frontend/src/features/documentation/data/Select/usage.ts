@@ -1,4 +1,15 @@
-const selectUsageExample = `import Select from "@/components/ui/Select";
+/**
+ * @file Exemples d'utilisation du composant
+ * @module features/documentation/data/Select/usage
+ * @description
+ * Code examples et documentation d'usage
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
+ */
+
+export const usageExample = `import Select from "@/components/ui/Select";
 import { useState } from "react";
 
 const LANGUAGES = [
@@ -69,5 +80,3 @@ export default function SelectShowcase() {
     </div>
   );
 }`;
-
-export default selectUsageExample;
