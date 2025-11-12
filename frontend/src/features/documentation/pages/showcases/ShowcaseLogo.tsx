@@ -9,7 +9,7 @@
  * @author Seb-Prod
  */
 
-import { componentName, description, generateCode, logoProps, logoUsageExample, renderPreview } from "../../data/Logo";
+import { componentName, description, generateCode, props, usageExample, renderPreview } from "../../data/Logo";
 import { SHOWCASE } from "@/components/ui/Logo";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 
@@ -18,8 +18,8 @@ const ShowcaseLogo = () => {
     <DocPageContainer
       title={componentName}
       description={description}
-      props={logoProps}
-      usageExample={logoUsageExample}
+      props={props}
+      usageExample={usageExample}
       params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}

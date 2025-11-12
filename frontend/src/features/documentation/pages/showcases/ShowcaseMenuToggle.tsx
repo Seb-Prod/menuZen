@@ -9,7 +9,7 @@
  * @author Seb-Prod
  */
 
-import { componentName, description, generateCode, menuToggleProps, menuToggleUsageExample, renderPreview } from "../../data/MenuToggle";
+import { componentName, description, generateCode, props, usageExample, renderPreview } from "../../data/MenuToggle";
 import { SHOWCASE } from "@/components/ui/MenuToggle";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 
@@ -18,8 +18,8 @@ const ShowcaseMenuToggle = () => {
     <DocPageContainer
       title={componentName}
       description={description}
-      props={menuToggleProps}
-      usageExample={menuToggleUsageExample}
+      props={props}
+      usageExample={usageExample}
       params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}

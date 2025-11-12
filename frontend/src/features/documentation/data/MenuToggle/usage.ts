@@ -9,7 +9,7 @@
  * @author Seb-Prod
  */
 
-export const menuToggleUsageExample = `import MenuToggle from "@/components/ui/MenuToggle";
+export const usageExample = `import MenuToggle from "@/components/ui/MenuToggle";
 
 export default function MyComponent() {
   return (

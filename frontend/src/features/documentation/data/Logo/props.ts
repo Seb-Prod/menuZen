@@ -17,7 +17,7 @@ import { UI_SIZES } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
-export const logoProps: readonly PropInfo[] = [
+export const props: readonly PropInfo[] = [
   {
     name: "size",
     type: formatType(UI_SIZES),

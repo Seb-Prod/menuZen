@@ -17,7 +17,7 @@ import { UI_SIZES } from "@/components/ui/ui.types";
 import type { PropInfo } from "../../types/types";
 import { formatType } from "./../../utils";
 
-export const menuToggleProps: readonly PropInfo[] = [
+export const props: readonly PropInfo[] = [
   {
     name: "type",
     type: formatType(TYPE),

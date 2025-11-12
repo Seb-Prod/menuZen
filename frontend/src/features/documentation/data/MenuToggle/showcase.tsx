@@ -11,12 +11,12 @@
 
 import { MenuToggle } from "@/components/ui";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
-import { menuToggleProps } from "./props";
+import { props } from "./props";
 
 const { renderPreview, generateCode } = createShowcaseFromProps(
   MenuToggle,
   "MenuToggle",
-  menuToggleProps
+  props
 );
 
 export { renderPreview, generateCode };

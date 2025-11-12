@@ -9,7 +9,7 @@
  * @author Seb-Prod
  */
 
-export const logoUsageExample = `import Logo from "@/components/ui/Logo";
+export const usageExample = `import Logo from "@/components/ui/Logo";
 
 export default function MyComponent() {
   return (

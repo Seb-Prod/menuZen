@@ -11,12 +11,12 @@
 
 import { Logo } from "@/components/ui";
 import { createShowcaseFromProps } from "../../utils/showcaseFactory";
-import { logoProps } from "./props";
+import { props } from "./props";
 
 const { renderPreview, generateCode } = createShowcaseFromProps(
     Logo,
     "Logo",
-    logoProps
+    props
 );
 
 export { renderPreview, generateCode };

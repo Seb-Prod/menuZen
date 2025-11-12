@@ -9,7 +9,7 @@
  * @author Seb-Prod
  */
 
-export { logoProps } from "./props"
-export { logoUsageExample } from "./usage"
+export { props } from "./props"
+export { usageExample } from "./usage"
 export { renderPreview, generateCode } from "./showcase"
 export { description, componentName } from "./config"
