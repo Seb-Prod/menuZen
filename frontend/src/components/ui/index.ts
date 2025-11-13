@@ -17,7 +17,7 @@ export { default as Table } from './Table';
 export { Select } from './Select';
 export { default as ThemeToggle } from './ThemeToggle';
 export { Logo } from './Logo';
-export { default as Switch } from './Switch';
+export { Switch } from './Switch';
 export { Separator } from './Separator';
 export { Input } from './Input';
 export { Accordion, AccordionSection, AccordionItem } from './Accordion';

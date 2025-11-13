@@ -1,4 +1,15 @@
-const switchUsageExample = `import Switch from "@/components/ui/Switch";
+/**
+ * @file Exemples d'utilisation du composant
+ * @module features/documentation/data/Switch/usage
+ * @description
+ * Code examples et documentation d'usage
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
+ */
+
+export const usageExample = `import Switch from "@/components/ui/Switch";
 import { useState } from "react";
 
 export default function MyComponent() {
@@ -52,5 +63,3 @@ export default function MyComponent() {
     </div>
   );
 }`;
-
-export default switchUsageExample;

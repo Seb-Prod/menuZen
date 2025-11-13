@@ -18,21 +18,7 @@ import { classNames } from "@/utils/object";
  * @since 2025-10-23
  * @author Seb-Prod
  * 
- * @param {SwitchProps} props - Les propriétés du composant.
- * @param {string} [props.id='switch'] - Identifiant unique du switch (pour l'association label/input).
- * @param {string} [props.label='test'] - Texte du label associé au switch.
- * @param {boolean} [props.checked=false] - État du switch (true = activé, false = désactivé).
- * @param {boolean} [props.disabled=false] - Si true, désactive l'interaction avec le switch.
- * @param {(checked: boolean) => void} [props.onChange] - Callback appelé lors du changement d'état.
- * @param {SwitchVariant} [props.variant='primary'] - Variante visuelle (primary, secondary, error, success, info, warning, neutral).
- * @param {UiSize} [props.size='medium'] - Taille du switch (small, medium, large).
- * @param {UiAlign} [props.align='center'] - Alignement horizontal (left, center, right).
- * @param {UiVariant} [props.labelColor='primary'] - Couleur du texte du label (primary, secondary, error, success, info, warning, neutral, link).
- * @param {string} [props.name] - Nom du switch pour les formulaires.
- * @param {string} [props.value] - Valeur associée au switch pour les formulaires.
- * @param {string} [props.ariaLabel] - Label ARIA pour l'accessibilité (si pas de label visible).
- * @param {string} [props.ariaDescribedBy] - ID de l'élément décrivant le switch pour l'accessibilité.
- * 
+ * @param {Props} props - Les propriétés du composant.
  * @returns {JSX.Element} Élément visuel représentant un switch interactif.
  * 
  * @example
@@ -62,8 +48,10 @@ import { classNames } from "@/utils/object";
  * @see {@link DEFAULTS}
  */
 const Switch = (inputProps: Props): JSX.Element => {
-  const { onChange, size, disabled, variant, align, id, label, name, value, checked, ariaDescribedBy, ariaLabel } = { ...DEFAULTS, ...inputProps }
-  // Gestion du changement d'état
+  const props = { ...DEFAULTS, ...inputProps }
+  const { onChange, size, disabled, variant, align, id, label, name, value, checked, ariaDescribedBy, ariaLabel } = props;
+
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       onChange(event.target.checked);

@@ -1,26 +1,23 @@
 /**
- * @file Métadonnées des propriétés du composant Switch pour la documentation.
- * @module features/documentation/data/Switch
+ * @file Définition des propriétés du composant
+ * @module features/documentation/data/Switch/props
+ * @description
+ * Documentation des props pour le showcase
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
+ * 
+ * @see {@link PropInfo} pour la structure des métadonnées
+ * @see {@link Switch} pour l'implémentation du composant
  */
 
-import { DEFAULTS, SWITCH_VARIANTS} from "@/components/ui/Switch/Switch.types";
+import { DEFAULTS, SWITCH_VARIANTS} from "@/components/ui/Switch";
 import { UI_ALIGN, UI_SIZES } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from '@/features/documentation/utils';
 
-/**
- * Liste des propriétés du composant Switch avec leurs métadonnées.
- *
- * Utilisé pour générer automatiquement la documentation des props
- * dans les pages de documentation.
- *
- * @constant
- * @type {readonly PropInfo[]}
- *
- * @see {@link PropInfo}
- * @see {@link Switch}
- */
-export const switchProps: readonly PropInfo[] = [
+export const props: readonly PropInfo[] = [
   {
     name: "id",
     type: "string",

@@ -1,33 +1,30 @@
 /**
- * @file Page de documentation et showcase pour le composant Switch.
- * @module pages/showcase/ShowcaseSwitch
+ * @file Page de documentation et showcase pour le composant Switch
+ * @module features/documentation/pages/showcase/ShowcaseSwitch
+ * @description
+ * Page interactive de documentation du composant.
+ * 
+ * @version 3.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
  */
 
-import Switch from "@/components/ui/Switch";
-import { type JSX } from "react";
-import { SHOWCASE } from "@/components/ui/Switch/Switch.types";
-import { switchProps, switchUsageExample } from "../../data/Switch";
+import { componentName, description, generateCode, props, usageExample, renderPreview } from "../../data/Switch";
+import { SHOWCASE } from "@/components/ui/Switch";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
-import { createShowcaseFromProps } from "../../utils/showcaseFactory";
 
-const {renderPreview, generateCode} = createShowcaseFromProps(
-  Switch,
-  "Switch",
-  switchProps
-)
-
-const ShowcaseSwitch = (): JSX.Element => {
+const ShowcaseLogo = () => {
   return (
     <DocPageContainer
-      title="Switch"
-      description="Composant **Switch** - Interrupteur à bascule permettant d'activer ou désactiver une option. Idéal pour les paramètres, préférences utilisateur et états binaires avec retour visuel immédiat."
-      usageExample={switchUsageExample}
+      title={componentName}
+      description={description}
+      props={props}
+      usageExample={usageExample}
       params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
-      props={switchProps}
     />
   );
 };
 
-export default ShowcaseSwitch;
+export default ShowcaseLogo;
