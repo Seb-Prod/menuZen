@@ -5,7 +5,7 @@
 
 import { useState, lazy, Suspense, useCallback, type JSX } from "react";
 import styles from "./ShowcasePage.module.css";
-import Spinner from "@/components/ui/Spinner";
+import { Spinner } from "@/components/ui";
 import { Page } from "@/components/layout";
 import DocumentationSidebar from "../components/DocumentationSidebar/DocumentationSidebar";
 import SectionDocumentation from "../components/SectionDocumentation/SectionDocumentation";

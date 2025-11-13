@@ -20,11 +20,6 @@ import { classNames } from "@/utils/object";
  * @author Seb-Prod
  * 
  * @param {Props} props - Les propriétés du composant.
- * @param {React.ReactNode} [props.children] - Contenu optionnel affiché sous le spinner (texte, icône, etc.).
- * @param {UiVariant} [props.variant='primary'] - Schéma de couleur du spinner (primary, secondary, error, success, info, neutral).
- * @param {UiSize} [props.size='medium'] - Taille prédéfinie du spinner (small, medium, large).
- * @param {UiAlign} [props.align='center'] - Position horizontale du spinner dans son conteneur (left, center, right).
- * 
  * @returns {JSX.Element} Élément visuel représentant un indicateur de chargement.
  * 
  * @example
@@ -53,8 +48,9 @@ import { classNames } from "@/utils/object";
  * @see {@link DEFAULTS}
  */
 const Spinner = (inputProps: Props): JSX.Element => {
-  const { size, variant, align, children } = { ...DEFAULTS, ...inputProps }
-  // Construction des classes CSS dynamiques
+  const props = { ...DEFAULTS, ...inputProps };
+  const { size, variant, align, children } = props;
+
   const classes = classNames(
     styles.root,
     `component-${align}`,
@@ -63,8 +59,8 @@ const Spinner = (inputProps: Props): JSX.Element => {
   )
 
   const classesSpinner = classNames(
-    styles.spinner,
     `size-${size}`,
+    styles.spinner,
   )
 
   return (

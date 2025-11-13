@@ -8,29 +8,12 @@
   font-size: var(--size-font);
 }
 
-/* Base spinner - Animation circulaire avec points */
+/* Tailles - DÉFINIR EN PREMIER */
 .spinner {
-  --d: 22px;
-  /* Distance du centre */
-  --dot-size: 4px;
-  /* Taille des points */
-  width: var(--dot-size);
-  height: var(--dot-size);
-  border-radius: 50%;
-  /* 8 points disposés en cercle avec opacité croissante */
-  box-shadow:
-    calc(1*var(--d)) calc(0*var(--d)) 0 0,
-    calc(0.707*var(--d)) calc(0.707*var(--d)) 0 calc(var(--dot-size) * 0.25),
-    calc(0*var(--d)) calc(1*var(--d)) 0 calc(var(--dot-size) * 0.5),
-    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 calc(var(--dot-size) * 0.75),
-    calc(-1*var(--d)) calc(0*var(--d)) 0 var(--dot-size),
-    calc(-0.707*var(--d)) calc(-0.707*var(--d)) 0 calc(var(--dot-size) * 1.25),
-    calc(0*var(--d)) calc(-1*var(--d)) 0 calc(var(--dot-size) * 1.5);
-  animation: spinner-rotate 1s infinite steps(8);
-  margin: calc(var(--d) + var(--dot-size) * 2);
+  --d: 16px; /* Valeur par défaut */
+  --dot-size: 3px;
 }
 
-/* Tailles */
 .spinner.size-xs {
   --d: 8px;
   --dot-size: 1px;
@@ -61,8 +44,23 @@
   --dot-size: 6px;
 }
 
-
-
+/* Base spinner - Animation circulaire avec points */
+.spinner {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  /* 8 points disposés en cercle avec opacité croissante */
+  box-shadow:
+    calc(1*var(--d)) calc(0*var(--d)) 0 0,
+    calc(0.707*var(--d)) calc(0.707*var(--d)) 0 calc(var(--dot-size) * 0.25),
+    calc(0*var(--d)) calc(1*var(--d)) 0 calc(var(--dot-size) * 0.5),
+    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 calc(var(--dot-size) * 0.75),
+    calc(-1*var(--d)) calc(0*var(--d)) 0 var(--dot-size),
+    calc(-0.707*var(--d)) calc(-0.707*var(--d)) 0 calc(var(--dot-size) * 1.25),
+    calc(0*var(--d)) calc(-1*var(--d)) 0 calc(var(--dot-size) * 1.5);
+  animation: spinner-rotate 1s infinite steps(8);
+  margin: calc(var(--d) + var(--dot-size) * 2);
+}
 
 /* Animation */
 @keyframes spinner-rotate {

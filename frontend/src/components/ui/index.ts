@@ -10,7 +10,7 @@
  */
 
 export { Button } from './Button';
-export { default as Spinner } from './Spinner';
+export { Spinner } from './Spinner';
 export { Heading } from './Heading';
 export { default as Text } from './Text';
 export { default as Table } from './Table';
