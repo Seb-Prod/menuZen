@@ -32,7 +32,7 @@ export type Props = {
     description?: string;
     email?: string;
     linkedIn?: string;
-    GitHub?: string;
+    gitHub?: string;
     year?: number
 };
 

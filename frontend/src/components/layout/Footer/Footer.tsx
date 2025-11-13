@@ -34,7 +34,7 @@ import { FOOTER_ICONS } from './Footer.constants';
 
 const Footer = (inputProps: Props): JSX.Element => {
   const props = { ...DEFAULTS, ...inputProps };
-  const { appName, description, email, linkedIn, GitHub, year } = props
+  const { appName, description, email, linkedIn, gitHub, year } = props
 
   const currentYear = year || new Date().getFullYear();
 
@@ -75,9 +75,9 @@ const Footer = (inputProps: Props): JSX.Element => {
                 </a>
               )}
 
-              {GitHub && (
+              {gitHub && (
                 <a
-                  href={GitHub}
+                  href={gitHub}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.link}
