@@ -1,7 +1,6 @@
 /**
  * @file Composant Separator
  * @module components/ui/Separator
- * @description Composant de séparateur visuel horizontal ou vertical personnalisable
  */
 
 import type { JSX } from "react";
@@ -17,8 +16,6 @@ import { classNames } from "@/utils/object";
  * pour l'épaisseur, la couleur et l'espacement. Utilise des classes CSS modulaires
  * pour le style et supporte les variantes UI définies globalement.
  * 
- * Le composant fusionne les propriétés fournies avec les valeurs par défaut et génère
- * les classes CSS appropriées via la fonction `classNames`.
  * 
  * @component
  * @version 1.0.0
@@ -26,11 +23,6 @@ import { classNames } from "@/utils/object";
  * @author Seb-Prod
  * 
  * @param {Props} props - Les propriétés du composant.
- * @param {('horizontal'|'vertical')} [props.orientation='horizontal'] - Orientation du séparateur.
- * @param {UiSize} [props.thickness='small'] - Épaisseur du séparateur ('xs' | 'small' | 'medium' | 'large' | 'xl' | '2xl').
- * @param {UiVariant} [props.color='neutral'] - Couleur du séparateur basée sur les variantes UI système.
- * @param {UiSize} [props.spacing='small'] - Espacement autour du séparateur ('xs' | 'small' | 'medium' | 'large' | 'xl' | '2xl').
- * 
  * @returns {JSX.Element} Élément div stylisé représentant le séparateur.
  * 
  * @example
@@ -65,12 +57,10 @@ import { classNames } from "@/utils/object";
  * 
  * @see {@link Props} Pour les types détaillés des propriétés
  * @see {@link DEFAULTS} Pour les valeurs par défaut du composant
- * @see {@link SHOWCASE} Pour toutes les valeurs possibles de chaque prop
- * @see {@link UiSize} Pour les tailles disponibles dans le système UI
- * @see {@link UiVariant} Pour les variantes de couleur disponibles
  */
 const Separator = (inputProps: Props): JSX.Element => {
-    const { orientation, thickness, color, spacing } = { ...DEFAULTS, ...inputProps };
+    const props = { ...DEFAULTS, ...inputProps };
+    const { orientation, thickness, color, spacing } = props;
 
     const classes = classNames(
         styles.separator,

@@ -1,40 +1,23 @@
 /**
- * @file Métadonnées des propriétés du composant Separator pour la documentation
- * @module features/documentation/data/SeparatorProps
+ * @file Définition des propriétés du composant
+ * @module features/documentation/data/Separator/props
  * @description
- * Ce fichier définit les métadonnées de toutes les propriétés du composant Separator.
- * Il est utilisé pour générer automatiquement la documentation interactive des props
- * dans les pages de documentation du système de design.
+ * Documentation des props pour le showcase
  * 
  * @version 1.0.0
- * @since 2025-11-09
+ * @since 2025-11-10
  * @author Seb-Prod
  * 
  * @see {@link PropInfo} pour la structure des métadonnées
  * @see {@link Separator} pour l'implémentation du composant
  */
 
-import { DEFAULTS, ORIENTATION } from "@/components/ui/Separator/Separator.types";
+import { DEFAULTS, ORIENTATION } from "@/components/ui/Separator";
 import { UI_SIZES, UI_VARIANTS } from "@/components/ui/ui.types";
 import type { PropInfo } from "@/features/documentation/types/types";
 import { formatType } from "@/features/documentation/utils";
 
-/**
- * Liste des propriétés du composant Separator avec leurs métadonnées.
- * 
- * Utilisé pour générer automatiquement la documentation des props
- * dans les pages de documentation.
- * 
- * Chaque entrée décrit une propriété du composant avec son type,
- * sa valeur par défaut, sa description et si elle est requise.
- * 
- * @constant
- * @type {readonly PropInfo[]}
- * 
- * @see {@link PropInfo}
- * @see {@link Separator}
- */
-export const separatorProps: readonly PropInfo[] = [
+export const props: readonly PropInfo[] = [
   {
     name: "orientation",
     type: formatType(ORIENTATION),

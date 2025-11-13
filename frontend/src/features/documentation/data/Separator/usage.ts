@@ -1,26 +1,15 @@
 /**
- * @file Exemple d'utilisation du composant Separator pour la documentation.
- * @module features/documentation/data/SeparatorUsageExample
+ * @file Exemples d'utilisation du composant
+ * @module features/documentation/data/Separator/usage
  * @description
- * Ce fichier contient des exemples de code montrant les différentes façons
- * d'utiliser le composant Separator dans une application React.
- * 
- * Les exemples couvrent :
- * - L'utilisation par défaut (horizontal)
- * - Les différentes orientations (horizontal/vertical)
- * - Les variations d'épaisseur
- * - Les options de couleur
- * - Les espacements personnalisés
- * - Les combinaisons de propriétés
+ * Code examples et documentation d'usage
  * 
  * @version 1.0.0
- * @since 2025-11-09
+ * @since 2025-11-10
  * @author Seb-Prod
- * 
- * @see {@link Separator} pour l'implémentation du composant
  */
 
-const separatorUsageExample = `import Separator from "@/components/ui/Separator";
+export const usageExample = `import Separator from "@/components/ui/Separator";
 
 export default function MyComponent() {
   return (
@@ -84,5 +73,3 @@ export default function MyComponent() {
     </>
   );
 }`;
-
-export default separatorUsageExample;

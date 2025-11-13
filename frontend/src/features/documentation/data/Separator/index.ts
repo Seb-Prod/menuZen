@@ -1,24 +1,15 @@
 /**
- * @file Point d'entrée pour la documentation du composant Separator
+ * @file Point d'entrée pour les données du composant
  * @module features/documentation/data/Separator
  * @description
- * Barrel file qui exporte les métadonnées de documentation et les exemples
- * d'utilisation du composant Separator. Centralise les exports pour simplifier
- * les imports dans les pages de documentation.
+ * Exporte toutes les configurations et données relatives au showcase
  * 
  * @version 1.0.0
- * @since 2025-11-09
+ * @since 2025-11-10
  * @author Seb-Prod
  */
 
-/**
- * Métadonnées des propriétés du composant Separator.
- * @see {@link separatorProps} pour la définition détaillée
- */
-export { separatorProps } from './SeparatorProps';
-
-/**
- * Exemple de code d'utilisation du composant Separator.
- * @see {@link separatorUsageExample} pour le code d'exemple complet
- */
-export { default as separatorUsageExample } from './SeparatorUsageExample';
+export { props } from "./props"
+export { usageExample } from "./usage"
+export { renderPreview, generateCode } from "./showcase"
+export { description, componentName } from "./config"
