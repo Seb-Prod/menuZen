@@ -10,8 +10,7 @@ import { Heading, Separator, Text } from '@/components/ui';
 import { FOOTER_ICONS } from './Footer.constants';
 
 /**
- * 
- * @returns Composant **Footer** - Élément interactif fondamental du design system.
+ * Composant **Footer** - Élément interactif fondamental du design system.
  * 
  * Affiche les informations principales du projet, les liens de contact
  * (email, LinkedIn, GitHub) et les mentions légales avec copyright.
@@ -26,7 +25,13 @@ import { FOOTER_ICONS } from './Footer.constants';
  * @returns {JSX.Element} Élément bouton React.
  * 
  * @example
- * <Footer/>
+ * <Footer
+ *   appName="Mon Application"
+ *   description="Description de mon app"
+ *   email="contact@example.com"
+ *   linkedIn="https://linkedin.com/in/username"
+ *   gitHub="https://github.com/username"
+ * />
  * 
  * @see {@link Props} Pour les types détaillés des propriétés
  * @see {@link DEFAULTS} Pour les valeurs par défaut

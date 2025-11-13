@@ -9,16 +9,16 @@
  * @author Seb-Prod
  */
 
-export const usageExample = `import ChevronIcon from "@/components/layout/Footer";
+export const usageExample = `import Footer from "@/components/layout/Footer";
 
 export default function MyComponent() {
   return (
-    <Footer 
-      variant="primary"
-      type="chevron" 
-      isOpen={isOpen}
-      ariaLabelOpen="Fermer le menu"
-      ariaLabelClose="Ouvrir le menu"
+     <Footer
+      appName="Mon Application"
+      description="Description de mon app"
+      email="contact@example.com"
+      linkedIn="https://linkedin.com/in/username"
+      gitHub="https://github.com/username"
     />
   );
 }`;

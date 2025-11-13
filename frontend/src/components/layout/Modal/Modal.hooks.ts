@@ -2,9 +2,14 @@
  * @file Hooks personnalisés pour la Navbar
  * @module components/layout/Modal.hooks
  * 
+ * @description
  * Ce module regroupe des hooks réutilisables permettant :
  * - de fermer une modal lors d’un clic en dehors (`useClickOutside`)
  * - de gérer l’animation d'ouverture et fermeture de la modal
+ * 
+ * @version 1.0.0
+ * @since 2025-11-05
+ * @author Seb-Prod
  */
 
 import { useEffect, useState, type RefObject } from 'react';
