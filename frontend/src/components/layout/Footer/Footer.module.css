@@ -2,56 +2,28 @@
 .footer {
   background-color: #1a1a1a;
   color: #e0e0e0;
-  padding: 3rem 2rem 1.5rem;
+  padding:  1rem 1.5rem;
   margin-top: auto;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .content {
   display: flex;
   justify-content: space-between;
+  align-items: stretch;
   gap: 3rem;
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #333;
 }
 
 .project {
   flex: 1;
 }
 
-.projectName {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
-  color: #ffffff;
-}
-
-.description {
-  margin: 0;
-  color: #a0a0a0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
 .contact {
   flex: 1;
 }
 
-.title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: #ffffff;
-}
-
 .links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 0.75rem;
 }
 
@@ -59,7 +31,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #e0e0e0;
+  color: white;
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s ease;
@@ -67,6 +39,25 @@
 
 .link:hover {
   color: #4a9eff;
+}
+
+/* Styles critiques pour les icônes SVG */
+.link svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+/* Pour les icônes avec fill (LinkedIn, GitHub) */
+.link svg[fill="currentColor"] {
+  fill: currentColor;
+}
+
+/* Pour les icônes avec stroke (Email) */
+.link svg[stroke="currentColor"] {
+  stroke: currentColor;
+  fill: none;
 }
 
 .icon {

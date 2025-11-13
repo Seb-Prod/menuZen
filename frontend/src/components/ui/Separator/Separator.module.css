@@ -86,7 +86,9 @@
  * Séparateur vertical - s'étend sur toute la hauteur
  */
 .vertical{
-    height: 100%;
+    height: auto;
+    align-self: stretch;
+    min-height: 100%;
 }
 
 /* Variations d'épaisseur pour orientation verticale */
