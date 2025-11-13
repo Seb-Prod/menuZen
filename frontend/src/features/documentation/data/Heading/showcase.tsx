@@ -15,8 +15,11 @@ import { props } from "./props";
 
 const { renderPreview, generateCode } = createShowcaseFromProps(
     Heading,
-    "Logo",
-    props
+    "Heading",
+    props,
+    {
+        defaultChildren: "Example"
+    }
 );
 
 export { renderPreview, generateCode };

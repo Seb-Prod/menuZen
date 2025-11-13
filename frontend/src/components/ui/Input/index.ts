@@ -19,4 +19,4 @@ export { default as Input } from './Input';
  * Types et constantes du composant Input.
  */
 export type { Props as InputProps } from './Input.types';
-export { DEFAULTS, SHOWCASE } from './Input.types';
+export { DEFAULTS, SHOWCASE, TYPES } from './Input.types';
