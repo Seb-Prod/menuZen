@@ -13,7 +13,7 @@ export { Button } from './Button';
 export { Spinner } from './Spinner';
 export { Heading } from './Heading';
 export { default as Text } from './Text';
-export { default as Table } from './Table';
+export { Table } from './Table';
 export { Select } from './Select';
 export { default as ThemeToggle } from './ThemeToggle';
 export { Logo } from './Logo';

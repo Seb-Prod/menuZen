@@ -1,4 +1,15 @@
-const tableUsageExample = 
+/**
+ * @file Exemples d'utilisation du composant
+ * @module features/documentation/data/Table/usage
+ * @description
+ * Code examples et documentation d'usage
+ * 
+ * @version 1.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
+ */
+
+export const usageExample = 
 `// Tableau simple avec des données textuelles
 import Table from "@/components/ui/Table";
 
@@ -34,5 +45,3 @@ export default function MyComponent() {
   );
 }
 `;
-
-export default tableUsageExample;

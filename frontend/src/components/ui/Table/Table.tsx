@@ -22,15 +22,7 @@ import { classNames } from '@/utils/object';
  * @since 2025-10-22
  * @author Seb-Prod
  * 
- * @param {TableProps} props - Les propriétés du composant.
- * @param {string[]} props.headers - Tableau des libellés d'en-têtes de colonnes.
- * @param {React.ReactNode[][]} props.data - Tableau bidimensionnel contenant les données des cellules (lignes × colonnes).
- * @param {UiVariant} [props.variant='primary'] - Schéma de couleur du tableau (primary, secondary, success, error, info, neutral).
- * @param {UiSize} [props.size='medium'] - Taille prédéfinie du tableau (small, medium, large).
- * @param {UiAlign} [props.align='left'] - Position horizontale du tableau dans son conteneur (left, center, right).
- * @param {boolean} [props.fullWidth=false] - Si vrai, le tableau occupe 100% de la largeur du conteneur.
- * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
- * 
+ * @param {Props} props - Les propriétés du composant.
  * @returns {JSX.Element} L'élément table React (JSX).
  * 
  * @example
@@ -70,18 +62,12 @@ import { classNames } from '@/utils/object';
  *   ]}
  * />
  * 
- * @see {@link TableProps}
- * @see {@link TABLE_DEFAULTS}
+ * @see {@link Props}
+ * @see {@link DEFAULTS}
  */
-const Table = ({
-    headers,
-    data,
-    align = DEFAULTS.align,
-    variant = DEFAULTS.variant,
-    size = DEFAULTS.size,
-    fullWidth = DEFAULTS.fullWidth,
-    className = DEFAULTS.className
-}: Props): JSX.Element => {
+const Table = (inputProps: Props): JSX.Element => {
+    const props = { ...DEFAULTS, ...inputProps };
+    const { headers, data, align, variant, size, fullWidth, className } = props;
     // Construction des classes CSS
     const classes = classNames(
         styles.table,
@@ -105,7 +91,7 @@ const Table = ({
                 {data.map((rowData, rowIndex) => (
                     <tr key={rowIndex}>
                         {rowData.map((cellData, cellIndex) => (
-                            <td 
+                            <td
                                 key={cellIndex}
                                 data-label={headers[cellIndex]}
                             >
