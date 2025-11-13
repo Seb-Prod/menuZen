@@ -1,28 +1,24 @@
 /**
  * @file Point d'entrée pour le composant ThemeToggle
  * @module components/ui/ThemeToggle
+ * @description
+ * Barrel file qui exporte le composant ThemeToggle ainsi que ses types, constantes et configurations associées.
+ * 
  * @version 1.0.0
- * @since 2025-11-06
+ * @since 2025-11-08
  * @author Seb-Prod
- *
- * Ce module centralise les exports liés au ThemeToggle :
- * - Le composant principal `ThemeToggle`
- * - Le hook personnalisé `useThemeManager`
- * - Les types associés (`ThemeToggleProps`, `ModeTheme`, `ThemeForcee`)
- * - Les constantes (`THEME_FORCEE`, `MODE_THEME`, `THEMETOGGLE_DEFAULTS`)
- * - Les utilitaires (`getThemeSysteme`)
  */
 
-export { default } from './ThemeToggle';
+export { default as ThemeToggle } from './ThemeToggle';
 export { useThemeManager } from './ThemeToggle.hooks';
 export { getThemeSysteme } from './ThemeToggle.utils';
 export type { 
-  Props, 
+  Props as ThemeToggleProps, 
   ModeTheme, 
   ThemeForcee 
 } from './ThemeToggle.types';
 export { 
   THEME_FORCEE, 
   MODE_THEME, 
-  DEFAULTS 
+  DEFAULTS,
 } from './ThemeToggle.types';

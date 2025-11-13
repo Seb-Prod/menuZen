@@ -54,4 +54,8 @@ export const UI_STRUCTURE: DocumentationItem[] = [
     key: "Text",
     label: "Text",
   },
+  {
+    key: "ThemeToggle",
+    label: "ThemeToggle",
+  },
 ];

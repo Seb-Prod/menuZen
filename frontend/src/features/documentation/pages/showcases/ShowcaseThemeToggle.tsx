@@ -1,6 +1,6 @@
 /**
- * @file Page de documentation et showcase pour le composant Text
- * @module features/documentation/pages/showcase/ShowcaseText
+ * @file Page de documentation et showcase pour le composant ThemeToggle
+ * @module features/documentation/pages/showcase/ShowcaseThemeToggle
  * @description
  * Page interactive de documentation du composant.
  * 
@@ -9,8 +9,7 @@
  * @author Seb-Prod
  */
 
-import { componentName, description, generateCode, props, usageExample, renderPreview } from "../../data/Text";
-import { SHOWCASE } from "@/components/ui/Text";
+import { componentName, description, generateCode, props, usageExample, renderPreview } from "../../data/ThemeToggle";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
 
 const ShowcaseLogo = () => {
@@ -20,7 +19,6 @@ const ShowcaseLogo = () => {
       description={description}
       props={props}
       usageExample={usageExample}
-      params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
     />

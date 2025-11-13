@@ -39,10 +39,7 @@ import styles from './ThemeToggle.module.css';
  * @since 2025-11-06
  * @author Seb-Prod
  *
- * @param {ThemeToggleProps} props - Les propriétés du composant.
- * @param {ModeTheme} [props.initialTheme='auto'] - Le mode de thème initial.
- * @param {(theme: ModeTheme) => void} [props.onChange] - Callback appelé lors d'un changement de thème.
- *
+ * @param {Props} props - Les propriétés du composant.
  * @returns {JSX.Element} Interface de contrôle du thème avec deux interrupteurs.
  *
  * @example

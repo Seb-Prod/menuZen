@@ -1,14 +1,15 @@
 /**
  * @file Hooks personnalisés pour ThemeToggle
  * @module components/ui/ThemeToggle.hooks
- * @version 1.0.0
- * @since 2025-11-06
- * @author Seb-Prod
- * 
+ * @description
  * Ce module regroupe des hooks réutilisables permettant :
  * - de gérer le mode de thème de l'application (`useThemeManager`)
  * - de synchroniser le thème avec le système et localStorage
  * - de gérer les états des toggles de thème
+ * 
+ * @version 1.0.0
+ * @since 2025-11-06
+ * @author Seb-Prod
  */
 
 import { useState, useEffect, useCallback } from 'react';

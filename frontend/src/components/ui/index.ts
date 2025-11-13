@@ -15,7 +15,7 @@ export { Heading } from './Heading';
 export { Text } from './Text';
 export { Table } from './Table';
 export { Select } from './Select';
-export { default as ThemeToggle } from './ThemeToggle';
+export { ThemeToggle } from './ThemeToggle';
 export { Logo } from './Logo';
 export { Switch } from './Switch';
 export { Separator } from './Separator';
