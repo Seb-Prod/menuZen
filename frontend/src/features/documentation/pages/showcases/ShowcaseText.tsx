@@ -1,33 +1,30 @@
 /**
- * @file Page de documentation et showcase pour le composant Text.
- * @module pages/showcase/ShowcaseText
+ * @file Page de documentation et showcase pour le composant Text
+ * @module features/documentation/pages/showcase/ShowcaseSText
+ * @description
+ * Page interactive de documentation du composant.
+ * 
+ * @version 3.0.0
+ * @since 2025-11-10
+ * @author Seb-Prod
  */
 
-import Text from "@/components/ui/Text";
-import type { JSX } from "react";
-import { textProps, textUsageExample } from "../../data/Text";
+import { componentName, description, generateCode, props, usageExample, renderPreview } from "../../data/Text";
+import { SHOWCASE } from "@/components/ui/Text";
 import DocPageContainer from "../../doc-blocks/DocPageContainer/DocPageContainer";
-import { createShowcaseFromProps } from "../../utils/showcaseFactory";
-import { SHOWCASE } from "@/components/ui/Text/Text.types";
 
-const {renderPreview, generateCode} = createShowcaseFromProps(
-  Text,
-  "text",
-  textProps
-)
-
-const ShowcaseText = (): JSX.Element => {
+const ShowcaseLogo = () => {
   return (
     <DocPageContainer
-      title="Text"
-      description="Composant **Text** personnalisable avec différentes balises sémantiques, couleurs, tailles, poids et alignements."
-      usageExample={textUsageExample}
+      title={componentName}
+      description={description}
+      props={props}
+      usageExample={usageExample}
       params={SHOWCASE}
       renderPreview={renderPreview}
       generateCode={generateCode}
-      props={textProps}
     />
   );
 };
 
-export default ShowcaseText;
+export default ShowcaseLogo;
