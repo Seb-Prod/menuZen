@@ -8,44 +8,10 @@
   font-size: var(--size-font);
 }
 
-/* Tailles - DÉFINIR EN PREMIER */
+/* Base spinner - Animation circulaire avec points */
 .spinner {
   --d: 16px; /* Valeur par défaut */
   --dot-size: 3px;
-}
-
-.spinner.size-xs {
-  --d: 8px;
-  --dot-size: 1px;
-}
-
-.spinner.size-small {
-  --d: 12px;
-  --dot-size: 2px;
-}
-
-.spinner.size-medium {
-  --d: 16px;
-  --dot-size: 3px;
-}
-
-.spinner.size-large {
-  --d: 20px;
-  --dot-size: 4px;
-}
-
-.spinner.size-xl {
-  --d: 24px;
-  --dot-size: 5px;
-}
-
-.spinner.size-2xl {
-  --d: 28px;
-  --dot-size: 6px;
-}
-
-/* Base spinner - Animation circulaire avec points */
-.spinner {
   width: var(--dot-size);
   height: var(--dot-size);
   border-radius: 50%;
@@ -60,6 +26,37 @@
     calc(0*var(--d)) calc(-1*var(--d)) 0 calc(var(--dot-size) * 1.5);
   animation: spinner-rotate 1s infinite steps(8);
   margin: calc(var(--d) + var(--dot-size) * 2);
+}
+
+/* Tailles - Augmenter la spécificité avec .root */
+.root .spinner.size-xs {
+  --d: 8px;
+  --dot-size: 1px;
+}
+
+.root .spinner.size-small {
+  --d: 12px;
+  --dot-size: 2px;
+}
+
+.root .spinner.size-medium {
+  --d: 16px;
+  --dot-size: 3px;
+}
+
+.root .spinner.size-large {
+  --d: 20px;
+  --dot-size: 4px;
+}
+
+.root .spinner.size-xl {
+  --d: 24px;
+  --dot-size: 5px;
+}
+
+.root .spinner.size-2xl {
+  --d: 28px;
+  --dot-size: 6px;
 }
 
 /* Animation */

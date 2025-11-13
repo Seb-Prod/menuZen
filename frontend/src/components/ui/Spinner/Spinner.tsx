@@ -59,8 +59,8 @@ const Spinner = (inputProps: Props): JSX.Element => {
   )
 
   const classesSpinner = classNames(
-    `size-${size}`,
     styles.spinner,
+    styles[`size-${size}`]
   )
 
   return (
