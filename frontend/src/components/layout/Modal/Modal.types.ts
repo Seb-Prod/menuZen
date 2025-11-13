@@ -2,8 +2,7 @@
  * @file Définition des types, constantes et valeurs par défaut du composant Modal
  * @module components/layout/Modal.types
  * @description
- * Ce fichier centralise toutes les définitions de types TypeScript, les constantes,
- * les valeurs par défaut et les configurations pour le composant Modal.
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes, les valeurs par défaut et les configurations pour le composant Modal.
  *
  * @version 1.0.0
  * @since 2025-11-05

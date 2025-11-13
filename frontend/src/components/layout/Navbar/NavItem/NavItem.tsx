@@ -23,12 +23,6 @@ import { useDevice } from "@/context/Device";
  * @author Seb-Prod
  * 
  * @param {Props} props - Les propriétés du composant.
- * @param {RouteValue} props.to - Chemin de la route vers laquelle naviguer.
- * @param {IconType} [props.icon] - Icône à afficher (composant react-icons).
- * @param {string} props.label - Texte du lien de navigation.
- * @param {UiVariant} [props.variant='primary'] - Style du NavItem (primary, secondary, error, success, info, neutral).
- * @param {UiSize} [props.size='medium'] - Taille du NavItem (xs, small, medium, large, xl, 2xl).
- * @param {string} [props.className=''] - Classes CSS personnalisées supplémentaires.
  * 
  * @returns {JSX.Element} Élément de navigation cliquable.
  * 

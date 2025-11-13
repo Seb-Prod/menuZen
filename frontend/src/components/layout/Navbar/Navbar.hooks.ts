@@ -2,9 +2,14 @@
  * @file Hooks personnalisés pour la Navbar
  * @module components/layout/Navbar.hooks
  * 
+ * @description
  * Ce module regroupe des hooks réutilisables permettant :
  * - de fermer la modal lors du passage en mode desktop (`useCloseOnDesktop`)
  * - de gérer l’état d’ouverture de la Navbar mobile (`useNavbarToggle`)
+ * 
+ * @version 1.0.0
+ * @since 2025-11-03
+ * @author Seb-Prod
  */
 
 import { useCallback, useEffect, useState } from 'react';

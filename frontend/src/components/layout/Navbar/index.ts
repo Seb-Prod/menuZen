@@ -1,8 +1,11 @@
 /**
  * @file Point d'entrée pour le composant Navbar
  * @module components/layout/Navbar
+ * @description
+ * Barrel file qui exporte le composant Navbar, types, constantes et configurations associées.
+ * 
  * @version 1.0.0
- * @since 2025-11-02
+ * @since 2025-11-13
  * @author Seb-Prod
  *
  * Ce module centralise les exports liés à la Navbar :
@@ -13,7 +16,7 @@
  */
 
 export { default } from './Navbar';
-export { default as NavItem } from './NavItem';
+export { NavItem } from './NavItem';
 export type { Props as NavItemProps } from './NavItem/NavItem.types';
 export {
   useNavbarToggle,

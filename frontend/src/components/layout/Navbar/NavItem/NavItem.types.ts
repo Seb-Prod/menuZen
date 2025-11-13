@@ -1,12 +1,13 @@
 /**
  * @file Définition des types, constantes et valeurs par défaut
  * @module components/layout/NavBar/NavItem.types
+ * @description
+ * Ce fichier centralise toutes les définitions de types TypeScript, les constantes, les valeurs par défaut et les configurations pour le composant.
+ * 
  * @version 1.0.0
  * @since 2025-10-17
- * @see {@link NavItem} pour l'implémentation du composant principal.
- * @see {@link UI_VARIANTS}, {@link UI_SIZES} pour les constantes partagées.
- * @see {@link UI_DEFAULTS} pour les valeurs globales par défaut.
  * @author Seb-Prod
+ * @see {@link NavItem} pour l'implémentation du composant principal.
  */
 
 import type { IconType } from "react-icons";
