@@ -11,16 +11,17 @@ import { useDevice } from "@/context/Device";
 // --- Utils & hooks ---
 import { classNames } from "@/utils/object";
 import { useCloseOnDesktop, useNavbarToggle, useToggleAparence } from "./Navbar.hooks";
+import { handleModalToggle } from "./Navbar.handler";
 
 // --- UI Components ---
 import { Button, Separator, ThemeToggle, MenuToggle, Logo } from "@/components/ui";
 import { NavItem } from "./NavItem";
+import { AuthPage } from "@/features/auth";
 
 // --- Styles & routes ---
 import styles from "./Navbar.module.css";
 import { getWebNavItems } from "@/routes";
 import { Modal, useClickOutside, useModalVisibilityWithAnimation } from "../Modal";
-import { handleModalToggle } from "./Navbar.handler";
 
 /**
  * Composant **Navbar** – Barre de navigation principale (desktop/web).
@@ -143,7 +144,7 @@ const Navbar = (): JSX.Element => {
           )}
           {isAuthVisible && (
             <Modal ref={authModalRef} onClose={closeAuth} origin="center" isClosing={!isOpenAuth} variant="surface-primary">
-              login
+              <AuthPage />
             </Modal>
           )}
         </div>

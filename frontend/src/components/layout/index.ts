@@ -17,3 +17,4 @@ export { default as Sidebar } from './Sidebar';
 export { default as Navbar } from './Navbar';
 export { Modal } from './Modal';
 export { Footer } from './Footer';
+export { Form} from './Form'
