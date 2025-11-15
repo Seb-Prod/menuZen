@@ -20,6 +20,7 @@ export { Logo } from './Logo';
 export { Switch } from './Switch';
 export { Separator } from './Separator';
 export { Input } from './Input';
+export { type InputHandle} from "./Input"
 export { Accordion, AccordionSection, AccordionItem } from './Accordion';
 export { MenuToggle } from './MenuToggle';
 export { ChevronIcon } from './ChevronIcon';

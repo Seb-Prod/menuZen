@@ -11,4 +11,4 @@
 
 export { default as Form } from "./Form";
 export type { Props as LogoProps } from "./Form.types";
-export { DEFAULTS, SHOWCASE } from "./Form.types"
+export { DEFAULTS } from "./Form.types"

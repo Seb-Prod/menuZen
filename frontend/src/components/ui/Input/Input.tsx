@@ -1,31 +1,22 @@
 /**
  * @file Composant Input
  * @module components/ui/Input
- * @description Champ de saisie personnalisable prenant en charge plusieurs types de données (texte, e-mail, mot de passe, nombre, téléphone, etc.).
+ * @description Champ de saisie personnalisable avec validation intégrée.
  */
 
-import { type JSX } from "react";
+import { forwardRef, useImperativeHandle, useState, useEffect, type JSX } from "react";
 import styles from "./Input.module.css";
-import { DEFAULTS, type Props } from "./Input.types";
+import { DEFAULTS, type Props, type InputHandle } from './Input.types';
 import { classNames } from "@/utils/object";
+import { handleInputBlur, handleInputChange } from "./Input.handler";
+import { validateField } from "./Input.utils";
 
 /**
- * Composant **Input** — Élément de formulaire réutilisable pour la saisie de données.
- * 
- * Ce composant prend en charge différents types d’entrée (`text`, `email`, `password`, `number`, `tel`)  
- * et offre plusieurs variantes de style (`variant`) ainsi que des tailles prédéfinies (`size`).
- * 
- * Il peut être intégré dans des formulaires, des barres de recherche ou des interfaces interactives,  
- * tout en maintenant la cohérence visuelle du système de design.
- * 
- * En plus des styles, il prend en charge :
- * - L’affichage d’un **placeholder** pour guider la saisie.  
- * - La gestion de la **valeur contrôlée** via la prop `value`.  
- * - L’extension des props natives d’un élément `<input>` pour une compatibilité maximale.
+ * Composant **Input** — Élément de formulaire avec validation intégrée.
  * 
  * @component
- * @version 1.1.0
- * @since 2025-11-09
+ * @version 2.0.0
+ * @since 2025-11-15
  * @author Seb-Prod
  * 
  * @param {Props} props - Les propriétés du composant.
@@ -33,41 +24,113 @@ import { classNames } from "@/utils/object";
  * @returns {JSX.Element} Élément React représentant un champ de saisie stylisé.
  * 
  * @example
- * // Champ texte simple
- * <Input placeholder="Votre nom" />
+ * // Champ email avec validation
+ * <Input 
+ *   type="email" 
+ *   required 
+ *   placeholder="votre@email.com"
+ *   onError={(error) => console.log(error)}
+ * />
  * 
  * @example
- * // Champ e-mail avec style secondaire
- * <Input type="email" variant="secondary" placeholder="votre@email.com" />
- * 
- * @example
- * // Champ mot de passe en grande taille
- * <Input type="password" size="large" placeholder="Mot de passe" />
- * 
- * @see {@link Props} Pour les types détaillés des propriétés
- * @see {@link DEFAULTS} Pour les valeurs par défaut
+ * // Champ avec validation personnalisée
+ * <Input 
+ *   type="text"
+ *   validate={(value) => value.length >= 3 ? "" : "Minimum 3 caractères"}
+ *   validateOn="change"
+ * />
  */
-const Input = (inputProps: Props): JSX.Element => {
-  const { type, size, variant, value, placeholder } = {
-    ...DEFAULTS,
-    ...inputProps,
+const Input = forwardRef<InputHandle, Props>((inputProps, ref): JSX.Element => {
+  const props = { ...DEFAULTS, ...inputProps };
+  const {
+    type,
+    size,
+    variant,
+    value,
+    placeholder,
+    required,
+    minLength,
+    maxLength,
+    pattern,
+    validate,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    validateOn,
+    errorMessage,
+    showError,
+    ...rest
+  } = props;
+
+  const [internalValue, setInternalValue] = useState(value || "");
+  const [error, setError] = useState("");
+  const [touched, setTouched] = useState(false);
+
+  // Synchronise la valeur interne avec la prop value (mode contrôlé)
+  useEffect(() => {
+    if (value !== undefined) {
+      setInternalValue(value);
+    }
+  }, [value]);
+
+  const getValidationError = (val: string): string => {
+    // Appelez la fonction validateField de vos utils
+    return validateField(val, {
+      type, required, minLength, maxLength, pattern, validate, errorMessage
+    });
+  }
+
+  useImperativeHandle(ref, () => ({
+    validateAndReport: () => {
+      const validationError = getValidationError(internalValue);
+      // Met à jour l'état d'erreur de l'Input et marque comme touché
+      setError(validationError);
+      setTouched(true);
+      return validationError;
+    }
+  }));
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleInputChange(e, touched, props, setInternalValue, setError);
   };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    handleInputBlur(e, props, setTouched, setError);
+  };
+
+
+
 
   // Construction dynamique des classes CSS
   const classes = classNames(
     styles.input,
     `component-${variant}`,
     `component-${size}`,
+    error && touched && styles.error
   );
 
   return (
-    <input
-      type={type}
-      value={value}
-      placeholder={placeholder}
-      className={classes}
-    />
+    <div className={styles.inputWrapper}>
+      <input
+        type={type}
+        value={internalValue}
+        placeholder={placeholder}
+        className={classes}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        aria-invalid={!!error && touched}
+        aria-describedby={error && touched ? `${rest.name}-error` : undefined}
+        {...rest}
+      />
+      {showError && error && touched && (
+        <span
+          id={`${rest.name}-error`}
+          className={styles.errorMessage}
+          role="alert"
+        >
+          {error}
+        </span>
+      )}
+    </div>
   );
-};
+});
 
 export default Input;
