@@ -54,6 +54,7 @@ export const FormInput = ({ field, value, onChange, inputRef }: FormInputProps) 
       minLength={field.minLength}
       maxLength={field.maxLength}
       pattern={field.pattern}
+      variant="secondary"
     />
   </>
 );

@@ -10,6 +10,7 @@ import { DEFAULTS, type Props, type InputHandle } from './Input.types';
 import { classNames } from "@/utils/object";
 import { handleInputBlur, handleInputChange } from "./Input.handler";
 import { validateField } from "./Input.utils";
+import { Text } from "@/components/ui";
 
 /**
  * Composant **Input** — Élément de formulaire avec validation intégrée.
@@ -96,9 +97,6 @@ const Input = forwardRef<InputHandle, Props>((inputProps, ref): JSX.Element => {
     handleInputBlur(e, props, setTouched, setError);
   };
 
-
-
-
   // Construction dynamique des classes CSS
   const classes = classNames(
     styles.input,
@@ -120,15 +118,13 @@ const Input = forwardRef<InputHandle, Props>((inputProps, ref): JSX.Element => {
         aria-describedby={error && touched ? `${rest.name}-error` : undefined}
         {...rest}
       />
-      {showError && error && touched && (
-        <span
-          id={`${rest.name}-error`}
-          className={styles.errorMessage}
-          role="alert"
-        >
-          {error}
-        </span>
+      <div className={styles.errorContainer}>
+      {showError && error && touched && validateOn ? (
+        <Text variant="error">{error}</Text>
+      ) : (
+        <div className={styles.errorPlaceholder} />
       )}
+    </div>
     </div>
   );
 });
