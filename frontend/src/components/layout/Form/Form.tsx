@@ -8,7 +8,7 @@ import styles from "./Form.module.css";
 import { DEFAULTS, type Props, type FormField } from "./Form.types";
 import { classNames } from "@/utils/object";
 import { RadioGroup } from "./components/FormRadioGroup";
-import { Checkbox } from "./components/FormCheckbox";
+import { FormCheckbox } from "./components/FormCheckbox";
 import { FormInput } from "./components/FormInput";
 import { useFormState } from "./hooks/useFormState";
 import { useFormValidation } from "./hooks/useFormValidation";
@@ -54,7 +54,7 @@ const Form = (inputProps: Props): JSX.Element => {
     }
 
     if (field.type === 'checkbox') {
-      return <Checkbox field={field} checked={values[field.name] === 'true'} onChange={handleChange} />;
+      return <FormCheckbox field={field} checked={values[field.name] === 'true'} onChange={handleChange} />;
     }
 
     return (

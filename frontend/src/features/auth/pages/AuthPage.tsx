@@ -110,6 +110,7 @@ const AuthPage = (): JSX.Element => { // 💡 La page ne reçoit généralement 
             label: "J'accepte les conditions générales d'utilisation",
             type: "checkbox",
             defaultChecked: false,
+            required:true
           },
         ]}
         onSubmit={handleSubmission}
