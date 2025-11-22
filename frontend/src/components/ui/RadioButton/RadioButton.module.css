@@ -1,0 +1,191 @@
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================================
+   Wrapper
+   ================================ */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  font-family: inherit;
+  line-height: calc(var(--size-height) - 0.5rem);
+  position: relative;
+  transition: color 0.2s ease-in-out;
+}
+
+/* ================================
+   Input radio natif caché
+   ================================ */
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ================================
+   Cercle du radio (taille par défaut)
+   ================================ */
+.radio {
+  position: relative;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background-color: var(--color-mix-lighten);
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Point central (par défaut) */
+.radio::after {
+  content: '';
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background-color: var(--bg);
+  opacity: 0;
+  transform: scale(0);
+  transition: all .2s ease-in-out;
+}
+
+/* ================================
+   Variantes de taille
+   ================================ */
+
+/* XS */
+.radio.size-xs {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-width: 1.5px;
+}
+
+.radio.size-xs::after {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+/* Small */
+.radio.size-small {
+  width: 1rem;
+  height: 1rem;
+  border-width: 1.5px;
+}
+
+.radio.size-small::after {
+  width: 0.45rem;
+  height: 0.45rem;
+}
+
+/* Medium (par défaut) */
+.radio.size-medium {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-width: 2px;
+}
+
+.radio.size-medium::after {
+  width: 0.55rem;
+  height: 0.55rem;
+}
+
+/* Large */
+.radio.size-large {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-width: 2px;
+}
+
+.radio.size-large::after {
+  width: 0.675rem;
+  height: 0.675rem;
+}
+
+/* XL */
+.radio.size-xl {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-width: 2.5px;
+}
+
+.radio.size-xl::after {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+/* 2XL */
+.radio.size-2xl {
+  width: 2rem;
+  height: 2rem;
+  border-width: 2.5px;
+}
+
+.radio.size-2xl::after {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+/* ================================
+   Hover
+   ================================ */
+.label:hover .radio:not(:has(+ .input:disabled)) {
+  transform: scale(1.1);
+}
+
+.label:hover .labelText:not(:has(+ .input:disabled)) {
+  transform: scale(1.05);
+}
+
+/* ================================
+   Checked
+   ================================ */
+.input:checked + .radio::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ================================
+   Focus
+   ================================ */
+.input:focus + .radio {
+  outline: 2px solid var(--bg);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px var(--bg);
+}
+
+/* ================================
+   Disabled
+   ================================ */
+.input:disabled + .radio {
+  background-color: var(--color-disabled-bg, #f5f5f5);
+  border-color: var(--color-disabled-bg, #d1d5db);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.label:has(.input:disabled) {
+  color: var(--color-disabled-text, #9ca3af);
+  cursor: not-allowed;
+}
+
+/* ================================
+   Animation
+   ================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

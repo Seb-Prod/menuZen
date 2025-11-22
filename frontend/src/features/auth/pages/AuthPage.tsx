@@ -86,6 +86,7 @@ const AuthPage = (): JSX.Element => { // 💡 La page ne reçoit généralement 
             name: "frequenceContact", 
             label: "Fréquence de contact souhaitée",
             type: "radio",
+            required:true,
             options: [
               { value: "journalier", label: "Journalière" },
               { value: "hebdomadaire", label: "Hebdomadaire" },

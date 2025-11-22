@@ -8,6 +8,7 @@
 
 import type { FormHTMLAttributes } from 'react';
 import type { Type, ErrorMessages } from '@/components/ui/Input/Input.types';
+import type { RadioOption } from '@/components/ui/RadioButton';
 
 // ================================
 // Types
@@ -17,14 +18,6 @@ import type { Type, ErrorMessages } from '@/components/ui/Input/Input.types';
  * Représente les erreurs de validation du formulaire (validation inter-champs)
  */
 export type FormErrors = Record<string, string>;
-
-/**
- * Option pour les boutons radio (Radio Button)
- */
-export type RadioOption = {
-  value: string;
-  label: string;
-};
 
 /**
  * Configuration d'un champ de formulaire

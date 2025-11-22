@@ -7,13 +7,14 @@ import { useState, type JSX } from "react";
 import styles from "./Form.module.css";
 import { DEFAULTS, type Props, type FormField } from "./Form.types";
 import { classNames } from "@/utils/object";
-import { RadioGroup } from "./components/FormRadioGroup";
-import { FormCheckbox } from "./components/FormCheckbox";
+// import { RadioGroup } from "./components/FormRadioGroup";
 import { FormInput } from "./components/FormInput";
 import { useFormState } from "./hooks/useFormState";
 import { useFormValidation } from "./hooks/useFormValidation";
 import { FieldWrapper } from "./components/FiledWrapper";
 import { SubmitButton } from "./components/SubmitButton";
+import { Checkbox } from "@/components/ui/Checkbox";
+import RadioGroup from "@/components/ui/RadioButton/RadioGroup";
 
 /**
  * Composant Form simplifié avec extraction des rendus
@@ -50,11 +51,25 @@ const Form = (inputProps: Props): JSX.Element => {
 
   const renderField = (field: FormField) => {
     if (field.type === 'radio') {
-      return <RadioGroup field={field} value={values[field.name]} onChange={handleChange} />;
+      return <RadioGroup
+        label={field.label}
+        required={field.required}
+        name={field.name}
+        value={values[field.name]}
+        onChange={handleChange}
+        options={field.options ?? []}
+      />
     }
 
     if (field.type === 'checkbox') {
-      return <FormCheckbox field={field} checked={values[field.name] === 'true'} onChange={handleChange} />;
+      return <Checkbox
+      size="large"
+        name={field.name}
+        checked={values[field.name] === 'true'}
+        onChange={handleChange}
+        required={field.required}
+        label={field.label}
+      />
     }
 
     return (
